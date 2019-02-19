@@ -97,7 +97,7 @@
     "build-site": "npm-run-all --parallel lint-site-sass lint-site-coffee lint-site-html site-css-build site-js-build --sequential site-page-data site-page-build site-root-build",
     "push-gem": "cross-conf-env gem push ./release/gem/luda-npm_package_version.gem",
     "push-npm": "cross-conf-env npm publish release/npm/luda-npm_package_version.tgz",
-    "push-site": "git add -A && cross-conf-env git commit -am \"Release site vnpm_package_config_siteVersion\" && git subtree push --prefix=./release/site origin gh-pages && echo +++ Site has been pushed to gh-pages branch. You need manually push current branch if necessary.",
+    "push-site": "git add -A && cross-conf-env git commit -am \"Release site vnpm_package_config_siteVersion\" && git subtree push --prefix=release/site origin gh-pages && echo +++ Site has been pushed to gh-pages branch. You need manually push current branch if necessary.",
     "archive": "git add -A && cross-conf-env git commit -am \"Release vnpm_package_version.\" && cross-conf-env git tag -a vnpm_package_version -m \"Release vnpm_package_version.\" && cross-conf-env git push origin vnpm_package_version && cross-conf-env echo +++ vnpm_package_version has been pushed as a tag branch. You need push current branch manually if necessary.",
     "publish": "npm-run-all --sequential build build-dist build-npm build-gem push-npm push-gem archive",
     "publish-site": "npm-run-all --sequential build-site push-site"
