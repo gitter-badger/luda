@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Table | Luda - A lightweight and responsive UI framework for modern web development.</title>
+    <meta charset="UTF-8">
+<!-- viewport -->
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<!-- render -->
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<!-- apple app mode -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Luda">
+<!-- chrome -->
+<meta name="mobile-web-app-capable" content="yes">
+<!-- Chrome, Firefox OS and Opera -->
+<meta name="theme-color" content="#525252">
+<!-- Windows Phone -->
+<meta name="msapplication-navbutton-color" content="#525252">
+<meta name="application-name" content="Luda">
+<!-- apple no tel -->
+<meta content="telephone=no" name="format-detection">
+<!-- windows phone no tap color -->
+<meta name="msapplication-tap-highlight" content="no">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="https://fonts.font.im/css?family=Raleway:400,100,200,300,500,600,700,800,900">
+    <script type="text/javascript" src="/0.1.x/assets/js/turbolinks.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/0.1.x/assets/luda/css/luda-default.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="/0.1.x/assets/css/site.min.css">
+    
+
+    <script type="text/javascript" src="/0.1.x/assets/luda/js/luda-degradation.min.js"></script>
+    <script type="text/javascript" src="/0.1.x/assets/luda/js/luda.min.js"></script>
+    
+    <script type="text/javascript" src="/0.1.x/assets/js/site.min.js"></script>
+    <script type="text/javascript" src="/version.js"></script>
+    <script type="text/javascript">
+  window.site = window.site || {}
+  window.site.version = "0.1.x"
+  luda.on('docready', function(){
+    if(window.site.version != window.site.latestVersion){
+      luda.toggle.active('site-version-alert')
+    }
+  })
+</script>
+
+    
+  </head>
+  <body>
+    
+    <div class="alert fix-t zi-highest bc-danger jc-center" data-toggle-target="site-version-alert">
+  <div class="alert-content">
+    <p>
+      There is a newer version of <a class="link-light" href="/">Luda</a>.
+    </p>
+  </div>
+  <div class="alert-action">
+    <a href="/" class="btn btn-light btn-small mr-small">Let's go!</a>
+    <button data-toggle class="btn btn-hollow-light btn-small">I don't care.</button>
+  </div>
+</div>
+
+    
+    <div id="doc" class="grid-edge">
+  <aside id="doc-aside" class="nav-aside col-12 col-3-m">
+  <a href="/" class="nav-logo">
+    <img src="/0.1.x/assets/img/logo-text.svg" alt="logo">
+  </a>
+  <button class="nav-open btn btn-text-light btn-ico" data-toggle-for="nav-aside-menu">
+    <i class="ico ico-menu"></i>
+  </button>
+  <div class="nav-menu" data-toggle-target="nav-aside-menu" data-toggle>
+    <button class="nav-close btn btn-text-light btn-ico">
+      <i class="ico ico-cross"></i>
+    </button>
+<!--<div class="nav-search fm fm-search fm-small" data-none-toggle>
+      <input type="search" placeholder="Search anything...">
+    </div>-->
+    <div class="nav-items">
+      <p class="px-small c-light">Get Started</p>
+      
+      
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/introduction">Introduction</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/installation">Installation</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/browser-support">Browser support</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/build-tools">Build tools</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/theming">Theming</a>
+  
+
+
+    </div>
+    <div class="nav-items">
+      <p class="px-small c-light">Behaviours</p>
+      
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/disabled">Disabled</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/enter-click">Enter click</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/focus">Focus</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/radio-tab">Radio tab</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/readonly">Readonly</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/toggle">Toggle</a>
+  
+
+
+    </div>
+    <div class="nav-items">
+      <p class="px-small c-light">Elements</p>
+      
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/badge">Badge</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/baseline">Baseline</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/button">Button</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/container">Container</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/form">Form</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/grid">Grid</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/icon">Icon</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/overlay">Overlay</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/progress">Progress</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/scrollbar">Scrollbar</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light btn-active" href="/0.1.x/elements/table">Table</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/typography">Typography</a>
+  
+
+
+    </div>
+    <div class="nav-items">
+      <p class="px-small c-light">Collections</p>
+      
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/alert">Alert</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/avatar">Avatar</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/breadcrumb">Breadcrumb</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/button-group">Button group</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/button-icon">Button icon</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/carousel">Carousel</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/dropdown">Dropdown</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/form-button">Form button</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/form-dropdown">Form dropdown</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/form-group">Form group</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/form-icon">Form icon</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/media">Media</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/modal">Modal</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/nav">Navigation</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/tab">Tab</a>
+  
+
+
+    </div>
+    <div class="nav-items">
+      <p class="px-small c-light">Utilities</p>
+      
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/align">Align</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/background">Background</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/color">Color</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/display">Display</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/flex">Flex</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/float">Float</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/opacity">Opacity</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/overflow">Overflow</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/position">Position</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/shape">Shape</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/size">Size</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/space">Space</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/text">Text</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/visibility">Visibility</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/z-index">Z-index</a>
+  
+
+
+    </div>
+  </div>
+</aside>
+
+  <main class="col-auto">
+    <div id="doc-container" class="grid container py-medium p-large-m mx-auto">
+      <div class="col-12">
+        <h1 class="mt-large mt-small-m fw-regular">Table</h1>
+<p class="p3">Table description</p>
+
+        
+
+
+
+
+
+<h4 class="mt-large fw-regular">
+  <!-- htmllint id-class-style="false" -->
+  <a class="c-primary td-none" href="#table-without-border" id="table-without-border" data-turbolinks="false">
+    # Table without border
+    
+  </a>
+</h4>
+
+
+<p>Table without border description</p>
+
+
+
+<div>
+<div class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Founded</th>
+        <th>Founders</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Google</td>
+        <td>September 4, 1998</td>
+        <td>Larry Page, Sergey Brin</td>
+        <td>Menlo Park, California, United States</td>
+      </tr>
+      <tr>
+        <td>Facebook</td>
+        <td>February 2004</td>
+        <td>Mark Zuckerberg, Eduardo Saverin...</td>
+        <td>Cambridge, Massachusetts, United States</td>
+      </tr>
+      <tr>
+        <td>GitHub</td>
+        <td>2008</td>
+        <td>Tom Preston-Werner</td>
+        <td>San Francisco, California, United States</td>
+      </tr>
+      <tr>
+        <td>Airbnb</td>
+        <td>August 2008</td>
+        <td>Brian Chesky, Joe Gebbia, Nathan Blecharczyk</td>
+        <td>San Francisco, California</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+
+
+<pre class="code mt-small">
+<code>
+&lt;div class=&quot;table&quot;&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Company&lt;/th&gt;
+        &lt;th&gt;Founded&lt;/th&gt;
+        &lt;th&gt;Founders&lt;/th&gt;
+        &lt;th&gt;Address&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Google&lt;/td&gt;
+        &lt;td&gt;September 4, 1998&lt;/td&gt;
+        &lt;td&gt;Larry Page, Sergey Brin&lt;/td&gt;
+        &lt;td&gt;Menlo Park, California, United States&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Facebook&lt;/td&gt;
+        &lt;td&gt;February 2004&lt;/td&gt;
+        &lt;td&gt;Mark Zuckerberg, Eduardo Saverin...&lt;/td&gt;
+        &lt;td&gt;Cambridge, Massachusetts, United States&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;GitHub&lt;/td&gt;
+        &lt;td&gt;2008&lt;/td&gt;
+        &lt;td&gt;Tom Preston-Werner&lt;/td&gt;
+        &lt;td&gt;San Francisco, California, United States&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Airbnb&lt;/td&gt;
+        &lt;td&gt;August 2008&lt;/td&gt;
+        &lt;td&gt;Brian Chesky, Joe Gebbia, Nathan Blecharczyk&lt;/td&gt;
+        &lt;td&gt;San Francisco, California&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+
+
+
+
+
+
+
+<h4 class="mt-large fw-regular">
+  <!-- htmllint id-class-style="false" -->
+  <a class="c-primary td-none" href="#table-with-border" id="table-with-border" data-turbolinks="false">
+    # Table with border
+    
+  </a>
+</h4>
+
+
+<p>Table with border description</p>
+
+
+
+<div>
+<div class="table-border">
+  <table>
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Founded</th>
+        <th>Founders</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Google</td>
+        <td>September 4, 1998</td>
+        <td>Larry Page, Sergey Brin</td>
+        <td>Menlo Park, California, United States</td>
+      </tr>
+      <tr>
+        <td>Facebook</td>
+        <td>February 2004</td>
+        <td>Mark Zuckerberg, Eduardo Saverin...</td>
+        <td>Cambridge, Massachusetts, United States</td>
+      </tr>
+      <tr>
+        <td>GitHub</td>
+        <td>2008</td>
+        <td>Tom Preston-Werner</td>
+        <td>San Francisco, California, United States</td>
+      </tr>
+      <tr>
+        <td>Airbnb</td>
+        <td>August 2008</td>
+        <td>Brian Chesky, Joe Gebbia, Nathan Blecharczyk</td>
+        <td>San Francisco, California</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+
+
+<pre class="code mt-small">
+<code>
+&lt;div class=&quot;table-border&quot;&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Company&lt;/th&gt;
+        &lt;th&gt;Founded&lt;/th&gt;
+        &lt;th&gt;Founders&lt;/th&gt;
+        &lt;th&gt;Address&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Google&lt;/td&gt;
+        &lt;td&gt;September 4, 1998&lt;/td&gt;
+        &lt;td&gt;Larry Page, Sergey Brin&lt;/td&gt;
+        &lt;td&gt;Menlo Park, California, United States&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Facebook&lt;/td&gt;
+        &lt;td&gt;February 2004&lt;/td&gt;
+        &lt;td&gt;Mark Zuckerberg, Eduardo Saverin...&lt;/td&gt;
+        &lt;td&gt;Cambridge, Massachusetts, United States&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;GitHub&lt;/td&gt;
+        &lt;td&gt;2008&lt;/td&gt;
+        &lt;td&gt;Tom Preston-Werner&lt;/td&gt;
+        &lt;td&gt;San Francisco, California, United States&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Airbnb&lt;/td&gt;
+        &lt;td&gt;August 2008&lt;/td&gt;
+        &lt;td&gt;Brian Chesky, Joe Gebbia, Nathan Blecharczyk&lt;/td&gt;
+        &lt;td&gt;San Francisco, California&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+
+<h2 class="mt-large fw-regular">Table modifiers</h2>
+
+<p class="p4">Table modifiers description</p>
+
+
+
+
+
+
+
+
+<h4 class="mt-large fw-regular">
+  <!-- htmllint id-class-style="false" -->
+  <a class="c-primary td-none" href="#table-nowrap" id="table-nowrap" data-turbolinks="false">
+    # Table nowrap
+    
+  </a>
+</h4>
+
+
+<p>Table nowrap description</p>
+
+
+
+<div>
+<div class="table table-nowrap">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Company</th>
+        <th>Founded</th>
+        <th>Founders</th>
+        <th>Address</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div class="fm fm-check"><input type="checkbox"></div></td>
+        <td>Google</td>
+        <td>September 4, 1998</td>
+        <td>Larry Page, Sergey Brin</td>
+        <td>Menlo Park, California, United States</td>
+        <td><button class="btn btn-small btn-primary">Mark</button></td>
+      </tr>
+      <tr>
+        <td><div class="fm fm-check"><input type="checkbox"></div></td>
+        <td>Facebook</td>
+        <td>February 2004</td>
+        <td>Mark Zuckerberg, Eduardo Saverin, Dustin Moskovitz, Chris Hughes, Andrew McCollum</td>
+        <td>Cambridge, Massachusetts, United States</td>
+        <td><button class="btn btn-small btn-primary">Mark</button></td>
+      </tr>
+      <tr>
+        <td><div class="fm fm-check"><input type="checkbox"></div></td>
+        <td>GitHub</td>
+        <td>2008</td>
+        <td>Tom Preston-Werner</td>
+        <td>San Francisco, California, United States</td>
+        <td><button class="btn btn-small btn-primary">Mark</button></td>
+      </tr>
+      <tr>
+        <td><div class="fm fm-check"><input type="checkbox"></div></td>
+        <td>Airbnb</td>
+        <td>August 2008</td>
+        <td>Brian Chesky, Joe Gebbia, Nathan Blecharczyk</td>
+        <td>San Francisco, California</td>
+        <td><button class="btn btn-small btn-primary">Mark</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+
+
+<pre class="code mt-small">
+<code>
+&lt;div class=&quot;table table-nowrap&quot;&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;#&lt;/th&gt;
+        &lt;th&gt;Company&lt;/th&gt;
+        &lt;th&gt;Founded&lt;/th&gt;
+        &lt;th&gt;Founders&lt;/th&gt;
+        &lt;th&gt;Address&lt;/th&gt;
+        &lt;th&gt;Action&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;div class=&quot;fm fm-check&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;/div&gt;&lt;/td&gt;
+        &lt;td&gt;Google&lt;/td&gt;
+        &lt;td&gt;September 4, 1998&lt;/td&gt;
+        &lt;td&gt;Larry Page, Sergey Brin&lt;/td&gt;
+        &lt;td&gt;Menlo Park, California, United States&lt;/td&gt;
+        &lt;td&gt;&lt;button class=&quot;btn btn-small btn-primary&quot;&gt;Mark&lt;/button&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;div class=&quot;fm fm-check&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;/div&gt;&lt;/td&gt;
+        &lt;td&gt;Facebook&lt;/td&gt;
+        &lt;td&gt;February 2004&lt;/td&gt;
+        &lt;td&gt;Mark Zuckerberg, Eduardo Saverin, Dustin Moskovitz, Chris Hughes, Andrew McCollum&lt;/td&gt;
+        &lt;td&gt;Cambridge, Massachusetts, United States&lt;/td&gt;
+        &lt;td&gt;&lt;button class=&quot;btn btn-small btn-primary&quot;&gt;Mark&lt;/button&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;div class=&quot;fm fm-check&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;/div&gt;&lt;/td&gt;
+        &lt;td&gt;GitHub&lt;/td&gt;
+        &lt;td&gt;2008&lt;/td&gt;
+        &lt;td&gt;Tom Preston-Werner&lt;/td&gt;
+        &lt;td&gt;San Francisco, California, United States&lt;/td&gt;
+        &lt;td&gt;&lt;button class=&quot;btn btn-small btn-primary&quot;&gt;Mark&lt;/button&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;div class=&quot;fm fm-check&quot;&gt;&lt;input type=&quot;checkbox&quot;&gt;&lt;/div&gt;&lt;/td&gt;
+        &lt;td&gt;Airbnb&lt;/td&gt;
+        &lt;td&gt;August 2008&lt;/td&gt;
+        &lt;td&gt;Brian Chesky, Joe Gebbia, Nathan Blecharczyk&lt;/td&gt;
+        &lt;td&gt;San Francisco, California&lt;/td&gt;
+        &lt;td&gt;&lt;button class=&quot;btn btn-small btn-primary&quot;&gt;Mark&lt;/button&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+
+
+
+
+
+
+
+<h4 class="mt-large fw-regular">
+  <!-- htmllint id-class-style="false" -->
+  <a class="c-primary td-none" href="#table-stripless" id="table-stripless" data-turbolinks="false">
+    # Table stripless
+    
+  </a>
+</h4>
+
+
+<p>Table stripless description</p>
+
+
+
+<div>
+<div class="table table-stripless">
+  <table>
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Founded</th>
+        <th>Founders</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Google</td>
+        <td>September 4, 1998</td>
+        <td>Larry Page, Sergey Brin</td>
+        <td>Menlo Park, California, United States</td>
+      </tr>
+      <tr>
+        <td>Facebook</td>
+        <td>February 2004</td>
+        <td>Mark Zuckerberg, Eduardo Saverin...</td>
+        <td>Cambridge, Massachusetts, United States</td>
+      </tr>
+      <tr>
+        <td>GitHub</td>
+        <td>2008</td>
+        <td>Tom Preston-Werner</td>
+        <td>San Francisco, California, United States</td>
+      </tr>
+      <tr>
+        <td>Airbnb</td>
+        <td>August 2008</td>
+        <td>Brian Chesky, Joe Gebbia, Nathan Blecharczyk</td>
+        <td>San Francisco, California</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+
+
+<pre class="code mt-small">
+<code>
+&lt;div class=&quot;table table-stripless&quot;&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Company&lt;/th&gt;
+        &lt;th&gt;Founded&lt;/th&gt;
+        &lt;th&gt;Founders&lt;/th&gt;
+        &lt;th&gt;Address&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Google&lt;/td&gt;
+        &lt;td&gt;September 4, 1998&lt;/td&gt;
+        &lt;td&gt;Larry Page, Sergey Brin&lt;/td&gt;
+        &lt;td&gt;Menlo Park, California, United States&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Facebook&lt;/td&gt;
+        &lt;td&gt;February 2004&lt;/td&gt;
+        &lt;td&gt;Mark Zuckerberg, Eduardo Saverin...&lt;/td&gt;
+        &lt;td&gt;Cambridge, Massachusetts, United States&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;GitHub&lt;/td&gt;
+        &lt;td&gt;2008&lt;/td&gt;
+        &lt;td&gt;Tom Preston-Werner&lt;/td&gt;
+        &lt;td&gt;San Francisco, California, United States&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Airbnb&lt;/td&gt;
+        &lt;td&gt;August 2008&lt;/td&gt;
+        &lt;td&gt;Brian Chesky, Joe Gebbia, Nathan Blecharczyk&lt;/td&gt;
+        &lt;td&gt;San Francisco, California&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+
+
+
+
+
+
+
+<h4 class="mt-large fw-regular">
+  <!-- htmllint id-class-style="false" -->
+  <a class="c-primary td-none" href="#table-hover" id="table-hover" data-turbolinks="false">
+    # Table hover
+    
+  </a>
+</h4>
+
+
+<p>Table hover description</p>
+
+
+
+<div>
+<div class="table table-hover">
+  <table>
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Founded</th>
+        <th>Founders</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Google</td>
+        <td>September 4, 1998</td>
+        <td>Larry Page, Sergey Brin</td>
+        <td>Menlo Park, California, United States</td>
+      </tr>
+      <tr>
+        <td>Facebook</td>
+        <td>February 2004</td>
+        <td>Mark Zuckerberg, Eduardo Saverin...</td>
+        <td>Cambridge, Massachusetts, United States</td>
+      </tr>
+      <tr>
+        <td>GitHub</td>
+        <td>2008</td>
+        <td>Tom Preston-Werner</td>
+        <td>San Francisco, California, United States</td>
+      </tr>
+      <tr>
+        <td>Airbnb</td>
+        <td>August 2008</td>
+        <td>Brian Chesky, Joe Gebbia, Nathan Blecharczyk</td>
+        <td>San Francisco, California</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+
+
+<pre class="code mt-small">
+<code>
+&lt;div class=&quot;table table-hover&quot;&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Company&lt;/th&gt;
+        &lt;th&gt;Founded&lt;/th&gt;
+        &lt;th&gt;Founders&lt;/th&gt;
+        &lt;th&gt;Address&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Google&lt;/td&gt;
+        &lt;td&gt;September 4, 1998&lt;/td&gt;
+        &lt;td&gt;Larry Page, Sergey Brin&lt;/td&gt;
+        &lt;td&gt;Menlo Park, California, United States&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Facebook&lt;/td&gt;
+        &lt;td&gt;February 2004&lt;/td&gt;
+        &lt;td&gt;Mark Zuckerberg, Eduardo Saverin...&lt;/td&gt;
+        &lt;td&gt;Cambridge, Massachusetts, United States&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;GitHub&lt;/td&gt;
+        &lt;td&gt;2008&lt;/td&gt;
+        &lt;td&gt;Tom Preston-Werner&lt;/td&gt;
+        &lt;td&gt;San Francisco, California, United States&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Airbnb&lt;/td&gt;
+        &lt;td&gt;August 2008&lt;/td&gt;
+        &lt;td&gt;Brian Chesky, Joe Gebbia, Nathan Blecharczyk&lt;/td&gt;
+        &lt;td&gt;San Francisco, California&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+      </div>
+    </div>
+  </main>
+</div>
+  </body>
+</html>

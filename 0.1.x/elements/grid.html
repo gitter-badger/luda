@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Grid | Luda - A lightweight and responsive UI framework for modern web development.</title>
+    <meta charset="UTF-8">
+<!-- viewport -->
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<!-- render -->
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<!-- apple app mode -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Luda">
+<!-- chrome -->
+<meta name="mobile-web-app-capable" content="yes">
+<!-- Chrome, Firefox OS and Opera -->
+<meta name="theme-color" content="#525252">
+<!-- Windows Phone -->
+<meta name="msapplication-navbutton-color" content="#525252">
+<meta name="application-name" content="Luda">
+<!-- apple no tel -->
+<meta content="telephone=no" name="format-detection">
+<!-- windows phone no tap color -->
+<meta name="msapplication-tap-highlight" content="no">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="https://fonts.font.im/css?family=Raleway:400,100,200,300,500,600,700,800,900">
+    <script type="text/javascript" src="/0.1.x/assets/js/turbolinks.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/0.1.x/assets/luda/css/luda-default.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="/0.1.x/assets/css/site.min.css">
+    
+
+    <script type="text/javascript" src="/0.1.x/assets/luda/js/luda-degradation.min.js"></script>
+    <script type="text/javascript" src="/0.1.x/assets/luda/js/luda.min.js"></script>
+    
+    <script type="text/javascript" src="/0.1.x/assets/js/site.min.js"></script>
+    <script type="text/javascript" src="/version.js"></script>
+    <script type="text/javascript">
+  window.site = window.site || {}
+  window.site.version = "0.1.x"
+  luda.on('docready', function(){
+    if(window.site.version != window.site.latestVersion){
+      luda.toggle.active('site-version-alert')
+    }
+  })
+</script>
+
+    
+  </head>
+  <body>
+    
+    <div class="alert fix-t zi-highest bc-danger jc-center" data-toggle-target="site-version-alert">
+  <div class="alert-content">
+    <p>
+      There is a newer version of <a class="link-light" href="/">Luda</a>.
+    </p>
+  </div>
+  <div class="alert-action">
+    <a href="/" class="btn btn-light btn-small mr-small">Let's go!</a>
+    <button data-toggle class="btn btn-hollow-light btn-small">I don't care.</button>
+  </div>
+</div>
+
+    
+    <div id="doc" class="grid-edge">
+  <aside id="doc-aside" class="nav-aside col-12 col-3-m">
+  <a href="/" class="nav-logo">
+    <img src="/0.1.x/assets/img/logo-text.svg" alt="logo">
+  </a>
+  <button class="nav-open btn btn-text-light btn-ico" data-toggle-for="nav-aside-menu">
+    <i class="ico ico-menu"></i>
+  </button>
+  <div class="nav-menu" data-toggle-target="nav-aside-menu" data-toggle>
+    <button class="nav-close btn btn-text-light btn-ico">
+      <i class="ico ico-cross"></i>
+    </button>
+<!--<div class="nav-search fm fm-search fm-small" data-none-toggle>
+      <input type="search" placeholder="Search anything...">
+    </div>-->
+    <div class="nav-items">
+      <p class="px-small c-light">Get Started</p>
+      
+      
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/introduction">Introduction</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/installation">Installation</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/browser-support">Browser support</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/build-tools">Build tools</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/theming">Theming</a>
+  
+
+
+    </div>
+    <div class="nav-items">
+      <p class="px-small c-light">Behaviours</p>
+      
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/disabled">Disabled</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/enter-click">Enter click</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/focus">Focus</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/radio-tab">Radio tab</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/readonly">Readonly</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/toggle">Toggle</a>
+  
+
+
+    </div>
+    <div class="nav-items">
+      <p class="px-small c-light">Elements</p>
+      
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/badge">Badge</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/baseline">Baseline</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/button">Button</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/container">Container</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/form">Form</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light btn-active" href="/0.1.x/elements/grid">Grid</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/icon">Icon</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/overlay">Overlay</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/progress">Progress</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/scrollbar">Scrollbar</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/table">Table</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/typography">Typography</a>
+  
+
+
+    </div>
+    <div class="nav-items">
+      <p class="px-small c-light">Collections</p>
+      
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/alert">Alert</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/avatar">Avatar</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/breadcrumb">Breadcrumb</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/button-group">Button group</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/button-icon">Button icon</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/carousel">Carousel</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/dropdown">Dropdown</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/form-button">Form button</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/form-dropdown">Form dropdown</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/form-group">Form group</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/form-icon">Form icon</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/media">Media</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/modal">Modal</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/nav">Navigation</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/tab">Tab</a>
+  
+
+
+    </div>
+    <div class="nav-items">
+      <p class="px-small c-light">Utilities</p>
+      
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/align">Align</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/background">Background</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/color">Color</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/display">Display</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/flex">Flex</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/float">Float</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/opacity">Opacity</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/overflow">Overflow</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/position">Position</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/shape">Shape</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/size">Size</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/space">Space</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/text">Text</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/visibility">Visibility</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/z-index">Z-index</a>
+  
+
+
+    </div>
+  </div>
+</aside>
+
+  <main class="col-auto">
+    <div id="doc-container" class="grid container py-medium p-large-m mx-auto">
+      <div class="col-12">
+        <h1 class="mt-large mt-small-m fw-regular">Grid</h1>
+<p class="p3">Grid description</p>
+
+        <h2 class="mt-large fw-regular">Grid columns</h2>
+
+<p class="p4">Grid columns description</p>
+
+
+
+
+
+
+
+
+
+
+<h4 class="mt-large fw-regular">
+  <!-- htmllint id-class-style="false" -->
+  <a class="c-primary td-none" href="#column-width" id="column-width" data-turbolinks="false">
+    # Column width
+    
+  </a>
+</h4>
+
+
+<p>Column width description</p>
+
+
+
+<div>
+<div class="grid">
+  <div class="col-12"><p class="bc-primary c-light ta-center mb-medium">.col-12</p></div>
+  <div class="col-1"><p class="bc-primary c-light ta-center mb-medium">.col-1</p></div>
+  <div class="col-11"><p class="bc-primary c-light ta-center mb-medium">.col-11</p></div>
+  <div class="col-2"><p class="bc-primary c-light ta-center mb-medium">.col-2</p></div>
+  <div class="col-10"><p class="bc-primary c-light ta-center mb-medium">.col-10</p></div>
+  <div class="col-3"><p class="bc-primary c-light ta-center mb-medium">.col-3</p></div>
+  <div class="col-9"><p class="bc-primary c-light ta-center mb-medium">.col-9</p></div>
+  <div class="col-4"><p class="bc-primary c-light ta-center mb-medium">.col-4</p></div>
+  <div class="col-8"><p class="bc-primary c-light ta-center mb-medium">.col-8</p></div>
+  <div class="col-5"><p class="bc-primary c-light ta-center mb-medium">.col-5</p></div>
+  <div class="col-7"><p class="bc-primary c-light ta-center mb-medium">.col-7</p></div>
+  <div class="col-6"><p class="bc-primary c-light ta-center">.col-6</p></div>
+</div>
+</div>
+
+
+
+<pre class="code mt-small">
+<code>
+&lt;div class=&quot;grid&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-1&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-11&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-2&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-10&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-3&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-9&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-4&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-8&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-5&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-7&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-6&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+
+
+
+
+
+
+
+
+
+<h4 class="mt-large fw-regular">
+  <!-- htmllint id-class-style="false" -->
+  <a class="c-primary td-none" href="#auto-width-column" id="auto-width-column" data-turbolinks="false">
+    # Auto width column
+    
+  </a>
+</h4>
+
+
+<p>Auto width column description</p>
+
+
+
+<div>
+<div class="grid">
+  <div class="col-4"><p class="bc-primary c-light ta-center">.col-4</p></div>
+  <div class="col-auto"><p class="bc-primary c-light ta-center">.col-auto</p></div>
+  <div class="col-auto"><p class="bc-primary c-light ta-center">.col-auto</p></div>
+</div>
+</div>
+
+
+
+<pre class="code mt-small">
+<code>
+&lt;div class=&quot;grid&quot;&gt;
+  &lt;div class=&quot;col-4&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-auto&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-auto&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+
+
+
+
+
+
+
+
+
+<h4 class="mt-large fw-regular">
+  <!-- htmllint id-class-style="false" -->
+  <a class="c-primary td-none" href="#column-offset" id="column-offset" data-turbolinks="false">
+    # Column offset
+    
+  </a>
+</h4>
+
+
+<p>Column offset description</p>
+
+
+
+<div>
+<div class="grid">
+  <div class="col-11 offset-1"><p class="bc-primary c-light ta-center mb-medium">.offset-1</p></div>
+  <div class="col-10 offset-2"><p class="bc-primary c-light ta-center mb-medium">.offset-2</p></div>
+  <div class="col-9 offset-3"><p class="bc-primary c-light ta-center mb-medium">.offset-3</p></div>
+  <div class="col-8 offset-4"><p class="bc-primary c-light ta-center mb-medium">.offset-4</p></div>
+  <div class="col-7 offset-5"><p class="bc-primary c-light ta-center mb-medium">.offset-5</p></div>
+  <div class="col-6 offset-6"><p class="bc-primary c-light ta-center mb-medium">.offset-6</p></div>
+  <div class="col-5 offset-7"><p class="bc-primary c-light ta-center mb-medium">.offset-7</p></div>
+  <div class="col-4 offset-8"><p class="bc-primary c-light ta-center mb-medium">.offset-8</p></div>
+  <div class="col-3 offset-9"><p class="bc-primary c-light ta-center mb-medium">.offset-9</p></div>
+  <div class="col-2 offset-10"><p class="bc-primary c-light ta-center mb-medium">.offset-10</p></div>
+  <div class="col-1 offset-11"><p class="bc-primary c-light ta-center">.offset-11</p></div>
+</div>
+</div>
+
+
+
+<pre class="code mt-small">
+<code>
+&lt;div class=&quot;grid&quot;&gt;
+  &lt;div class=&quot;col-11 offset-1&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-10 offset-2&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-9 offset-3&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-8 offset-4&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-7 offset-5&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-6 offset-6&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-5 offset-7&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-4 offset-8&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-3 offset-9&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-2 offset-10&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-1 offset-11&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+
+
+
+
+
+
+
+
+
+<h4 class="mt-large fw-regular">
+  <!-- htmllint id-class-style="false" -->
+  <a class="c-primary td-none" href="#column-margin" id="column-margin" data-turbolinks="false">
+    # Column margin
+    
+  </a>
+</h4>
+
+
+<p>Column margin description</p>
+
+
+
+<div>
+<div class="grid">
+  <div class="col-11 ml-auto">
+    <p class="bc-primary c-light ta-center mb-medium">.col-11.ml-auto</p>
+  </div>
+  <div class="col-11 mr-auto">
+    <p class="bc-primary c-light ta-center mb-medium">.col-11.mr-auto</p>
+  </div>
+  <div class="col-6 mr-auto">
+    <p class="bc-primary c-light ta-center mb-medium">.col-6.mr-auto</p>
+  </div>
+  <div class="col-5">
+    <p class="bc-primary c-light ta-center mb-medium">.col-5</p>
+  </div>
+  <div class="col-5">
+    <p class="bc-primary c-light ta-center mb-medium">.col-5</p>
+  </div>
+  <div class="col-6 ml-auto">
+    <p class="bc-primary c-light ta-center mb-medium">.col-6.ml-auto</p>
+  </div>
+  <div class="col-5 ml-auto">
+    <p class="bc-primary c-light ta-center">.col-5.ml-auto</p>
+  </div>
+  <div class="col-5 mr-auto">
+    <p class="bc-primary c-light ta-center">.col-5.mr-auto</p>
+  </div>
+</div>
+</div>
+
+
+
+<pre class="code mt-small">
+<code>
+&lt;div class=&quot;grid&quot;&gt;
+  &lt;div class=&quot;col-11 ml-auto&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-11 mr-auto&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-6 mr-auto&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-5&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-5&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-6 ml-auto&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-5 ml-auto&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-5 mr-auto&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+
+
+
+
+
+
+
+
+
+<h4 class="mt-large fw-regular">
+  <!-- htmllint id-class-style="false" -->
+  <a class="c-primary td-none" href="#column-order" id="column-order" data-turbolinks="false">
+    # Column order
+    
+  </a>
+</h4>
+
+
+<p></p>
+
+
+
+<div>
+<div class="grid">
+  <div class="col-12 od-0">
+    <p class="bc-primary c-light ta-center mb-medium">.col-12.od-0</p>
+  </div>
+  <div class="col-6 od-2">
+    <p class="bc-primary c-light ta-center">.col-6.od-2</p>
+  </div>
+  <div class="col-8 on-2">
+    <p class="bc-primary c-light ta-center mb-medium">.col-8.on-2</p>
+  </div>
+</div>
+</div>
+
+
+
+<pre class="code mt-small">
+<code>
+&lt;div class=&quot;grid&quot;&gt;
+  &lt;div class=&quot;col-12 od-0&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-6 od-2&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-8 on-2&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+
+
+
+
+
+
+
+
+
+<h4 class="mt-large fw-regular">
+  <!-- htmllint id-class-style="false" -->
+  <a class="c-primary td-none" href="#column-horizontal-align" id="column-horizontal-align" data-turbolinks="false">
+    # Column horizontal align
+    
+  </a>
+</h4>
+
+
+<p></p>
+
+
+
+<div>
+<div class="grid jc-end">
+  <div class="col-5">
+    <p class="bc-dark c-light ta-center mb-medium">.grid.jc-end .col-5</p>
+  </div>
+  <div class="col-5">
+    <p class="bc-dark c-light ta-center mb-medium">.grid.jc-end .col-5</p>
+  </div>
+</div>
+<div class="grid jc-center">
+  <div class="col-5">
+    <p class="bc-primary c-light ta-center mb-medium">.grid.jc-center .col-5</p>
+  </div>
+  <div class="col-5">
+    <p class="bc-primary c-light ta-center mb-medium">.grid.jc-center .col-5</p>
+  </div>
+</div>
+<div class="grid jc-around">
+  <div class="col-5">
+    <p class="bc-dark c-light ta-center mb-medium">.grid.jc-around .col-5</p>
+  </div>
+  <div class="col-5">
+    <p class="bc-dark c-light ta-center mb-medium">.grid.jc-around .col-5</p>
+  </div>
+</div>
+<div class="grid jc-between">
+  <div class="col-5">
+    <p class="bc-primary c-light ta-center">.grid.jc-between .col-5</p>
+  </div>
+  <div class="col-5">
+    <p class="bc-primary c-light ta-center">.grid.jc-between .col-5</p>
+  </div>
+</div>
+</div>
+
+
+
+<pre class="code mt-small">
+<code>
+&lt;div class=&quot;grid jc-end&quot;&gt;
+  &lt;div class=&quot;col-5&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-5&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;grid jc-center&quot;&gt;
+  &lt;div class=&quot;col-5&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-5&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;grid jc-around&quot;&gt;
+  &lt;div class=&quot;col-5&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-5&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;grid jc-between&quot;&gt;
+  &lt;div class=&quot;col-5&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-5&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+
+
+
+
+
+
+
+
+
+<h4 class="mt-large fw-regular">
+  <!-- htmllint id-class-style="false" -->
+  <a class="c-primary td-none" href="#column-vertical-align" id="column-vertical-align" data-turbolinks="false">
+    # Column vertical align
+    
+  </a>
+</h4>
+
+
+<p></p>
+
+
+
+<div>
+<div class="grid ai-center bc-dark mb-medium" style="height:10rem">
+  <div class="col-6">
+    <p class="bc-primary c-light ta-center">.grid.ai-center .col-6</p>
+  </div>
+  <div class="col-6">
+    <p class="bc-primary c-light ta-center">.grid.ai-center .col-6</p>
+  </div>
+</div>
+<div class="grid ai-end bc-dark mb-medium" style="height:10rem">
+  <div class="col-6">
+    <p class="bc-primary c-light ta-center">.grid.ai-end .col-6</p>
+  </div>
+  <div class="col-6">
+    <p class="bc-primary c-light ta-center">.grid.ai-end .col-6</p>
+  </div>
+</div>
+<div class="grid bc-dark" style="height:10rem">
+  <div class="col-4">
+    <p class="bc-primary c-light ta-center">.grid .col-4</p>
+  </div>
+  <div class="col-4 as-center">
+    <p class="bc-primary c-light ta-center">.grid .col-4.as-center</p>
+  </div>
+  <div class="col-4 as-end">
+    <p class="bc-primary c-light ta-center">.grid .col-4.as-end</p>
+  </div>
+</div>
+</div>
+
+
+
+<pre class="code mt-small">
+<code>
+&lt;div class=&quot;grid ai-center&quot; style=&quot;height:10rem&quot;&gt;
+  &lt;div class=&quot;col-6&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-6&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;grid ai-end&quot; style=&quot;height:10rem&quot;&gt;
+  &lt;div class=&quot;col-6&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-6&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;grid&quot; style=&quot;height:10rem&quot;&gt;
+  &lt;div class=&quot;col-4&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-4 as-center&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-4 as-end&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+
+<h2 class="mt-large fw-regular">Column breaker</h2>
+
+<p class="p4"></p>
+
+
+
+
+
+
+
+
+
+
+<h4 class="mt-large fw-regular">
+  <!-- htmllint id-class-style="false" -->
+  <a class="c-primary td-none" href="#column-breaker-usage" id="column-breaker-usage" data-turbolinks="false">
+    # Column breaker usage
+    
+  </a>
+</h4>
+
+
+<p></p>
+
+
+
+<div>
+<div class="grid">
+  <div class="col-6 mb-medium">
+    <p class="bc-primary c-light ta-center">.col-6</p>
+  </div>
+  <hr>
+  <div class="col-6">
+    <p class="bc-primary c-light ta-center">.col-6</p>
+  </div>
+</div>
+</div>
+
+
+
+<pre class="code mt-small">
+<code>
+&lt;div class=&quot;grid&quot;&gt;
+  &lt;div class=&quot;col-6&quot;&gt;&lt;/div&gt;
+  &lt;hr&gt;
+  &lt;div class=&quot;col-6&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+
+<h2 class="mt-large fw-regular">Responsive grid</h2>
+
+<p class="p4"></p>
+
+
+
+
+
+
+
+
+
+
+<h4 class="mt-large fw-regular">
+  <!-- htmllint id-class-style="false" -->
+  <a class="c-primary td-none" href="#responsive-columns" id="responsive-columns" data-turbolinks="false">
+    # Responsive columns
+    
+  </a>
+</h4>
+
+
+<p></p>
+
+
+
+<div>
+<div class="grid">
+  <div class="col-12 col-8-m od-3 on-3-m mb-medium-m">
+    <p class="bc-primary c-light ta-center">.col-12.col-8-m.od-3.on-3-m</p>
+  </div>
+  <div class="col-12 col-8-m col-6-l od-2 on-1-m mb-medium mb-none-m">
+    <p class="bc-dark c-light ta-center">.col-12.col-8-m.col-6-l.od-2.on-1-m</p>
+  </div>
+  <div class="col-auto od-1 on-2-m mb-medium">
+    <p class="bc-danger c-light ta-center">.col-auto.od-1.on-2-m</p>
+  </div>
+</div>
+</div>
+
+
+
+<pre class="code mt-small">
+<code>
+&lt;div class=&quot;grid&quot;&gt;
+  &lt;div class=&quot;col-12 col-8-m od-3 on-3-m mb-medium-m&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-12 col-8-m col-6-l od-2 on-1-m mb-medium mb-none-m&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-auto od-1 on-2-m mb-medium&quot;&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+
+<h2 class="mt-large fw-regular">Gutterless grid</h2>
+
+<p class="p4"></p>
+
+
+
+
+
+
+
+
+
+
+<h4 class="mt-large fw-regular">
+  <!-- htmllint id-class-style="false" -->
+  <a class="c-primary td-none" href="#grid-edge" id="grid-edge" data-turbolinks="false">
+    # Grid edge
+    
+  </a>
+</h4>
+
+
+<p></p>
+
+
+
+<div>
+<div class="grid-edge">
+  <div class="col-auto">
+    <p class="bc-primary c-light ta-center">.grid-edge .col-auto</p>
+  </div>
+  <div class="col-auto">
+    <p class="bc-dark c-light ta-center">.grid-edge .col-auto</p>
+  </div>
+  <div class="col-auto">
+    <p class="bc-danger c-light ta-center">.grid-edge .col-auto</p>
+  </div>
+</div>
+</div>
+
+
+
+<pre class="code mt-small">
+<code>
+&lt;div class=&quot;grid-edge&quot;&gt;
+  &lt;div class=&quot;col-auto&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-auto&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-auto&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+
+<h2 class="mt-large fw-regular">Nested grid</h2>
+
+<p class="p4"></p>
+
+
+
+
+
+
+
+
+
+
+<h4 class="mt-large fw-regular">
+  <!-- htmllint id-class-style="false" -->
+  <a class="c-primary td-none" href="#nested-grid" id="nested-grid" data-turbolinks="false">
+    # Nested grid
+    
+  </a>
+</h4>
+
+
+<p></p>
+
+
+
+<div>
+<div class="grid mb-medium">
+  <div class="col-8">
+    <p class="bc-primary c-light mb-medium ta-center">.grid .col-8</p>
+  </div>
+  <div class="col-10">
+    <div class="grid">
+      <div class="col-8">
+        <p class="bc-primary c-light mb-medium ta-center">.grid .col-10 .grid .col-8</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="grid">
+      <div class="col-8">
+        <p class="bc-primary c-light ta-center">.grid .col-12 .grid .col-8</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="grid mb-medium">
+  <div class="col-12">
+    <div class="grid-edge">
+      <div class="col-12">
+        <p class="bc-dark c-light">.grid .col-12 .grid-edge .col-12</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 mt-medium">
+    <p class="bc-dark c-light">.grid .col-12</p>
+  </div>
+</div>
+<div class="grid-edge">
+  <div class="col-12">
+    <div class="grid">
+      <div class="col-12">
+        <p class="bc-primary c-light">.grid-edge .col-12 .grid .col-12</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 mt-medium">
+    <p class="bc-primary c-light">.grid-edge .col-12</p>
+  </div>
+</div>
+</div>
+
+
+
+<pre class="code mt-small">
+<code>
+&lt;div class=&quot;grid&quot;&gt;
+  &lt;div class=&quot;col-8&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;col-10&quot;&gt;
+    &lt;div class=&quot;grid&quot;&gt;
+      &lt;div class=&quot;col-8&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+    &lt;div class=&quot;grid&quot;&gt;
+      &lt;div class=&quot;col-8&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;grid&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+    &lt;div class=&quot;grid-edge&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-12&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;grid-edge&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;
+    &lt;div class=&quot;grid&quot;&gt;
+      &lt;div class=&quot;col-12&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-12&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+
+<h2 class="mt-large fw-regular">Grid as container</h2>
+
+<p class="p4"></p>
+
+
+
+
+
+
+
+
+
+
+<h4 class="mt-large fw-regular">
+  <!-- htmllint id-class-style="false" -->
+  <a class="c-primary td-none" href="#grid-container" id="grid-container" data-turbolinks="false">
+    # Grid container
+    
+  </a>
+</h4>
+
+
+<p></p>
+
+
+
+<div>
+<div class="grid container bc-dark">
+  <div class="col-12">
+    <p class="bc-primary c-light ta-center">.grid.container .col-12</p>
+  </div>
+</div>
+</div>
+
+
+
+<pre class="code mt-small">
+<code>
+&lt;div class=&quot;grid container&quot;&gt;
+  &lt;div class=&quot;col-12&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+      </div>
+    </div>
+  </main>
+</div>
+  </body>
+</html>
