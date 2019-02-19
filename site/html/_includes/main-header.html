@@ -1,0 +1,47 @@
+<header id="main-header" class="nav-header">
+  <a href="/" class="nav-logo">
+    <img src="{{ '/assets/img/logo-text.svg' | relative_url }}" alt="logo">
+  </a>
+  <button class="nav-open btn btn-text-light btn-ico" data-toggle-for="header-menu">
+    <i class="ico ico-menu"></i>
+  </button>
+  <div class="nav-menu" data-toggle-target="header-menu">
+    <button class="nav-close btn btn-text-light btn-ico" data-toggle>
+      <i class="ico ico-cross"></i>
+    </button>
+    <nav class="nav-items">
+      {% if page.title == 'Home' %}
+      <a href="/" class="btn btn-text-light btn-active">Home</a>
+      {% else %}
+      <a href="/" class="btn btn-text-light">Home</a>
+      {% endif %}
+      <a href="{{ '/general/introduction' | relative_url }}" class="btn btn-text-light">Documentation</a>
+      {% if page.title == 'Themes' %}
+      <a href="{{ '/themes' | relative_url }}" class="btn btn-text-light btn-active">Themes</a>
+      {% else %}
+      <a href="{{ '/themes' | relative_url }}" class="btn btn-text-light">Themes</a>
+      {% endif %}
+      {% if page.title == 'Changelog' %}
+      <a href="{{ '/changelog' | relative_url }}" class="btn btn-text-light btn-active">Changelog</a>
+      {% else %}
+      <a href="{{ '/changelog' | relative_url }}" class="btn btn-text-light">Changelog</a>
+      {% endif %}
+      <a href="https://github.com/littlstonee/luda" class="btn btn-text-light">Github</a>
+    </nav>
+    <nav class="nav-sub-items">
+      <div class="dropdown-static dropdown-absolute-m dropdown-align-right">
+        <button class="btn btn-text-light btn-active">
+          {{ site.version }}
+        </button>
+        <div class="dropdown-menu mx-small-m">
+          <div class="dropdown-items mt-small-m">
+          </div>
+        </div>
+      </div>
+      {% if page.title == 'Home' %}
+      <a href="https://github.com/littlstonee/luda/release" class="dis-none dis-inline-flex-m btn btn-text-light btn-active mr-small">Download</a>
+      <a href="{{ '/general/introduction' | relative_url }}" class="dis-none dis-inline-flex-m btn btn-small btn-light mr-small c-primary rounded">Get started</a>
+      {% endif %}
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,114 @@
+---
+title: Carousel
+---
+
+<div id="carousel" class="mb-large">
+  <h4><a href="#carousel">#carousel</a></h4>
+  <div class="carousel">
+    <div class="carousel-box">
+      <div class="carousel-item">
+        <img class="carousel-figure" src="https://cdn.stocksnap.io/img-thumbs/960w/CTCNBFUFH8.jpg" alt="carousel item one">
+        <div class="carousel-description">This is the first carousel item.</div>
+      </div>
+      <div class="carousel-item">
+        <img class="carousel-figure" src="https://cdn.stocksnap.io/img-thumbs/960w/XFJEL6PH3J.jpg" alt="carousel item two">
+        <div class="carousel-description">This is the second carousel item.</div>
+      </div>
+      <div class="carousel-item">
+        <img class="carousel-figure" src="https://cdn.stocksnap.io/img-thumbs/960w/BIR4BCFWLP.jpg" alt="carousel item three">
+        <div class="carousel-description">This is the third carousel item.</div>
+      </div>
+      <button class="carousel-prev btn btn-text-light btn-ico"><i class="ico ico-left"></i></button>
+      <button class="carousel-next btn btn-text-light btn-ico"><i class="ico ico-right"></i></button>
+      <div class="btns-x btns-margin carousel-indicators">
+        <button class="btn btn-small btn-light"></button>
+        <button class="btn btn-small btn-light"></button>
+        <button class="btn btn-small btn-light"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="carousel-ani-opacity" class="mb-large">
+  <h4><a href="#carousel-ani-opacity">#carousel-ani-opacity</a></h4>
+  <div class="carousel carousel-ani-opacity">
+    <div class="carousel-box">
+      <div class="carousel-item">
+        <img class="carousel-figure" src="https://cdn.stocksnap.io/img-thumbs/960w/CTCNBFUFH8.jpg" alt="carousel item one">
+        <div class="carousel-description">This is the first carousel item.</div>
+      </div>
+      <div class="carousel-item">
+        <img class="carousel-figure" src="https://cdn.stocksnap.io/img-thumbs/960w/XFJEL6PH3J.jpg" alt="carousel item two">
+        <div class="carousel-description">This is the second carousel item.</div>
+      </div>
+      <div class="carousel-item">
+        <img class="carousel-figure" src="https://cdn.stocksnap.io/img-thumbs/960w/BIR4BCFWLP.jpg" alt="carousel item three">
+        <div class="carousel-description">This is the third carousel item.</div>
+      </div>
+      <button class="carousel-prev btn btn-text-light btn-ico"><i class="ico ico-left"></i></button>
+      <button class="carousel-next btn btn-text-light btn-ico"><i class="ico ico-right"></i></button>
+      <div class="btns-x btns-margin carousel-indicators">
+        <button class="btn btn-small btn-light"></button>
+        <button class="btn btn-small btn-light"></button>
+        <button class="btn btn-small btn-light"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="carousel-event" class="mb-large">
+  <h4><a href="#carousel-event">#carousel event</a></h4>
+  <div class="carousel" id="carousel-event-preview">
+    <div class="carousel-box">
+      <div class="carousel-item">
+        <img class="carousel-figure" src="https://cdn.stocksnap.io/img-thumbs/960w/CTCNBFUFH8.jpg" alt="carousel item one">
+        <div class="carousel-description">This is the first carousel item.</div>
+      </div>
+      <div class="carousel-item">
+        <img class="carousel-figure" src="https://cdn.stocksnap.io/img-thumbs/960w/XFJEL6PH3J.jpg" alt="carousel item two">
+        <div class="carousel-description">This is the second carousel item.</div>
+      </div>
+      <div class="carousel-item">
+        <img class="carousel-figure" src="https://cdn.stocksnap.io/img-thumbs/960w/BIR4BCFWLP.jpg" alt="carousel item three">
+        <div class="carousel-description">This is the third carousel item.</div>
+      </div>
+      <button class="carousel-prev btn btn-text-light btn-ico"><i class="ico ico-left"></i></button>
+      <button class="carousel-next btn btn-text-light btn-ico"><i class="ico ico-right"></i></button>
+      <div class="btns-x btns-margin carousel-indicators">
+        <button class="btn btn-small btn-light"></button>
+        <button class="btn btn-small btn-light"></button>
+        <button class="btn btn-small btn-light"></button>
+      </div>
+    </div>
+  </div>
+  <h5>
+    Leave: <span id="carousel-event-preview-note-leave"></span>
+    Enter: <span id="carousel-event-preview-note-enter"></span><br>
+    Left: <span id="carousel-event-preview-note-left"></span>
+    Entered: <span id="carousel-event-preview-note-entered"></span>
+  </h5>
+  <script type="text/javascript">
+    (function(){
+      luda.on('luda:carousel:active', '#carousel-event', function(e){
+        // console.log(e)
+        luda.$child('#carousel-event-preview-note-enter').innerHTML = e.detail
+      })
+      luda.on('luda:carousel:actived', '#carousel-event', function(e){
+        // console.log(e)
+        luda.$child('#carousel-event-preview-note-entered').innerHTML = e.detail
+      })
+      luda.on('luda:carousel:deactive', '#carousel-event', function(e){
+        // console.log(e)
+        luda.$child('#carousel-event-preview-note-leave').innerHTML = e.detail
+      })
+      luda.on('luda:carousel:deactived', '#carousel-event', function(e){
+        // console.log(e)
+        luda.$child('#carousel-event-preview-note-left').innerHTML = e.detail
+      })
+    })()
+  </script>
+</div>

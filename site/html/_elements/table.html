@@ -1,0 +1,260 @@
+---
+title: Table
+description: Table description
+---
+
+{% capture table_without_border_code %}
+<div class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Founded</th>
+        <th>Founders</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Google</td>
+        <td>September 4, 1998</td>
+        <td>Larry Page, Sergey Brin</td>
+        <td>Menlo Park, California, United States</td>
+      </tr>
+      <tr>
+        <td>Facebook</td>
+        <td>February 2004</td>
+        <td>Mark Zuckerberg, Eduardo Saverin...</td>
+        <td>Cambridge, Massachusetts, United States</td>
+      </tr>
+      <tr>
+        <td>GitHub</td>
+        <td>2008</td>
+        <td>Tom Preston-Werner</td>
+        <td>San Francisco, California, United States</td>
+      </tr>
+      <tr>
+        <td>Airbnb</td>
+        <td>August 2008</td>
+        <td>Brian Chesky, Joe Gebbia, Nathan Blecharczyk</td>
+        <td>San Francisco, California</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Table without border"
+  content="Table without border description"
+  code=table_without_border_code
+%}
+
+{% capture table_with_border_code %}
+<div class="table-border">
+  <table>
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Founded</th>
+        <th>Founders</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Google</td>
+        <td>September 4, 1998</td>
+        <td>Larry Page, Sergey Brin</td>
+        <td>Menlo Park, California, United States</td>
+      </tr>
+      <tr>
+        <td>Facebook</td>
+        <td>February 2004</td>
+        <td>Mark Zuckerberg, Eduardo Saverin...</td>
+        <td>Cambridge, Massachusetts, United States</td>
+      </tr>
+      <tr>
+        <td>GitHub</td>
+        <td>2008</td>
+        <td>Tom Preston-Werner</td>
+        <td>San Francisco, California, United States</td>
+      </tr>
+      <tr>
+        <td>Airbnb</td>
+        <td>August 2008</td>
+        <td>Brian Chesky, Joe Gebbia, Nathan Blecharczyk</td>
+        <td>San Francisco, California</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Table with border"
+  content="Table with border description"
+  code=table_with_border_code
+%}
+
+{%
+  include doc-chapter.html
+  title="Table modifiers"
+  content="Table modifiers description"
+%}
+
+{% capture table_nowrap_code %}
+<div class="table table-nowrap">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Company</th>
+        <th>Founded</th>
+        <th>Founders</th>
+        <th>Address</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div class="fm fm-check"><input type="checkbox"></div></td>
+        <td>Google</td>
+        <td>September 4, 1998</td>
+        <td>Larry Page, Sergey Brin</td>
+        <td>Menlo Park, California, United States</td>
+        <td><button class="btn btn-small btn-primary">Mark</button></td>
+      </tr>
+      <tr>
+        <td><div class="fm fm-check"><input type="checkbox"></div></td>
+        <td>Facebook</td>
+        <td>February 2004</td>
+        <td>Mark Zuckerberg, Eduardo Saverin, Dustin Moskovitz, Chris Hughes, Andrew McCollum</td>
+        <td>Cambridge, Massachusetts, United States</td>
+        <td><button class="btn btn-small btn-primary">Mark</button></td>
+      </tr>
+      <tr>
+        <td><div class="fm fm-check"><input type="checkbox"></div></td>
+        <td>GitHub</td>
+        <td>2008</td>
+        <td>Tom Preston-Werner</td>
+        <td>San Francisco, California, United States</td>
+        <td><button class="btn btn-small btn-primary">Mark</button></td>
+      </tr>
+      <tr>
+        <td><div class="fm fm-check"><input type="checkbox"></div></td>
+        <td>Airbnb</td>
+        <td>August 2008</td>
+        <td>Brian Chesky, Joe Gebbia, Nathan Blecharczyk</td>
+        <td>San Francisco, California</td>
+        <td><button class="btn btn-small btn-primary">Mark</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Table nowrap"
+  content="Table nowrap description"
+  code=table_nowrap_code
+%}
+
+{% capture table_stripless_code %}
+<div class="table table-stripless">
+  <table>
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Founded</th>
+        <th>Founders</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Google</td>
+        <td>September 4, 1998</td>
+        <td>Larry Page, Sergey Brin</td>
+        <td>Menlo Park, California, United States</td>
+      </tr>
+      <tr>
+        <td>Facebook</td>
+        <td>February 2004</td>
+        <td>Mark Zuckerberg, Eduardo Saverin...</td>
+        <td>Cambridge, Massachusetts, United States</td>
+      </tr>
+      <tr>
+        <td>GitHub</td>
+        <td>2008</td>
+        <td>Tom Preston-Werner</td>
+        <td>San Francisco, California, United States</td>
+      </tr>
+      <tr>
+        <td>Airbnb</td>
+        <td>August 2008</td>
+        <td>Brian Chesky, Joe Gebbia, Nathan Blecharczyk</td>
+        <td>San Francisco, California</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Table stripless"
+  content="Table stripless description"
+  code=table_stripless_code
+%}
+
+{% capture table_hover_code %}
+<div class="table table-hover">
+  <table>
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Founded</th>
+        <th>Founders</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Google</td>
+        <td>September 4, 1998</td>
+        <td>Larry Page, Sergey Brin</td>
+        <td>Menlo Park, California, United States</td>
+      </tr>
+      <tr>
+        <td>Facebook</td>
+        <td>February 2004</td>
+        <td>Mark Zuckerberg, Eduardo Saverin...</td>
+        <td>Cambridge, Massachusetts, United States</td>
+      </tr>
+      <tr>
+        <td>GitHub</td>
+        <td>2008</td>
+        <td>Tom Preston-Werner</td>
+        <td>San Francisco, California, United States</td>
+      </tr>
+      <tr>
+        <td>Airbnb</td>
+        <td>August 2008</td>
+        <td>Brian Chesky, Joe Gebbia, Nathan Blecharczyk</td>
+        <td>San Francisco, California</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Table hover"
+  content="Table hover description"
+  code=table_hover_code
+%}

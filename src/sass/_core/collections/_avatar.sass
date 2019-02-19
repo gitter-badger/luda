@@ -1,0 +1,117 @@
++install(shared-collection-avatar)
+
+  .avatar-x .media-content,
+  .avatar-y .media-content
+    width: $avatar-image-size-rem
+    height: $avatar-image-size-rem
+    padding: 0
+    background-image: if($avatar-default-image, url($avatar-default-image), null)
+    background-size: $avatar-default-image-background-size
+    border-radius: $avatar-image-border-radius
+
+  .avatar-x .media-description,
+  .avatar-y .media-description
+    height: $avatar-media-description-height-rem
+
+  .avatar-name,
+  .avatar-description
+    padding: 0
+    line-height: $avatar-media-description-height-rem / 2 - $avatar-media-description-padding-top-rem / 2
+    white-space: nowrap
+
+  .avatar-name
+    font-size: typo-size($avatar-name-typography-size-level)
+    color: $avatar-name-color
+
+  .avatar-description
+    font-size: typo-size($avatar-description-typography-size-level)
+    color: $avatar-description-color
+
+
+
+  .avatar-x.media
+    display: inline-flex
+    align-items: center
+
+  .avatar-x.media.media-center
+    display: flex
+
+  .avatar-x .media-content
+    flex: 0 0 auto
+    margin: 0
+
+  .avatar-x .media-description
+    display: flex
+    flex: 0 0 auto
+    flex-direction: column
+    justify-content: center
+    min-width: 0
+    padding-left: $avatar-media-description-padding-left-rem
+    text-align: left
+
+
+
+  .avatar-y .media-description
+    padding-top: $avatar-media-description-padding-top-rem
+
+
+
+  .avatar-large.avatar-x .media-content,
+  .avatar-large.avatar-y .media-content
+    width: $avatar-large-image-size-rem
+    height: $avatar-large-image-size-rem
+
+  .avatar-large.avatar-x .media-description,
+  .avatar-large.avatar-y .media-description
+    height: $avatar-large-media-description-height-rem
+
+  .avatar-large.avatar-y .media-description
+    padding-top: $avatar-large-media-description-padding-top-rem
+
+  .avatar-large.avatar-x .media-description
+    padding-left: $avatar-large-media-description-padding-left-rem
+
+  .avatar-large .avatar-name,
+  .avatar-large .avatar-description
+    $line-height-changed: $avatar-large-media-description-height-rem or $avatar-large-media-description-padding-top-rem
+    $description-height-rem: existing($avatar-large-media-description-height-rem, $avatar-media-description-height-rem)
+    $description-padding-top-rem: existing($avatar-large-media-description-padding-top-rem, $avatar-media-description-padding-top-rem)
+    $line-height: if($line-height-changed, $description-height-rem / 2 -  $description-padding-top-rem / 2, null)
+    line-height: $line-height
+
+  .avatar-large .avatar-name
+    font-size: typo-size($avatar-large-name-typography-size-level)
+
+  .avatar-large .avatar-description
+    font-size: typo-size($avatar-large-description-typography-size-level)
+
+
+
+  .avatar-small.avatar-x .media-content,
+  .avatar-small.avatar-y .media-content
+    width: $avatar-small-image-size-rem
+    height: $avatar-small-image-size-rem
+
+  .avatar-small.avatar-x .media-description,
+  .avatar-small.avatar-y .media-description
+    height: $avatar-small-media-description-height-rem
+
+  .avatar-small.avatar-y .media-description
+    padding-top: $avatar-small-media-description-padding-top-rem
+
+  .avatar-small.avatar-x .media-description
+    padding-left: $avatar-small-media-description-padding-left-rem
+
+  .avatar-small .avatar-name,
+  .avatar-small .avatar-description
+    $line-height-changed: $avatar-small-media-description-height-rem or $avatar-small-media-description-padding-top-rem
+    $description-height-rem: existing($avatar-small-media-description-height-rem, $avatar-media-description-height-rem)
+    $description-padding-top-rem: existing($avatar-small-media-description-padding-top-rem, $avatar-media-description-padding-top-rem)
+    $line-height: if($line-height-changed, $description-height-rem / 2 -  $description-padding-top-rem / 2, null)
+    line-height: $line-height
+
+  .avatar-small .avatar-name
+    font-size: typo-size($avatar-small-name-typography-size-level)
+
+  .avatar-small .avatar-description
+    font-size: typo-size($avatar-small-description-typography-size-level)

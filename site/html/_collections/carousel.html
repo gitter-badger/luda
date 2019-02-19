@@ -1,0 +1,130 @@
+---
+title: Carousel
+description: Carousel description
+---
+
+{% capture carousel_code %}
+<div class="carousel">
+  <div class="carousel-box">
+    <div class="carousel-item">
+      <img class="carousel-figure" src="https://cdn.stocksnap.io/img-thumbs/960w/CTCNBFUFH8.jpg" alt="carousel item one">
+      <div class="carousel-description">This is the first carousel item.</div>
+    </div>
+    <div class="carousel-item">
+      <img class="carousel-figure" src="https://cdn.stocksnap.io/img-thumbs/960w/XFJEL6PH3J.jpg" alt="carousel item two">
+      <div class="carousel-description">This is the second carousel item.</div>
+    </div>
+    <div class="carousel-item">
+      <img class="carousel-figure" src="https://cdn.stocksnap.io/img-thumbs/960w/BIR4BCFWLP.jpg" alt="carousel item three">
+      <div class="carousel-description">This is the third carousel item.</div>
+    </div>
+    <button class="carousel-prev btn btn-text-light btn-ico"><i class="ico ico-left"></i></button>
+    <button class="carousel-next btn btn-text-light btn-ico"><i class="ico ico-right"></i></button>
+    <div class="btns-x btns-margin carousel-indicators">
+      <button class="btn btn-small btn-light"></button>
+      <button class="btn btn-small btn-light"></button>
+      <button class="btn btn-small btn-light"></button>
+    </div>
+  </div>
+</div>
+{% endcapture %}
+
+{% capture carousel_code_sample %}
+<div class="carousel">
+  <div class="carousel-box">
+    <div class="carousel-item">
+      <img class="carousel-figure" src="..." alt="carousel item one">
+      <div class="carousel-description">This is the first carousel item.</div>
+    </div>
+    <div class="carousel-item">
+      <img class="carousel-figure" src="..." alt="carousel item two">
+      <div class="carousel-description">This is the second carousel item.</div>
+    </div>
+    <div class="carousel-item">
+      <img class="carousel-figure" src="..." alt="carousel item three">
+      <div class="carousel-description">This is the third carousel item.</div>
+    </div>
+    <button class="carousel-prev btn btn-text-light btn-ico"><i class="ico ico-left"></i></button>
+    <button class="carousel-next btn btn-text-light btn-ico"><i class="ico ico-right"></i></button>
+    <div class="btns-x btns-margin carousel-indicators">
+      <button class="btn btn-small btn-light"></button>
+      <button class="btn btn-small btn-light"></button>
+      <button class="btn btn-small btn-light"></button>
+    </div>
+  </div>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Carousel usage"
+  content=""
+  code=carousel_code
+  code_sample=carousel_code_sample
+%}
+
+{%
+  include doc-chapter.html
+  title="Customized carousel"
+  content=""
+%}
+
+{% capture customized_carousel_code %}
+<div class="carousel carousel-ani-opacity">
+  <div class="carousel-box">
+    <div class="carousel-item">
+      <img class="carousel-figure" src="https://cdn.stocksnap.io/img-thumbs/960w/CTCNBFUFH8.jpg" alt="carousel item one">
+      <div class="carousel-description">This is the first carousel item.</div>
+    </div>
+    <div class="carousel-item">
+      <img class="carousel-figure" src="https://cdn.stocksnap.io/img-thumbs/960w/XFJEL6PH3J.jpg" alt="carousel item two">
+      <div class="carousel-description">This is the second carousel item.</div>
+    </div>
+    <div class="carousel-item">
+      <img class="carousel-figure" src="https://cdn.stocksnap.io/img-thumbs/960w/BIR4BCFWLP.jpg" alt="carousel item three">
+      <div class="carousel-description">This is the third carousel item.</div>
+    </div>
+    <button class="carousel-prev btn btn-text-light btn-ico"><i class="ico ico-left"></i></button>
+    <button class="carousel-next btn btn-text-light btn-ico"><i class="ico ico-right"></i></button>
+    <div class="btns-x btns-margin carousel-indicators">
+      <button class="btn btn-small btn-light"></button>
+      <button class="btn btn-small btn-light"></button>
+      <button class="btn btn-small btn-light"></button>
+    </div>
+  </div>
+</div>
+{% endcapture %}
+
+{% capture customized_carousel_code_sample %}
+<div class="carousel carousel-ani-opacity">
+  <div class="carousel-box">
+    <div class="carousel-item">
+      <img class="carousel-figure" src="..." alt="carousel item one">
+      <div class="carousel-description">This is the first carousel item.</div>
+    </div>
+    <div class="carousel-item">
+      <img class="carousel-figure" src="..." alt="carousel item two">
+      <div class="carousel-description">This is the second carousel item.</div>
+    </div>
+    <div class="carousel-item">
+      <img class="carousel-figure" src="..." alt="carousel item three">
+      <div class="carousel-description">This is the third carousel item.</div>
+    </div>
+    <button class="carousel-prev btn btn-text-light btn-ico"><i class="ico ico-left"></i></button>
+    <button class="carousel-next btn btn-text-light btn-ico"><i class="ico ico-right"></i></button>
+    <div class="btns-x btns-margin carousel-indicators">
+      <button class="btn btn-small btn-light"></button>
+      <button class="btn btn-small btn-light"></button>
+      <button class="btn btn-small btn-light"></button>
+    </div>
+  </div>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Customized carousel"
+  content=""
+  code=customized_carousel_code
+  code_sample=customized_carousel_code_sample
+%}

@@ -1,0 +1,43 @@
+html {
+  font-family: Raleway, "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+@media (min-width:768px) {
+  #home #main-header,
+#home #main-footer {
+    background: none !important;
+  }
+}
+#home-background {
+  height: 100vh;
+  background-color: #f8427f;
+}
+
+#home-background video {
+  transform: translate3d(calc(50vw - 50%), 0, 0);
+}
+
+@media (min-aspect-ratio: 16/9) {
+  #home-background video {
+    width: 100%;
+    height: auto;
+  }
+}
+@media (max-aspect-ratio: 16/9) {
+  #home-background video {
+    width: auto;
+    height: 100%;
+  }
+}
+#doc-container {
+  max-width: 1158px;
+}
+
+@media (min-width:768px) {
+  #doc-aside {
+    max-width: 18rem;
+    min-width: 16rem;
+  }
+}
+
+/*# sourceMappingURL=site.css.map */

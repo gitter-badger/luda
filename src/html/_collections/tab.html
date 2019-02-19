@@ -1,0 +1,122 @@
+---
+title: Tab
+---
+
+<div id="tab" class="mb-large">
+  <h4><a href="#tab">#tab</a></h4>
+  <div class="tab">
+    <nav class="btns-x tab-indicators">
+      <div class="btn-radio btn-hollow-secondary">
+        <input type="radio" name="tab">
+        <label>Tab One</label>
+      </div>
+      <div class="btn-radio btn-hollow-secondary">
+        <input type="radio" name="tab">
+        <label>Tab Two</label>
+      </div>
+      <div class="btn-radio btn-hollow-secondary">
+        <input type="radio" name="tab">
+        <label>Tab Three</label>
+      </div>
+    </nav>
+    <div class="tab-panes">
+      <div class="tab-pane">
+        <p>This is the content of tab pane one.</p>
+      </div>
+      <div class="tab-pane">
+        <p>This is the content of tab pane two.</p>
+      </div>
+      <div class="tab-pane">
+        <p>This is the content of tab pane three.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="tab-with-grid">
+  <h4><a href="#tab-with-grid">#tab-with-grid</a></h4>
+  <div class="tab">
+    <div class="grid">
+      <div class="col-5 col-3-m">
+        <nav class="btns-y btns-fluid tab-indicators">
+          <div class="btn-radio btn-hollow-secondary">
+            <input type="radio" name="vertical_tab">
+            <label>Tab One</label>
+          </div>
+          <div class="btn-radio btn-hollow-secondary">
+            <input type="radio" name="vertical_tab">
+            <label>Tab Two</label>
+          </div>
+          <div class="btn-radio btn-hollow-secondary">
+            <input type="radio" name="vertical_tab">
+            <label>Tab Three</label>
+          </div>
+        </nav>
+      </div>
+      <div class="col-auto">
+        <div class="tab-panes">
+          <div class="tab-pane">
+            <p>This is the content of tab pane one.</p>
+          </div>
+          <div class="tab-pane">
+            <p>This is the content of tab pane two.</p>
+          </div>
+          <div class="tab-pane">
+            <p>This is the content of tab pane three.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="tab-event" class="mb-large">
+  <h4><a href="#tab-event">#tab event</a></h4>
+  <div class="tab" id="tab-event-preview">
+    <nav class="btns-x tab-indicators">
+      <div class="btn-radio btn-hollow-secondary">
+        <input type="radio" name="tab">
+        <label>Tab One</label>
+      </div>
+      <div class="btn-radio btn-hollow-secondary">
+        <input type="radio" name="tab">
+        <label>Tab Two</label>
+      </div>
+      <div class="btn-radio btn-hollow-secondary">
+        <input type="radio" name="tab">
+        <label>Tab Three</label>
+      </div>
+    </nav>
+    <div class="tab-panes">
+      <div class="tab-pane">
+        <p>This is the content of tab pane one.</p>
+      </div>
+      <div class="tab-pane">
+        <p>This is the content of tab pane two.</p>
+      </div>
+      <div class="tab-pane">
+        <p>This is the content of tab pane three.</p>
+      </div>
+    </div>
+  </div>
+  <h5>
+    Actived: <span id="tab-event-preview-active-note"></span>
+    Deactived: <span id="tab-event-preview-deactive-note"></span>
+  </h5>
+  <script type="text/javascript">
+    (function(){
+      luda.on('luda:tab:actived', '#tab-event-preview', function(e){
+        // console.log(e)
+        luda.$child('#tab-event-preview-active-note').innerHTML = e.detail
+      })
+      luda.on('luda:tab:deactived', '#tab-event-preview', function(e){
+        // console.log(e)
+        luda.$child('#tab-event-preview-deactive-note').innerHTML = e.detail
+      })
+    })()
+  </script>
+</div>

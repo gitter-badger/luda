@@ -1,0 +1,544 @@
+---
+title: Form
+description: Form description
+---
+
+{%
+  include doc-chapter.html
+  title="Form elements"
+  content="Form elements description."
+%}
+
+{% capture form_text_code %}
+<div class="fm fm-text">
+  <input name="your_form_text_name" placeholder="Enter some text">
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Form text"
+  content="Form text description."
+  code=form_text_code
+%}
+
+{% capture form_textarea_code %}
+<div class="fm fm-text">
+  <textarea name="your_form_textarea_name" placeholder="Enter more text"></textarea>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Form textarea"
+  content="Form textarea description."
+  code=form_textarea_code
+%}
+
+{% capture form_search_code %}
+<div class="fm fm-search">
+  <input type="search" placeholder="Search anything...">
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Form search"
+  content="Form search description."
+  code=form_search_code
+%}
+
+{% capture form_select_code %}
+<div class="fm fm-select">
+  <select placeholder="Select a word">
+    <option value="hello">Hello!</option>
+    <option value="goodbye">Goodbye!</option>
+  </select>
+</div>
+<div class="fm fm-select mt-small">
+  <select placeholder="Select a word">
+    <option value="hello" selected="selected">Hello!</option>
+    <option value="goodbye">Goodbye!</option>
+  </select>
+</div>
+{% endcapture %}
+
+{% capture form_select_code_sample %}
+<div class="fm fm-select">
+  <select placeholder="Select a word">
+    <option value="hello">Hello!</option>
+    <option value="goodbye">Goodbye!</option>
+  </select>
+</div>
+<div class="fm fm-select">
+  <select placeholder="Select a word">
+    <option value="hello" selected="selected">Hello!</option>
+    <option value="goodbye">Goodbye!</option>
+  </select>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Form select"
+  content="Form select description."
+  code=form_select_code
+  code_sample=form_select_code_sample
+%}
+
+{% capture form_multiple_select_code %}
+<div class="fm fm-select">
+  <select multiple placeholder="Select words">
+    <option value="hello">Hello!</option>
+    <option value="goodbye">Goodbye!</option>
+  </select>
+</div>
+<div class="fm fm-select mt-small">
+  <select multiple placeholder="Select words">
+    <option value="hello" selected="selected">Hello!</option>
+    <option value="goodbye" selected="selected">Goodbye!</option>
+  </select>
+</div>
+{% endcapture %}
+
+{% capture form_multiple_select_code_sample %}
+<div class="fm fm-select">
+  <select multiple placeholder="Select words">
+    <option value="hello">Hello!</option>
+    <option value="goodbye">Goodbye!</option>
+  </select>
+</div>
+<div class="fm fm-select">
+  <select multiple placeholder="Select words">
+    <option value="hello" selected="selected">Hello!</option>
+    <option value="goodbye" selected="selected">Goodbye!</option>
+  </select>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Form multiple select"
+  content="Form multiple select description."
+  code=form_multiple_select_code
+  code_sample=form_multiple_select_code_sample
+%}
+
+{% capture form_file_code %}
+<div class="fm fm-file">
+  <input type="file" placeholder="Add a file">
+</div>
+<div class="fm fm-file mt-small">
+  <input type="file" value="luda.min.css" placeholder="Add a file">
+</div>
+{% endcapture %}
+
+{% capture form_file_code_sample %}
+<div class="fm fm-file">
+  <input type="file" placeholder="Add a file">
+</div>
+<div class="fm fm-file">
+  <input type="file" value="luda.min.css" placeholder="Add a file">
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Form file"
+  content="Form file description."
+  code=form_file_code
+  code_sample=form_file_code_sample
+%}
+
+{% capture form_multiple_file_code %}
+<div class="fm fm-file">
+  <input type="file" multiple placeholder="Add files">
+</div>
+<div class="fm fm-file mt-small">
+  <input type="file" value="luda.min.css    luda.min.js" placeholder="Add files">
+</div>
+{% endcapture %}
+
+{% capture form_multiple_file_code_sample %}
+<div class="fm fm-file">
+  <input type="file" multiple placeholder="Add files">
+</div>
+<div class="fm fm-file">
+  <input type="file" multiple value="luda.min.css    luda.min.js" placeholder="Add file">
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Form multiple file"
+  content="Form multiple file description."
+  code=form_multiple_file_code
+  code_sample=form_multiple_file_code_sample
+%}
+
+{% capture form_checkbox_code %}
+<div class="fm fm-check">
+  <input type="checkbox">
+</div>
+<div class="fm fm-check">
+  <label><input type="checkbox">Checkbox in label</label>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Form checkbox"
+  content="Form checkbox description"
+  code=form_checkbox_code
+%}
+
+{% capture form_radio_code %}
+<div class="fm fm-radio">
+  <input type="radio" name="your-radio-name">
+</div>
+<div class="fm fm-radio">
+  <label><input type="radio" name="your-radio-name">Radio in label</label>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Form radio"
+  content="Form radio description"
+  code=form_radio_code
+%}
+
+{% capture form_range_code %}
+<div class="fm fm-range">
+  <input type="range">
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Form range"
+  content="Form range description"
+  code=form_range_code
+%}
+
+{%
+  include doc-chapter.html
+  title="Form element states"
+  content="Form element states description"
+%}
+
+{% capture readonly_code %}
+<div class="fm fm-text mb-small" data-readonly>
+  <input data-readonly value="A readonly form text" placeholder="Enter some text">
+</div>
+<div class="fm fm-check mb-small" data-readonly>
+  <label><input data-readonly checked type="checkbox">A readonly form checkbox</label>
+</div>
+<div class="fm fm-select" data-readonly>
+  <select data-readonly placeholder="Select a word">
+    <option selected value="hello">A readonly select with Hello selected</option>
+    <option value="goodbye">Goodbye!</option>
+  </select>
+</div>
+{% endcapture %}
+
+{% capture readonly_code_sample %}
+<div class="fm fm-text" data-readonly>
+  <input data-readonly value="A readonly form text" placeholder="Enter some text">
+</div>
+<div class="fm fm-check" data-readonly>
+  <label><input data-readonly checked type="checkbox">A readonly form checkbox</label>
+</div>
+<div class="fm fm-select" data-readonly>
+  <select data-readonly placeholder="Select a word">
+    <option selected value="hello">A readonly select with Hello selected</option>
+    <option value="goodbye">Goodbye!</option>
+  </select>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Readonly"
+  content="Readonly description"
+  code=readonly_code
+  code_sample=readonly_code_sample
+%}
+
+{% capture disabled_code %}
+<div class="fm fm-search mb-small" disabled>
+  <input disabled placeholder="A disabled form search">
+</div>
+<div class="fm fm-radio mb-small" disabled>
+  <label><input disabled type="radio" name="disabled_radio">A disabled form radio</label>
+</div>
+<div class="fm fm-select mb-small" disabled>
+  <select disabled placeholder="A disabled form select">
+    <option value="1">Hello</option>
+    <option value="2">Goodbye</option>
+  </select>
+</div>
+<div class="fm fm-file mb-small" disabled>
+  <input disabled type="file" placeholder="A disabled form file">
+</div>
+<div class="fm fm-select" disabled>
+  <select disabled multiple placeholder="A disabled form select">
+    <option value="1">Hello</option>
+    <option value="2">Goodbye</option>
+  </select>
+</div>
+{% endcapture %}
+
+{% capture disabled_code_sample %}
+<div class="fm fm-search" disabled>
+  <input disabled placeholder="A disabled form search">
+</div>
+<div class="fm fm-radio" disabled>
+  <label><input disabled type="radio" name="disabled_radio">A disabled form radio</label>
+</div>
+<div class="fm fm-select" disabled>
+  <select disabled placeholder="A disabled form select">
+    <option value="1">Hello</option>
+    <option value="2">Goodbye</option>
+  </select>
+</div>
+<div class="fm fm-file" disabled>
+  <input disabled type="file" placeholder="A disabled form file">
+</div>
+<div class="fm fm-select" disabled>
+  <select disabled multiple placeholder="A disabled form select">
+    <option value="1">Hello</option>
+    <option value="2">Goodbye</option>
+  </select>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Disabled"
+  content="Disabled description"
+  code=disabled_code
+  code_sample=disabled_code_sample
+%}
+
+{%
+  include doc-chapter.html
+  title="Form elements size modifiers"
+  content="Form elements size modifiers description"
+%}
+
+{% capture small_form_elements_code %}
+<div class="fm fm-check fm-small mb-small">
+  <label><input type="checkbox">A small form checkbox</label>
+</div>
+<div class="fm fm-range fm-small mb-small">
+  <input type="range">
+</div>
+<div class="fm fm-search fm-small mb-small">
+  <input placeholder="A small form search">
+</div>
+<div class="fm fm-text">
+  <textarea placeholder="A small from textarea"></textarea>
+</div>
+{% endcapture %}
+
+{% capture small_form_elements_code_sample %}
+<div class="fm fm-check fm-small">
+  <label><input type="checkbox">A small form checkbox</label>
+</div>
+<div class="fm fm-range fm-small">
+  <input type="range">
+</div>
+<div class="fm fm-search fm-small">
+  <input placeholder="A small form search">
+</div>
+<div class="fm fm-text">
+  <textarea placeholder="A small from textarea"></textarea>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Small form elements"
+  content="Small form elments description"
+  is_modifier=true
+  code=small_form_elements_code
+  code_sample=small_form_elements_code_sample
+%}
+
+{% capture large_form_elements_code %}
+<div class="fm fm-radio fm-large mb-small">
+  <label><input type="radio" name="large">A large form radio</label>
+</div>
+<div class="fm fm-file fm-large mb-small">
+  <input type="file" placeholder="A large form file">
+</div>
+<div class="fm fm-text fm-large mb-small">
+  <input placeholder="A large form text">
+</div>
+<div class="fm fm-select">
+  <select multiple placeholder="A large multiple select">
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+</div>
+{% endcapture %}
+
+{% capture large_form_elements_code_sample %}
+<div class="fm fm-radio fm-large">
+  <label><input type="radio" name="large">A large form radio</label>
+</div>
+<div class="fm fm-file fm-large">
+  <input type="file" placeholder="A large form file">
+</div>
+<div class="fm fm-text fm-large">
+  <input placeholder="A large form text">
+</div>
+<div class="fm fm-select">
+  <select multiple placeholder="A large multiple select">
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Large form elements"
+  content="Large form elments description"
+  is_modifier=true
+  code=large_form_elements_code
+  code_sample=large_form_elements_code_sample
+%}
+
+{% capture inline_form_elements_code %}
+<div class="fm fm-check fm-inline">
+  <label><input type="checkbox">A inline checbox</label>
+</div>
+<div class="fm fm-text fm-small fm-inline">
+  <input placeholder="A small inline form text">
+</div>
+<div class="fm fm-search fm-inline">
+  <input placeholder="A inline form search">
+</div>
+<div class="fm fm-file fm-large fm-inline">
+  <input type="file" placeholder="A large inline form file">
+</div>
+<div class="fm fm-text fm-small fm-inline">
+  <textarea placeholder="A small inline textarea"></textarea>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Inline form elements"
+  content="Inline form elments description"
+  is_modifier=true
+  code=inline_form_elements_code
+%}
+
+{%
+  include doc-chapter.html
+  title="Form element helpers"
+  content="Form element helpers description"
+%}
+
+{% capture hint_text_code %}
+<div class="fm fm-text mb-small" data-hint="Your email will be a secret.">
+  <input type="email" placeholder="Please enter your email">
+</div>
+<div class="fm fm-radio" data-hint="Your gender also will be a secret.">
+  <label><input type="radio" name="gender" value="male">Male</label>
+  <label><input type="radio" name="gender" value="female">Female</label>
+</div>
+{% endcapture %}
+
+{% capture hint_text_code_sample %}
+<div class="fm fm-text" data-hint="Your email will be a secret.">
+  <input type="email" placeholder="Please enter your email">
+</div>
+<div class="fm fm-radio" data-hint="Your gender also will be a secret.">
+  <label><input type="radio" name="gender" value="male">Male</label>
+  <label><input type="radio" name="gender" value="female">Female</label>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Hint text"
+  content="Hint text description"
+  code=hint_text_code
+  code_sample=hint_text_code_sample
+%}
+
+{% capture error_text_code %}
+<div class="fm fm-text mb-small" data-error="Email must be entered!">
+  <input type="email" placeholder="Please enter your email">
+</div>
+<div class="fm fm-radio" data-error="Genger must be choosed!">
+  <label><input type="radio" name="errorGender" value="male">Male</label>
+  <label><input type="radio" name="errorGender" value="female">Female</label>
+</div>
+{% endcapture %}
+
+{% capture error_text_code_sample %}
+<div class="fm fm-text" data-error="Email must be entered!">
+  <input type="email" placeholder="Please enter your email">
+</div>
+<div class="fm fm-radio" data-error="Genger must be choosed!">
+  <label><input type="radio" name="errorGender" value="male">Male</label>
+  <label><input type="radio" name="errorGender" value="female">Female</label>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Error text"
+  content="Error text description"
+  code=error_text_code
+  code_sample=error_text_code_sample
+%}
+
+{%
+  include doc-chapter.html
+  title="Form label"
+  content="Form label description"
+%}
+
+{% capture form_label_code %}
+<label class="fm-label">Name label</label>
+<div class="fm fm-text">
+  <input type="text" placeholder="Please enter your name">
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Form label usage"
+  content="Add class <code>.fm-label</code> to a label element."
+  is_modifier=true
+  code=form_label_code
+%}
+
+{%
+  include doc-chapter.html
+  title="Form label modifiers"
+  content="Form label modifiers description"
+%}
+
+{% capture required_form_label_code %}
+<label class="fm-label fm-label-required">Name label required</label>
+<div class="fm fm-text">
+  <input type="text" placeholder="Please enter your name">
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Required form label"
+  content="Required form label description"
+  is_modifier=true
+  code=required_form_label_code
+%}

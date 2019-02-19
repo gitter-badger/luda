@@ -1,0 +1,105 @@
++install(shared-element-form-check-radio)
+
+  .fm-check label,
+  .fm-radio label
+    padding-left: $form-element-checkfield-height-em + 0.4em
+    line-height: typo-line-height($form-element-typography-size-level)
+    overflow: hidden
+    -webkit-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+
+  .fm-check label:not(:last-child),
+  .fm-radio label:not(:last-child)
+    margin-right: 1.2em
+
+  .fm-check label input,
+  .fm-radio label input
+    $line-height-rem: typo-line-height($form-element-typography-size-level)
+    $font-size-rem: typo-size($form-element-typography-size-level)
+    $line-height-em: $line-height-rem / $font-size-rem * 1em
+    $margin-top: ($line-height-em - $form-element-checkfield-height-em) / 2
+    $margin-left: - $form-element-checkfield-height-em - 0.4em
+    float: left
+    margin: $margin-top 0.4em 0 $margin-left
+
+  .fm-check input,
+  .fm-radio input
+    width: $form-element-checkfield-height-em
+    height: $form-element-checkfield-height-em
+    border: $form-element-border-style $form-element-border-width $form-element-border-color
+    background: $form-element-background
+    box-shadow: $form-element-box-shadow
+
+  .fm-check input
+    border-radius: $form-element-border-radius
+    transform: scale(0.9)
+
+  .fm-radio input
+    border-radius: 100%
+
+  .fm-check[data-error] input,
+  .fm-radio[data-error] input
+    background: $form-element-error-background
+    border-color: $form-element-error-border-color
+    box-shadow: $form-element-error-box-shadow
+
+  .fm.fm-check .focus,
+  .fm.fm-radio .focus
+    background: $form-element-focus-background
+    border-color: $form-element-focus-border-color
+    box-shadow: $form-element-focus-box-shadow
+
+  .fm.fm-check input:checked,
+  .fm.fm-radio input:checked
+    +form-checkbox-or-radio-background-icon($form-element-checked-icon, $form-element-checked-icon-color, $form-element-background)
+
+  @if $form-element-error-background or $form-element-error-checked-icon-color
+    .fm.fm-check[data-error] input:checked,
+    .fm.fm-radio[data-error] input:checked
+      $icon-color: existing($form-element-error-checked-icon-color, $form-element-checked-icon-color)
+      $background: form-error-background
+      +form-checkbox-or-radio-background-icon($form-element-checked-icon, $icon-color, $background)
+
+  @if $form-element-focus-background or $form-element-focus-checked-icon-color
+    .fm.fm-check input.focus:checked,
+    .fm.fm-radio input.focus:checked
+      $icon-color: existing($form-element-focus-checked-icon-color, $form-element-checked-icon-color)
+      $background: form-focus-background
+      +form-checkbox-or-radio-background-icon($form-element-checked-icon, $icon-color, $background)
+
+    @if $form-element-error-background or $form-element-error-checked-icon-color
+      .fm.fm-check[data-error] input.focus:checked,
+      .fm.fm-radio[data-error] input.focus:checked
+        $icon-color: existing($form-element-focus-checked-icon-color, $form-element-error-checked-icon-color)
+        $background: form-error-focus-background
+        +form-checkbox-or-radio-background-icon($form-element-checked-icon, $icon-color, $background)
+
+
+
+  .fm-small.fm-check label,
+  .fm-small.fm-radio label
+    line-height: typo-line-height($form-element-small-typography-size-level)
+
+  .fm-large.fm-check label,
+  .fm-large.fm-radio label
+    line-height: typo-line-height($form-element-large-typography-size-level)
+
+  @if $form-element-small-typography-size-level
+    .fm-small.fm-check label input,
+    .fm-small.fm-radio label input
+      $line-height-rem: typo-line-height($form-element-small-typography-size-level)
+      $typo-size-rem: typo-size($form-element-small-typography-size-level)
+      $line-height-em: $line-height-rem / $typo-size-rem * 1em
+      $margin-top: ($line-height-em - $form-element-checkfield-height-em) / 2
+      margin-top: $margin-top
+
+  @if $form-element-large-typography-size-level
+    .fm-large.fm-check label input,
+    .fm-large.fm-radio label input
+      $line-height-rem: typo-line-height($form-element-large-typography-size-level)
+      $typo-size-rem: typo-size($form-element-large-typography-size-level)
+      $line-height-em: $line-height-rem / $typo-size-rem * 1em
+      $margin-top: ($line-height-em - $form-element-checkfield-height-em) / 2
+      margin-top: $margin-top

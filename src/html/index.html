@@ -1,0 +1,75 @@
+---
+title: Index
+permalink: /
+---
+
+
+<div class="grid">
+
+  <div class="col-12 pt-large">
+    <h1>Welcome to Luda TDD environment!</h1>
+    <p class="p4">
+      Hello there! This is the TDD enviroument
+      for you to extend and test Luda.<br>
+      Use cases are located in
+      <code>src/html</code> directory of project root.<br>
+      Find <code>sass</code> and <code>coffee</code>
+      files in <code>src/sass</code> and <code>src/coffee</code>
+      directory of project root.
+    </p>
+  </div>
+
+
+  <div class="col-12 col-3-m mt-large">
+    <h2>Behaviours</h2>
+    <nav>
+      <ul class="p">
+        {% for behaviour in site.behaviours %}
+        <li><a href="{{ behaviour.url }}">{{ behaviour.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+
+
+
+  <div class="col-12 col-3-m mt-large">
+    <h2>Elements</h2>
+    <nav>
+      <ul class="p">
+        {% for element in site.elements %}
+        <li><a href="{{ element.url }}">{{ element.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+
+
+
+  <div class="col-12 col-3-m mt-large">
+    <h2>Collections</h2>
+    <nav>
+      <ul class="p">
+        {% for collection in site.collections %}
+        <li><a href="{{ collection.url }}">{{ collection.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+
+
+
+  <div class="col-12 col-3-m mt-large">
+    <h2>Utilities</h2>
+    <nav>
+      <ul class="p">
+        {% for utility in site.utilities %}
+        <li><a href="{{ utility.url }}">{{ utility.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+
+
+
+</div>

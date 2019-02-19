@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Alert | Luda - A lightweight and responsive UI framework for modern web development.</title>
+    <meta charset="UTF-8">
+<!-- viewport -->
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<!-- render -->
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<!-- apple app mode -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Luda">
+<!-- chrome -->
+<meta name="mobile-web-app-capable" content="yes">
+<!-- Chrome, Firefox OS and Opera -->
+<meta name="theme-color" content="#525252">
+<!-- Windows Phone -->
+<meta name="msapplication-navbutton-color" content="#525252">
+<meta name="application-name" content="Luda">
+<!-- apple no tel -->
+<meta content="telephone=no" name="format-detection">
+<!-- windows phone no tap color -->
+<meta name="msapplication-tap-highlight" content="no">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="https://fonts.font.im/css?family=Raleway:400,100,200,300,500,600,700,800,900">
+    <script type="text/javascript" src="/0.1.x/assets/js/turbolinks.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/0.1.x/assets/luda/css/luda-default.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="/0.1.x/assets/css/site.min.css">
+    
+
+    <script type="text/javascript" src="/0.1.x/assets/luda/js/luda-degradation.min.js"></script>
+    <script type="text/javascript" src="/0.1.x/assets/luda/js/luda.min.js"></script>
+    
+    <script type="text/javascript" src="/0.1.x/assets/js/site.min.js"></script>
+    <script type="text/javascript" src="/version.js"></script>
+    <script type="text/javascript">
+  window.site = window.site || {}
+  window.site.version = "0.1.x"
+  luda.on('docready', function(){
+    if(window.site.version != window.site.latestVersion){
+      luda.toggle.active('site-version-alert')
+    }
+  })
+</script>
+
+    
+  </head>
+  <body>
+    
+    <div class="alert fix-t zi-highest bc-danger jc-center" data-toggle-target="site-version-alert">
+  <div class="alert-content">
+    <p>
+      There is a newer version of <a class="link-light" href="/">Luda</a>.
+    </p>
+  </div>
+  <div class="alert-action">
+    <a href="/" class="btn btn-light btn-small mr-small">Let's go!</a>
+    <button data-toggle class="btn btn-hollow-light btn-small">I don't care.</button>
+  </div>
+</div>
+
+    
+    <div id="doc" class="grid-edge">
+  <aside id="doc-aside" class="nav-aside col-12 col-3-m">
+  <a href="/" class="nav-logo">
+    <img src="/0.1.x/assets/img/logo-text.svg" alt="logo">
+  </a>
+  <button class="nav-open btn btn-text-light btn-ico" data-toggle-for="nav-aside-menu">
+    <i class="ico ico-menu"></i>
+  </button>
+  <div class="nav-menu" data-toggle-target="nav-aside-menu" data-toggle>
+    <button class="nav-close btn btn-text-light btn-ico">
+      <i class="ico ico-cross"></i>
+    </button>
+<!--<div class="nav-search fm fm-search fm-small" data-none-toggle>
+      <input type="search" placeholder="Search anything...">
+    </div>-->
+    <div class="nav-items">
+      <p class="px-small c-light">Get Started</p>
+      
+      
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/introduction">Introduction</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/installation">Installation</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/browser-support">Browser support</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/build-tools">Build tools</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/theming">Theming</a>
+  
+
+
+    </div>
+    <div class="nav-items">
+      <p class="px-small c-light">Behaviours</p>
+      
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/disabled">Disabled</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/enter-click">Enter click</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/focus">Focus</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/radio-tab">Radio tab</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/readonly">Readonly</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/toggle">Toggle</a>
+  
+
+
+    </div>
+    <div class="nav-items">
+      <p class="px-small c-light">Elements</p>
+      
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/badge">Badge</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/baseline">Baseline</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/button">Button</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/container">Container</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/form">Form</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/grid">Grid</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/icon">Icon</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/overlay">Overlay</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/progress">Progress</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/scrollbar">Scrollbar</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/table">Table</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/typography">Typography</a>
+  
+
+
+    </div>
+    <div class="nav-items">
+      <p class="px-small c-light">Collections</p>
+      
+  
+  <a class="btn btn-small btn-text-light btn-active" href="/0.1.x/collections/alert">Alert</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/avatar">Avatar</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/breadcrumb">Breadcrumb</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/button-group">Button group</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/button-icon">Button icon</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/carousel">Carousel</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/dropdown">Dropdown</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/form-button">Form button</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/form-dropdown">Form dropdown</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/form-group">Form group</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/form-icon">Form icon</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/media">Media</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/modal">Modal</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/nav">Navigation</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/tab">Tab</a>
+  
+
+
+    </div>
+    <div class="nav-items">
+      <p class="px-small c-light">Utilities</p>
+      
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/align">Align</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/background">Background</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/color">Color</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/display">Display</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/flex">Flex</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/float">Float</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/opacity">Opacity</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/overflow">Overflow</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/position">Position</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/shape">Shape</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/size">Size</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/space">Space</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/text">Text</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/visibility">Visibility</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/z-index">Z-index</a>
+  
+
+
+    </div>
+  </div>
+</aside>
+
+  <main class="col-auto">
+    <div id="doc-container" class="grid container py-medium p-large-m mx-auto">
+      <div class="col-12">
+        <h1 class="mt-large mt-small-m fw-regular">Alert</h1>
+<p class="p3">Alert description</p>
+
+        
+
+
+
+
+
+<h4 class="mt-large fw-regular">
+  <!-- htmllint id-class-style="false" -->
+  <a class="c-primary td-none" href="#alert-usage" id="alert-usage" data-turbolinks="false">
+    # Alert usage
+    
+  </a>
+</h4>
+
+
+<p></p>
+
+
+
+<div>
+<div class="alert toggle-active" data-toggle-target>
+  <p class="alert-content">You have loged in.</p>
+  <button class="alert-action btn btn-small btn-dark btn-ico" data-toggle>
+    <i class="ico ico-cross"></i>
+  </button>
+</div>
+</div>
+
+
+
+<pre class="code mt-small">
+<code>
+&lt;div class=&quot;alert toggle-active&quot; data-toggle-target&gt;
+  &lt;p class=&quot;alert-content&quot;&gt;You have loged in.&lt;/p&gt;
+  &lt;button class=&quot;alert-action btn btn-small btn-dark btn-ico&quot; data-toggle&gt;
+    &lt;i class=&quot;ico ico-cross&quot;&gt;&lt;/i&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+
+
+
+
+
+
+
+<h4 class="mt-large fw-regular">
+  <!-- htmllint id-class-style="false" -->
+  <a class="c-primary td-none" href="#alert-customized" id="alert-customized" data-turbolinks="false">
+    # Alert customized
+    
+  </a>
+</h4>
+
+
+<p></p>
+
+
+
+<div>
+<div class="alert bc-danger">
+  <div class="alert-content">
+    <h5 class="c-light">Danger!</h5>
+    <p>
+      Danger performance detected. Track
+      <a class="link-light" href="#">the issue</a>.
+    </p>
+  </div>
+  <div class="alert-action">
+    <button class="btn btn-small btn-light">Ignore!</button>
+    <button class="btn btn-small btn-light ml-tiny">OK!</button>
+  </div>
+</div>
+</div>
+
+
+
+<pre class="code mt-small">
+<code>
+&lt;div class=&quot;alert bc-danger&quot;&gt;
+  &lt;div class=&quot;alert-content&quot;&gt;
+    &lt;h5 class=&quot;c-light&quot;&gt;Danger!&lt;/h5&gt;
+    &lt;p&gt;
+      Danger performance detected. Track
+      &lt;a class=&quot;link-light&quot; href=&quot;#&quot;&gt;the issue&lt;/a&gt;.
+    &lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;alert-action&quot;&gt;
+    &lt;button class=&quot;btn btn-small btn-light&quot;&gt;Ignore!&lt;/button&gt;
+    &lt;button class=&quot;btn btn-small btn-light ml-tiny&quot;&gt;OK!&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+      </div>
+    </div>
+  </main>
+</div>
+  </body>
+</html>

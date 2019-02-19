@@ -1,0 +1,274 @@
+---
+title: Typography
+description: Typography description
+---
+
+{%
+  include doc-chapter.html
+  title="Headings"
+  content=""
+%}
+
+{% capture headings_usage_code %}
+<h1>Heading h1</h1>
+<h2>Heading h2</h2>
+<h3>Heading h3</h3>
+<h4>Heading h4</h4>
+<h5>Heading h5</h5>
+<h6>Heading h6</h6>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Headings usage"
+  content=""
+  code=headings_usage_code
+%}
+
+{% capture heading_classes_code %}
+<span class="h1">Heading class .h1</span>
+<span class="h2">Heading class .h2</span>
+<span class="h3">Heading class .h3</span>
+<span class="h4">Heading class .h4</span>
+<span class="h5">Heading class .h5</span>
+<span class="h6">Heading class .h6</span>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Heading classes"
+  content=""
+  code=heading_classes_code
+%}
+
+{%
+  include doc-chapter.html
+  title="Paragraph"
+  content=""
+%}
+
+{% capture paragraph_usage_code %}
+<p>
+  Once upon time a girl named Cinderella lived with her stepmother and two stepsisters.  Poor Cinderella had to work hard all day long so the others could rest. It was she who had to wake up each morning when it was still dark and cold to start the fire.  It was she who cooked the meals. It was she who kept the fire going. The poor girl could not stay clean, from all the ashes and cinders by the fire.
+</p>
+<p>
+  One day, big news came to town.  The King and Queen were going to have a ball!  It was time for the Prince to find a bride. All of the young ladies in the land were invited to come.  They were wild with joy! They would wear their most beautiful gown and fix their hair extra nice. Maybe the prince would like them!
+</p>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Paragraph usage"
+  content=""
+  code=paragraph_usage_code
+%}
+
+{% capture paragraph_classes_code %}
+<span class="p1">Paragraph class .p1</span>
+<span class="p2">Paragraph class .p2</span>
+<span class="p3">Paragraph class .p3</span>
+<span class="p4">Paragraph class .p4</span>
+<span class="p5">Paragraph class .p5</span>
+<span class="p6">Paragraph class .p6</span>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Paragraph classes"
+  content=""
+  code=paragraph_classes_code
+%}
+
+{%
+  include doc-chapter.html
+  title="Typography inline"
+  content=""
+%}
+
+{% capture typography_inline_code %}
+<p>Here is <span class="p4 typo-inline">a inline typeface</span></p>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Typography inline usage"
+  content=""
+  code=typography_inline_code
+%}
+
+{%
+  include doc-chapter.html
+  title="Code"
+  content=""
+%}
+
+{% capture code_inline_code %}
+<p>Here is some inline <code>code</code>, <code>samp</code>, <code>kbd</code></p>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Inline code"
+  content=""
+  code=code_inline_code
+%}
+
+{% capture code_block_code %}
+<pre class="code">
+<code>
+  class DocumentationController
+    private
+    def _set_items
+      @generals = @@generals
+      @behaviours = @@behaviours
+      @elements = @@elements
+      @collections = @@collections
+      @utilities = @@utilities
+    end
+  end
+</code>
+</pre>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Block code"
+  content=""
+  code=code_block_code
+%}
+
+{%
+  include doc-chapter.html
+  title="Quote"
+  content=""
+%}
+
+{% capture quote_inline_code %}
+<p>
+  Avian carriers can provide high delay, low throughput,
+  <q>This is because of the 3Dether space available to the carriers</q>,
+  in contrast to the 1D ether used by
+  <cite>IEEE802.3</cite>.
+</p>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Inline quote"
+  content=""
+  code=quote_inline_code
+%}
+
+{% capture quote_block_code %}
+<blockquote class="quote" cite="https://tools.ietf.org/html/rfc1149">
+  <p>
+    Avian carriers can provide high delay, low
+    throughput, and low altitude service.  The
+    connection topology is limited to a single
+    point-to-point path for each carrier, used with
+    standard carriers, but many carriers can be used
+    without significant interference with each other,
+    outside of early spring.  This is because of the 3D
+    ether space available to the carriers, in contrast
+    to the 1D ether used by IEEE802.3.  The carriers
+    have an intrinsic collision avoidance system, which
+    increases availability.
+  </p>
+  <footer class="p5">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+</blockquote>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Block quote"
+  content=""
+  code=quote_block_code
+%}
+
+{%
+  include doc-chapter.html
+  title="List"
+  content=""
+%}
+
+{% capture ul_code %}
+<ul class="p">
+  <li>Unordered List Item One</li>
+  <li>Unordered List Item Two</li>
+  <li>Unordered List Item Three</li>
+  <li>Unordered List Item Four</li>
+</ul>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Unordered list"
+  content=""
+  code=ul_code
+%}
+
+{% capture ol_code %}
+<ol class="p">
+  <li>Ordered List Item One</li>
+  <li>Ordered List Item Two</li>
+  <li>Ordered List Item Three</li>
+  <li>Ordered List Item Four</li>
+</ol>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Ordered list"
+  content=""
+  code=ol_code
+%}
+
+{% capture dl_code %}
+<dl class="p">
+  <dt>Titled List</dt>
+  <dd>Titled List Item One</dd>
+  <dt>Titled List</dt>
+  <dd>Titled List Item Two</dd>
+  <dt>Titled List</dt>
+  <dd>Titled List Item Three</dd>
+  <dt>Titled List</dt>
+  <dd>Titled List Item Four</dd>
+</dl>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Definition list"
+  content=""
+  code=dl_code
+%}
+
+{%
+  include doc-chapter.html
+  title="Other typography"
+  content=""
+%}
+
+{% capture others_code%}
+<p>
+  <abbr title="abbr">abbr</abbr>&nbsp;&nbsp;
+  <b>Bold</b>&nbsp;&nbsp;
+  <strong>Strong</strong>&nbsp;&nbsp;
+  <del>Delete</del>&nbsp;&nbsp;
+  <em>Emphasis</em>&nbsp;&nbsp;
+  <i>Italic</i>&nbsp;&nbsp;
+  <ins>Inserted</ins>&nbsp;&nbsp;
+  <mark>Mark</mark>&nbsp;&nbsp;
+  <s>Stroke</s>&nbsp;&nbsp;
+  <span>Text <sub>Sub</sub></span>&nbsp;&nbsp;
+  <span>Text <sup>Sup</sup></span>&nbsp;&nbsp;
+  <u>Underline</u>
+</p>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Other typography usage"
+  content=""
+  code=others_code
+%}

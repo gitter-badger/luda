@@ -1,0 +1,66 @@
++install(shared-element-form-helper)
+
+  .fm ::-webkit-input-placeholder
+    color: $form-element-placeholder-color
+
+  .fm ::-moz-placeholder
+    color: $form-element-placeholder-color
+
+  .fm :-ms-input-placeholder
+    color: $form-element-placeholder-color
+
+  .fm[data-error] ::-webkit-input-placeholder
+    color: $form-element-error-placeholder-color
+
+  .fm[data-error] ::-moz-placeholder
+    color: $form-element-error-placeholder-color
+
+  .fm[data-error] :-ms-input-placeholder
+    color: $form-element-error-placeholder-color
+
+  .fm input.focus::-webkit-input-placeholder,
+  .fm textarea.focus::-webkit-input-placeholder,
+  .fm .focus ~ input::-webkit-input-placeholder
+    color: $form-element-focus-placeholder-color
+
+  .fm input.focus::-moz-placeholder,
+  .fm textarea.focus::-moz-placeholder,
+  .fm .focus ~ input::-moz-placeholder
+    color: $form-element-focus-placeholder-color
+
+  .fm input.focus:-ms-input-placeholder,
+  .fm textarea.focus:-ms-input-placeholder,
+  .fm .focus ~ input:-ms-input-placeholder
+    color: $form-element-focus-placeholder-color
+
+
+
+  .fm[data-error]::after,
+  .fm[data-hint]::after
+    display: block
+    width: 100%
+    font-size: typo-size($form-element-helper-typography-size-level)
+    line-height: typo-line-height($form-element-helper-typography-size-level)
+
+  .fm[data-hint]::after
+    content: attr(data-hint)
+    color: $form-element-hint-message-color
+
+  .fm[data-error]::after,
+  .fm[data-hint][data-error]::after
+    content: attr(data-error)
+    color: $form-element-error-message-color
+
+
+
+  @if $form-element-small-helper-typography-size-level
+    .fm-small.fm[data-hint]::after,
+    .fm-small.fm[data-error]::after
+      font-size: typo-size($form-element-small-helper-typography-size-level)
+      line-height: typo-line-height($form-element-small-helper-typography-size-level)
+
+  @if $form-element-large-helper-typography-size-level
+    .fm-large.fm[data-hint]::after,
+    .fm-large.fm[data-error]::after
+      font-size: typo-size($form-element-large-helper-typography-size-level)
+      line-height: typo-line-height($form-element-large-helper-typography-size-level)

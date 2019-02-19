@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{ page.title }} | Luda - A lightweight and responsive UI framework for modern web development.</title>
+    {% include head.html %}
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="https://fonts.font.im/css?family=Raleway:400,100,200,300,500,600,700,800,900">
+    <script type="text/javascript" src="{{ '/assets/js/turbolinks.js' | relative_url }}"></script>
+
+    <link rel="stylesheet" type="text/css" href="{{ '/assets/luda/css/luda-default.min.css' | relative_url }}">
+    {% if jekyll.environment == "development" %}
+    <link rel="stylesheet" type="text/css" href="{{ '/assets/css/site.css' | relative_url }}">
+    {% else %}
+    <link rel="stylesheet" type="text/css" href="{{ '/assets/css/site.min.css' | relative_url }}">
+    {% endif %}
+
+    <script type="text/javascript" src="{{ '/assets/luda/js/luda-degradation.min.js' | relative_url }}"></script>
+    <script type="text/javascript" src="{{ '/assets/luda/js/luda.min.js' | relative_url }}"></script>
+    {% if jekyll.environment == "development" %}
+    <script type="text/javascript" src="{{ '/assets/js/site.js' | relative_url }}"></script>
+    {% else %}
+    <script type="text/javascript" src="{{ '/assets/js/site.min.js' | relative_url }}"></script>
+    <script type="text/javascript" src="/version.js"></script>
+    {% include site-version.html %}
+    {% endif %}
+  </head>
+  <body>
+    {% if jekyll.environment != "development" %}
+    {% include site-version-alert.html %}
+    {% endif %}
+    {{ content }}
+  </body>
+</html>

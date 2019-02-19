@@ -1,0 +1,31 @@
+{% assign id = include.title | downcase | split: " " | join: "-" %}
+
+{% if include.code_sample %}
+  {% assign code_sample = include.code_sample %}
+{% else %}
+  {% assign code_sample = include.code %}
+{% endif %}
+
+<h4 class="mt-large fw-regular">
+  <!-- htmllint id-class-style="false" -->
+  <a class="c-primary td-none" href="#{{ id }}" id="{{ id }}" data-turbolinks="false">
+    # {{ include.title | capitalize }}
+    {% if include.is_modifier == true %}
+    <span class="badge bc-dark">Modifier</span>
+    {% endif %}
+  </a>
+</h4>
+
+{% if include.content %}
+<p>{{ include.content }}</p>
+{% endif %}
+
+{% if include.code %}
+<div>{{ include.code }}</div>
+{% endif %}
+
+{% if code_sample %}
+<pre class="code mt-small">
+<code>{{ code_sample | escape }}</code>
+</pre>
+{% endif %}

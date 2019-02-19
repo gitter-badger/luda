@@ -1,0 +1,56 @@
+---
+title: Home
+layout: common
+permalink: /
+---
+
+<div id="home-background" class="fix w-100 of-hidden">
+  <video autoplay loop muted playsinline class="o-more-muted">
+    <source type="video/mp4" src="{{ '/assets/video/home-background.mp4' | relative_url }}">
+  </video>
+</div>
+
+<div id="home" class="rel zi-high dis-flex fd-column jc-between-m min-h-100vh pt-medium-m pb-small-m">
+  {% include main-header.html %}
+  <div class="home-main grid container w-100 py-large py-none-m">
+    <h1 class="col-12 col-8-m col-6-l mt-large fw-regular c-light">
+      A lightweight and responsive UI framework for modern web development.
+    </h1>
+    <hr class="mb-medium-m">
+    <div class="col-12 col-3-m mt-large ta-right ta-left-m">
+      <h3 class="fw-regular c-light">Lightweight</h3>
+      <p class="c-light">
+        No dependency<br>
+        Only 23kb minified and gzipped
+      </p>
+    </div>
+    <div class="col-12 col-3-m mt-large">
+      <h3 class="fw-regular c-light">Responsive</h3>
+      <p class="c-light">
+        Flexbox-based<br>
+        Flexible layout for various screens
+      </p>
+    </div>
+    <div class="col-12 col-3-m mt-large ta-right ta-left-m">
+      <h3 class="fw-regular c-light">Rhythmical</h3>
+      <p class="c-light">
+        Horizontal baseline grid<br>
+        1rem as the basic baseline unit
+      </p>
+    </div>
+    <div class="col-12 col-3-m mt-large">
+      <h3 class="fw-regular c-light">Dynamic</h3>
+      <p class="c-light">
+        Based on mutation observer<br>
+        Components inited automatically
+      </p>
+    </div>
+    <div class="col-12 mt-large pt-small pb-medium dis-none-m">
+      <div class="btns-x btns-fluid">
+        <a href="{{ '/general/introduction' | relative_url }}" class="btn btn-light c-primary">Get started</a>
+        <a href="{{ '/general/installation' | relative_url }}" class="btn btn-hollow-light">Download</a>
+      </div>
+    </div>
+  </div>
+  {% include main-footer.html %}
+</div>

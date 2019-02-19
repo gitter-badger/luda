@@ -1,0 +1,266 @@
+---
+title: Button
+description: Buttons can be created easly by Luda CSS calsses
+  in various styles, sizes, actions and more.
+---
+
+{%
+  include doc-chapter.html
+  title="Button categories"
+  content="Button elements includes Solid Button,
+  Hollow Button, Text Button, Checkbox Button,
+  Radio Button and File Button."
+%}
+
+{% capture button_solid_code %}
+<button class="btn btn-primary">Primary</button>
+<button class="btn btn-secondary">Secondary</button>
+<button class="btn btn-dark">Dark</button>
+<button class="btn btn-light">Light</button>
+<button class="btn btn-danger">Danger</button>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Solid buttons"
+  content="Solid button has solid background,
+  add classes <code>btn btn-{$color}</code>
+  to a <code>button</code> to create a solid button."
+  code=button_solid_code
+%}
+
+{% capture button_hollow_code %}
+<button class="btn btn-hollow-primary">Primary</button>
+<button class="btn btn-hollow-secondary">Secondary</button>
+<button class="btn btn-hollow-dark">Dark</button>
+<button class="btn btn-hollow-light">Light</button>
+<button class="btn btn-hollow-danger">Danger</button>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Hollow buttons"
+  content="Hollow button has hollow background,
+  add classes <code>btn btn-hollow-{$color}</code>
+  to a <code>button</code> to create a solid button."
+  code=button_hollow_code
+%}
+
+{% capture button_text_code %}
+<button class="btn btn-text-primary">Primary</button>
+<button class="btn btn-text-secondary">Secondary</button>
+<button class="btn btn-text-danger">Danger</button>
+<button class="btn btn-text-dark">Dark</button>
+<button class="btn btn-text-light">Light</button>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Text buttons"
+  content="Text button has solid background,
+  add classes <code>btn btn-{$color}</code>
+  to a <code>button</code> to create a solid button."
+  code=button_solid_code
+%}
+
+{%
+  include doc-chapter.html
+  title="Button tags"
+  content="Button classes can be added to other html tags not only to <code>button</code> tag."
+%}
+
+{% capture button_tags_code %}
+<a href="#" class="btn btn-primary">Link</a>
+<input type="submit" value="Submit" class="btn btn-hollow-primary">
+<input type="reset" value="Reset" class="btn btn-primary">
+<input type="button" value="Button" class="btn btn-hollow-primary">
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Use other html tags as buttons"
+  content="Just add <code>.btn-*</code> classes to html tag."
+  code=button_tags_code
+%}
+
+{% capture checkbox_button_code %}
+<div class="btn-check btn-hollow-primary">
+  <input type="checkbox" name="favriout_films" value="kill_bill">
+  <label>Kill Bill</label>
+</div>
+<div class="btn-check btn-hollow-primary">
+  <input type="checkbox" name="favriout_films" value="django">
+  <label>Django</label>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Checkbox button"
+  content="Add class <code>.btn-check</code> and button categories classes
+  to a <code>div</code> tag with a <code>input</code> tag wrapped in."
+  code=checkbox_button_code
+%}
+
+{% capture radio_button_code %}
+<div class="btn-radio btn-hollow-primary">
+  <input type="radio" name="decision" value="yes">
+  <label>Yes, I agree.</label>
+</div>
+<div class="btn-radio btn-hollow-danger">
+  <input type="radio" name="decision" value="no">
+  <label>No, I disagree.</label>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Radio button"
+  content="Add class <code>.btn-radio</code> and button categories classes
+  to a <code>div</code> tag with a <code>input</code> tag wrapped in."
+  code=radio_button_code
+%}
+
+{% capture file_button_code %}
+<div class="btn-file btn-primary">
+  <input type="file">
+  <label>Upload a file</label>
+</div>
+<div class="btn-file btn-hollow-primary">
+  <input multiple type="file">
+  <label>Upload files</label>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="File button"
+  content="Add class <code>.btn-file</code> and button categories classes
+  to a <code>div</code> tag with a <code>input</code> tag wrapped in."
+  code=file_button_code
+%}
+
+{%
+  include doc-chapter.html
+  title="Button states"
+  content="Button state can be changed to <code>disabled</code>,
+  <code>checked</code> or <code>actived</code>."
+%}
+
+{% capture disabled_button_code %}
+<button disabled class="btn btn-primary">Disabled</button>
+<div class="btn-file btn-hollow-primary" disabled>
+  <input disabled type="file">
+  <label>Disabled file</label>
+</div>
+<div class="btn-check btn-hollow-primary" disabled>
+  <input disabled type="checkbox">
+  <label>Disabled checkbox</label>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Disabled button"
+  content="Add attribute <code>disabled</code> to a button to disabled it,
+  if it's a checkbox button, radio button or file button,
+  add attribute <code>disabled</code> to the wrapped input too."
+  code=disabled_button_code
+%}
+
+{% capture actived_button_code %}
+<button class="btn btn-hollow-primary btn-active">Actived</button>
+<div class="btn-file btn-hollow-primary btn-active">
+  <input type="file">
+  <label>Actived file</label>
+</div>
+<div class="btn-radio btn-hollow-primary btn-active">
+  <input type="radio" name="actived_radio">
+  <label>Actived radio</label>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Actived button"
+  content="Add class <code>.btn-active</code> to a button to show actived state."
+  code=actived_button_code
+%}
+
+{% capture checked_button_code %}
+<div class="btn-radio btn-hollow-primary">
+  <input checked type="radio" name="checked_radio">
+  <label>Checked radio</label>
+</div>
+<div class="btn-check btn-hollow-primary">
+  <input checked type="checkbox">
+  <label>Checked checkbox</label>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Checked button"
+  content="Add attribute <code>checked</code> to the wrapped in input
+  of a checkbox button or radio button."
+  code=checked_button_code
+%}
+
+{%
+  include doc-chapter.html
+  title="Button modifiers"
+  content="Button size can be changed with size modifiers."
+%}
+
+{% capture small_buttons_code %}
+<button class="btn btn-primary btn-small">Small</button>
+<button class="btn btn-hollow-primary btn-small">Small</button>
+<button class="btn btn-text-primary btn-small">Small</button>
+<div class="btn-file btn-hollow-primary btn-small">
+  <input type="file">
+  <label>Small file button</label>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Small buttons"
+  is_modifier=true
+  content="Add class <code>.btn-small</code> to a button element."
+  code=small_buttons_code
+%}
+
+{% capture large_buttons_code %}
+<button class="btn btn-primary btn-large">Large</button>
+<button class="btn btn-hollow-primary btn-large">Large</button>
+<button class="btn btn-text-primary btn-large">Large</button>
+<div class="btn-check btn-hollow-primary btn-large">
+  <input type="checkbox">
+  <label>Large check button</label>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Large buttons"
+  is_modifier=true
+  content="Add class <code>.btn-large</code> to a button element."
+  code=large_buttons_code
+%}
+
+{% capture fluid_buttons_code %}
+<button class="btn btn-primary btn-small btn-fluid mb-small">Small fluid</button>
+<button class="btn btn-hollow-primary btn-fluid mb-small">Fluid</button>
+<div class="btn-file btn-primary btn-large btn-fluid">
+  <input type="file">
+  <label>Large fluid file button</label>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Fluid buttons"
+  is_modifier=true
+  content="Add class <code>.btn-fluid</code> to a button element."
+  code=fluid_buttons_code
+%}

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Navigation | Luda - A lightweight and responsive UI framework for modern web development.</title>
+    <meta charset="UTF-8">
+<!-- viewport -->
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<!-- render -->
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<!-- apple app mode -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Luda">
+<!-- chrome -->
+<meta name="mobile-web-app-capable" content="yes">
+<!-- Chrome, Firefox OS and Opera -->
+<meta name="theme-color" content="#525252">
+<!-- Windows Phone -->
+<meta name="msapplication-navbutton-color" content="#525252">
+<meta name="application-name" content="Luda">
+<!-- apple no tel -->
+<meta content="telephone=no" name="format-detection">
+<!-- windows phone no tap color -->
+<meta name="msapplication-tap-highlight" content="no">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="https://fonts.font.im/css?family=Raleway:400,100,200,300,500,600,700,800,900">
+    <script type="text/javascript" src="/0.1.x/assets/js/turbolinks.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/0.1.x/assets/luda/css/luda-default.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="/0.1.x/assets/css/site.min.css">
+    
+
+    <script type="text/javascript" src="/0.1.x/assets/luda/js/luda-degradation.min.js"></script>
+    <script type="text/javascript" src="/0.1.x/assets/luda/js/luda.min.js"></script>
+    
+    <script type="text/javascript" src="/0.1.x/assets/js/site.min.js"></script>
+    <script type="text/javascript" src="/version.js"></script>
+    <script type="text/javascript">
+  window.site = window.site || {}
+  window.site.version = "0.1.x"
+  luda.on('docready', function(){
+    if(window.site.version != window.site.latestVersion){
+      luda.toggle.active('site-version-alert')
+    }
+  })
+</script>
+
+    
+  </head>
+  <body>
+    
+    <div class="alert fix-t zi-highest bc-danger jc-center" data-toggle-target="site-version-alert">
+  <div class="alert-content">
+    <p>
+      There is a newer version of <a class="link-light" href="/">Luda</a>.
+    </p>
+  </div>
+  <div class="alert-action">
+    <a href="/" class="btn btn-light btn-small mr-small">Let's go!</a>
+    <button data-toggle class="btn btn-hollow-light btn-small">I don't care.</button>
+  </div>
+</div>
+
+    
+    <div id="doc" class="grid-edge">
+  <aside id="doc-aside" class="nav-aside col-12 col-3-m">
+  <a href="/" class="nav-logo">
+    <img src="/0.1.x/assets/img/logo-text.svg" alt="logo">
+  </a>
+  <button class="nav-open btn btn-text-light btn-ico" data-toggle-for="nav-aside-menu">
+    <i class="ico ico-menu"></i>
+  </button>
+  <div class="nav-menu" data-toggle-target="nav-aside-menu" data-toggle>
+    <button class="nav-close btn btn-text-light btn-ico">
+      <i class="ico ico-cross"></i>
+    </button>
+<!--<div class="nav-search fm fm-search fm-small" data-none-toggle>
+      <input type="search" placeholder="Search anything...">
+    </div>-->
+    <div class="nav-items">
+      <p class="px-small c-light">Get Started</p>
+      
+      
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/introduction">Introduction</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/installation">Installation</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/browser-support">Browser support</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/build-tools">Build tools</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/theming">Theming</a>
+  
+
+
+    </div>
+    <div class="nav-items">
+      <p class="px-small c-light">Behaviours</p>
+      
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/disabled">Disabled</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/enter-click">Enter click</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/focus">Focus</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/radio-tab">Radio tab</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/readonly">Readonly</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/toggle">Toggle</a>
+  
+
+
+    </div>
+    <div class="nav-items">
+      <p class="px-small c-light">Elements</p>
+      
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/badge">Badge</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/baseline">Baseline</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/button">Button</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/container">Container</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/form">Form</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/grid">Grid</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/icon">Icon</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/overlay">Overlay</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/progress">Progress</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/scrollbar">Scrollbar</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/table">Table</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/typography">Typography</a>
+  
+
+
+    </div>
+    <div class="nav-items">
+      <p class="px-small c-light">Collections</p>
+      
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/alert">Alert</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/avatar">Avatar</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/breadcrumb">Breadcrumb</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/button-group">Button group</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/button-icon">Button icon</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/carousel">Carousel</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/dropdown">Dropdown</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/form-button">Form button</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/form-dropdown">Form dropdown</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/form-group">Form group</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/form-icon">Form icon</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/media">Media</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/modal">Modal</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light btn-active" href="/0.1.x/collections/nav">Navigation</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/tab">Tab</a>
+  
+
+
+    </div>
+    <div class="nav-items">
+      <p class="px-small c-light">Utilities</p>
+      
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/align">Align</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/background">Background</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/color">Color</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/display">Display</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/flex">Flex</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/float">Float</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/opacity">Opacity</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/overflow">Overflow</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/position">Position</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/shape">Shape</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/size">Size</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/space">Space</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/text">Text</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/visibility">Visibility</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/z-index">Z-index</a>
+  
+
+
+    </div>
+  </div>
+</aside>
+
+  <main class="col-auto">
+    <div id="doc-container" class="grid container py-medium p-large-m mx-auto">
+      <div class="col-12">
+        <h1 class="mt-large mt-small-m fw-regular">Navigation</h1>
+<p class="p3">Navigation description</p>
+
+        
+
+
+
+
+
+
+
+<h4 class="mt-large fw-regular">
+  <!-- htmllint id-class-style="false" -->
+  <a class="c-primary td-none" href="#navigation-header" id="navigation-header" data-turbolinks="false">
+    # Navigation header
+    
+  </a>
+</h4>
+
+
+<p></p>
+
+
+
+<div>
+<header class="nav-header">
+  <a href="#" class="nav-logo">
+    <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIC02Mi4wMDAwMDAwMDAwMDAwMTQgMjkzLjg1NTI2MzE1Nzg5NDc0IDEw%0D%0AMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMzAwIj48ZyB0cmFu%0D%0Ac2Zvcm09InRyYW5zbGF0ZSgtMi43NjMxNTc4OTQ3MzY4NDIgMzYuNjg0MjEwNTI2MzE1NzgpIHNj%0D%0AYWxlKDEuODI3NDg1MzgwMTE2OTU4OCkiIGZpbGw9IiNGRkZGRkYiPjxnPjxwYXRoIGQ9Ik0xLjUx%0D%0AMi01MC40MDBMMS41MTItNDguODE2TDUuNzYwLTQ4LjgxNkw1Ljc2MC0xLjU4NEwxLjUxMi0xLjU4%0D%0ANEwxLjUxMiAwTDM5LjY3MiAwTDQxLjA0MC0xNi44NDhMMzkuNTI4LTE2Ljg0OEMzNy4wMzItMTEu%0D%0ANjY0IDM0LjU3Mi03LjgyNCAzMi4xNDgtNS4zMjhDMjkuNzI0LTIuODMyIDI2LjQ3Mi0xLjU4NCAy%0D%0AMi4zOTItMS41ODRMMTkuODAwLTEuNTg0TDE5LjgwMC00OC44MTZMMjcuNDMyLTQ4LjgxNkwyNy40%0D%0AMzItNTAuNDAwWiI+PC9wYXRoPjxwYXRoIGQ9Ik04My43NDMgMEw4My43NDMtMS4yOTZMNzkuNzgz%0D%0ALTEuMjk2TDc5Ljc4My0zNC4yNzJMNjMuMDc5LTM0LjI3Mkw2My4wNzktMzIuOTc2TDY2LjM5MS0z%0D%0AMi45NzZMNjYuMzkxLTEwLjk0NEM2Ni4zOTEtOC4zMDQgNjUuOTExLTYuMjQwIDY0Ljk1MS00Ljc1%0D%0AMkM2My45OTEtMy4yNjQgNjIuODk5LTIuNTIwIDYxLjY3NS0yLjUyMEM2MC40NTEtMi41MjAgNTku%0D%0ANjM1LTIuOTc2IDU5LjIyNy0zLjg4OEM1OC44MTktNC44MDAgNTguNjE1LTYuNjk2IDU4LjYxNS05%0D%0ALjU3Nkw1OC42MTUtMzQuMjcyTDQxLjE5MS0zNC4yNzJMNDEuMTkxLTMyLjk3Nkw0NS4yMjMtMzIu%0D%0AOTc2TDQ1LjIyMy0xMS4zMDRDNDUuMjIzLTMuMjg4IDQ4Ljk0MyAwLjcyMCA1Ni4zODMgMC43MjBD%0D%0ANTkuMzU5IDAuNzIwIDYxLjYwMyAwLjIwNCA2My4xMTUtMC44MjhDNjQuNjI3LTEuODYwIDY1Ljc2%0D%0ANy0zLjMzNiA2Ni41MzUtNS4yNTZMNjcuMzI3IDBaIj48L3BhdGg+PHBhdGggZD0iTTk4LjU4Mi00%0D%0ALjg2MEM5OC4wNTQtNi41MTYgOTcuNzkwLTkuODY0IDk3Ljc5MC0xNC45MDRMOTcuNzkwLTE4LjY0%0D%0AOEM5Ny43OTAtMjMuOTI4IDk4LjA3OC0yNy42MjQgOTguNjU0LTI5LjczNkM5OS4yMzAtMzEuODQ4%0D%0AIDEwMC4zMTAtMzIuOTA0IDEwMS44OTQtMzIuOTA0QzEwMy40NzgtMzIuOTA0IDEwNC42NzgtMzIu%0D%0AMTg0IDEwNS40OTQtMzAuNzQ0QzEwNi4zMTAtMjkuMzA0IDEwNi43MTgtMjcuNTUyIDEwNi43MTgt%0D%0AMjUuNDg4TDEwNi43MTgtOS43OTJDMTA2LjcxOC03LjM0NCAxMDYuMjAyLTUuNDk2IDEwNS4xNzAt%0D%0ANC4yNDhDMTA0LjEzOC0zLjAwMCAxMDIuOTE0LTIuMzc2IDEwMS40OTgtMi4zNzZDMTAwLjA4Mi0y%0D%0ALjM3NiA5OS4xMTAtMy4yMDQgOTguNTgyLTQuODYwWk0xMDcuNjU0IDBMMTIzLjYzOCAwTDEyMy42%0D%0AMzgtMS4yOTZMMTIwLjExMC0xLjI5NkwxMjAuMTEwLTU0LjAwMEwxMDIuMTEwLTU0LjAwMEwxMDIu%0D%0AMTEwLTUyLjcwNEwxMDYuNTAyLTUyLjcwNEwxMDYuNTAyLTMxLjQ2NEMxMDUuMTU4LTMzLjgxNiAx%0D%0AMDIuMzc0LTM0Ljk5MiA5OC4xNTAtMzQuOTkyQzg4LjY0Ni0zNC45OTIgODMuODk0LTI5LjAxNiA4%0D%0AMy44OTQtMTcuMDY0QzgzLjg5NC0xMS4xNjAgODUuMDM0LTYuNzIwIDg3LjMxNC0zLjc0NEM4OS41%0D%0AOTQtMC43NjggOTIuNzk4IDAuNzIwIDk2LjkyNiAwLjcyMEMxMDEuOTE4IDAuNzIwIDEwNS4yMzAt%0D%0AMS4yMDAgMTA2Ljg2Mi01LjA0MFoiPjwvcGF0aD48cGF0aCBkPSJNMTQwLjc4Mi0xNi45MjBDMTM1%0D%0ALjE2Ni0xNi45MjAgMTMxLjAwMi0xNi4yODQgMTI4LjI5MC0xNS4wMTJDMTI1LjU3OC0xMy43NDAg%0D%0AMTI0LjIyMi0xMS40MDAgMTI0LjIyMi03Ljk5MkMxMjQuMjIyLTIuMTg0IDEyNy43NzQgMC43MjAg%0D%0AMTM0Ljg3OCAwLjcyMEMxMzcuMjc4IDAuNzIwIDEzOS4xMDIgMC4yODggMTQwLjM1MC0wLjU3NkMx%0D%0ANDEuNTk4LTEuNDQwIDE0Mi41MzQtMi43ODQgMTQzLjE1OC00LjYwOEMxNDQuMDIyLTEuMDU2IDE0%0D%0ANy4zMzQgMC43MjAgMTUzLjA5NCAwLjcyMEMxNTYuMjYyIDAuNzIwIDE1OC41NDItMC4wNzIgMTU5%0D%0ALjkzNC0xLjY1NkMxNjEuMzI2LTMuMjQwIDE2Mi4xMTgtNi4xNDQgMTYyLjMxMC0xMC4zNjhMMTYx%0D%0ALjIzMC0xMC40NDBDMTYwLjk0Mi01LjQ5NiAxNTkuOTgyLTMuMDI0IDE1OC4zNTAtMy4wMjRDMTU2%0D%0ALjk1OC0zLjAyNCAxNTYuMjYyLTQuMjcyIDE1Ni4yNjItNi43NjhMMTU2LjI2Mi0yMS4zODRDMTU2%0D%0ALjI2Mi0yNi41NjggMTU1LjE3MC0zMC4xMzIgMTUyLjk4Ni0zMi4wNzZDMTUwLjgwMi0zNC4wMjAg%0D%0AMTQ2Ljg1NC0zNC45OTIgMTQxLjE0Mi0zNC45OTJDMTMxLjExMC0zNC45OTIgMTI2LjA5NC0zMi4w%0D%0ANDAgMTI2LjA5NC0yNi4xMzZDMTI2LjA5NC0yMi4xNTIgMTI4LjE1OC0yMC4xNjAgMTMyLjI4Ni0y%0D%0AMC4xNjBDMTM0LjExMC0yMC4xNjAgMTM1LjYyMi0yMC42NzYgMTM2LjgyMi0yMS43MDhDMTM4LjAy%0D%0AMi0yMi43NDAgMTM4LjYyMi0yMy45NjQgMTM4LjYyMi0yNS4zODBDMTM4LjYyMi0yNi43OTYgMTM4%0D%0ALjQzMC0yOC4wMDggMTM4LjA0Ni0yOS4wMTZMMTM2LjI0Ni0yOS4wMTZDMTM1Ljk1OC0yOS44MzIg%0D%0AMTM1LjgxNC0zMC42MzYgMTM1LjgxNC0zMS40MjhDMTM1LjgxNC0zMi4yMjAgMTM2LjE2Mi0zMi44%0D%0ANDQgMTM2Ljg1OC0zMy4zMDBDMTM3LjU1NC0zMy43NTYgMTM4LjMzNC0zMy45ODQgMTM5LjE5OC0z%0D%0AMy45ODRDMTQwLjYzOC0zMy45ODQgMTQxLjYxMC0zMy4yMDQgMTQyLjExNC0zMS42NDRDMTQyLjYx%0D%0AOC0zMC4wODQgMTQyLjg3MC0yNy4wMjQgMTQyLjg3MC0yMi40NjRMMTQyLjg3MC0xNi45MjBaTTEz%0D%0AOC4yOTgtMy4yNDBDMTM4LjAzNC0zLjk2MCAxMzcuOTAyLTUuNTY4IDEzNy45MDItOC4wNjRMMTM3%0D%0ALjkwMi05LjIxNkMxMzcuOTAyLTEzLjU4NCAxMzkuMzkwLTE1Ljc2OCAxNDIuMzY2LTE1Ljc2OEwx%0D%0ANDIuODcwLTE1Ljc2OEwxNDIuODcwLTkuMDcyQzE0Mi44NzAtNi45MTIgMTQyLjU0Ni01LjIyMCAx%0D%0ANDEuODk4LTMuOTk2QzE0MS4yNTAtMi43NzIgMTQwLjU1NC0yLjE2MCAxMzkuODEwLTIuMTYwQzEz%0D%0AOS4wNjYtMi4xNjAgMTM4LjU2Mi0yLjUyMCAxMzguMjk4LTMuMjQwWiI+PC9wYXRoPjwvZz48L2c+%0D%0APC9zdmc+" alt="logo">
+  </a>
+  <button class="nav-open btn btn-text-light btn-ico" data-toggle-for="header-menu">
+    <i class="ico ico-menu"></i>
+  </button>
+  <div class="nav-menu" data-toggle-target="header-menu">
+    <button class="nav-close btn btn-text-light btn-ico" data-toggle>
+      <i class="ico ico-cross"></i>
+    </button>
+    <div class="nav-search fm fm-search fm-small">
+      <input type="search" placeholder="Search anything...">
+    </div>
+    <nav class="nav-items" data-toggle>
+      <a href="#" class="btn btn-text-light btn-active">Home</a>
+      <a href="#" class="btn btn-text-light">Documentation</a>
+      <a href="#" class="btn btn-text-light">Themes</a>
+      <a href="#" class="btn btn-text-light">Changelog</a>
+      <a href="#" class="btn btn-text-light">Github</a>
+    </nav>
+    <nav class="nav-sub-items">
+      <div class="dropdown-static dropdown-absolute-m dropdown-align-right">
+        <button class="btn btn-text-light btn-ico-right">
+          Admin<i class="ico ico-down"></i>
+        </button>
+        <div class="dropdown-menu mx-small-m">
+          <div class="dropdown-items mt-small-m" data-toggle>
+            <a href="#" class="btn btn-text-light">Profile</a>
+            <a href="#" class="btn btn-text-light">Sign out</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+</div>
+
+
+
+<pre class="code mt-small">
+<code>
+&lt;header class=&quot;nav-header&quot;&gt;
+  &lt;a href=&quot;#&quot; class=&quot;nav-logo&quot;&gt;
+    &lt;img src=&quot;...&quot; alt=&quot;logo&quot;&gt;
+  &lt;/a&gt;
+  &lt;button class=&quot;nav-open btn btn-text-light btn-ico&quot; data-toggle-for=&quot;header-menu&quot;&gt;
+    &lt;i class=&quot;ico ico-menu&quot;&gt;&lt;/i&gt;
+  &lt;/button&gt;
+  &lt;div class=&quot;nav-menu&quot; data-toggle-target=&quot;header-menu&quot;&gt;
+    &lt;button class=&quot;nav-close btn btn-text-light btn-ico&quot; data-toggle&gt;
+      &lt;i class=&quot;ico ico-cross&quot;&gt;&lt;/i&gt;
+    &lt;/button&gt;
+    &lt;div class=&quot;nav-search fm fm-search fm-small&quot;&gt;
+      &lt;input type=&quot;search&quot; placeholder=&quot;Search anything...&quot;&gt;
+    &lt;/div&gt;
+    &lt;nav class=&quot;nav-items&quot; data-toggle&gt;
+      &lt;a href=&quot;#&quot; class=&quot;btn btn-text-light btn-active&quot;&gt;Home&lt;/a&gt;
+      &lt;a href=&quot;#&quot; class=&quot;btn btn-text-light&quot;&gt;Documentation&lt;/a&gt;
+      &lt;a href=&quot;#&quot; class=&quot;btn btn-text-light&quot;&gt;Themes&lt;/a&gt;
+      &lt;a href=&quot;#&quot; class=&quot;btn btn-text-light&quot;&gt;Changelog&lt;/a&gt;
+      &lt;a href=&quot;#&quot; class=&quot;btn btn-text-light&quot;&gt;Github&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;nav class=&quot;nav-sub-items&quot;&gt;
+      &lt;div class=&quot;dropdown-static dropdown-absolute-m dropdown-align-right&quot;&gt;
+        &lt;button class=&quot;btn btn-text-light btn-ico-right&quot;&gt;
+          Admin&lt;i class=&quot;ico ico-down&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+        &lt;div class=&quot;dropdown-menu mx-small-m&quot;&gt;
+          &lt;div class=&quot;dropdown-items mt-small-m&quot; data-toggle&gt;
+            &lt;a href=&quot;#&quot; class=&quot;btn btn-text-light&quot;&gt;Profile&lt;/a&gt;
+            &lt;a href=&quot;#&quot; class=&quot;btn btn-text-light&quot;&gt;Sign out&lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+</code>
+</pre>
+
+
+
+
+
+
+
+
+
+
+<h4 class="mt-large fw-regular">
+  <!-- htmllint id-class-style="false" -->
+  <a class="c-primary td-none" href="#navigation-aside" id="navigation-aside" data-turbolinks="false">
+    # Navigation aside
+    
+  </a>
+</h4>
+
+
+<p></p>
+
+
+
+<div>
+<aside class="nav-aside">
+  <a href="#" class="nav-logo">
+    <img src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIC02Mi4wMDAwMDAwMDAwMDAwMTQgMjkzLjg1NTI2MzE1Nzg5NDc0IDEw%0D%0AMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMzAwIj48ZyB0cmFu%0D%0Ac2Zvcm09InRyYW5zbGF0ZSgtMi43NjMxNTc4OTQ3MzY4NDIgMzYuNjg0MjEwNTI2MzE1NzgpIHNj%0D%0AYWxlKDEuODI3NDg1MzgwMTE2OTU4OCkiIGZpbGw9IiNGRkZGRkYiPjxnPjxwYXRoIGQ9Ik0xLjUx%0D%0AMi01MC40MDBMMS41MTItNDguODE2TDUuNzYwLTQ4LjgxNkw1Ljc2MC0xLjU4NEwxLjUxMi0xLjU4%0D%0ANEwxLjUxMiAwTDM5LjY3MiAwTDQxLjA0MC0xNi44NDhMMzkuNTI4LTE2Ljg0OEMzNy4wMzItMTEu%0D%0ANjY0IDM0LjU3Mi03LjgyNCAzMi4xNDgtNS4zMjhDMjkuNzI0LTIuODMyIDI2LjQ3Mi0xLjU4NCAy%0D%0AMi4zOTItMS41ODRMMTkuODAwLTEuNTg0TDE5LjgwMC00OC44MTZMMjcuNDMyLTQ4LjgxNkwyNy40%0D%0AMzItNTAuNDAwWiI+PC9wYXRoPjxwYXRoIGQ9Ik04My43NDMgMEw4My43NDMtMS4yOTZMNzkuNzgz%0D%0ALTEuMjk2TDc5Ljc4My0zNC4yNzJMNjMuMDc5LTM0LjI3Mkw2My4wNzktMzIuOTc2TDY2LjM5MS0z%0D%0AMi45NzZMNjYuMzkxLTEwLjk0NEM2Ni4zOTEtOC4zMDQgNjUuOTExLTYuMjQwIDY0Ljk1MS00Ljc1%0D%0AMkM2My45OTEtMy4yNjQgNjIuODk5LTIuNTIwIDYxLjY3NS0yLjUyMEM2MC40NTEtMi41MjAgNTku%0D%0ANjM1LTIuOTc2IDU5LjIyNy0zLjg4OEM1OC44MTktNC44MDAgNTguNjE1LTYuNjk2IDU4LjYxNS05%0D%0ALjU3Nkw1OC42MTUtMzQuMjcyTDQxLjE5MS0zNC4yNzJMNDEuMTkxLTMyLjk3Nkw0NS4yMjMtMzIu%0D%0AOTc2TDQ1LjIyMy0xMS4zMDRDNDUuMjIzLTMuMjg4IDQ4Ljk0MyAwLjcyMCA1Ni4zODMgMC43MjBD%0D%0ANTkuMzU5IDAuNzIwIDYxLjYwMyAwLjIwNCA2My4xMTUtMC44MjhDNjQuNjI3LTEuODYwIDY1Ljc2%0D%0ANy0zLjMzNiA2Ni41MzUtNS4yNTZMNjcuMzI3IDBaIj48L3BhdGg+PHBhdGggZD0iTTk4LjU4Mi00%0D%0ALjg2MEM5OC4wNTQtNi41MTYgOTcuNzkwLTkuODY0IDk3Ljc5MC0xNC45MDRMOTcuNzkwLTE4LjY0%0D%0AOEM5Ny43OTAtMjMuOTI4IDk4LjA3OC0yNy42MjQgOTguNjU0LTI5LjczNkM5OS4yMzAtMzEuODQ4%0D%0AIDEwMC4zMTAtMzIuOTA0IDEwMS44OTQtMzIuOTA0QzEwMy40NzgtMzIuOTA0IDEwNC42NzgtMzIu%0D%0AMTg0IDEwNS40OTQtMzAuNzQ0QzEwNi4zMTAtMjkuMzA0IDEwNi43MTgtMjcuNTUyIDEwNi43MTgt%0D%0AMjUuNDg4TDEwNi43MTgtOS43OTJDMTA2LjcxOC03LjM0NCAxMDYuMjAyLTUuNDk2IDEwNS4xNzAt%0D%0ANC4yNDhDMTA0LjEzOC0zLjAwMCAxMDIuOTE0LTIuMzc2IDEwMS40OTgtMi4zNzZDMTAwLjA4Mi0y%0D%0ALjM3NiA5OS4xMTAtMy4yMDQgOTguNTgyLTQuODYwWk0xMDcuNjU0IDBMMTIzLjYzOCAwTDEyMy42%0D%0AMzgtMS4yOTZMMTIwLjExMC0xLjI5NkwxMjAuMTEwLTU0LjAwMEwxMDIuMTEwLTU0LjAwMEwxMDIu%0D%0AMTEwLTUyLjcwNEwxMDYuNTAyLTUyLjcwNEwxMDYuNTAyLTMxLjQ2NEMxMDUuMTU4LTMzLjgxNiAx%0D%0AMDIuMzc0LTM0Ljk5MiA5OC4xNTAtMzQuOTkyQzg4LjY0Ni0zNC45OTIgODMuODk0LTI5LjAxNiA4%0D%0AMy44OTQtMTcuMDY0QzgzLjg5NC0xMS4xNjAgODUuMDM0LTYuNzIwIDg3LjMxNC0zLjc0NEM4OS41%0D%0AOTQtMC43NjggOTIuNzk4IDAuNzIwIDk2LjkyNiAwLjcyMEMxMDEuOTE4IDAuNzIwIDEwNS4yMzAt%0D%0AMS4yMDAgMTA2Ljg2Mi01LjA0MFoiPjwvcGF0aD48cGF0aCBkPSJNMTQwLjc4Mi0xNi45MjBDMTM1%0D%0ALjE2Ni0xNi45MjAgMTMxLjAwMi0xNi4yODQgMTI4LjI5MC0xNS4wMTJDMTI1LjU3OC0xMy43NDAg%0D%0AMTI0LjIyMi0xMS40MDAgMTI0LjIyMi03Ljk5MkMxMjQuMjIyLTIuMTg0IDEyNy43NzQgMC43MjAg%0D%0AMTM0Ljg3OCAwLjcyMEMxMzcuMjc4IDAuNzIwIDEzOS4xMDIgMC4yODggMTQwLjM1MC0wLjU3NkMx%0D%0ANDEuNTk4LTEuNDQwIDE0Mi41MzQtMi43ODQgMTQzLjE1OC00LjYwOEMxNDQuMDIyLTEuMDU2IDE0%0D%0ANy4zMzQgMC43MjAgMTUzLjA5NCAwLjcyMEMxNTYuMjYyIDAuNzIwIDE1OC41NDItMC4wNzIgMTU5%0D%0ALjkzNC0xLjY1NkMxNjEuMzI2LTMuMjQwIDE2Mi4xMTgtNi4xNDQgMTYyLjMxMC0xMC4zNjhMMTYx%0D%0ALjIzMC0xMC40NDBDMTYwLjk0Mi01LjQ5NiAxNTkuOTgyLTMuMDI0IDE1OC4zNTAtMy4wMjRDMTU2%0D%0ALjk1OC0zLjAyNCAxNTYuMjYyLTQuMjcyIDE1Ni4yNjItNi43NjhMMTU2LjI2Mi0yMS4zODRDMTU2%0D%0ALjI2Mi0yNi41NjggMTU1LjE3MC0zMC4xMzIgMTUyLjk4Ni0zMi4wNzZDMTUwLjgwMi0zNC4wMjAg%0D%0AMTQ2Ljg1NC0zNC45OTIgMTQxLjE0Mi0zNC45OTJDMTMxLjExMC0zNC45OTIgMTI2LjA5NC0zMi4w%0D%0ANDAgMTI2LjA5NC0yNi4xMzZDMTI2LjA5NC0yMi4xNTIgMTI4LjE1OC0yMC4xNjAgMTMyLjI4Ni0y%0D%0AMC4xNjBDMTM0LjExMC0yMC4xNjAgMTM1LjYyMi0yMC42NzYgMTM2LjgyMi0yMS43MDhDMTM4LjAy%0D%0AMi0yMi43NDAgMTM4LjYyMi0yMy45NjQgMTM4LjYyMi0yNS4zODBDMTM4LjYyMi0yNi43OTYgMTM4%0D%0ALjQzMC0yOC4wMDggMTM4LjA0Ni0yOS4wMTZMMTM2LjI0Ni0yOS4wMTZDMTM1Ljk1OC0yOS44MzIg%0D%0AMTM1LjgxNC0zMC42MzYgMTM1LjgxNC0zMS40MjhDMTM1LjgxNC0zMi4yMjAgMTM2LjE2Mi0zMi44%0D%0ANDQgMTM2Ljg1OC0zMy4zMDBDMTM3LjU1NC0zMy43NTYgMTM4LjMzNC0zMy45ODQgMTM5LjE5OC0z%0D%0AMy45ODRDMTQwLjYzOC0zMy45ODQgMTQxLjYxMC0zMy4yMDQgMTQyLjExNC0zMS42NDRDMTQyLjYx%0D%0AOC0zMC4wODQgMTQyLjg3MC0yNy4wMjQgMTQyLjg3MC0yMi40NjRMMTQyLjg3MC0xNi45MjBaTTEz%0D%0AOC4yOTgtMy4yNDBDMTM4LjAzNC0zLjk2MCAxMzcuOTAyLTUuNTY4IDEzNy45MDItOC4wNjRMMTM3%0D%0ALjkwMi05LjIxNkMxMzcuOTAyLTEzLjU4NCAxMzkuMzkwLTE1Ljc2OCAxNDIuMzY2LTE1Ljc2OEwx%0D%0ANDIuODcwLTE1Ljc2OEwxNDIuODcwLTkuMDcyQzE0Mi44NzAtNi45MTIgMTQyLjU0Ni01LjIyMCAx%0D%0ANDEuODk4LTMuOTk2QzE0MS4yNTAtMi43NzIgMTQwLjU1NC0yLjE2MCAxMzkuODEwLTIuMTYwQzEz%0D%0AOS4wNjYtMi4xNjAgMTM4LjU2Mi0yLjUyMCAxMzguMjk4LTMuMjQwWiI+PC9wYXRoPjwvZz48L2c+%0D%0APC9zdmc+" alt="logo">
+  </a>
+  <button class="nav-open btn btn-text-light btn-ico" data-toggle-for="nav-aside-menu">
+    <i class="ico ico-menu"></i>
+  </button>
+  <div class="nav-menu" data-toggle-target="nav-aside-menu">
+    <button class="nav-close btn btn-text-light btn-ico" data-toggle>
+      <i class="ico ico-cross"></i>
+    </button>
+    <div class="nav-search fm fm-search fm-small">
+      <input type="search" placeholder="Search anything...">
+    </div>
+    <nav class="nav-items" data-toggle>
+      <a href="#" class="btn btn-text-light btn-active">Home</a>
+      <a href="#" class="btn btn-text-light">Documentation</a>
+      <a href="#" class="btn btn-text-light">Themes</a>
+      <a href="#" class="btn btn-text-light">Changelog</a>
+      <a href="#" class="btn btn-text-light">Github</a>
+    </nav>
+    <nav class="nav-sub-items">
+      <div class="dropdown-static">
+        <button class="btn btn-text-light btn-ico-right" data-none-toggle>
+          Admin<i class="ico ico-down"></i>
+        </button>
+        <div class="dropdown-menu">
+          <div class="dropdown-items" data-toggle>
+            <a href="#" class="btn btn-text-light">Profile</a>
+            <a href="#" class="btn btn-text-light">Sign out</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</aside>
+</div>
+
+
+
+<pre class="code mt-small">
+<code>
+&lt;aside class=&quot;nav-aside&quot;&gt;
+  &lt;a href=&quot;#&quot; class=&quot;nav-logo&quot;&gt;
+    &lt;img src=&quot;...&quot; alt=&quot;logo&quot;&gt;
+  &lt;/a&gt;
+  &lt;button class=&quot;nav-open btn btn-text-light btn-ico&quot; data-toggle-for=&quot;nav-aside-menu&quot;&gt;
+    &lt;i class=&quot;ico ico-menu&quot;&gt;&lt;/i&gt;
+  &lt;/button&gt;
+  &lt;div class=&quot;nav-menu&quot; data-toggle-target=&quot;nav-aside-menu&quot;&gt;
+    &lt;button class=&quot;nav-close btn btn-text-light btn-ico&quot; data-toggle&gt;
+      &lt;i class=&quot;ico ico-cross&quot;&gt;&lt;/i&gt;
+    &lt;/button&gt;
+    &lt;div class=&quot;nav-search fm fm-search fm-small&quot;&gt;
+      &lt;input type=&quot;search&quot; placeholder=&quot;Search anything...&quot;&gt;
+    &lt;/div&gt;
+    &lt;nav class=&quot;nav-items&quot; data-toggle&gt;
+      &lt;a href=&quot;#&quot; class=&quot;btn btn-text-light btn-active&quot;&gt;Home&lt;/a&gt;
+      &lt;a href=&quot;#&quot; class=&quot;btn btn-text-light&quot;&gt;Documentation&lt;/a&gt;
+      &lt;a href=&quot;#&quot; class=&quot;btn btn-text-light&quot;&gt;Themes&lt;/a&gt;
+      &lt;a href=&quot;#&quot; class=&quot;btn btn-text-light&quot;&gt;Changelog&lt;/a&gt;
+      &lt;a href=&quot;#&quot; class=&quot;btn btn-text-light&quot;&gt;Github&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;nav class=&quot;nav-sub-items&quot;&gt;
+      &lt;div class=&quot;dropdown-static&quot;&gt;
+        &lt;button class=&quot;btn btn-text-light btn-ico-right&quot; data-none-toggle&gt;
+          Admin&lt;i class=&quot;ico ico-down&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+        &lt;div class=&quot;dropdown-menu&quot;&gt;
+          &lt;div class=&quot;dropdown-items&quot; data-toggle&gt;
+            &lt;a href=&quot;#&quot; class=&quot;btn btn-text-light&quot;&gt;Profile&lt;/a&gt;
+            &lt;a href=&quot;#&quot; class=&quot;btn btn-text-light&quot;&gt;Sign out&lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+&lt;/aside&gt;
+</code>
+</pre>
+
+      </div>
+    </div>
+  </main>
+</div>
+  </body>
+</html>

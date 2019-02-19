@@ -1,0 +1,20 @@
+---
+title: Overlay
+description: Overlay description
+---
+
+{% capture overlay_code %}
+<button class="btn btn-primary" data-toggle-for="overlay">Active overlay</button>
+<div class="overlay" data-toggle-target="overlay" data-toggle>
+  <div class="overlay-body bc-light">
+    Overlay content
+  </div>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Overlay usage"
+  content="Overlay usage description"
+  code=overlay_code
+%}

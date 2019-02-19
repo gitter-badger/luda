@@ -1,0 +1,21 @@
++install(shared-collection-form-dropdown)
+
+  .fm-dropdown.dropdown-absolute,
+  .fm-dropdown.dropdown-fixed
+    width: 100%
+
+  +media-width($dropdown-width-breakpoint)
+
+    .fm-dropdown.dropdown-absolute-#{$dropdown-width-breakpoint}:not(.dropdown-top)
+
+      > .dropdown-menu
+        order: -1
+
+      > .dropdown-menu > .dropdown-items
+        margin-top: $form-element-textfield-height-rem + $dropdown-absolute-drop-gap-rem
+
+      > .fm-small ~ .dropdown-menu > .dropdown-items
+        margin-top: $form-element-small-textfield-height-rem + $dropdown-absolute-drop-gap-rem
+
+      > .fm-large ~ .dropdown-menu > .dropdown-items
+        margin-top: $form-element-large-textfield-height-rem + $dropdown-absolute-drop-gap-rem

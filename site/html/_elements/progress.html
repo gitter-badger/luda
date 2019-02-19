@@ -1,0 +1,33 @@
+---
+title: Progress
+description: Progress description
+---
+
+{% capture progress_code %}
+<div class="progress">
+  <div class="progress-bar w-25">25%</div>
+  <div class="progress-bar w-33 bc-danger">33%</div>
+  <div class="progress-bar w-33 bc-dark">33%</div>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Progress usage"
+  content="Progress usage description"
+  code=progress_code
+%}
+
+{% capture progress_height_code %}
+<div class="progress" style="height:1rem">
+  <div class="progress-bar w-25"></div>
+  <div class="progress-bar bc-danger w-50"></div>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  title="Progerss height"
+  content="Progress height description"
+  code=progress_height_code
+%}
