@@ -17,23 +17,24 @@
   .fm-search.fm-ico-right input
     background: $form-element-background
 
+  // sass-lint:disable empty-args
   .fm-select.fm-ico-right[data-error] input,
   .fm-file.fm-ico-right[data-error] input,
   .fm-search.fm-ico-right[data-error] input
-    background: form-error-background
+    background: form-error-background()
 
   .fm.fm-select.fm-ico-right .focus ~ input,
   .fm.fm-select.fm-ico-right input.focus,
   .fm.fm-file.fm-ico-right .focus ~ input,
   .fm.fm-search.fm-ico-right input.focus
-    background: form-focus-background
+    background: form-focus-background()
 
   .fm.fm-select[data-error].fm-ico-right .focus ~ input,
   .fm.fm-select[data-error].fm-ico-right input.focus,
   .fm.fm-file[data-error].fm-ico-right .focus ~ input,
   .fm.fm-search[data-error].fm-ico-right input.focus
-    background: form-error-focus-background
-
+    background: form-error-focus-background()
+  // sass-lint:enable empty-args
 
 
   .fm > .ico

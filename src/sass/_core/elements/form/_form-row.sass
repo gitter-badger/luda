@@ -67,8 +67,10 @@
     background: $form-element-error-background
 
   @if $form-element-error-background or $form-element-error-icon-color
-    $icon-color: form-error-icon-color
-    $background: form-error-background
+    // sass-lint:disable empty-args
+    $icon-color: form-error-icon-color()
+    $background: form-error-background()
+    // sass-lint:enable empty-args
 
     .fm-search[data-error] input
       +form-row-background-icon($form-element-search-icon, $icon-color, $background)
@@ -97,8 +99,10 @@
     background: $form-element-focus-background
 
   @if $form-element-focus-background or $form-element-focus-icon-color
-    $icon-color: form-focus-icon-color
-    $background: form-focus-background
+    // sass-lint:disable empty-args
+    $icon-color: form-focus-icon-color()
+    $background: form-focus-background()
+    // sass-lint:enable empty-args
 
     .fm.fm-search input.focus
       +form-row-background-icon($form-element-search-icon, $icon-color, $background)
@@ -111,8 +115,10 @@
       +form-row-background-icon($form-element-add-icon, $icon-color, $background)
 
     @if $form-element-error-background or $form-element-error-icon-color
-      $focus-icon-color: form-error-focus-icon-color
-      $focus-background: form-error-focus-background
+      // sass-lint:disable empty-args
+      $focus-icon-color: form-error-focus-icon-color()
+      $focus-background: form-error-focus-background()
+      // sass-lint:enable empty-args
 
       .fm.fm-search[data-error] input.focus
         +form-row-background-icon($form-element-search-icon, $focus-icon-color, $focus-background)
