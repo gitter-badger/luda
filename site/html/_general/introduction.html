@@ -6,14 +6,32 @@ order: 1
 
 {%
   include doc-chapter.html
-  title="Architecture"
-  content="Components are classified into different categories, including Behaviour, Element, Collection and Utility."
+  title="Designed for Lazy Developers"
+  content="Luda is based on mutation observer API,
+  you don't have to create nor destroy components manually.
+  You just insert or remove html, all the dirty work is handled by Luda."
+%}
+
+{%
+  include doc-chapter.html
+  title="Designed for Creative Designers"
+  content="Luda provides different themes with idempotent style definations.
+  Design concepts like type scale, baseline grid and more are considered.
+  All the styles can be easily customized by overriding built in sass variables and definations."
+%}
+
+{%
+  include doc-chapter.html
+  title="Designed for Brilliant Architects"
+  content="Luda is modular, all dependencies are internally handeled, even sass.
+  So you just import what you need without any worry. The components are classified into different types,
+  you can follow this architecture to extend Luda."
 %}
 
 {%
   include doc-example.html
-  title="Behaviour"
-  content="Behaviours are pure javascript components or functional css to control user interaction."
+  title="Behaviors"
+  content="Behaviors are pure javascript components or functional css to control user interaction."
 %}
 
 {%

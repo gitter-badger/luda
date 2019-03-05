@@ -1,5 +1,5 @@
 /*! 
- * Luda degradation script 0.1.6 | https://luda.dev
+ * Luda degradation script 0.1.7 | https://luda.dev
  * Copyright 2018 oatw | https://oatw.blog
  * MIT license | http://opensource.org/licenses/MIT
  */
@@ -25,7 +25,8 @@
     ],
     _JS_PROPERTIES: {
       es6Class: 'class X {}',
-      es6ArrowFunction: '((x) => x)()'
+      es6ArrowFunction: '((x) => x)()',
+      mutationObserver: 'new MutationObserver(function(){})'
     },
     _NOTIFY_MILLSECONDS: 500,
     check: function() {

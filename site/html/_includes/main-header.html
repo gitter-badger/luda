@@ -26,12 +26,12 @@
       {% else %}
       <a href="{{ '/changelog' | relative_url }}" class="btn btn-text-light">Changelog</a>
       {% endif %}
-      <a href="https://github.com/littlstonee/luda" class="btn btn-text-light">Github</a>
+      <a href="https://github.com/oatw/luda" class="btn btn-text-light">Github</a>
     </nav>
     <nav class="nav-sub-items">
       <div class="dropdown-static dropdown-absolute-m dropdown-align-right">
         <button class="btn btn-text-light btn-active">
-          {{ site.version }}
+          v{{ site.version }}
         </button>
         <div class="dropdown-menu mx-small-m">
           <div class="dropdown-items mt-small-m">
@@ -39,7 +39,7 @@
         </div>
       </div>
       {% if page.title == 'Home' %}
-      <a href="https://github.com/littlstonee/luda/release" class="dis-none dis-inline-flex-m btn btn-text-light btn-active mr-small">Download</a>
+      <a href="https://github.com/oatw/luda/raw/v{{site.release_version}}/release/dist/luda-{{site.release_version}}.zip" class="dis-none dis-inline-flex-m btn btn-text-light btn-active mr-small">Download</a>
       <a href="{{ '/general/introduction' | relative_url }}" class="dis-none dis-inline-flex-m btn btn-small btn-light mr-small c-primary rounded">Get started</a>
       {% endif %}
     </nav>
