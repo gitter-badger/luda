@@ -25,6 +25,7 @@ Degradation =
   _JS_PROPERTIES:
     es6Class: 'class X {}'
     es6ArrowFunction: '((x) => x)()'
+    mutationObserver: 'new MutationObserver(function(){})'
 
   _NOTIFY_MILLSECONDS: 500
 
