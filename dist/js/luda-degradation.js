@@ -25,7 +25,8 @@
     ],
     _JS_PROPERTIES: {
       es6Class: 'class X {}',
-      es6ArrowFunction: '((x) => x)()'
+      es6ArrowFunction: '((x) => x)()',
+      mutationObserver: 'new MutationObserver(function(){})'
     },
     _NOTIFY_MILLSECONDS: 500,
     check: function() {
