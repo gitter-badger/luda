@@ -9,7 +9,8 @@
     "grid system",
     "baseline grid",
     "sass",
-    "coffeescript2"
+    "coffeescript2",
+    "jacascript"
   ],
   "homepage": "https://luda.dev",
   "repository": {
