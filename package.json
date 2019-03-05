@@ -36,7 +36,7 @@
     "npm": ">=6"
   },
   "scripts": {
-    "dev-init": "echo +++ Checking node... && node -v && echo +++ Checking npm... && npm -v && echo +++ Checking yarn... && yarn -v && echo +++ Checking gem... && gem -v && echo +++ Checking bundler... && bundle -v && echo +++ Checking zip... && zip -v && yarn install && bundle install && echo +++ Login gem... && gem signin && echo +++ Login npm && npm login && echo +++ Development enviroument checked and inited successfully.",
+    "dev-init": "echo +++ Checking node... && node -v && echo +++ Checking npm... && npm -v && echo +++ Checking yarn... && yarn -v && echo +++ Checking ruby... && ruby -v && echo +++ Checking gem... && gem -v && echo +++ Checking bundler... && bundle -v && echo +++ Checking zip... && zip -v && yarn install && bundle install && echo +++ Login gem... && gem signin && echo +++ Login npm && npm login && echo +++ Development enviroument checked and inited successfully.",
     "css-banner": "node build/make-css-banner.js",
     "css-compile": "cross-conf-env npm run css-banner --luda:theme=npm_package_config_theme && cross-conf-env sass src/sass/npm_package_config_theme/index.sass dist/css/luda-npm_package_config_theme.css --embed-sources --precision npm_package_config_sassPrecision",
     "css-minify": "cross-conf-env cleancss --output dist/css/luda-npm_package_config_theme.min.css dist/css/luda-npm_package_config_theme.css --level 2 --format breaksWith=lf --source-map --source-map-inline-sources",
