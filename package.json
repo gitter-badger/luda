@@ -82,7 +82,7 @@
     "serve-test": "cross-conf-env cross-env JEKYLL_ENV=npm_package_config_theme-test bundle exec jekyll serve --config build/jekyll.config.yml --port npm_package_config_port",
     "serve-site": "npm-run-all --parallel site-luda-copy site-page-data && cross-conf-env bundle exec jekyll serve --config \"build/site.jekyll.config.yml,build/site.jekyll.config.data.yml\" --port npm_package_config_port --destination .tmp/site/npm_package_config_siteVersion --livereload",
     "new-theme-sass": "cross-conf-env shx cp -rf src/sass/default/. src/sass/npm_package_config_theme",
-    "new-theme-entries": "cross-conf-env json -I -f package.json -e \"theme='npm_package_config_theme';this[theme+'Css']='dist/luda-'+theme+'.css';\"",
+    "new-theme-entries": "cross-conf-env json -I -f package.json -e \"theme='npm_package_config_theme';this['theme-'+theme]='dist/luda-'+theme+'.css';\"",
     "new-theme": "npm-run-all --parallel new-theme-sass new-theme-entries",
     "test-js-compile": "rollup --input test/specs/index.coffee --file .tmp/test/specs/specs.js --format cjs --external assert --config build/rollup.config.js",
     "test-reference": "cross-conf-env shx rm -rf test/screenshots/npm_package_config_theme && cross-conf-env cross-env LUDA_TEST_ENV=reference npm run test --luda:theme=npm_package_config_theme",
@@ -130,5 +130,6 @@
     "yamljs": "^0.3.0"
   },
   "main": "dist/js/luda.js",
-  "defaultCss": "dist/css/luda-default.css"
+  "degradation": "dist/js/luda-degradation.js",
+  "theme-default": "dist/css/luda-default.css"
 }
