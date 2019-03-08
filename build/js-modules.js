@@ -14,7 +14,7 @@ var getEntries = function(){
   .then(function(files){
     var enteries = []
     files.forEach(function(file){
-      if(file.match(/\.coffee$/) && !file.match(/index.coffee$/)){
+      if(file.match(/\.coffee$/)){
         enteries.push(file)
       }
     })
