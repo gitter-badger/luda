@@ -6,6 +6,7 @@
   {% assign code_sample = include.code %}
 {% endif %}
 
+{% if include.title %}
 <h4 class="mt-large fw-regular">
   <!-- htmllint id-class-style="false" -->
   <a class="c-primary td-none" href="#{{ id }}" id="{{ id }}" data-turbolinks="false">
@@ -15,6 +16,7 @@
     {% endif %}
   </a>
 </h4>
+{% endif %}
 
 {% if include.content %}
 <p>{{ include.content }}</p>
