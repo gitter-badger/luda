@@ -1,14 +1,13 @@
 ---
 title: Introduction
-description: Before we start, here is a short introduction for you to better understand the theories and principles behind Luda.
+description: Before we start, here is a short introduction for you to better understand the principles and theories behind Luda.
 order: 1
 ---
 
 {%
   include doc-chapter.html
   title="Why Luda?"
-  content="If you want to know if Luda is suitable for you or your projects,
-  consider below key feature explations."
+  content="You can know if Luda is for you through below core principle explations."
 %}
 
 {%
@@ -28,16 +27,15 @@ order: 1
 {%
   include doc-example.html
   title="Designed for Lazy Developers"
-  content="Based on mutation observer API, Luda component handles lifecycle automitaclly. You just need change your html.
-  Every component handles its document flow internally, you can freely position it in or out of the normal document flow without any worry."
+  content="Based on mutation observer, Luda component handles lifecycle automitaclly, no more manual Javascript control.
+  Every component handles its document flow internally, you can position it in or out of the normal document flow without any worry."
 %}
 
 {%
   include doc-example.html
   title="Designed for Creative Designers"
-  content="Luda provides different themes with idempotent style definations.
-  Design concepts like type scale, column grid, baseline grid and more are considered.
-  All the styles can be easily customized by overriding built in sass variables and definations."
+  content="Luda provides different themes and the sass code is idempotent.
+  All styles can be easily customized by overriding sass variables and definations. Kindly, common design concepts are also built in, like type scale, column grid, baseline grid and more."
 %}
 
 
@@ -52,27 +50,26 @@ order: 1
 
 {%
   include doc-example.html
-  title="Behavior"
-  content="Behaviors are pure javascript components or functional css to control UI actions."
-%}
-
-{%
-  include doc-example.html
   title="Element"
-  content="Each element has a specific function, the can be used alone or combined to create collections.
-  Element styles can be changed by adding modifier class."
+  content="Element is the basic unit to create page elements. Each element has a specific function, the can be used alone or combined together to create collections. For example, <code>button</code> can exists alone
+  and can be combined to create a <code>button group</code>."
 %}
 
 {%
   include doc-example.html
   title="Collection"
-  content="Collections are combinations of elements, collections or extension of other collections.
-  Collection styles can be changed by adding modifier class or combing different style elements and collections."
+  content="Collections are used to descripe common use cases, they can be combinations of elements, collections or extensions of other collections. For example, <code>form button</code> is the collection of a <code>form text</code> field and a <code>button</code> element."
 %}
 
 {%
   include doc-example.html
   title="Utility"
   content="Most utilities are single css rule with important declaration,
-  they are used to define universal pattern or fast override built in styles."
+  they are used to define universal pattern or fast override built in styles. For example, the utility <code>.rel</code> contains a single css rule <code>positon:relative !important</code>."
+%}
+
+{%
+  include doc-example.html
+  title="Behavior"
+  content="Behaviors are pure javascript components or functional css, they are used to control or enhance interaction actions. For example, <code>radio tab</code> enhances <code>form radios</code>, it makes <code>form radios</code> navigatable through <kbd>tab</kbd> key."
 %}
