@@ -1,6 +1,6 @@
 ---
 title: Installation
-description: Luda can be installed through multiple ways and envirouments.
+description: Luda can be easily installed through multiple ways.
 order: 2
 ---
 
@@ -50,7 +50,7 @@ order: 2
 
 {% capture install_in_node_code %}
 // Yarn
-$ yarn add luda  // Yarn
+$ yarn add luda
 // Npm
 $ npm install luda --save
 {% endcapture %}
@@ -121,7 +121,7 @@ $ gem install luda
 
 {%
   include doc-example.html
-  title="Step 2: Choose a Theme and Import in <code>application.sass</code> or <code>application.scss</code>"
+  title="Step 2: Choose a Theme and Import it in <code>application.sass</code> or <code>application.scss</code>"
   code_sample=node_import_theme_code
 %}
 <p class="c-danger fw-bold"> If <code>application.css</code> exists in your project, rename it to <code>.sass</code> or <code>.scss</code> extension. And don't use <code>require</code> statement to import files, use <code>@import</code> instead.</p>
