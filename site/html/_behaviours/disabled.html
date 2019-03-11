@@ -1,3 +1,72 @@
 ---
 title: Disabled
+description: Used disabled attribute to make buttons, forms and more not accessable.
 ---
+
+
+
+{%
+  include doc-chapter.html
+  title="Disable a Button"
+  content="Add <code>disabled</code> attribute to a button to disable it."
+%}
+
+{% capture disabled_button_code %}
+<!-- Disable a Luda button -->
+<button class="btn btn-primary" disabled>Disabled luda button</button>
+<!-- Disable a raw html button -->
+<button disabled>Disabled html button</button>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  code=disabled_button_code
+%}
+
+
+{%
+  include doc-chapter.html
+  title="Disable a Form Element"
+  content="Add <code>disabled</code> attribute to a form element to disable it."
+%}
+
+{% capture disabled_form_code %}
+<!-- Disable a luda text field -->
+<div class="fm fm-text fm-inline" disabled>
+  <input disabled placeholder="Disabled luda form text">
+</div>
+<!-- Disable a raw html text field -->
+<input disabled placeholder="Disabled html form text">
+{% endcapture %}
+
+{%
+  include doc-example.html
+  code=disabled_form_code
+%}
+
+
+{%
+  include doc-chapter.html
+  title="Sass Variables"
+%}
+
+<div class="table table-nowrap table-hover">
+  <table>
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Type</th>
+        <th>Default Value</th>
+        <th>Explanation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code class="b-none">$opacity-disabled</code></td>
+        <td>Number</td>
+        <td><code class="b-none">$opacity-muted</code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
