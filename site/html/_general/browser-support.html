@@ -46,7 +46,7 @@ to get a modern browser.</p>
 <p>The degeradation script is simple to use, just include the script before other scripts in your template and set a degradation url as below.</p>
 
 {% capture degeradation_script_code %}
-<script src="luda-{{site.release_version}}/js/luda-degradation.min.js" data-degradation-url="your_degradation_url"></script>
+<script data-degradation-url="your_degradation_url" src="https://raw.githubusercontent.com/oatw/luda/v{{site.release_version}}/dist/js/luda-degradation.min.js"></script>
 {% endcapture %}
 
 {%

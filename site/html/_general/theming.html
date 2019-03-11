@@ -1,5 +1,486 @@
 ---
 title: Theming
 order: 5
-description: With the power of Sass, you can extend Luda theme just as you wish.
+description: With the power of Sass, you can extend Luda themes just as you wish.
 ---
+
+
+{%
+  include doc-chapter.html
+  title="Override Built in Styles"
+%}
+
+<p>Luda themes are written in Sass, you can override certain css selectors to change built in styles. The source code is idempotent, that means you focus on selector priorities but not orders when overriding. In this way, your styles are more stable and maintainable.</p>
+
+<p>For convinence, there are some built-in modifier classes to change components appearance. Each modifier class is marked as <span class="badge-baseline bc-dark mr-tiny">Modifier</span> in this documentation. If they're not enough for you, you can create your own modifiers.</p>
+
+
+
+{%
+  include doc-chapter.html
+  title="Override Default Variables"
+%}
+
+<p>Theme Sass variables are defined with <code>!default</code> declaration. You should define your variables before importing Luda theme variables, so built-in variables with same name will be overriten.</p>
+
+<p>There two types of theme variables, global variables and component variables. Component variables targets spefic components, they can be referenced in each component documentation area. Global variables are used to define shared style rules across components. If a global variable is changed, any component reference to it will inherit its style defination. You can find all global variables in below table.</p>
+
+
+<div class="table table-nowrap table-hover mt-medium">
+  <table>
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Type</th>
+        <th>Default Value</th>
+        <th>Explanation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code class="b-none">$breakpoint-width-pxs</code></td>
+        <td>Map</td>
+        <td><code class="b-none">(s: 0, m: 768px, l: 1200px)</code></td>
+        <td>Screen width breakpoints.</td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$breakpoint-aspect-ratios</code></td>
+        <td>Map</td>
+        <td><code class="b-none">(p: 0, l: 1.0001)</code></td>
+        <td>Screen aspect ratio breakpoints.</td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$breakpoint-resolutions</code></td>
+        <td>Map</td>
+        <td><code class="b-none">(l: 0, h: 105.6dpi, xh: 201.6dpi)</code></td>
+        <td>Screen resolution breakpoints.</td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$space-base-rem</code></td>
+        <td>Number</td>
+        <td><code class="b-none">1rem</code></td>
+        <td>Base space size.</td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$space-tiny-rem</code></td>
+        <td>Number</td>
+        <td><code class="b-none">$space-base-rem / 2</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$space-small-rem</code></td>
+        <td>Number</td>
+        <td><code class="b-none">$space-base-rem</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$space-medium-rem</code></td>
+        <td>Number</td>
+        <td><code class="b-none">$space-base-rem * 2</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$space-large-rem</code></td>
+        <td>Number</td>
+        <td><code class="b-none">$space-base-rem * 4</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$typography-size-scale-ratio</code></td>
+        <td>Number</td>
+        <td><code class="b-none">1.2</code></td>
+        <td>Scale ratio for type scale.</td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$typography-main-size-px</code></td>
+        <td>Number</td>
+        <td><code class="b-none">14px</code></td>
+        <td>Default font size of html.</td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$typography-main-size-level</code></td>
+        <td>Number</td>
+        <td><code class="b-none">5</code></td>
+        <td>Set font size scale level for calculation. Scale level is from 1 to 6.</td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$typography-main-line-height-ratio</code></td>
+        <td>Number</td>
+        <td><code class="b-none">26 / 14</code></td>
+        <td>Default line height of body.</td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$z-index-low</code></td>
+        <td>Number</td>
+        <td><code class="b-none">-1</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$z-index-normal</code></td>
+        <td>Number</td>
+        <td><code class="b-none">0</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$z-index-high</code></td>
+        <td>Number</td>
+        <td><code class="b-none">1</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$z-index-higher</code></td>
+        <td>Number</td>
+        <td><code class="b-none">2</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$z-index-much-higher</code></td>
+        <td>Number</td>
+        <td><code class="b-none">3</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$z-index-highest</code></td>
+        <td>Number</td>
+        <td><code class="b-none">4</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$opacity-emphasis</code></td>
+        <td>Number</td>
+        <td><code class="b-none">1</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$opacity-main</code></td>
+        <td>Number</td>
+        <td><code class="b-none">0.9</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$opacity-muted</code></td>
+        <td>Number</td>
+        <td><code class="b-none">0.618</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$opacity-more-muted</code></td>
+        <td>Number</td>
+        <td><code class="b-none">0.382</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$opacity-most-muted</code></td>
+        <td>Number</td>
+        <td><code class="b-none">0.1</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$opacity-disabled</code></td>
+        <td>Number</td>
+        <td><code class="b-none">$opacity-muted</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$color-primary</code></td>
+        <td>Color</td>
+        <td><code class="b-none">hsba(340, 54, 98)</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$color-secondary</code></td>
+        <td>Color</td>
+        <td><code class="b-none">hsba(0, 0, 56)</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$color-danger</code></td>
+        <td>Color</td>
+        <td><code class="b-none">hsba(0, 82, 82)</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$color-dark</code></td>
+        <td>Color</td>
+        <td><code class="b-none">hsba(0, 0, 32)</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$color-light</code></td>
+        <td>Color</td>
+        <td><code class="b-none">hsba(0, 0, 100)</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$color-emphasis</code></td>
+        <td>Color</td>
+        <td><code class="b-none">$color-dark</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$color-main</code></td>
+        <td>Color</td>
+        <td><code class="b-none">lighten($color-dark, 10%)</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$color-muted</code></td>
+        <td>Color</td>
+        <td><code class="b-none">lighten($color-dark, 50%)</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$color-inverse-emphasis</code></td>
+        <td>Color</td>
+        <td><code class="b-none">$color-light</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$color-inverse-main</code></td>
+        <td>Color</td>
+        <td><code class="b-none">rgba($color-light, $opacity-main)</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$color-inverse-muted</code></td>
+        <td>Color</td>
+        <td><code class="b-none">rgba($color-light, $opacity-muted)</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$background-color-primary</code></td>
+        <td>Color</td>
+        <td><code class="b-none">$color-primary</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$background-color-secondary</code></td>
+        <td>Color</td>
+        <td><code class="b-none">lighten($color-secondary, 30%)</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$background-color-danger</code></td>
+        <td>Color</td>
+        <td><code class="b-none">$color-danger</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$background-color-dark</code></td>
+        <td>Color</td>
+        <td><code class="b-none">$color-dark</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$background-color-light</code></td>
+        <td>Color</td>
+        <td><code class="b-none">$color-light</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$background-emphasis</code></td>
+        <td>Color | String</td>
+        <td><code class="b-none">lighten($background-color-primary, 22%)</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$background-main</code></td>
+        <td>Color | String</td>
+        <td><code class="b-none">$background-color-light</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$background-muted</code></td>
+        <td>Color | String</td>
+        <td><code class="b-none">darken($background-color-light, 3%)</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$background-inverse-emphasis</code></td>
+        <td>Color | String</td>
+        <td><code class="b-none">lighten($background-color-primary, 22%)</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$background-inverse-main</code></td>
+        <td>Color | String</td>
+        <td><code class="b-none">$background-color-dark</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$background-inverse-muted</code></td>
+        <td>Color | String</td>
+        <td><code class="b-none">lighten($background-color-dark, 3%)</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$line-color-primary</code></td>
+        <td>Color</td>
+        <td><code class="b-none">$color-primary</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$line-color-secondary</code></td>
+        <td>Color</td>
+        <td><code class="b-none">lighten($color-secondary, 30%)</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$line-color-danger</code></td>
+        <td>Color</td>
+        <td><code class="b-none">$color-danger</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$line-color-dark</code></td>
+        <td>Color</td>
+        <td><code class="b-none">$color-dark</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$line-color-light</code></td>
+        <td>Color</td>
+        <td><code class="b-none">$color-light</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$line-color-emphasis</code></td>
+        <td>Color</td>
+        <td><code class="b-none">$line-color-primary</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$line-color-main</code></td>
+        <td>Color</td>
+        <td><code class="b-none">lighten($line-color-dark, 60%)</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$line-color-muted</code></td>
+        <td>Color</td>
+        <td><code class="b-none">lighten($line-color-dark, 40%)</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$line-color-inverse-emphasis</code></td>
+        <td>Color</td>
+        <td><code class="b-none">$line-color-primary</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$line-color-inverse-main</code></td>
+        <td>Color</td>
+        <td><code class="b-none">rgba($line-color-light, $opacity-main)</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$line-color-inverse-muted</code></td>
+        <td>Color</td>
+        <td><code class="b-none">rgba($line-color-light, $opacity-muted)</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$border-radius-sharp</code></td>
+        <td>Number</td>
+        <td><code class="b-none">0</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$border-radius-rounded</code></td>
+        <td>Number</td>
+        <td><code class="b-none">2px</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$border-radius-circle</code></td>
+        <td>Number</td>
+        <td><code class="b-none">9999px</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$border-radius-main</code></td>
+        <td>Number</td>
+        <td><code class="b-none">$border-radius-sharp</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$base-cursor</code></td>
+        <td>String</td>
+        <td><code class="b-none">default</code></td>
+        <td>Default cursor of html.</td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$base-word-break</code></td>
+        <td>String</td>
+        <td><code class="b-none">break-word</code></td>
+        <td>Default word break rule of html.</td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$base-text-underline-position</code></td>
+        <td>String</td>
+        <td><code class="b-none">under</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$base-text-rendering</code></td>
+        <td>String</td>
+        <td><code class="b-none">optimizeLegibility</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$base-webkit-font-smoothing</code></td>
+        <td>String</td>
+        <td><code class="b-none">antialiased</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$base-moz-font-smoothing</code></td>
+        <td>String</td>
+        <td><code class="b-none">grayscale</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$base-tap-highlight-color</code></td>
+        <td>Color</td>
+        <td><code class="b-none">transparent</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$base-webkit-touch-callout</code></td>
+        <td>String</td>
+        <td><code class="b-none">none</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$base-html-background</code></td>
+        <td>Color | String</td>
+        <td><code class="b-none">$background-inverse-muted</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$base-body-min-height</code></td>
+        <td>Number</td>
+        <td><code class="b-none">100vh</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$base-body-background</code></td>
+        <td>Color | String</td>
+        <td><code class="b-none">$background-main</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$base-selection-color</code></td>
+        <td>Color</td>
+        <td><code class="b-none">$color-inverse-main</code></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code class="b-none">$base-selection-background-color</code></td>
+        <td>Color</td>
+        <td><code class="b-none">$background-color-dark</code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
