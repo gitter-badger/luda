@@ -1,3 +1,94 @@
 ---
 title: Focus
+description: Focus enhances html elements focus state by adding <code>.focus</code> class. Except form elements, <code>.focus</code> class will be added only when an element is focused through keyboard or manually called <code>focus()</code> in Javascript.
 ---
+
+
+{%
+  include doc-chapter.html
+  title="Examples"
+%}
+
+
+{% capture link_focus_code_sample %}
+<a href="#">This link will show focus state only when focused through keyboard.</a>
+{% endcapture %}
+
+{% capture link_focus_code %}
+<a href="#" data-turbolinks="false">This link will show focus state only when focused through keyboard.</a>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  code_sample=link_focus_code_sample
+  code=link_focus_code
+%}
+
+
+
+{% capture button_focus_code_sample %}
+<button class="btn btn-primary">Primary button</button>
+{% endcapture %}
+
+{% capture button_focus_code %}
+<button class="btn btn-primary mt-small">Primary button</button>
+<p>
+This button will show focus state only when focused through keyboard.
+</p>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  code_sample=button_focus_code_sample
+  code=button_focus_code
+%}
+
+{% capture form_focus_code_sample %}
+<div class="fm fm-text">
+  <input placeholder="A text filed">
+</div>
+{% endcapture %}
+
+{% capture form_focus_code %}
+<div class="fm fm-text mt-small">
+  <input placeholder="A text filed">
+</div>
+<p>
+This text field will show focus state nomather how it's focused.
+</p>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  code_sample=form_focus_code_sample
+  code=form_focus_code
+%}
+
+{%
+  include doc-chapter.html
+  title="JavaScript"
+%}
+
+<div class="table table-nowrap table-hover">
+  <table>
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Params</th>
+        <th>Explaination</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code class="b-none">luda.focus.deactive()</code></td>
+        <td><code class="b-none"></code></td>
+        <td>Deactive focus globally.</td>
+      </tr>
+      <tr>
+        <td><code class="b-none">luda.focus.active()</code></td>
+        <td><code class="b-none"></code></td>
+        <td>Active focus globally. Actived by default.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
