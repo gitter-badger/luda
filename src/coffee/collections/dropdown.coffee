@@ -15,7 +15,7 @@ luda class extends luda.Component
   @_ITEMS_SELECTOR: 'a[href]:not([disabled]),button:not([disabled]),
                      input:not([disabled]),[tabindex]:not([disabled])'
   @_TOGGLE_ATTRIBUTE: 'data-dropdown-toggle'
-  @_NONE_TOGGLE_ATTRIBUTE: 'data-dropdown-none-toggle'
+  @_NONE_TOGGLE_ATTRIBUTE: 'data-dropdown-toggle-disabled'
   @_STANDALONE_ATTRIBUTE: 'data-dropdown-standalone'
   @_SWITCHES_SELECTOR: "[#{@_TOGGLE_ATTRIBUTE}]"
   @_NONE_SWITCHES_SELECTOR: "[#{@_NONE_TOGGLE_ATTRIBUTE}]"
