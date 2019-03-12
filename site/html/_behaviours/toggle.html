@@ -1,3 +1,98 @@
 ---
 title: Toggle
+description: Toggle is a convinence behaviour to show or hide a html element. Toggle behaviour can be controlled through html attributes or JavaScript methods.
 ---
+
+{%
+  include doc-chapter.html
+  title="Example"
+%}
+
+{% capture toggle_code %}
+<button class="btn btn-primary" data-toggle-for="toggle_example">Click to toggle</button>
+<div class="bc-dark p-small" data-toggle-target="toggle_example" data-toggle>
+  <button class="btn btn-primary">Click to hide</button>
+  <button class="btn btn-light" data-toggle-disabled>Toggle behaviour disabled</button>
+</div>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  code=toggle_code
+%}
+
+
+{%
+  include doc-chapter.html
+  title="HTML Attributes"
+%}
+
+<div class="table table-hover">
+  <table>
+    <thead>
+      <tr>
+        <th><p>Attribute</p></th>
+        <th><p>Value</p></th>
+        <th><p>Description</p></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><p><code class="b-none ws-nowrap">data-toggle-target</code></p></td>
+        <td></td>
+        <td><p>Set a toggle target with a name.</p></td>
+      </tr>
+      <tr>
+        <td><p><code class="b-none ws-nowrap">data-toggle-for</code></p></td>
+        <td></td>
+        <td><p>Set an outside toggler for named toggle targets.</p></td>
+      </tr>
+      <tr>
+        <td><p><code class="b-none ws-nowrap">data-toggle</code></p></td>
+        <td></td>
+        <td><p>Set an inside toggler in a toggle target.</p></td>
+      </tr>
+      <tr>
+        <td><p><code class="b-none ws-nowrap">data-toggle-disabled</code></p></td>
+        <td></td>
+        <td><p>Disable toggle behaviour in an inside toggler.</p></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+{%
+  include doc-chapter.html
+  title="Javascript"
+%}
+
+
+<div class="table table-hover">
+  <table>
+    <thead>
+      <tr>
+        <th><p>Method</p></th>
+        <th><p>Params</p></th>
+        <th><p>Description</p></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><p><code class="b-none ws-nowrap">luda.toggle.active</code></p></td>
+        <td><p>Target name | Target element</p></td>
+        <td><p>Show a toogle target by name or html element.</p></td>
+      </tr>
+      <tr>
+        <td><p><code class="b-none ws-nowrap">luda.toggle.deactive</code></p></td>
+        <td><p>Target name | Target element</p></td>
+        <td><p>Hide a toggle target by name or html element.</p></td>
+      </tr>
+      <tr>
+        <td><p><code class="b-none ws-nowrap">luda.toggle.toggle</code></p></td>
+        <td><p>Target name | Target element</p></td>
+        <td><p>Show or hide a toggle target depending on its state.</p></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

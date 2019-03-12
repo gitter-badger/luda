@@ -1,3 +1,60 @@
 ---
 title: Radio tab
+description: Radio tab enhances radio elements, it makes radios accesable through tab key.
 ---
+
+
+{%
+  include doc-chapter.html
+  title="Examples"
+%}
+
+{% capture radio_tab_code_sample %}
+<div class="fm fm-radio">
+  <label><input type="radio" name="radio_tab" value="one">One</label>
+  <label><input type="radio" value="two" name="radio_tab">Two</label>
+</div>
+{% endcapture %}
+
+{% capture radio_tab_code %}
+<div class="fm fm-radio">
+  <label><input type="radio" name="radio_tab" value="one">One</label>
+  <label><input type="radio" value="two" name="radio_tab">Two</label>
+</div>
+<p>These radios can be focused through tab key or shift + tab key.</p>
+{% endcapture %}
+
+{%
+  include doc-example.html
+  code=radio_tab_code
+  code_sample=radio_tab_code_sample
+%}
+
+{%
+  include doc-chapter.html
+  title="JavaScript"
+%}
+
+<div class="table table-nowrap table-hover">
+  <table>
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Params</th>
+        <th>Explaination</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code class="b-none">luda.radioTab.deactive()</code></td>
+        <td><code class="b-none"></code></td>
+        <td>Deactive radio tab globally.</td>
+      </tr>
+      <tr>
+        <td><code class="b-none">luda.radioTab.active()</code></td>
+        <td><code class="b-none"></code></td>
+        <td>Active radio tab globally. Actived by default.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
