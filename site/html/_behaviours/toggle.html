@@ -27,72 +27,110 @@ description: Toggle is a convinence behaviour to show or hide a html element. To
   title="HTML Attributes"
 %}
 
-<div class="table table-hover">
-  <table>
-    <thead>
-      <tr>
-        <th><p>Attribute</p></th>
-        <th><p>Value</p></th>
-        <th><p>Description</p></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><p><code class="b-none ws-nowrap">data-toggle-target</code></p></td>
-        <td></td>
-        <td><p>Set a toggle target with a name.</p></td>
-      </tr>
-      <tr>
-        <td><p><code class="b-none ws-nowrap">data-toggle-for</code></p></td>
-        <td></td>
-        <td><p>Set an outside toggler for named toggle targets.</p></td>
-      </tr>
-      <tr>
-        <td><p><code class="b-none ws-nowrap">data-toggle</code></p></td>
-        <td></td>
-        <td><p>Set an inside toggler in a toggle target.</p></td>
-      </tr>
-      <tr>
-        <td><p><code class="b-none ws-nowrap">data-toggle-disabled</code></p></td>
-        <td></td>
-        <td><p>Disable toggle behaviour in an inside toggler.</p></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+{% capture data-toggle-target-code %}
+data-toggle-target="target_name"
+{% endcapture %}
+
+{%
+  include doc-example.html
+  code_sample=data-toggle-target-code
+%}
+<p>Sets a toggle target with a name.</p>
+
+
+{% capture data-toggle-for-code %}
+data-toggle-for="target_name"
+{% endcapture %}
+
+{%
+  include doc-example.html
+  code_sample=data-toggle-for-code
+%}
+<p>Sets an outside toggler for named toggle targets.</p>
+
+
+{% capture data-toggle-code %}
+data-toggle
+{% endcapture %}
+
+{%
+  include doc-example.html
+  code_sample=data-toggle-code
+%}
+<p>Sets an inside toggle in a toggle target.</p>
+
+
+{% capture data-toggle-disabled-code %}
+data-toggle-disabled
+{% endcapture %}
+
+{%
+  include doc-example.html
+  code_sample=data-toggle-disabled-code
+%}
+<p>Disable toggle behaviour in an inside toggler.</p>
 
 
 {%
   include doc-chapter.html
-  title="Javascript"
+  title="Javascript Methods"
 %}
 
+{% capture luda_toggle_active_code %}
+luda.toggle.active(param)
+{% endcapture %}
 
-<div class="table table-hover">
-  <table>
-    <thead>
-      <tr>
-        <th><p>Method</p></th>
-        <th><p>Params</p></th>
-        <th><p>Description</p></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><p><code class="b-none ws-nowrap">luda.toggle.active</code></p></td>
-        <td><p>Target name | Target element</p></td>
-        <td><p>Show a toogle target by name or html element.</p></td>
-      </tr>
-      <tr>
-        <td><p><code class="b-none ws-nowrap">luda.toggle.deactive</code></p></td>
-        <td><p>Target name | Target element</p></td>
-        <td><p>Hide a toggle target by name or html element.</p></td>
-      </tr>
-      <tr>
-        <td><p><code class="b-none ws-nowrap">luda.toggle.toggle</code></p></td>
-        <td><p>Target name | Target element</p></td>
-        <td><p>Show or hide a toggle target depending on its state.</p></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+{%
+  include doc-example.html
+  code_sample=luda_toggle_active_code
+%}
+<p>Shows a toggle target. Param can be a toggle target name or toggle target element.</p>
+
+
+{% capture luda_toggle_deactive_code %}
+luda.toggle.deactive(param)
+{% endcapture %}
+
+{%
+  include doc-example.html
+  code_sample=luda_toggle_deactive_code
+%}
+<p>Hides a toggle target. Param can be a toggle target name or toggle target element.</p>
+
+
+{% capture luda_toggle_toggle_code %}
+luda.toggle.toggle(param)
+{% endcapture %}
+
+{%
+  include doc-example.html
+  code_sample=luda_toggle_toggle_code
+%}
+<p>Shows or hides a toggle target depending on its state. Param can be a toggle target name or toggle target element.</p>
+
+{%
+  include doc-chapter.html
+  title="Dom Events"
+%}
+
+{% capture actived_event_code %}
+luda:toggle:actived
+{% endcapture %}
+
+{%
+  include doc-example.html
+  code_sample=actived_event_code
+%}
+<p>Triggered and bubbled after a toggle target showed.</p>
+
+
+
+{% capture deactived_event_code %}
+luda:toggle:deactived
+{% endcapture %}
+
+{%
+  include doc-example.html
+  code_sample=deactived_event_code
+%}
+<p>Triggered and bubbled after a toggle target hided.</p>
