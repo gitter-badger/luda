@@ -10,6 +10,11 @@
 
 host: 0.0.0.0
 
+markdown: kramdown
+kramdown:
+  auto_ids: true
+permalink: pretty
+
 # Build settings
 source: site
 sass:

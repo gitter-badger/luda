@@ -5,10 +5,7 @@ description: Luda supports most modern browsers, for browsers not supported, you
 ---
 
 
-{%
-  include chapter-title.html
-  title="Supported Browsers"
-%}
+## Supported Browsers
 
 <div class="dis-flex fw-wrap jc-between mt-small">
   <div class="mx-tiny ta-center">
@@ -33,51 +30,39 @@ description: Luda supports most modern browsers, for browsers not supported, you
   </div>
 </div>
 
-<p>If your target browsers are not listed above, it does't mean you cannot use Luda. Most modern browsers use the same engines as above ones. If you're not sure if Luda works in your target browser, you can use Luda degeradation script as a fallback option.</p>
+If your target browsers are not listed above, it does't mean you cannot use Luda. Most modern browsers use the same engines as above ones. If you're not sure if Luda works in your target browser, you can use Luda degeradation script as a fallback option.
 
 
-{%
-  include chapter-title.html
-  title="The Degeradation Script"
-%}
-<p>Luda degeradation script is a tiny javascript file detecting the key features Luda based on. If any feature not supported by running browser, the degeradation script will try to redirect to a fallback url defined by its <code>data-degeradation-url</code> attribute. If this attribute is not defined, a simple browser update page will show to remind the user
-to get a modern browser.</p>
+## The Degeradation Script
+Luda degeradation script is a tiny javascript file detecting the key features Luda based on. If any feature not supported by running browser, the degeradation script will try to redirect to a fallback url defined by its `data-degeradation-url` attribute. If this attribute is not defined, a simple browser update page will show to remind the user
+to get a modern browser.
 
-<p>The degeradation script is simple to use, just include the script before other scripts in your template and set a degradation url as below.</p>
+The degeradation script is simple to use, just include the script before other scripts in your template and set a degradation url as below.
 
-{% highlight html %}
+``` html
 <script data-degradation-url="your_degradation_url" src="https://raw.githubusercontent.com/oatw/luda/v{{site.release_version}}/dist/js/luda-degradation.min.js"></script>
-{% endhighlight %}
+```
 
-<p class="mt-small">If you use assets bundlers to import the degeradation script, <b class="c-danger">make sure it's bundled as a standalone file.</b></p>
+If you use assets bundlers to import the degeradation script, __make sure it's bundled as a standalone file__{: .c-danger}.
 
-{%
-  include sample-title.html
-  title="Import in Node.js Apps"
-%}
+#### Import in Node.js Apps
 
-{% highlight javascript %}
+``` javascript
 import 'luda/degeradation'
-{% endhighlight %}
+```
 
-{%
-  include sample-title.html
-  title="Import in Sprokets Apps"
-%}
+#### Import in Sprokets Apps
 
-{% highlight javascript %}
+``` javascript
 //= require luda-degeradation
-{% endhighlight %}
+```
 
-{%
-  include sample-title.html
-  title="Import in Hanami Apps"
-%}
+#### Import in Hanami Apps
 
 <!-- htmllint attr-name-style="false" -->
 <!-- htmllint tag-close="false" -->
-{% highlight html %}
+``` html
 <% javascript 'luda-degeradation' %>
-{% endhighlight %}
+```
 <!-- htmllint attr-name-style="true" -->
 <!-- htmllint tag-close="true" -->

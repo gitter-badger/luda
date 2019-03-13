@@ -320,6 +320,27 @@ html {
   max-width: 1158px;
 }
 
+#doc-container h1,
+#doc-container h2,
+#doc-container h3,
+#doc-container h4 {
+  font-weight: 400;
+}
+
+#doc-container h2 {
+  margin-top: 4rem;
+}
+
+#doc-container h3,
+#doc-container h4,
+#doc-container h5 {
+  margin-top: 1rem;
+}
+
+#doc-container h4 {
+  color: #fa73a0;
+}
+
 @media (min-width:768px) {
   #doc-aside {
     max-width: 18rem;
