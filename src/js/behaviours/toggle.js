@@ -83,7 +83,7 @@
 
     _Class._TOGGLE_FOR_ATTRIBUTE = 'data-toggle-for';
 
-    _Class._NONE_TOGGLE_ATTRIBUTE = 'data-none-toggle';
+    _Class._NONE_TOGGLE_ATTRIBUTE = 'data-toggle-disabled';
 
     _Class._ACTIVE_CSS_CLASS = 'toggle-active';
 

@@ -234,7 +234,7 @@
 
     _Class._TOGGLE_ATTRIBUTE = 'data-dropdown-toggle';
 
-    _Class._NONE_TOGGLE_ATTRIBUTE = 'data-dropdown-none-toggle';
+    _Class._NONE_TOGGLE_ATTRIBUTE = 'data-dropdown-toggle-disabled';
 
     _Class._STANDALONE_ATTRIBUTE = 'data-dropdown-standalone';
 

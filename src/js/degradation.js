@@ -20,7 +20,8 @@
     ],
     _JS_PROPERTIES: {
       es6Class: 'class X {}',
-      es6ArrowFunction: '((x) => x)()'
+      es6ArrowFunction: '((x) => x)()',
+      mutationObserver: 'new MutationObserver(function(){})'
     },
     _NOTIFY_MILLSECONDS: 500,
     check: function() {
@@ -104,10 +105,14 @@
       }
     },
     _notify: function() {
-      var _self, redirectUrl;
-      redirectUrl = document.documentElement.getAttribute(this._URL_ATTRIBUTE);
-      if (redirectUrl) {
-        return location.href = redirectUrl;
+      var _self, i, len, redirectUrl, ref, script;
+      ref = document.scripts;
+      for (i = 0, len = ref.length; i < len; i++) {
+        script = ref[i];
+        redirectUrl = script.getAttribute(this._URL_ATTRIBUTE);
+        if (redirectUrl) {
+          return location.href = redirectUrl;
+        }
       }
       _self = this;
       return setInterval(function() {

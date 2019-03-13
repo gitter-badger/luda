@@ -7,11 +7,16 @@ order: 5
 
 
 {%
-  include doc-chapter.html
+  include chapter-title.html
   title="In Node.js Powered Apps"
 %}
 
-{% capture sass_modular_import_in_node_code %}
+{%
+  include sample-title.html
+  title="Theme Sass Modular Import"
+%}
+
+{% highlight sass %}
 // Import your custom variable overrides.
 @import path_to_your_sass_variables
 // Theme functions, variables and mixins are required.
@@ -71,19 +76,14 @@ order: 5
 @import 'path_to_node_modules/luda/src/sass/default/utilities/background'
 @import 'path_to_node_modules/luda/src/sass/default/utilities/text'
 @import 'path_to_node_modules/luda/src/sass/default/utilities/shape'
-{% endcapture %}
-
-
-
+{% endhighlight %}
 
 {%
-  include doc-example.html
-  title="Theme Sass Modular Import"
-  code_sample=sass_modular_import_in_node_code
+  include sample-title.html
+  title="JavaScript Modular Import"
 %}
 
-
-{% capture javascript_modular_import_in_node_code %}
+{% highlight javascript %}
 // Behaviours
 import 'luda/src/js/behaviours/enter-click'
 import 'luda/src/js/behaviours/focus'
@@ -98,24 +98,21 @@ import 'luda/src/js/collections/carousel'
 import 'luda/src/js/collections/dropdown'
 import 'luda/src/js/collections/form-dropdown'
 import 'luda/src/js/collections/tab'
-{% endcapture %}
-
-{%
-  include doc-example.html
-  title="JavaScript Modular Import"
-  code_sample=javascript_modular_import_in_node_code
-%}
-
+{% endhighlight %}
 
 
 
 {%
-  include doc-chapter.html
+  include chapter-title.html
   title="In Sprokets Powered Apps"
 %}
 
+{%
+  include sample-title.html
+  title="Theme Sass Modular Import"
+%}
 
-{% capture sass_modular_import_in_sprokets_code %}
+{% highlight sass %}
 // Import your custom variable overrides.
 @import path_to_your_sass_variables
 // Theme functions, variables and mixins are required.
@@ -175,17 +172,14 @@ import 'luda/src/js/collections/tab'
 @import luda/default/utilities/background
 @import luda/default/utilities/text
 @import luda/default/utilities/shape
-{% endcapture %}
-
+{% endhighlight %}
 
 {%
-  include doc-example.html
-  title="Theme Sass Modular Import"
-  code_sample=sass_modular_import_in_sprokets_code
+  include sample-title.html
+  title="JavaScript Modular Import"
 %}
 
-
-{% capture javascript_modular_import_in_sprokets_code %}
+{% highlight javascript %}
 // Behaviours
 //= require luda/behaviours/enter-click
 //= require luda/behaviours/focus
@@ -200,34 +194,30 @@ import 'luda/src/js/collections/tab'
 //= require luda/collections/dropdown
 //= require luda/collections/form-dropdown
 //= require luda/collections/tab
-{% endcapture %}
+{% endhighlight %}
 
 {%
-  include doc-example.html
-  title="JavaScript Modular Import"
-  code_sample=javascript_modular_import_in_sprokets_code
-%}
-
-
-{%
-  include doc-chapter.html
+  include chapter-title.html
   title="In Hanami Apps"
 %}
 
 {%
-  include doc-example.html
+  include sample-title.html
   title="Theme Sass Modular Import"
-  content="Sass modular import is the same to <a>Sprokets Apps</a>"
 %}
+<p>Sass modular import is the same to <a>Sprokets Apps</a></p>
 
 {%
-  include doc-example.html
+  include sample-title.html
   title="JavaScript Modular Import"
-  content="Hanami team is considering add Webpack support in v2,
+%}
+<p>Hanami team is considering add Webpack support in v2,
   but before that you have to manually handle Javascript dependencies
   if thirdparty assets management gems not installed. That's really old time fashion, and
   can be painful for large project devloping and maintainance.
+</p>
+<p>
   If you want to import Luda JavaScript modularly before Hanami v2,
   I strongly recommend use thridparty assets manager instead. Otherwise, you have
-  to dive into Luda source code to figure out Javascript dependencies."
-%}
+  to dive into Luda source code to figure out Javascript dependencies.
+</p>

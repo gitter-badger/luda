@@ -365,7 +365,7 @@ textarea,
   user-select: none;
 }
 
-[data-readonly]:not([data-readonly=false]) {
+[data-readonly] {
   cursor: default;
   pointer-events: none;
   -webkit-user-select: none;

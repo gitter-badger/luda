@@ -4,21 +4,23 @@ description: Luda can be easily installed through multiple ways.
 order: 2
 ---
 
-
 {%
-  include doc-chapter.html
+  include chapter-title.html
   title="Install Pre-built JavaScript and CSS"
 %}
 
-
 {%
-  include doc-example.html
+  include sample-title.html
   title="Step 1: Download Pre-built JavasScript and CSS"
 %}
 <a href="https://github.com/oatw/luda/raw/v{{site.release_version}}/release/dist/luda-{{site.release_version}}.zip" class="btn btn-primary">Download v{{site.release_version}}</a>
 
-
-{% capture starter_template_code %}
+{%
+  include sample-title.html
+  title="Step 2: Add Luda to Your Template"
+%}
+<p>You can start with this template and modify it to your needs.</p>
+{% highlight html %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,117 +35,102 @@ order: 2
     <script src="https://raw.githubusercontent.com/oatw/luda/v{{site.release_version}}/dist/js/luda.min.js"></script>
   </body>
 </html>
-{% endcapture %}
+{% endhighlight %}
 
 {%
-  include doc-example.html
-  title="Step 2: Add Luda to Your Template"
-  content="You can start with this template and modify it to your needs."
-  code_sample=starter_template_code
-%}
-
-
-{%
-  include doc-chapter.html
+  include chapter-title.html
   title="Install in Node.js Powered Apps"
 %}
 
-{% capture install_in_node_code %}
-// Yarn
-$ yarn add luda
-// Npm
-$ npm install luda --save
-{% endcapture %}
-
 {%
-  include doc-example.html
+  include sample-title.html
   title="Step 1: Download Through Yarn or Npm"
-  code_sample=install_in_node_code
 %}
 
+<p>Yarn</p>
+{% highlight bash %}
+$ yarn add luda
+{% endhighlight %}
 
+<p>Npm</p>
+{% highlight bash %}
+$ npm install luda --save
+{% endhighlight %}
 
-{% capture node_import_theme_code %}
+{%
+  include sample-title.html
+  title="Step 2: Choose a Theme and Import It in Sass or Scss Entry File"
+%}
+
+{% highlight sass %}
 // Import your custom variable overrides.
 @import path_to_your_sass_variables
 // Import default theme for example. Don't include multiple themes toghther.
 @import 'path_to_node_modules/luda/src/sass/default/index'
-{% endcapture %}
+{% endhighlight %}
 
 {%
-  include doc-example.html
-  title="Step 2: Choose a Theme and Import It in Sass or Scss Entry File"
-  code_sample=node_import_theme_code
-%}
-
-
-{% capture node_import_js_code %}
-import 'luda'
-{% endcapture %}
-
-{%
-  include doc-example.html
+  include sample-title.html
   title="Step 3: Import JavaScript in Entry File"
-  code_sample=node_import_js_code
 %}
+
+{% highlight javascript %}
+import 'luda'
+{% endhighlight %}
 
 
 
 {%
-  include doc-chapter.html
+  include chapter-title.html
   title="Install in Ruby on Rails Apps"
 %}
 
-
-{% capture download_in_ruby_code %}
-// Bundler
-gem 'luda'  // Add luda gem to project Gemfile.
-$ bundle    // Then run bundle in command line.
-
-// Gem
-$ gem install luda
-{% endcapture %}
-
 {%
-  include doc-example.html
+  include sample-title.html
   title="Step 1: Download Through Bundler or Gem"
-  code_sample=download_in_ruby_code
 %}
 
+<p>Bundler is the recommand way to install luda, add luda gem to your Gemfile:</p>
+{% highlight ruby %}
+gem 'luda'
+{% endhighlight %}
+<p>then run bundle in command line.</p>
+{% highlight bash %}
+$ bundle
+{% endhighlight %}
+<p>You can also download luda through gem.</p>
+{% highlight bash %}
+$ gem install luda
+{% endhighlight %}
 
 
-{% capture node_import_theme_code %}
+{%
+  include sample-title.html
+  title="Step 2: Choose a Theme and Import it in <code>application.sass</code> or <code>application.scss</code>"
+%}
+{% highlight sass %}
 // Import your custom variable overrides.
 @import path_to_your_sass_variables
 // Import default theme for example. Don't include multiple themes toghther.
 @import luda/default
-{% endcapture %}
-
-{%
-  include doc-example.html
-  title="Step 2: Choose a Theme and Import it in <code>application.sass</code> or <code>application.scss</code>"
-  code_sample=node_import_theme_code
-%}
+{% endhighlight %}
 <p class="c-danger fw-bold"> If <code>application.css</code> exists in your project, rename it to <code>.sass</code> or <code>.scss</code> extension. And don't use <code>require</code> statement to import files, use <code>@import</code> instead.</p>
 
 
-{% capture ruby_import_js_code %}
-//= require luda
-{% endcapture %}
-
 {%
-  include doc-example.html
+  include sample-title.html
   title="Step 3: Import JavaScript in <code>application.js</code>"
-  code_sample=ruby_import_js_code
 %}
 
+{% highlight javascript %}
+//= require luda
+{% endhighlight %}
 
 
 {%
-  include doc-chapter.html
+  include chapter-title.html
   title="Install in Other Ruby Apps"
 %}
-
 <p>
   If your project is based on <a>Sprokets</a> or <a>Hanami</a>,
   Luda assets will be added to load path automaticly,

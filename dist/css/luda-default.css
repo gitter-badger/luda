@@ -1,5 +1,5 @@
 /*! 
-* * Luda 0.1.7 | Theme default | https://luda.dev
+* * Luda 0.1.8 | Theme default | https://luda.dev
 * * Copyright 2018 oatw | https://oatw.blog
 * * MIT license | http://opensource.org/licenses/MIT
 * */
@@ -992,6 +992,7 @@ sup {
 
 .fm-check label,
 .fm-radio label {
+  flex: 0 1 auto;
   padding-left: 1.8em;
   line-height: 2rem;
   overflow: hidden;
@@ -2583,6 +2584,7 @@ body:has(.overlay.toggle-active) {
 [class*=btn-]:not([class*=btn-text]).btn-ico-right .ico,
 [class*=btn-]:not([class*=btn-text]).btn-ico-top .ico {
   font-size: 1.286em;
+  pointer-events: none;
 }
 
 [class*=btn-].btn-ico-left .ico {
@@ -2884,6 +2886,7 @@ body:has(.overlay.toggle-active) {
 .fm > .ico {
   margin-top: -2.1924615385rem;
   font-size: 1.286em;
+  pointer-events: none;
   color: #ebebeb;
   fill: #ebebeb;
 }

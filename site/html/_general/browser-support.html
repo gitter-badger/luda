@@ -6,7 +6,7 @@ description: Luda supports most modern browsers, for browsers not supported, you
 
 
 {%
-  include doc-chapter.html
+  include chapter-title.html
   title="Supported Browsers"
 %}
 
@@ -37,7 +37,7 @@ description: Luda supports most modern browsers, for browsers not supported, you
 
 
 {%
-  include doc-chapter.html
+  include chapter-title.html
   title="The Degeradation Script"
 %}
 <p>Luda degeradation script is a tiny javascript file detecting the key features Luda based on. If any feature not supported by running browser, the degeradation script will try to redirect to a fallback url defined by its <code>data-degeradation-url</code> attribute. If this attribute is not defined, a simple browser update page will show to remind the user
@@ -45,49 +45,39 @@ to get a modern browser.</p>
 
 <p>The degeradation script is simple to use, just include the script before other scripts in your template and set a degradation url as below.</p>
 
-{% capture degeradation_script_code %}
+{% highlight html %}
 <script data-degradation-url="your_degradation_url" src="https://raw.githubusercontent.com/oatw/luda/v{{site.release_version}}/dist/js/luda-degradation.min.js"></script>
-{% endcapture %}
-
-{%
-  include doc-example.html
-  code_sample=degeradation_script_code
-%}
+{% endhighlight %}
 
 <p class="mt-small">If you use assets bundlers to import the degeradation script, <b class="c-danger">make sure it's bundled as a standalone file.</b></p>
 
-
-{% capture node_degeradation_script_code %}
-import 'luda/degeradation'
-{% endcapture %}
-
 {%
-  include doc-example.html
+  include sample-title.html
   title="Import in Node.js Apps"
-  code_sample=node_degeradation_script_code
 %}
 
-
-{% capture sprokets_degeradation_script_code %}
-//= require luda-degeradation
-{% endcapture %}
+{% highlight javascript %}
+import 'luda/degeradation'
+{% endhighlight %}
 
 {%
-  include doc-example.html
+  include sample-title.html
   title="Import in Sprokets Apps"
-  code_sample=sprokets_degeradation_script_code
+%}
+
+{% highlight javascript %}
+//= require luda-degeradation
+{% endhighlight %}
+
+{%
+  include sample-title.html
+  title="Import in Hanami Apps"
 %}
 
 <!-- htmllint attr-name-style="false" -->
 <!-- htmllint tag-close="false" -->
-{% capture hanami_degeradation_script_code %}
+{% highlight html %}
 <% javascript 'luda-degeradation' %>
-{% endcapture %}
+{% endhighlight %}
 <!-- htmllint attr-name-style="true" -->
 <!-- htmllint tag-close="true" -->
-
-{%
-  include doc-example.html
-  title="Import in Hanami Apps"
-  code_sample=hanami_degeradation_script_code
-%}
