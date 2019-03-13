@@ -21,7 +21,7 @@ There are two types of theme variables, global variables and component variables
 {: .mb-small}
 
 ``` sass
-$breakpoint-width-pxsMap: (s: 0, m: 768px, l: 1200px) !default
+$breakpoint-width-pxs: (s: 0, m: 768px, l: 1200px) !default
 ```
 Screen width breakpoints. Value should be Map.
 {: .mb-small}
