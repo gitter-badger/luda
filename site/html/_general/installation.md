@@ -88,7 +88,7 @@ $ gem install luda
 @import luda/default
 ```
 If `application.css` exists in your project, rename it to `.sass` or `.scss` extension. And don't use `require` statement to import files, use `@import` instead.
-{: .c-danger .fw-bold}
+{: .c-danger}
 
 #### Step 3: Import JavaScript in `application.js`
 

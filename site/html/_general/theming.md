@@ -165,31 +165,31 @@ Value can be any valid opacity value.
 {: .mb-small}
 
 ``` sass
-$color-primaryColor: hsba(340, 54, 98) !default
+$color-primary: hsba(340, 54, 98) !default
 ```
 Value should be a Color.
 {: .mb-small}
 
 ``` sass
-$color-secondaryColor: hsba(0, 0, 56) !default
+$color-secondary: hsba(0, 0, 56) !default
 ```
 Value should be a Color.
 {: .mb-small}
 
 ``` sass
-$color-dangerColor: hsba(0, 82, 82) !default
+$color-danger: hsba(0, 82, 82) !default
 ```
 Value should be a Color.
 {: .mb-small}
 
 ``` sass
-$color-darkColor: hsba(0, 0, 32) !default
+$color-dark: hsba(0, 0, 32) !default
 ```
 Value should be a Color.
 {: .mb-small}
 
 ``` sass
-$color-lightColor: hsba(0, 0, 100) !default
+$color-light: hsba(0, 0, 100) !default
 ```
 Value should be a Color.
 {: .mb-small}

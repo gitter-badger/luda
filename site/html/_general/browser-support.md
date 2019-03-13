@@ -43,7 +43,8 @@ The degeradation script is simple to use, just include the script before other s
 <script data-degradation-url="your_degradation_url" src="https://raw.githubusercontent.com/oatw/luda/v{{site.release_version}}/dist/js/luda-degradation.min.js"></script>
 ```
 
-If you use assets bundlers to import the degeradation script, __make sure it's bundled as a standalone file__{: .c-danger}.
+If you use assets bundlers to import the degeradation script, make sure it's bundled as a standalone file.
+{: .c-danger}
 
 #### Import in Node.js Apps
 
