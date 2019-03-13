@@ -116,19 +116,27 @@ html {
 
 .highlight .k,
 .highlight .kv {
-  color: #f8427f;
+  font-weight: 700;
 }
 
 .highlight .sr {
   color: #009926;
 }
 
+.highlight .s1 {
+  color: #f8427f;
+}
+
 .highlight .ss {
   color: #990073;
 }
 
-.highlight .na {
+.highlight .s {
   color: #f8427f;
+}
+
+.highlight .na {
+  font-weight: 700;
 }
 
 .highlight .bp {
@@ -153,10 +161,6 @@ html {
 
 .highlight .nn {
   color: #555;
-}
-
-.highlight .nt {
-  color: #f8427f;
 }
 
 .highlight .vc {
