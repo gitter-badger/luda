@@ -4,11 +4,15 @@ layout: common
 <div id="doc" class="grid-edge">
   {% include doc-aside.html %}
   <main class="col-auto">
-    <div id="doc-container" class="grid container py-medium p-large-m mx-auto">
-      <div class="col-12">
+    <div id="doc-container" class="grid mx-auto">
+      <div class="col-auto container pt-medium pb-large px-medium p-large-m">
         {% include doc-header.html %}
         {{ content }}
       </div>
+      <nav id="doc-sub-nav" class="nav-aside col-3 dis-none dis-block-l mr-medium pr-medium pl-large pb-medium b-none">
+        <div class="nav-items m-none">
+        </div>
+      </nav>
     </div>
   </main>
 </div>

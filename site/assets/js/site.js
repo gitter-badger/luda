@@ -9,7 +9,7 @@
   (factory());
 }(this, (function () { 'use strict';
 
-  var appendAnchors, clipboard, docAsideScrollTop, initClipboard, initCode, renderCode;
+  var appendAnchors, clipboard, docAsideScrollTop, initClipboard, initCode, insertSubNav, renderCode;
 
   docAsideScrollTop = 0;
 
@@ -70,17 +70,45 @@
 
   luda.on('turbolinks:render', initCode);
 
+  insertSubNav = function() {
+    var $titles, navItems, selectors;
+    selectors = '#doc-container h2[id],#doc-container h3[id],#doc-container h4[id]';
+    $titles = luda.$children(selectors);
+    navItems = '';
+    if ($titles.length) {
+      $titles.forEach(function($title) {
+        var link;
+        link = `<a href='#${$title.id}' data-turbolinks='false' class='doc-sub-nav-item td-none'>${$title.innerText.replace(/^#/, '').replace(/modifier$/i, '')}</a>`;
+        switch ($title.tagName.toLowerCase()) {
+          case 'h2':
+            return navItems += `<p class='mt-small py-none text-ellipsis'>${link}</p>`;
+          case 'h3':
+            return navItems += `<p class='p6 pl-small py-none text-ellipsis'>${link}</p>`;
+          default:
+            return navItems += `<p class='p6 pl-medium py-none text-ellipsis'>${link}</p>`;
+        }
+      });
+      return luda.$child('#doc-sub-nav .nav-items').innerHTML = navItems;
+    }
+  };
+
+  luda.on('docready', insertSubNav);
+
+  luda.on('turbolinks:render', insertSubNav);
+
   appendAnchors = function() {
     var $titles, selectors;
-    selectors = '#doc-container h1[id]:not(.rendered),#doc-container h2[id]:not(.rendered),#doc-container h3[id]:not(.rendered),#doc-container h4[id]:not(.rendered),#doc-container h5[id]:not(.rendered),#doc-container h6[id]:not(.rendered)';
+    selectors = '#doc-container h2[id]:not(.rendered),#doc-container h3[id]:not(.rendered),#doc-container h4[id]:not(.rendered),#doc-container h5[id]:not(.rendered),#doc-container h6[id]:not(.rendered)';
     $titles = luda.$children(selectors);
-    return $titles.forEach(function($title) {
-      var link;
-      $title.classList.add('rendered');
-      $title.classList.add('rel');
-      link = `<a href='#${$title.id}' data-turbolinks='false' class='doc-anchor abs td-none c-primary'>#</a>`;
-      return $title.insertAdjacentHTML('afterBegin', link);
-    });
+    if ($titles.length) {
+      return $titles.forEach(function($title) {
+        var link;
+        $title.classList.add('rendered');
+        $title.classList.add('rel');
+        link = `<a href='#${$title.id}' data-turbolinks='false' class='doc-anchor abs td-none c-primary'>#</a>`;
+        return $title.insertAdjacentHTML('afterBegin', link);
+      });
+    }
   };
 
   luda.on('docready', appendAnchors);

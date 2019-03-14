@@ -46,19 +46,19 @@ The degeradation script is simple to use, just include the script before other s
 If you use assets bundlers to import the degeradation script, make sure it's bundled as a standalone file.
 {: .c-danger}
 
-#### Import in Node.js Apps
+### Import in Node.js Apps
 
 ``` javascript
 import 'luda/degeradation'
 ```
 
-#### Import in Sprokets Apps
+### Import in Sprokets Apps
 
 ``` javascript
 //= require luda-degeradation
 ```
 
-#### Import in Hanami Apps
+### Import in Hanami Apps
 
 <!-- htmllint attr-name-style="false" -->
 <!-- htmllint tag-close="false" -->

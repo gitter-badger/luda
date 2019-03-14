@@ -47,19 +47,45 @@ luda.on 'turbolinks:render', initCode
 
 
 
+insertSubNav = ->
+  selectors = '#doc-container h2[id],\
+  #doc-container h3[id],\
+  #doc-container h4[id]'
+  $titles = luda.$children selectors
+  navItems = ''
+  if $titles.length
+    $titles.forEach ($title) ->
+      link = "<a href='##{$title.id}' data-turbolinks='false' \
+      class='doc-sub-nav-item td-none'>\
+      #{$title.innerText.replace(/^#/, '').replace(/modifier$/i, '')}</a>"
+      switch $title.tagName.toLowerCase()
+        when 'h2'
+          navItems += "<p class='mt-small py-none text-ellipsis'>#{link}</p>"
+        when 'h3'
+          navItems += "<p class='p6 pl-small py-none text-ellipsis'>#{link}</p>"
+        else
+          navItems += "<p class='p6 pl-medium py-none text-ellipsis'>#{link}</p>"
+    luda.$child('#doc-sub-nav .nav-items').innerHTML = navItems
+
+luda.on 'docready', insertSubNav
+luda.on 'turbolinks:render', insertSubNav
+
+
+
 appendAnchors = ->
-  selectors = '#doc-container h1[id]:not(.rendered),\
-  #doc-container h2[id]:not(.rendered),\
+  selectors = '#doc-container h2[id]:not(.rendered),\
   #doc-container h3[id]:not(.rendered),\
   #doc-container h4[id]:not(.rendered),\
   #doc-container h5[id]:not(.rendered),\
   #doc-container h6[id]:not(.rendered)'
   $titles = luda.$children selectors
-  $titles.forEach ($title) ->
-    $title.classList.add 'rendered'
-    $title.classList.add 'rel'
-    link = "<a href='##{$title.id}' data-turbolinks='false' class='doc-anchor abs td-none c-primary'>#</a>"
-    $title.insertAdjacentHTML 'afterBegin', link
+  if $titles.length
+    $titles.forEach ($title) ->
+      $title.classList.add 'rendered'
+      $title.classList.add 'rel'
+      link = "<a href='##{$title.id}' data-turbolinks='false' \
+      class='doc-anchor abs td-none c-primary'>#</a>"
+      $title.insertAdjacentHTML 'afterBegin', link
 
 luda.on 'docready', appendAnchors
 luda.on 'turbolinks:render', appendAnchors

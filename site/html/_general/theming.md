@@ -18,7 +18,12 @@ For convinence, there are some built-in modifier classes to change components ap
 Theme Sass variables are defined with `!default` declaration. You should define your variables before importing Luda theme variables, so built-in variables with same name will be overriten.
 
 There are two types of theme variables, global variables and component variables. Component variables targets spefic components, they can be referenced in each component documentation area. Global variables are used to define shared style rules across components. If a global variable is changed, any component reference to it will inherit its style defination. You can find all global variables in below list.
-{: .mb-small}
+
+
+
+## Global Sass Variables
+
+### Sizes
 
 ``` sass
 $breakpoint-width-pxs: (s: 0, m: 768px, l: 1200px) !default
@@ -66,7 +71,8 @@ Value should be Number.
 $space-large-rem: $space-base-rem * 4 !default
 ```
 Value should be Number.
-{: .mb-small}
+
+### Typography
 
 ``` sass
 $typography-size-scale-ratio: 1.2 !default
@@ -90,7 +96,8 @@ Set font size scale level for calculation. Scale level is from 1 to 6.
 $typography-main-line-height-ratio: 26 / 14 !default
 ```
 Default line height of body. Value should be Number.
-{: .mb-small}
+
+### Layers
 
 ``` sass
 $z-index-low: -1 !default
@@ -126,7 +133,8 @@ Value can be any valid z-index value.
 $z-index-highest: 4 !default
 ```
 Value can be any valid z-index value.
-{: .mb-small}
+
+### Opacities
 
 ``` sass
 $opacity-emphasis: 1 !default
@@ -162,7 +170,8 @@ Value can be any valid opacity value.
 $opacity-disabled: $opacity-muted !default
 ```
 Value can be any valid opacity value.
-{: .mb-small}
+
+### Colors
 
 ``` sass
 $color-primary: hsba(340, 54, 98) !default
@@ -228,7 +237,8 @@ Value should be a Color.
 $color-inverse-muted: rgba($color-light, $opacity-muted) !default
 ```
 Value should be a Color.
-{: .mb-small}
+
+### Backgrounds
 
 ``` sass
 $background-color-primary: $color-primary !default
@@ -294,7 +304,8 @@ Value can be any valid background value.
 $background-inverse-muted: lighten($background-color-dark, 3%) !default
 ```
 Value can be any valid background value.
-{: .mb-small}
+
+### Borders
 
 ``` sass
 $line-color-primary: $color-primary !default
@@ -384,7 +395,8 @@ Value can be any valid border radius value.
 $border-radius-main: $border-radius-sharp !default
 ```
 Value can be any valid border radius value.
-{: .mb-small}
+
+### Others
 
 ``` sass
 $base-cursor: default !default

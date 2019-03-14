@@ -8,7 +8,7 @@ order: 5
 
 ## In Node.js Powered Apps
 
-#### Theme Sass Modular Import
+### Theme Sass Modular Import in Node.js
 
 ``` sass
 // Import your custom variable overrides.
@@ -72,7 +72,7 @@ order: 5
 @import 'path_to_node_modules/luda/src/sass/default/utilities/shape'
 ```
 
-#### JavaScript Modular Import
+### JavaScript Modular Import in Node.js
 
 ``` javascript
 // Behaviours
@@ -95,7 +95,7 @@ import 'luda/src/js/collections/tab'
 
 ## In Sprokets Powered Apps
 
-#### Theme Sass Modular Import
+### Theme Sass Modular Import in Sprokets
 
 ``` sass
 // Import your custom variable overrides.
@@ -159,7 +159,7 @@ import 'luda/src/js/collections/tab'
 @import luda/default/utilities/shape
 ```
 
-#### JavaScript Modular Import
+### JavaScript Modular Import in Sprokets
 
 ``` javascript
 // Behaviours
@@ -180,10 +180,10 @@ import 'luda/src/js/collections/tab'
 
 ## In Hanami Apps
 
-#### Theme Sass Modular Import
+### Theme Sass Modular Import in Hanami
 Sass modular import is the same to [Sprokets Apps]().
 
-#### JavaScript Modular Import
+### JavaScript Modular Import in Hanami
 
 Hanami team is considering add Webpack support in v2, but before that you have to manually handle Javascript dependencies if thirdparty assets management gems not installed. That's really old time fashion, and can be painful for large project devloping and maintainance.
 

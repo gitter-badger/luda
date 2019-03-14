@@ -6,11 +6,11 @@ order: 2
 
 ## Install Pre-built JavaScript and CSS
 
-#### Step 1: Download Pre-built JavasScript and CSS
+### Step 1: Download Pre-built JavasScript and CSS
 
 [Download v{{site.release_version}}](https://github.com/oatw/luda/raw/v{{site.release_version}}/release/dist/luda-{{site.release_version}}.zip){: .btn .btn-primary}
 
-#### Step 2: Add Luda to Your Template
+### Step 2: Add Luda to Your Template
 You can start with this template and modify it to your needs.
 
 ``` html
@@ -32,7 +32,7 @@ You can start with this template and modify it to your needs.
 
 ## Install in Node.js Powered Apps
 
-#### Step 1: Download Through Yarn or Npm
+### Step 1: Download Through Yarn or Npm
 
 Yarn
 ``` bash
@@ -44,7 +44,7 @@ Npm
 $ npm install luda --save
 ```
 
-#### Step 2: Choose a Theme and Import It in Sass or Scss Entry File
+### Step 2: Choose a Theme and Import It in Sass or Scss Entry File
 
 ``` sass
 // Import your custom variable overrides.
@@ -53,7 +53,7 @@ $ npm install luda --save
 @import 'path_to_node_modules/luda/src/sass/default/index'
 ```
 
-#### Step 3: Import JavaScript in Entry File
+### Step 3: Import JavaScript in Entry File
 
 ``` javascript
 import 'luda'
@@ -62,7 +62,7 @@ import 'luda'
 
 ## Install in Ruby on Rails Apps
 
-#### Step 1: Download Through Bundler or Gem
+### Step 1: Download Through Bundler or Gem
 
 Bundler is the recommand way to install luda, add luda gem to your Gemfile:
 
@@ -79,7 +79,7 @@ $ gem install luda
 ```
 
 
-#### Step 2: Choose a Theme and Import it in `application.sass` or `application.scss`
+### Step 2: Choose a Theme and Import it in `application.sass` or `application.scss`
 
 ``` sass
 // Import your custom variable overrides.
@@ -90,7 +90,7 @@ $ gem install luda
 If `application.css` exists in your project, rename it to `.sass` or `.scss` extension. And don't use `require` statement to import files, use `@import` instead.
 {: .c-danger}
 
-#### Step 3: Import JavaScript in `application.js`
+### Step 3: Import JavaScript in `application.js`
 
 ``` javascript
 //= require luda

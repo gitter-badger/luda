@@ -215,7 +215,7 @@ html {
   }
 }
 #doc-container {
-  max-width: 1158px;
+  max-width: 60rem;
 }
 
 #doc-container h1,
@@ -240,9 +240,8 @@ html {
 
 #doc-container .doc-anchor {
   display: none;
-  top: -0.56em;
   left: -2em;
-  padding: 1em;
+  padding: 0 1em 1em;
 }
 
 #doc-container h1:hover .doc-anchor,
@@ -254,10 +253,28 @@ html {
   display: block;
 }
 
+#doc-sub-nav {
+  padding-top: 8.5rem;
+  opacity: 0.618;
+}
+
+#doc-sub-nav:hover {
+  opacity: 1;
+}
+
+#doc-sub-nav .doc-sub-nav-item:hover {
+  color: #fa73a0;
+}
+
 @media (min-width:768px) {
   #doc-aside {
     max-width: 18rem;
     min-width: 16rem;
+  }
+}
+@media (min-width:1200px) {
+  #doc-container {
+    max-width: 80rem;
   }
 }
 
