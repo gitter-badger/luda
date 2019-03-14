@@ -238,6 +238,22 @@ html {
   margin-top: 1rem;
 }
 
+#doc-container .doc-anchor {
+  display: none;
+  top: -0.56em;
+  left: -2em;
+  padding: 1em;
+}
+
+#doc-container h1:hover .doc-anchor,
+#doc-container h2:hover .doc-anchor,
+#doc-container h3:hover .doc-anchor,
+#doc-container h4:hover .doc-anchor,
+#doc-container h5:hover .doc-anchor,
+#doc-container h6:hover .doc-anchor {
+  display: block;
+}
+
 @media (min-width:768px) {
   #doc-aside {
     max-width: 18rem;

@@ -9,7 +9,7 @@
   (factory());
 }(this, (function () { 'use strict';
 
-  var clipboard, docAsideScrollTop, initClipboard, initCode, renderCode;
+  var appendAnchors, clipboard, docAsideScrollTop, initClipboard, initCode, renderCode;
 
   docAsideScrollTop = 0;
 
@@ -69,6 +69,23 @@
   luda.on('docready', initCode);
 
   luda.on('turbolinks:render', initCode);
+
+  appendAnchors = function() {
+    var $titles, selectors;
+    selectors = '#doc-container h1[id]:not(.rendered),#doc-container h2[id]:not(.rendered),#doc-container h3[id]:not(.rendered),#doc-container h4[id]:not(.rendered),#doc-container h5[id]:not(.rendered),#doc-container h6[id]:not(.rendered)';
+    $titles = luda.$children(selectors);
+    return $titles.forEach(function($title) {
+      var link;
+      $title.classList.add('rendered');
+      $title.classList.add('rel');
+      link = `<a href='#${$title.id}' data-turbolinks='false' class='doc-anchor abs td-none c-primary'>#</a>`;
+      return $title.insertAdjacentHTML('afterBegin', link);
+    });
+  };
+
+  luda.on('docready', appendAnchors);
+
+  luda.on('turbolinks:render', appendAnchors);
 
 })));
 //# sourceMappingURL=site.js.map

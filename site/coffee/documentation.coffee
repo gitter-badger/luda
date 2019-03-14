@@ -9,6 +9,7 @@ luda.on 'turbolinks:render', (e) ->
   $container.scrollTop = docAsideScrollTop if $container
 
 
+
 clipboard = null
 
 renderCode = ->
@@ -43,3 +44,22 @@ initCode = ->
 
 luda.on 'docready', initCode
 luda.on 'turbolinks:render', initCode
+
+
+
+appendAnchors = ->
+  selectors = '#doc-container h1[id]:not(.rendered),\
+  #doc-container h2[id]:not(.rendered),\
+  #doc-container h3[id]:not(.rendered),\
+  #doc-container h4[id]:not(.rendered),\
+  #doc-container h5[id]:not(.rendered),\
+  #doc-container h6[id]:not(.rendered)'
+  $titles = luda.$children selectors
+  $titles.forEach ($title) ->
+    $title.classList.add 'rendered'
+    $title.classList.add 'rel'
+    link = "<a href='##{$title.id}' data-turbolinks='false' class='doc-anchor abs td-none c-primary'>#</a>"
+    $title.insertAdjacentHTML 'afterBegin', link
+
+luda.on 'docready', appendAnchors
+luda.on 'turbolinks:render', appendAnchors
