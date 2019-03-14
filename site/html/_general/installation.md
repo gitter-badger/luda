@@ -7,11 +7,10 @@ order: 2
 ## Install Pre-built JavaScript and CSS
 
 ### Step 1: Download Pre-built JavasScript and CSS
-
 [Download v{{site.release_version}}](https://github.com/oatw/luda/raw/v{{site.release_version}}/release/dist/luda-{{site.release_version}}.zip){: .btn .btn-primary}
+{: .p-none}
 
 ### Step 2: Add Luda to Your Template
-You can start with this template and modify it to your needs.
 
 ``` html
 <!DOCTYPE html>
@@ -29,6 +28,7 @@ You can start with this template and modify it to your needs.
   </body>
 </html>
 ```
+You can start with this template and modify it to your needs.
 
 ## Install in Node.js Powered Apps
 
@@ -79,7 +79,7 @@ $ gem install luda
 ```
 
 
-### Step 2: Choose a Theme and Import it in `application.sass` or `application.scss`
+### Step 2: Choose a Theme and Import it in application.sass or application.scss
 
 ``` sass
 // Import your custom variable overrides.
@@ -90,7 +90,7 @@ $ gem install luda
 If `application.css` exists in your project, rename it to `.sass` or `.scss` extension. And don't use `require` statement to import files, use `@import` instead.
 {: .c-danger}
 
-### Step 3: Import JavaScript in `application.js`
+### Step 3: Import JavaScript in application.js
 
 ``` javascript
 //= require luda
