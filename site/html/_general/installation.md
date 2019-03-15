@@ -20,11 +20,11 @@ order: 2
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <!-- Use default theme for example. Each theme css is built seperately, don't include multiple themes toghther. -->
-    <link rel="stylesheet" href="https://rawcdn.githack.com/oatw/luda/v{{site.release_version}}/dist/css/luda-default.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/luda@{{site.release_version}}/dist/css/luda-default.min.css">
   </head>
   <body>
     <h1>Hi Luda!</h1>
-    <script src="https://rawcdn.githack.com/oatw/luda/v{{site.release_version}}/dist/js/luda.min.js"></script>
+    <script src="https://unpkg.com/luda@{{site.release_version}}/dist/js/luda.min.js"></script>
   </body>
 </html>
 ```
