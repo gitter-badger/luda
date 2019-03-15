@@ -7,30 +7,30 @@ description: Luda supports most modern browsers, for browsers not supported, you
 
 ## Supported Browsers
 
-<div class="dis-flex fw-wrap jc-between mt-small">
-  <div class="mx-tiny ta-center">
+<div class="dis-flex fw-wrap mt-small">
+  <div class="mr-small ta-center">
     <img width="50" height="50" src="{{ '/assets/img/chrome.svg' | relative_url }}" alt="chrome">
-    <p>Latest 2</p>
+    <p class="p6">Latest Versions</p>
   </div>
-  <div class="mx-tiny ta-center">
+  <div class="mr-small ta-center">
     <img width="50" height="50" src="{{ '/assets/img/firefox.svg' | relative_url }}" alt="firefox">
-    <p>Latest 2</p>
+    <p class="p6">Latest Versions</p>
   </div>
-  <div class="mx-tiny ta-center">
+  <div class="mr-small ta-center">
     <img width="50" height="50" src="{{ '/assets/img/safari.svg' | relative_url }}" alt="safari">
-    <p>Latest 2</p>
+    <p class="p6">Latest Versions</p>
   </div>
-  <div class="mx-tiny ta-center">
+  <div class="mr-small ta-center">
     <img width="50" height="50" src="{{ '/assets/img/opera.svg' | relative_url }}" alt="opera">
-    <p>Latest 2</p>
+    <p class="p6">Latest Versions</p>
   </div>
-  <div class="mx-tiny ta-center">
+  <div class="mr-small ta-center">
     <img width="50" height="50" src="{{ '/assets/img/edge.svg' | relative_url }}" alt="edge">
-    <p>Latest 2</p>
+    <p class="p6">Latest Versions</p>
   </div>
 </div>
 
-If your target browsers are not listed above, it does't mean you cannot use Luda. Most modern browsers use the same engines as above ones. If you're not sure if Luda works in your target browser, you can use Luda degeradation script as a fallback option.
+Luda targets all recent versions of above modern browsers and doesn't include unnecessary polyfills nor prefixers. For old version browsers, Luda degradation script can be used for redirecting to a browser update page or some degradated url. If old version browsers are still your main targets, you can add extra polyfills and prefixers by yourself with tools like [Babel]() and [Autoprefixer]().
 
 
 ## The Degeradation Script
