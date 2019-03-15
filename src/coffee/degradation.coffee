@@ -17,7 +17,7 @@ Degradation =
 
   _CSS_PROPERTIES: [
     display: 'flex'
-    position: ['sticky', 'fixed']
+    position: ['sticky||-webkit-sticky', 'fixed']
     'transition'
     'animation'
   ]
@@ -68,12 +68,14 @@ Degradation =
       @_notify()
       throw new Error 'Unsupported CSS property: ' + property
 
-  _CSSValueSupported: (ele, property, value) ->
-    ele.style[property] = value
-    unless ele.style[property] is value
-      @_notify()
-      throw new Error 'Unsupported CSS property value: ' \
-      + property + ' ' + value
+  _CSSValueSupported: (ele, property, valueStr) ->
+    values = valueStr.split '||'
+    for value in values
+      ele.style[property] = value
+      return if ele.style[property] is value
+    @_notify()
+    throw new Error 'Unsupported CSS property value: ' \
+    + property + ' ' + valueStr
 
   _notify: ->
     for script in document.scripts
