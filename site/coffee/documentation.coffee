@@ -52,7 +52,7 @@ insertSubNav = ->
   #doc-container h3[id],\
   #doc-container h4[id]'
   $titles = luda.$children selectors
-  navItems = ''
+  items = ''
   if $titles.length
     $titles.forEach ($title) ->
       link = "<a href='##{$title.id}' data-turbolinks='false' \
@@ -60,12 +60,12 @@ insertSubNav = ->
       #{$title.innerText.replace(/^#/, '').replace(/modifier$/i, '')}</a>"
       switch $title.tagName.toLowerCase()
         when 'h2'
-          navItems += "<p class='mt-small py-none text-ellipsis'>#{link}</p>"
+          items += "<p class='mt-small py-none text-ellipsis'>#{link}</p>"
         when 'h3'
-          navItems += "<p class='p6 pl-small py-none text-ellipsis'>#{link}</p>"
+          items += "<p class='p6 pl-small py-none text-ellipsis'>#{link}</p>"
         else
-          navItems += "<p class='p6 pl-medium py-none text-ellipsis'>#{link}</p>"
-    luda.$child('#doc-sub-nav .nav-items').innerHTML = navItems
+          items += "<p class='p6 pl-medium py-none text-ellipsis'>#{link}</p>"
+    luda.$child('#doc-sub-nav .nav-items').innerHTML = items
 
 luda.on 'docready', insertSubNav
 luda.on 'turbolinks:render', insertSubNav

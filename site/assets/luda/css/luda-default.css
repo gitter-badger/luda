@@ -3269,7 +3269,6 @@ body:has(.overlay.toggle-active) {
 @media (min-width:768px) {
   .nav-header,
 .nav-aside {
-    position: -webkit-sticky;
     position: sticky;
     top: 0;
   }
@@ -5058,7 +5057,6 @@ body:has(.overlay.toggle-active) {
 .sti-l,
 .sti-b,
 .sti-r {
-  position: -webkit-sticky !important;
   position: sticky !important;
 }
 

@@ -71,24 +71,24 @@
   luda.on('turbolinks:render', initCode);
 
   insertSubNav = function() {
-    var $titles, navItems, selectors;
+    var $titles, items, selectors;
     selectors = '#doc-container h2[id],#doc-container h3[id],#doc-container h4[id]';
     $titles = luda.$children(selectors);
-    navItems = '';
+    items = '';
     if ($titles.length) {
       $titles.forEach(function($title) {
         var link;
         link = `<a href='#${$title.id}' data-turbolinks='false' class='doc-sub-nav-item td-none'>${$title.innerText.replace(/^#/, '').replace(/modifier$/i, '')}</a>`;
         switch ($title.tagName.toLowerCase()) {
           case 'h2':
-            return navItems += `<p class='mt-small py-none text-ellipsis'>${link}</p>`;
+            return items += `<p class='mt-small py-none text-ellipsis'>${link}</p>`;
           case 'h3':
-            return navItems += `<p class='p6 pl-small py-none text-ellipsis'>${link}</p>`;
+            return items += `<p class='p6 pl-small py-none text-ellipsis'>${link}</p>`;
           default:
-            return navItems += `<p class='p6 pl-medium py-none text-ellipsis'>${link}</p>`;
+            return items += `<p class='p6 pl-medium py-none text-ellipsis'>${link}</p>`;
         }
       });
-      return luda.$child('#doc-sub-nav .nav-items').innerHTML = navItems;
+      return luda.$child('#doc-sub-nav .nav-items').innerHTML = items;
     }
   };
 

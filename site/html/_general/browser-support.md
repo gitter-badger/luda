@@ -40,7 +40,7 @@ to get a modern browser.
 The degeradation script is simple to use, just include the script before other scripts in your template and set a degradation url as below.
 
 ``` html
-<script data-degradation-url="your_degradation_url" src="https://raw.githubusercontent.com/oatw/luda/v{{site.release_version}}/dist/js/luda-degradation.min.js"></script>
+<script data-degradation-url="your_degradation_url" src="https://rawcdn.githack.com/oatw/luda/v{{site.release_version}}/dist/js/luda-degradation.min.js"></script>
 ```
 
 If you use assets bundlers to import the degeradation script, make sure it's bundled as a standalone file.
@@ -49,7 +49,7 @@ If you use assets bundlers to import the degeradation script, make sure it's bun
 ### Import in Node.js Apps
 
 ``` javascript
-import 'luda/degeradation'
+import 'luda/src/js/degeradation'
 ```
 
 ### Import in Sprokets Apps
