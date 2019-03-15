@@ -36,12 +36,12 @@ You can start with this template and modify it to your needs.
 
 Yarn
 ``` bash
-$ yarn add luda
+$ yarn add luda@{{site.release_version}}
 ```
 
 Npm
 ``` bash
-$ npm install luda --save
+$ npm install luda@{{site.release_version}} --save
 ```
 
 ### Step 2: Choose a Theme and Import It in Sass or Scss Entry File
@@ -67,7 +67,7 @@ import 'luda'
 Bundler is the recommand way to install luda, add luda gem to your Gemfile:
 
 ``` ruby
-gem 'luda'
+gem 'luda', '{{site.release_version}}'
 ```
 then run bundle in command line.
 ``` bash
@@ -75,7 +75,7 @@ $ bundle
 ```
 You can also download luda through gem.
 ``` bash
-$ gem install luda
+$ gem install luda -v {{site.release_version}}
 ```
 
 
