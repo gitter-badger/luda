@@ -83,10 +83,13 @@
 
   +media-width($nav-width-breakpoint)
 
+    // sass-lint:disable no-duplicate-properties
     .nav-header,
     .nav-aside
+      position: -webkit-sticky
       position: sticky
       top: 0
+    // sass-lint:enable no-duplicate-properties
 
     .nav-open,
     .nav-close
