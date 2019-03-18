@@ -30,12 +30,11 @@ description: Luda supports most modern browsers, for browsers not supported, you
   </div>
 </div>
 
-Luda targets all recent versions of above modern browsers and doesn't include unnecessary polyfills nor prefixers. For old version browsers, Luda degradation script can be used for redirecting to a browser update page or some degradated url. If old version browsers are still your main targets, you can add extra polyfills and prefixers by yourself with tools like [Babel]() and [Autoprefixer]().
+Luda targets all recent versions of above modern browsers and doesn't include unnecessary polyfills nor prefixers. For old version browsers, Luda degradation script can be used for redirecting to a browser update page or some degradation url. If old version browsers are still your main targets, you can add extra polyfills and prefixers by yourself with tools like [Babel]() and [Autoprefixer]().
 
 
 ## The Degeradation Script
-Luda degeradation script is a tiny javascript file detecting the key features Luda based on. If any feature not supported by running browser, the degeradation script will try to redirect to a fallback url defined by its `data-degeradation-url` attribute. If this attribute is not defined, a simple browser update page will show to remind the user
-to get a modern browser.
+Luda degeradation script is a tiny javascript file detecting the key features Luda based on. If any feature not supported by running browser, the degeradation script will try to redirect to a degradation url defined through its `data-degeradation-url` attribute or `html` tag's `data-degradation-url` attribute. If this attribute is not defined, a simple browser update page will show to remind the user to get a modern browser.
 
 The degeradation script is simple to use, just include the script before other scripts in your template and set a degradation url as below.
 
