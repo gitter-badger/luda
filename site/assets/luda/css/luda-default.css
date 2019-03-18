@@ -1169,7 +1169,7 @@ sup {
 }
 
 .container {
-  max-width: 1366px;
+  max-width: 105.076923rem;
   min-width: 0;
   padding: 2rem 1rem;
   margin-right: auto;
@@ -2571,8 +2571,8 @@ body:has(.overlay.toggle-active) {
 }
 
 .overlay-body > .modal {
-  max-width: 600px;
-  min-width: 320px;
+  max-width: 46.153846rem;
+  min-width: 24.615384rem;
 }
 
 [class*=btn-].btn-ico {
@@ -3269,6 +3269,7 @@ body:has(.overlay.toggle-active) {
 @media (min-width:768px) {
   .nav-header,
 .nav-aside {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
   }
@@ -5057,6 +5058,7 @@ body:has(.overlay.toggle-active) {
 .sti-l,
 .sti-b,
 .sti-r {
+  position: -webkit-sticky !important;
   position: sticky !important;
 }
 

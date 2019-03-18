@@ -30,6 +30,14 @@ Add `disabled` attribute to a form element to disable it.
 ``` html{{disabled_form}}```
 
 
+## HTML Attributes
+
+``` html
+disabled
+```
+Disable a form element or a button.
+
+
 ## Sass Variables
 
 ``` sass
