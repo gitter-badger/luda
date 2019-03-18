@@ -78,6 +78,8 @@ Degradation =
     + property + ' ' + valueStr
 
   _notify: ->
+    redirectUrl = document.documentElement.getAttribute @_URL_ATTRIBUTE
+    return location.href = redirectUrl if redirectUrl
     for script in document.scripts
       redirectUrl = script.getAttribute @_URL_ATTRIBUTE
       return location.href = redirectUrl if redirectUrl
