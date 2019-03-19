@@ -293,100 +293,498 @@ Add the class `.fm-inline` to make a input element inline.
 
 ## Input Helpers
 
-{% capture hint_text_code %}
+### Hint Text
+Use the attribute `data-hint` to show hint text for input elements.
 <div class="fm fm-text mb-small" data-hint="Your email will be a secret.">
   <input type="email" placeholder="Please enter your email">
 </div>
-<div class="fm fm-radio" data-hint="Your gender also will be a secret.">
-  <label><input type="radio" name="gender" value="male">Male</label>
-  <label><input type="radio" name="gender" value="female">Female</label>
+<div class="fm fm-radio mb-small" data-hint="Your gender also will be a secret.">
+  <label><input type="radio" value="male">Male</label>
+  <label><input type="radio" value="female">Female</label>
 </div>
-{% endcapture %}
-
-{% capture hint_text_code_sample %}
+``` html
 <div class="fm fm-text" data-hint="Your email will be a secret.">
   <input type="email" placeholder="Please enter your email">
 </div>
 <div class="fm fm-radio" data-hint="Your gender also will be a secret.">
-  <label><input type="radio" name="gender" value="male">Male</label>
-  <label><input type="radio" name="gender" value="female">Female</label>
+  <label><input type="radio" value="male">Male</label>
+  <label><input type="radio" value="female">Female</label>
 </div>
-{% endcapture %}
+```
 
-{%
-  include doc-example.html
-  title="Hint text"
-  content="Hint text description"
-  code=hint_text_code
-  code_sample=hint_text_code_sample
-%}
-
-{% capture error_text_code %}
-<div class="fm fm-text mb-small" data-error="Email must be entered!">
+### Error Text
+Use the attribute `data-error` to show error text for input elements.
+<div class="fm fm-text mb-small" data-error="Email cannot be blank!">
   <input type="email" placeholder="Please enter your email">
 </div>
-<div class="fm fm-radio" data-error="Genger must be choosed!">
-  <label><input type="radio" name="errorGender" value="male">Male</label>
-  <label><input type="radio" name="errorGender" value="female">Female</label>
+<div class="fm fm-radio mb-small" data-error="Genger must be choosen!">
+  <label><input type="radio" value="male">Male</label>
+  <label><input type="radio" value="female">Female</label>
 </div>
-{% endcapture %}
-
-{% capture error_text_code_sample %}
-<div class="fm fm-text" data-error="Email must be entered!">
+``` html
+<div class="fm fm-text" data-error="Email cannot be blank!">
   <input type="email" placeholder="Please enter your email">
 </div>
-<div class="fm fm-radio" data-error="Genger must be choosed!">
-  <label><input type="radio" name="errorGender" value="male">Male</label>
-  <label><input type="radio" name="errorGender" value="female">Female</label>
+<div class="fm fm-radio" data-error="Genger must be choosen!">
+  <label><input type="radio" value="male">Male</label>
+  <label><input type="radio" value="female">Female</label>
 </div>
-{% endcapture %}
+```
 
-{%
-  include doc-example.html
-  title="Error text"
-  content="Error text description"
-  code=error_text_code
-  code_sample=error_text_code_sample
-%}
 
-{%
-  include doc-chapter.html
-  title="Form label"
-  content="Form label description"
-%}
 
-{% capture form_label_code %}
-<label class="fm-label">Name label</label>
+## Form Label
+
+### Usage
+Add the class `.fm-label` to create a label for input elements.
+{% capture form_label %}
+<label class="fm-label">Fullname</label>
 <div class="fm fm-text">
-  <input type="text" placeholder="Please enter your name">
+  <input placeholder="Please enter your fullname">
 </div>
 {% endcapture %}
+{{ form_label }}
+``` html{{ form_label }}```
+{: .mt-small}
 
-{%
-  include doc-example.html
-  title="Form label usage"
-  content="Add class <code>.fm-label</code> to a label element."
-  is_modifier=true
-  code=form_label_code
-%}
 
-{%
-  include doc-chapter.html
-  title="Form label modifiers"
-  content="Form label modifiers description"
-%}
-
-{% capture required_form_label_code %}
-<label class="fm-label fm-label-required">Name label required</label>
+### Required{% include modifier.html %}
+Add the class `.fm-label-required` to `.fm-label` to show required mark.
+{% capture required_form_label %}
+<label class="fm-label fm-label-required">Fullname</label>
 <div class="fm fm-text">
-  <input type="text" placeholder="Please enter your name">
+  <input placeholder="Please enter your fullname">
 </div>
 {% endcapture %}
+{{ required_form_label }}
+``` html{{ required_form_label }}```
+{: .mt-small}
 
-{%
-  include doc-example.html
-  title="Required form label"
-  content="Required form label description"
-  is_modifier=true
-  code=required_form_label_code
-%}
+
+
+## Sass Variables
+
+### Sizes
+
+``` sass
+$form-element-inline-width-rem: 18rem !default
+```
+Description.
+{: .mb-small}  
+
+``` sass
+$form-element-small-inline-width-rem: 14rem !default
+```
+Description.
+{: .mb-small}  
+
+``` sass
+$form-element-large-inline-width-rem: 22rem !default
+```
+Description.
+{: .mb-small}
+``` sass
+$form-element-text-helvertical-padding-em: strip-unit($space-small-rem) * 1em !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-textfield-height-rem: 3rem !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-small-textfield-height-rem: 2rem !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-large-textfield-height-rem: 4rem !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-textarea-height-rem: 9rem !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-small-textarea-height-rem: 6rem !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-large-textarea-height-rem: 12rem !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-checkfield-height-em: 1.4em !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-track-height-em: 0.4em !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-thumb-height-em: 1.4em !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-thumb-width-em: 1.4em !default
+```
+Description.
+
+
+
+
+### Typography
+``` sass
+$form-element-typography-size-level: 5 !default
+```
+Description.
+{: .mb-small}  
+
+``` sass
+$form-element-small-typography-size-level: 6 !default
+```
+Description.
+{: .mb-small}  
+
+``` sass
+$form-element-large-typography-size-level: 4 !default
+```
+Description.
+
+
+
+### Borders
+``` sass
+$form-element-border-width: 1px !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-border-style: solid !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-border-radius: $border-radius-main !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-border-color: $line-color-main !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-error-border-color: $line-color-danger !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-focus-border-color: $line-color-primary !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-track-border-radius: $border-radius-main !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-thumb-border-radius: 100% !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-thumb-border-color: transparent !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-error-thumb-border-color: $form-element-error-border-color !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-focus-thumb-border-color: null !default
+```
+Description.
+
+
+
+### Colors
+``` sass
+$form-element-color: $color-main !default
+```
+Description.
+{: .mb-small}  
+
+``` sass
+$form-element-error-color: null !default
+```
+Description.
+{: .mb-small}  
+
+``` sass
+$form-element-focus-color: null !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-placeholder-color: $color-muted !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-error-placeholder-color: null !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-focus-placeholder-color: null !default
+```
+Description.
+
+
+
+### Backgrounds
+``` sass
+$form-element-background: $background-main !default
+```
+Description.
+{: .mb-small}  
+
+``` sass
+$form-element-focus-background: null !default
+```
+Description.
+{: .mb-small}  
+
+``` sass
+$form-element-error-background: null !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-track-background: darken($background-muted, 4%) !default !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-focus-track-background: null !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-error-track-background: null !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-thumb-background: $form-element-track-background !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-error-thumb-background: null !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-focus-thumb-background: $background-color-primary !default
+```
+Description.
+
+
+
+### Shadows
+``` sass
+$form-element-box-shadow: null !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-focus-box-shadow: null !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-error-box-shadow: null !default
+```
+Description.
+
+
+
+### Icons
+``` sass
+$form-element-icon-size-em: 1.286em !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-icon-color: $form-element-border-color !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-error-icon-color: $form-element-error-border-color !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-focus-icon-color: $form-element-focus-border-color !default
+```
+Description.
+{: .mb-small}
+``` sass
+$form-element-search-icon: '<svg viewBox="..."><path fill="#fill"...</svg>' !default
+```
+Description.
+{: .mb-small}
+
+``` sass    
+$form-element-select-icon: '<svg viewBox="..."><path fill="#fill"...</svg>' !default
+```
+Description.
+{: .mb-small}
+
+``` sass    
+$form-element-add-icon: '<svg viewBox="..."><path fill="#fill"...</svg>' !default
+```
+Description.
+{: .mb-small}
+
+``` sass    
+$form-element-checked-icon: '<svg viewBox="..."><path fill="#fill"...</svg>' !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-checked-icon-color: $form-element-color !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-error-checked-icon-color: null !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-focus-checked-icon-color: null !default
+```
+Description.
+
+
+
+### Helper
+``` sass
+$form-element-helper-typography-size-level: 6 !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-small-helper-typography-size-level: null !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-large-helper-typography-size-level: 5 !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-hint-message-color: $color-muted !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-element-error-message-color: $color-danger !default
+```
+Description.
+
+
+
+
+### Label
+``` sass
+$form-label-typography-size-level: 5 !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-label-small-typography-size-level: 6 !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-label-large-typography-size-level: 4 !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-label-color: $color-emphasis !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-label-required-content: " | Required" !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$form-label-required-color: $color-danger !default
+```
+Description.
