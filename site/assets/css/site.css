@@ -215,7 +215,8 @@ html {
   }
 }
 #doc-container {
-  max-width: 60rem;
+  max-width: 58rem;
+  margin: auto;
 }
 
 #doc-container h1,
@@ -274,7 +275,17 @@ html {
 }
 @media (min-width:1200px) {
   #doc-container {
-    max-width: 80rem;
+    flex: 58rem 0 0;
+    margin: 0 0 0 calc(50% - 9rem - 29rem - 8rem);
+  }
+
+  #doc-sub-nav {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  #doc-sub-nav .nav-items {
+    max-width: 16rem;
   }
 }
 
