@@ -33,6 +33,7 @@ Use utilities to change badge color and background.
 
 ## Sass Variables
 
+### Sizes
 ``` sass
 $badge-offset-top-em: -0.4em !default
 ```
@@ -55,8 +56,8 @@ Badge height, value should be number.
 $badge-padding-em: 0.4em !default
 ```
 Badge padding, should be number.
-{: .mb-small}
 
+### Others
 ``` sass
 $badge-background: $background-color-primary !default
 ```

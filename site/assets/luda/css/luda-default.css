@@ -2336,11 +2336,11 @@ body:has(.overlay.toggle-active) {
   background: #fa73a0;
 }
 
-.baseline-overlay {
+.baseline {
   position: relative;
 }
 
-.baseline-overlay::after {
+.baseline::after {
   display: block;
   position: absolute;
   top: 0;
@@ -2350,10 +2350,6 @@ body:has(.overlay.toggle-active) {
   z-index: 4;
   pointer-events: none;
   content: "";
-  background: linear-gradient(to bottom, #0ff 0, rgba(255, 255, 255, 0) 1px) left top/100% 1rem repeat-y;
-}
-
-.baseline-background {
   background: linear-gradient(to bottom, #0ff 0, rgba(255, 255, 255, 0) 1px) left top/100% 1rem repeat-y;
 }
 

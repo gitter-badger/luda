@@ -3,18 +3,28 @@ title: Toggle
 description: Toggle is a convinence behaviour to show or hide a html element. Toggle behaviour can be controlled through html attributes or JavaScript methods.
 ---
 
-## Examples
-
+## Usage
+Use the attribute `data-toggle-target` to define a toggle target, and use the attribute `data-toggle-for` to indicate which target to control.
 {% capture toggle %}
 <button class="btn btn-primary" data-toggle-for="toggle_example">Click to toggle</button>
-<div class="bc-dark p-small" data-toggle-target="toggle_example" data-toggle>
+<div class="bc-dark p-small" data-toggle-target="toggle_example">
+  <p class="c-light">Hello Luda!</p>
+</div>
+{% endcapture %}
+{{ toggle }}
+``` html{{ toggle }}```
+{: .mt-small}
+
+Use the attribute `data-toggle` to indicate a toggler inside a toggle target, and use the attribute `data-toggle-disabled` to exclude part of the inner toggler.
+{% capture toggle_inside %}
+<button class="btn btn-primary" data-toggle-for="toggle_example2">Click to toggle</button>
+<div class="bc-dark p-small" data-toggle-target="toggle_example2" data-toggle>
   <button class="btn btn-primary">Click to hide</button>
   <button class="btn btn-light" data-toggle-disabled>Toggle behaviour disabled</button>
 </div>
 {% endcapture %}
-
-{{ toggle }}
-``` html{{ toggle }}```
+{{ toggle_inside }}
+``` html{{ toggle_inside }}```
 {: .mt-small}
 
 ## HTML Attributes

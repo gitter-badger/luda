@@ -288,6 +288,7 @@ Add the class `.btn-fluid` to make fluid buttons.
 
 ## Sass Variables
 
+### Sizes
 ``` sass
 $button-height-rem: 3rem !default
 ```
@@ -310,8 +311,10 @@ Description.
 $button-helvertical-padding-em: strip-unit($space-small-rem) * 1em !default
 ```
 Description.
-{: .mb-small}
 
+
+
+### Typography
 ``` sass
 $button-typography-size-level: 5 !default
 ```
@@ -328,8 +331,11 @@ Description.
 $button-large-typography-size-level: 4 !default
 ```
 Description.
-{: .mb-small}
 
+
+
+
+### Borders
 ``` sass
 $button-border-width: 1px !default
 ```
@@ -346,8 +352,11 @@ Description.
 $button-border-radius: $border-radius-main !default
 ```
 Description.
-{: .mb-small}
 
+
+
+
+### Primary Solid Button
 ``` sass
 $button-primary-color: $color-inverse-main !default
 ```
@@ -418,8 +427,11 @@ Description.
 $button-primary-active-box-shadow: null !default
 ```
 Description.
-{: .mb-small}
 
+
+
+
+### Secondary Solid Button
 ``` sass
 $button-secondary-color: $color-main !default
 ```
@@ -490,8 +502,11 @@ Description.
 $button-secondary-active-box-shadow: null !default
 ```
 Description.
-{: .mb-small}
 
+
+
+
+### Danger Solid Button
 ``` sass
 $button-danger-color: $color-inverse-main !default
 ```
@@ -562,9 +577,10 @@ Description.
 $button-danger-active-box-shadow: null !default
 ```
 Description.
-{: .mb-small}
 
 
+
+### Dark Solid Button
 ``` sass
 $button-dark-color: $color-inverse-main !default
 ```
@@ -635,8 +651,10 @@ Description.
 $button-dark-active-box-shadow: null !default
 ```
 Description.
-{: .mb-small}
 
+
+
+### Light Solid Button
 ``` sass
 $button-light-color: $color-main !default
 ```
@@ -710,6 +728,8 @@ Description.
 {: .mb-small}
 
 
+
+### Primary Hollow Button
 ``` sass
 $button-hollow-primary-color: $color-primary !default
 ```
@@ -774,9 +794,10 @@ Description.
 $button-hollow-primary-active-box-shadow: $button-primary-active-box-shadow !default
 ```
 Description.
-{: .mb-small}
 
 
+
+### Secondary Hollow Button
 ``` sass
 $button-hollow-secondary-color: $color-main !default
 ```
@@ -841,8 +862,11 @@ Description.
 $button-hollow-secondary-active-box-shadow: $button-secondary-active-box-shadow !default
 ```
 Description.
-{: .mb-small}
 
+
+
+
+### Danger Hollow Button
 ``` sass
 $button-hollow-danger-color: $color-danger !default
 ```
@@ -907,9 +931,10 @@ Description.
 $button-hollow-danger-active-box-shadow: $button-danger-active-box-shadow !default
 ```
 Description.
-{: .mb-small}
 
 
+
+### Dark Hollow Button
 ``` sass
 $button-hollow-dark-color: $color-dark !default
 ```
@@ -974,9 +999,10 @@ Description.
 $button-hollow-dark-active-box-shadow: $button-dark-active-box-shadow !default
 ```
 Description.
-{: .mb-small}
 
 
+
+### Light Hollow Button
 ``` sass
 $button-hollow-light-color: $color-light !default
 ```
@@ -1041,8 +1067,10 @@ Description.
 $button-hollow-light-active-box-shadow: $button-light-active-box-shadow !default
 ```
 Description.
-{: .mb-small}
 
+
+
+### Primary Text Button
 ``` sass
 $button-text-primary-color: $color-primary !default
 ```
@@ -1077,9 +1105,10 @@ Description.
 $button-text-primary-active-text-shadow: null !default
 ```
 Description.
-{: .mb-small}
 
 
+
+### Secondary Text Button
 ``` sass
 $button-text-secondary-color: $color-secondary !default
 ```
@@ -1114,8 +1143,10 @@ Description.
 $button-text-secondary-active-text-shadow: null !default
 ```
 Description.
-{: .mb-small}
 
+
+
+### Danger Text Button
 ``` sass
 $button-text-danger-color: $color-danger !default
 ```
@@ -1150,8 +1181,10 @@ Description.
 $button-text-danger-active-text-shadow: null !default
 ```
 Description.
-{: .mb-small}
 
+
+
+### Dark Text Button
 ``` sass
 $button-text-dark-color: lighten($color-dark, 10%) !default
 ```
@@ -1186,9 +1219,10 @@ Description.
 $button-text-dark-active-text-shadow: null !default
 ```
 Description.
-{: .mb-small}
 
 
+
+### Light Text Button
 ``` sass
 $button-text-light-color: rgba($color-light, $opacity-muted) !default
 ```
