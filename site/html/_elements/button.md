@@ -18,7 +18,9 @@ Add the class `.btn.btn-<color>` to create solid buttons.
 <button class="btn btn-light">Light</button>
 <button class="btn btn-danger">Danger</button>
 {% endcapture %}
-{{ solid_button }}
+<div class="button-example">
+  {{ solid_button }}  
+</div>
 ``` html{{ solid_button }}```
 
 
@@ -32,7 +34,9 @@ Add the class `.btn.btn-hollow-<color>` to create hollow buttons.
 <button class="btn btn-hollow-light">Light</button>
 <button class="btn btn-hollow-danger">Danger</button>
 {% endcapture %}
-{{ hollow_button }}
+<div class="button-example">
+  {{ hollow_button }}
+</div>
 ``` html{{ hollow_button }}```
 
 
@@ -46,18 +50,21 @@ Add the class `.btn.btn-text-<color>` to create text buttons.
 <button class="btn btn-text-light">Light</button>
 <button class="btn btn-text-danger">Danger</button>
 {% endcapture %}
-{{ text_button }}
+<div class="button-example">
+  {{ text_button }}
+</div>
 ``` html{{ text_button }}```
 
 
 
 ### Button Tags
 Button classes can be added to other html tags to create a button.
-
-<a data-turbolinks="false" href="#" class="btn btn-primary">Link</a>
-<input type="submit" value="Submit" class="btn btn-hollow-primary">
-<input type="reset" value="Reset" class="btn btn-primary">
-<input type="button" value="Button" class="btn btn-hollow-primary">
+<div class="button-example">
+  <a data-turbolinks="false" href="#" class="btn btn-primary">Link</a>
+  <input type="submit" value="Submit" class="btn btn-hollow-primary">
+  <input type="reset" value="Reset" class="btn btn-primary">
+  <input type="button" value="Button" class="btn btn-hollow-primary">  
+</div>
 ``` html
 <a href="#" class="btn btn-primary">Link</a>
 <input type="submit" value="Submit" class="btn btn-hollow-primary">
@@ -82,9 +89,10 @@ Use the class `.btn-check` and other button style classes to create checkbox but
   <label>Django</label>
 </div>
 {% endcapture %}
-{{ checkbox_button }}
+<div class="button-example">
+  {{ checkbox_button }}  
+</div>
 ``` html{{ checkbox_button }}```
-{: .mt-small}
 
 
 
@@ -100,9 +108,10 @@ Use the class `.btn-radio` and other button style classes to create radio button
   <label>No, I disagree.</label>
 </div>
 {% endcapture %}
-{{ radio_button }}
+<div class="button-example">
+  {{ radio_button }}  
+</div>
 ``` html{{ radio_button }}```
-{: .mt-small}
 
 
 
@@ -118,9 +127,10 @@ Use the class `.btn-file` and other button style classes to create file buttons.
   <label>Upload files</label>
 </div>
 {% endcapture %}
-{{ file_button }}
+<div class="button-example">
+  {{ file_button }}  
+</div>
 ``` html{{ file_button }}```
-{: .mt-small}
 
 
 
@@ -131,45 +141,47 @@ Use the class `.btn-file` and other button style classes to create file buttons.
 ### Active
 Add the class `.btn-active` to set button state to active.
 {% capture active_button %}
-<button class="btn btn-hollow-primary btn-active">Active button</button>
+<button class="btn btn-hollow-primary btn-active">Button</button>
 <div class="btn-check btn-hollow-primary btn-active">
   <input type="check">
-  <label>Active checkbox button</label>
+  <label>Checkbox button</label>
 </div>
 <div class="btn-radio btn-hollow-primary btn-active">
   <input type="radio">
-  <label>Actived radio button</label>
+  <label>Radio button</label>
 </div>
 <div class="btn-file btn-hollow-primary btn-active">
   <input type="file">
-  <label>Actived file button</label>
+  <label>File button</label>
 </div>
 {% endcapture %}
-{{ active_button }}
+<div class="button-example">
+  {{ active_button }}  
+</div>
 ``` html{{ active_button }}```
-{: .mt-small}
 
 
 ### Disabled
 Add the attribute `disabled` to disable buttons.
 {% capture disabled_button %}
-<button class="btn btn-hollow-primary" disabled>Disabled button</button>
-<div class="btn-check btn-hollow-primary">
+<button class="btn btn-hollow-primary" disabled>Button</button>
+<div class="btn-check btn-hollow-primary" disabled>
   <input disabled type="checkbox">
-  <label>Disabled checkbox button</label>
+  <label>Checkbox button</label>
 </div>
-<div class="btn-radio btn-hollow-primary">
+<div class="btn-radio btn-hollow-primary" disabled>
   <input disabled type="radio">
-  <label>Disabled radio button</label>
+  <label>Radio button</label>
 </div>
-<div class="btn-file btn-hollow-primary">
+<div class="btn-file btn-hollow-primary" disabled>
   <input disabled type="file">
-  <label>Disabled file button</label>
+  <label>File button</label>
 </div>
 {% endcapture %}
-{{ disabled_button }}
+<div class="button-example">
+  {{ disabled_button }}
+</div>
 ``` html{{ disabled_button }}```
-{: .mt-small}
 
 
 ### Checked
@@ -177,16 +189,17 @@ Add the attribute `checked` to checkbox button and radio button to set checked s
 {% capture checked_button %}
 <div class="btn-check btn-hollow-primary">
   <input checked type="checkbox">
-  <label>Checked checkbox button</label>
+  <label>Checkbox button</label>
 </div>
 <div class="btn-radio btn-hollow-primary">
   <input checked type="radio">
-  <label>Checked radio button</label>
+  <label>Radio button</label>
 </div>
 {% endcapture %}
-{{ checked_button }}
+<div class="button-example">
+  {{ checked_button }}
+</div>
 ``` html{{ checked_button }}```
-{: .mt-small}
 
 
 ### Readonly
@@ -194,16 +207,17 @@ Add the attribute `data-readonly` to checkbox button and radio button to set rea
 {% capture readonly_button %}
 <div class="btn-check btn-hollow-primary" data-readonly>
   <input type="checkbox" data-readonly>
-  <label>Readonly checkbox button</label>
+  <label>Checkbox button</label>
 </div>
 <div class="btn-radio btn-hollow-primary" data-readonly>
   <input type="radio" data-readonly>
-  <label>Readonly radio button</label>
+  <label>Radio button</label>
 </div>
 {% endcapture %}
-{{ readonly_button }}
+<div class="button-example">
+  {{ readonly_button }}
+</div>
 ``` html{{ readonly_button }}```
-{: .mt-small}
 
 
 
@@ -214,75 +228,78 @@ Add the attribute `data-readonly` to checkbox button and radio button to set rea
 ### Small{% include modifier.html %}
 Add the class `.btn-small` to make small buttons.
 {% capture small_button %}
-<button class="btn btn-primary btn-small">Small solid button</button>
-<button class="btn btn-hollow-primary btn-small">Small hollow button</button>
-<button class="btn btn-text-primary btn-small">Small text button</button>
+<button class="btn btn-primary btn-small">Solid button</button>
+<button class="btn btn-hollow-primary btn-small">Hollow button</button>
+<button class="btn btn-text-primary btn-small">Text button</button>
 <div class="btn-check btn-hollow-primary btn-small">
   <input type="checkbox">
-  <label>Small checkbox button</label>
+  <label>Checkbox button</label>
 </div>
 <div class="btn-radio btn-hollow-primary btn-small">
   <input type="radio">
-  <label>Small radio button</label>
+  <label>Radio button</label>
 </div>
 <div class="btn-file btn-hollow-primary btn-small">
   <input type="file">
-  <label>Small file button</label>
+  <label>File button</label>
 </div>
 {% endcapture %}
-{{ small_button }}
+<div class="button-example">
+  {{ small_button }}
+</div>
 ``` html{{ small_button }}```
-{: .mt-small}
 
 
 
 ### Large{% include modifier.html %}
 Add the class `.btn-large` to make large buttons.
 {% capture large_button %}
-<button class="btn btn-primary btn-large">Large solid button</button>
-<button class="btn btn-hollow-primary btn-large">Large hollow button</button>
-<button class="btn btn-text-primary btn-large">Large text button</button>
+<button class="btn btn-primary btn-large">Solid button</button>
+<button class="btn btn-hollow-primary btn-large">Hollow button</button>
+<button class="btn btn-text-primary btn-large">Text button</button>
 <div class="btn-check btn-hollow-primary btn-large">
   <input type="checkbox">
-  <label>Large checkbox button</label>
+  <label>Checkbox button</label>
 </div>
 <div class="btn-radio btn-hollow-primary btn-large">
   <input type="radio">
-  <label>Large radio button</label>
+  <label>Radio button</label>
 </div>
 <div class="btn-file btn-hollow-primary btn-large">
   <input type="file">
-  <label>Large file button</label>
+  <label>File button</label>
 </div>
 {% endcapture %}
-{{ large_button }}
+<div class="button-example">
+  {{ large_button }}
+</div>
 ``` html{{ large_button }}```
-{: .mt-small}
 
 
 
 ### Fluid{% include modifier.html %}
 Add the class `.btn-fluid` to make fluid buttons.
 {% capture fluid_button %}
-<button class="btn btn-primary btn-fluid">Fluid solid button</button>
-<button class="btn btn-hollow-primary btn-fluid">Fluid hollow button</button>
-<button class="btn btn-text-primary btn-fluid">Fluid text button</button>
+<button class="btn btn-primary btn-fluid">Solid button</button>
+<button class="btn btn-hollow-primary btn-fluid">Hollow button</button>
+<button class="btn btn-text-primary btn-fluid">Text button</button>
 <div class="btn-check btn-hollow-primary btn-fluid">
   <input type="checkbox">
-  <label>Fluid checkbox button</label>
+  <label>Checkbox button</label>
 </div>
-<div class="btn-radio btn-hollow-secondary btn-fluid">
+<div class="btn-radio btn-hollow-primary btn-fluid">
   <input type="radio">
-  <label>Fluid radio button</label>
+  <label>Radio button</label>
 </div>
 <div class="btn-file btn-primary btn-fluid">
   <input type="file">
-  <label>Fluid file button</label>
+  <label>File button</label>
 </div>
 {% endcapture %}
-{{ fluid_button }}
+<div class="button-example">
+  {{ fluid_button }}  
+</div>
 ``` html{{ fluid_button }}```
-{: .mt-small}
 
 
 

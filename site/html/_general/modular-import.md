@@ -1,7 +1,7 @@
 ---
 title: Modular Import
 description: Luda is modular, you can import what you just need. I assume you're already familier with your assets bundler like Webpack, Sprokets, Rollup...
-order: 5
+order: 6
 ---
 
 

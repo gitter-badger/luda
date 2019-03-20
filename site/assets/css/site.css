@@ -267,6 +267,25 @@ html {
   color: #fa73a0;
 }
 
+#doc-container .grid-example {
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+  background: #525252;
+}
+
+#doc-container .grid-example [class^=col] {
+  margin-bottom: 1rem;
+  box-shadow: inset 1px 1px 0 rgba(250, 115, 160, 0.618), inset -1px -1px 0 rgba(250, 115, 160, 0.618);
+}
+
+#doc-container .button-example .btn,
+#doc-container .button-example .btn-check,
+#doc-container .button-example .btn-radio,
+#doc-container .button-example .btn-file,
+#doc-container .form-example > .fm {
+  margin-bottom: 1rem;
+}
+
 @media (min-width:768px) {
   #doc-aside {
     max-width: 18rem;

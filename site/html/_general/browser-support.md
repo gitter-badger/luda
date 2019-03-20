@@ -1,6 +1,6 @@
 ---
 title: Browser Support
-order: 4
+order: 5
 description: Luda supports most modern browsers, for browsers not supported, you can use Luda degeradation script as a fallback.
 ---
 

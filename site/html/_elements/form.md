@@ -10,21 +10,20 @@ description: Lean how to create form elements and helpers, control states throug
 
 ### Text Field and Text Area
 Add the classes `.fm.fm-text` to create a text field or a text area.
-<div class="fm fm-text">
-  <input placeholder="Enter some text">
+{% capture text_field %}
+<div class="form-example">
+  <div class="fm fm-text">
+    <input placeholder="Enter some text">
+  </div>
+  <div class="fm fm-text">
+    <textarea placeholder="Enter more text"></textarea>
+  </div>
 </div>
-<div class="fm fm-text mt-small">
-  <textarea placeholder="Enter more text"></textarea>
+{% endcapture %}
+<div class="form-example">
+  {{ text_field }}
 </div>
-``` html
-<div class="fm fm-text">
-  <input placeholder="Enter some text">
-</div>
-<div class="fm fm-text">
-  <textarea placeholder="Enter more text"></textarea>
-</div>
-```
-{: .mt-small}
+``` html{{ text_field }}```
 
 
 
@@ -35,27 +34,16 @@ Add the classes `.fm.fm-search` to create a search field.
   <input type="search" placeholder="Search anything...">
 </div>
 {% endcapture %}
-{{ search_field }}
+<div class="form-example">
+  {{ search_field }}
+</div>
 ``` html{{ search_field }}```
-{: .mt-small}
 
 
 
 ### Select Field
 Add the classes `.fm.fm-select` to create single select filed and multiple select field. Set the attribute `selected` value to `selected` to indicate selected values.
-<div class="fm fm-select">
-  <select placeholder="Select a word">
-    <option value="hello">Hello!</option>
-    <option value="goodbye">Goodbye!</option>
-  </select>
-</div>
-<div class="fm fm-select mt-small">
-  <select multiple placeholder="Select words">
-    <option value="hello" selected="selected">Hello!</option>
-    <option value="goodbye">Goodbye!</option>
-  </select>
-</div>
-``` html
+{% capture select_field %}
 <div class="fm fm-select">
   <select placeholder="Select a word">
     <option value="hello">Hello!</option>
@@ -68,28 +56,28 @@ Add the classes `.fm.fm-select` to create single select filed and multiple selec
     <option value="goodbye">Goodbye!</option>
   </select>
 </div>
-```
-{: .mt-small}
+{% endcapture %}
+<div class="form-example">
+  {{ select_field }}
+</div>
+``` html{{ select_field }}```
 
 
 
 ### File Picker
 Add the classes `.fm.fm-file` to create single or multiple file picker. Use the attribute `value` to show filenames.
-<div class="fm fm-file">
-  <input type="file" placeholder="Add a file">
-</div>
-<div class="fm fm-file mt-small">
-  <input type="file" multiple value="luda.min.css" placeholder="Add files">
-</div>
-``` html
+{% capture file_picker %}
 <div class="fm fm-file">
   <input type="file" placeholder="Add a file">
 </div>
 <div class="fm fm-file">
   <input type="file" multiple value="luda.min.css" placeholder="Add files">
 </div>
-```
-{: .mt-small}
+{% endcapture %}
+<div class="form-example">
+  {{ file_picker }}
+</div>
+``` html{{ file_picker }}```
 
 
 
@@ -104,10 +92,10 @@ Add the classes `.fm.fm-check` to create checkboxes.
   <label><input type="checkbox">Checkbox two in label</label>
 </div>
 {% endcapture %}
-{{ checkboxes}}
+<div class="form-example">
+  {{ checkboxes}}
+</div>
 ``` html{{ checkboxes }}```
-{: .mt-small}
-
 
 
 ### Radio
@@ -121,9 +109,10 @@ Add the classes `.fm.fm-radio` to create radioes.
   <label><input type="radio" name="radio_example" value="two">Radio two in label</label>
 </div>
 {% endcapture %}
-{{ radioes }}
+<div class="form-example">
+  {{ radioes }}
+</div>
 ``` html{{ radioes }}```
-{: .mt-small}
 
 
 
@@ -136,7 +125,6 @@ Add the classes `.fm.fm-range` to create a range slider.
 {% endcapture %}
 {{ range_slider }}
 ``` html{{ range_slider }}```
-{: .mt-small}
 
 
 
@@ -146,19 +134,7 @@ Add the classes `.fm.fm-range` to create a range slider.
 
 ### Readonly
 Add the attribute `data-readonly` to make a input element readonly.
-<div class="fm fm-text mb-small" data-readonly>
-  <input data-readonly value="A readonly text field">
-</div>
-<div class="fm fm-check mb-small" data-readonly>
-  <label><input data-readonly checked type="checkbox">A readonly checkbox</label>
-</div>
-<div class="fm fm-select mb-small" data-readonly>
-  <select data-readonly placeholder="Select a word">
-    <option selected="selected" value="hello">A readonly select with Hello selected</option>
-    <option value="goodbye">Goodbye!</option>
-  </select>
-</div>
-``` html
+{% capture readonly %}
 <div class="fm fm-text" data-readonly>
   <input data-readonly value="A readonly text field">
 </div>
@@ -171,22 +147,17 @@ Add the attribute `data-readonly` to make a input element readonly.
     <option value="goodbye">Goodbye!</option>
   </select>
 </div>
-```
+{% endcapture %}
+<div class="form-example">
+  {{ readonly }}
+</div>
+``` html{{ readonly }}```
 
 
 
 ### Disabled
 Add the attribute `disabled` to make a disabled input element.
-<div class="fm fm-search mb-small" disabled>
-  <input disabled value="This search field is disabled">
-</div>
-<div class="fm fm-radio mb-small" disabled>
-  <label><input disabled type="radio">This radio is disabled</label>
-</div>
-<div class="fm fm-file mb-small" disabled>
-  <input disabled type="file" value="This file picker is disabled">
-</div>
-``` html
+{% capture disabled %}
 <div class="fm fm-search" disabled>
   <input disabled value="This search field is disabled">
 </div>
@@ -196,7 +167,11 @@ Add the attribute `disabled` to make a disabled input element.
 <div class="fm fm-file" disabled>
   <input disabled type="file" value="This file picker is disabled">
 </div>
-```
+{% endcapture %}
+<div class="form-example">
+  {{ disabled }}
+</div>
+``` html{{ disabled }}```
 
 
 
@@ -204,19 +179,7 @@ Add the attribute `disabled` to make a disabled input element.
 
 ### Small{% include modifier.html %}
 Add the class `.fm-small` to make an input element smaller.
-<div class="fm fm-check fm-small mb-small">
-  <label><input type="checkbox">A small form checkbox</label>
-</div>
-<div class="fm fm-range fm-small mb-small">
-  <input type="range">
-</div>
-<div class="fm fm-search fm-small mb-small">
-  <input placeholder="A small form search">
-</div>
-<div class="fm fm-text fm-small mb-small">
-  <textarea placeholder="A small from textarea"></textarea>
-</div>
-``` html
+{% capture small %}
 <div class="fm fm-check fm-small">
   <label><input type="checkbox">A small form checkbox</label>
 </div>
@@ -229,29 +192,17 @@ Add the class `.fm-small` to make an input element smaller.
 <div class="fm fm-text fm-small">
   <textarea placeholder="A small from textarea"></textarea>
 </div>
-```
+{% endcapture %}
+<div class="form-example">
+  {{ small }}
+</div>
+``` html{{ small }}```
 
 
 
 ### Large{% include modifier.html %}
 Add the class `.fm-large` to make an input element larger.
-<div class="fm fm-radio fm-large mb-small">
-  <label><input type="radio">A large form radio</label>
-</div>
-<div class="fm fm-file fm-large mb-small">
-  <input type="file" placeholder="A large form file">
-</div>
-<div class="fm fm-text fm-large mb-small">
-  <input placeholder="A large form text">
-</div>
-<div class="fm fm-select fm-large mb-small">
-  <select multiple placeholder="A large multiple select">
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
-  </select>
-</div>
-``` html
+{% capture large %}
 <div class="fm fm-radio fm-large">
   <label><input type="radio">A large form radio</label>
 </div>
@@ -268,13 +219,17 @@ Add the class `.fm-large` to make an input element larger.
     <option value="3">Three</option>
   </select>
 </div>
-```
+{% endcapture %}
+<div class="form-example">
+  {{ large }}
+</div>
+``` html{{ large}}```
 
 
 
 ### Inline{% include modifier.html %}
 Add the class `.fm-inline` to make a input element inline.
-{% capture inline_inputs %}
+{% capture inline %}
 <div class="fm fm-check fm-inline">
   <label><input type="checkbox">An inline checbox</label>
 </div>
@@ -285,9 +240,10 @@ Add the class `.fm-inline` to make a input element inline.
   <input type="file" placeholder="An inline form file">
 </div>
 {% endcapture %}
-{{ inline_inputs }}
-``` html{{ inline_inputs }}```
-{: .mt-small}
+<div class="form-example">
+  {{ inline }}
+</div>
+``` html{{ inline }}```
 
 
 
@@ -295,14 +251,7 @@ Add the class `.fm-inline` to make a input element inline.
 
 ### Hint Text
 Use the attribute `data-hint` to show hint text for input elements.
-<div class="fm fm-text mb-small" data-hint="Your email will be a secret.">
-  <input type="email" placeholder="Please enter your email">
-</div>
-<div class="fm fm-radio mb-small" data-hint="Your gender also will be a secret.">
-  <label><input type="radio" value="male">Male</label>
-  <label><input type="radio" value="female">Female</label>
-</div>
-``` html
+{% capture hint %}
 <div class="fm fm-text" data-hint="Your email will be a secret.">
   <input type="email" placeholder="Please enter your email">
 </div>
@@ -310,18 +259,16 @@ Use the attribute `data-hint` to show hint text for input elements.
   <label><input type="radio" value="male">Male</label>
   <label><input type="radio" value="female">Female</label>
 </div>
-```
+{% endcapture %}
+<div class="form-example">
+  {{ hint }}
+</div>
+``` html{{ hint }}```
+
 
 ### Error Text
 Use the attribute `data-error` to show error text for input elements.
-<div class="fm fm-text mb-small" data-error="Email cannot be blank!">
-  <input type="email" placeholder="Please enter your email">
-</div>
-<div class="fm fm-radio mb-small" data-error="Genger must be choosen!">
-  <label><input type="radio" value="male">Male</label>
-  <label><input type="radio" value="female">Female</label>
-</div>
-``` html
+{% capture error %}
 <div class="fm fm-text" data-error="Email cannot be blank!">
   <input type="email" placeholder="Please enter your email">
 </div>
@@ -329,7 +276,11 @@ Use the attribute `data-error` to show error text for input elements.
   <label><input type="radio" value="male">Male</label>
   <label><input type="radio" value="female">Female</label>
 </div>
-```
+{% endcapture %}
+<div class="form-example">
+  {{ error }}
+</div>
+``` html{{ error }}```
 
 
 
@@ -343,9 +294,10 @@ Add the class `.fm-label` to create a label for input elements.
   <input placeholder="Please enter your fullname">
 </div>
 {% endcapture %}
-{{ form_label }}
+<div class="form-example">
+  {{ form_label }}
+</div>
 ``` html{{ form_label }}```
-{: .mt-small}
 
 
 ### Required{% include modifier.html %}
@@ -356,9 +308,10 @@ Add the class `.fm-label-required` to `.fm-label` to show required mark.
   <input placeholder="Please enter your fullname">
 </div>
 {% endcapture %}
-{{ required_form_label }}
+<div class="form-example">
+  {{ required_form_label }}
+</div>
 ``` html{{ required_form_label }}```
-{: .mt-small}
 
 
 
