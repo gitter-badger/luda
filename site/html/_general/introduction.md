@@ -32,15 +32,15 @@ Luda components are classified into different types, you can follow this archite
 
 ### Element
 
-Element is the basic unit to create page elements. Each element has a specific function, the can be used alone or combined together to create collections. For example, `button` can exists alone and can be combined to create a `button group`.
+Elements are basic visible units to create user interface. Each element has a specfic function, they don't rely on other elements. They can be used alone or combined together to create collections. For example, `button` can exist alone or combined to create a `button group`.
 
 ### Collection
 
-Collections are used to descripe common use cases, they can be combinations of elements, collections or extensions of other collections. For example, `form button` is the collection of a `form text` field and a `button` element.
+Collections are implementations of generally used UI patterns. They can be combinations or extensions based on elements or other collections. For example, `form button` is a search bar like component. It's the combination of a `form text field` element and a `button` element.
 
 ### Utility
 
-Most utilities are single css rule with important declaration,they are used to define universal pattern or fast override built in styles. For example, the utility `.rel` contains a single css rule `positon:relative !important`.
+Most utilities are single css rule with important declaration, they are used to define universal pattern or fast override built in styles. For example, the utility `.rel` contains a single css rule `positon:relative !important`.
 
 ### Behavior
 
