@@ -1,5 +1,5 @@
 /*! 
- * Luda degradation script 0.1.8 | https://luda.dev
+ * Luda degradation script 0.1.9 | https://luda.dev
  * Copyright 2018 oatw | https://oatw.blog
  * MIT license | http://opensource.org/licenses/MIT
  */
