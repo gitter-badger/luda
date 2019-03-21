@@ -17,7 +17,7 @@
     _CSS_PROPERTIES: [
       {
         display: 'flex',
-        position: ['sticky',
+        position: ['sticky||-webkit-sticky',
       'fixed']
       },
       'transition',
@@ -102,15 +102,25 @@
         throw new Error('Unsupported CSS property: ' + property);
       }
     },
-    _CSSValueSupported: function(ele, property, value) {
-      ele.style[property] = value;
-      if (ele.style[property] !== value) {
-        this._notify();
-        throw new Error('Unsupported CSS property value: ' + property + ' ' + value);
+    _CSSValueSupported: function(ele, property, valueStr) {
+      var i, len, value, values;
+      values = valueStr.split('||');
+      for (i = 0, len = values.length; i < len; i++) {
+        value = values[i];
+        ele.style[property] = value;
+        if (ele.style[property] === value) {
+          return;
+        }
       }
+      this._notify();
+      throw new Error('Unsupported CSS property value: ' + property + ' ' + valueStr);
     },
     _notify: function() {
       var _self, i, len, redirectUrl, ref, script;
+      redirectUrl = document.documentElement.getAttribute(this._URL_ATTRIBUTE);
+      if (redirectUrl) {
+        return location.href = redirectUrl;
+      }
       ref = document.scripts;
       for (i = 0, len = ref.length; i < len; i++) {
         script = ref[i];

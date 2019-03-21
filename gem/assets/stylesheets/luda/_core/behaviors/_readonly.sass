@@ -1,0 +1,16 @@
++install(shared-behaviour-readonly)
+
+  [readonly]
+    cursor: default
+    -webkit-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+
+  [data-readonly]:not([data-readonly=false])
+    cursor: default
+    pointer-events: none
+    -webkit-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none

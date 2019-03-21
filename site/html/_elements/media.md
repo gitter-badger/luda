@@ -86,7 +86,7 @@ Use size utilities and the class `.media-content` to control responsive media. T
 You can change responsive video ratio to `1:1` by resplace the class `.media-content` with `.media-content-1by-1`.
 
 Responsive image with radio `1:1`.
-{% capture 1by1_image %}
+{% capture one_by_one_image %}
 <figure class="media w-100 w-66-m">
   <picture class="media-content-1by1">
     <source srcset="https://cdn.stocksnap.io/img-thumbs/960w/CTCNBFUFH8.jpg" media="(min-width: 600px)">
@@ -94,12 +94,12 @@ Responsive image with radio `1:1`.
   </picture>
 </figure>
 {% endcapture %}
-{{ 1by1_image }}
-``` html{{ 1by1_image }}```
+{{ one_by_one_image }}
+``` html{{ one_by_one_image }}```
 {: .my-small}
 
 Responsive video with ratio `1:1`.
-{% capture 1by1_video %}
+{% capture one_by_one_video %}
 <div class="media w-100 w-66-m">
   <div class="media-content-1by1">
     <video autoplay controls loop>
@@ -108,8 +108,8 @@ Responsive video with ratio `1:1`.
   </div>
 </div>
 {% endcapture %}
-{{ 1by1_video }}
-``` html{{ 1by1_video }}```
+{{ one_by_one_video }}
+``` html{{ one_by_one_video }}```
 {: .mt-small}
 
 

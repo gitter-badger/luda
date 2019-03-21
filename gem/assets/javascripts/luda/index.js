@@ -1,17 +1,17 @@
-//= require ./behaviours/enter-click
-//= require ./behaviours/focus
-//= require ./behaviours/radio-tab
-//= require ./behaviours/readonly
-//= require ./behaviours/toggle
+//= require ./behaviors/enter-click
+//= require ./behaviors/focus
+//= require ./behaviors/radio-tab
+//= require ./behaviors/readonly
+//= require ./behaviors/toggle
 //= require ./elements/form-file
 //= require ./elements/form-select
-//= require ./collections/carousel
-//= require ./collections/dropdown
-//= require ./collections/form-dropdown
-//= require ./collections/tab
+//= require ./patterns/carousel
+//= require ./patterns/dropdown
+//= require ./patterns/form-dropdown
+//= require ./patterns/tab
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('./behaviours/enter-click.js'), require('./behaviours/focus.js'), require('./behaviours/radio-tab.js'), require('./behaviours/readonly.js'), require('./behaviours/toggle.js'), require('./elements/form-file.js'), require('./elements/form-select.js'), require('./collections/carousel.js'), require('./collections/dropdown.js'), require('./collections/form-dropdown.js'), require('./collections/tab.js')) :
-	typeof define === 'function' && define.amd ? define(['./behaviours/enter-click.js', './behaviours/focus.js', './behaviours/radio-tab.js', './behaviours/readonly.js', './behaviours/toggle.js', './elements/form-file.js', './elements/form-select.js', './collections/carousel.js', './collections/dropdown.js', './collections/form-dropdown.js', './collections/tab.js'], factory) :
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('./behaviors/enter-click.js'), require('./behaviors/focus.js'), require('./behaviors/radio-tab.js'), require('./behaviors/readonly.js'), require('./behaviors/toggle.js'), require('./elements/form-file.js'), require('./elements/form-select.js'), require('./patterns/carousel.js'), require('./patterns/dropdown.js'), require('./patterns/form-dropdown.js'), require('./patterns/tab.js')) :
+	typeof define === 'function' && define.amd ? define(['./behaviors/enter-click.js', './behaviors/focus.js', './behaviors/radio-tab.js', './behaviors/readonly.js', './behaviors/toggle.js', './elements/form-file.js', './elements/form-select.js', './patterns/carousel.js', './patterns/dropdown.js', './patterns/form-dropdown.js', './patterns/tab.js'], factory) :
 	(factory());
 }(this, (function () { 'use strict';
 

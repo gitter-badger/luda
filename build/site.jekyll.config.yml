@@ -51,13 +51,13 @@ collections:
   general:
     output: true
     permalink: /:collection/:name
-  behaviours:
+  behaviors:
     output: true
     permalink: /:collection/:name
   elements:
     output: true
     permalink: /:collection/:name
-  collections:
+  patterns:
     output: true
     permalink: /:collection/:name
   utilities:

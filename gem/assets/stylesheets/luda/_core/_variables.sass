@@ -10,7 +10,7 @@ $breakpoint-aspect-ratios:    (p: 0, l: 1.0001) !default
 $breakpoint-resolutions:      (l: 0, h: 105.6dpi, xh: 201.6dpi) !default
 
 
-$space-base-rem:     1rem !default
+$space-base-rem:      1rem !default
 $space-tiny-rem:      $space-base-rem / 2 !default
 $space-small-rem:     $space-base-rem !default
 $space-medium-rem:    $space-base-rem * 2 !default
@@ -55,9 +55,10 @@ $background-color-secondary:     lighten($color-secondary, 30%) !default
 $background-color-danger:        $color-danger !default
 $background-color-dark:          $color-dark !default
 $background-color-light:         $color-light !default
+$background-color-muted:         darken($background-color-light, 3%) !default
 $background-emphasis:            lighten($background-color-primary, 22%) !default
 $background-main:                $background-color-light !default
-$background-muted:               darken($background-color-light, 3%) !default
+$background-muted:               $background-color-muted !default
 $background-inverse-emphasis:    lighten($background-color-primary, 22%) !default
 $background-inverse-main:        $background-color-dark !default
 $background-inverse-muted:       lighten($background-color-dark, 3%) !default
@@ -82,6 +83,21 @@ $border-radius-sharp:      0 !default
 $border-radius-rounded:    2px !default
 $border-radius-circle:     9999px !default
 $border-radius-main:       $border-radius-sharp !default
+
+
+
+$box-shadow-low:                  null !default
+$box-shadow-normal:               null !default
+$box-shadow-high:                 null !default
+$box-shadow-inset-low:            null !default
+$box-shadow-inset-normal:         null !default
+$box-shadow-inset-high:           null !default
+
+
+
+$text-shadow-low:            null !default
+$text-shadow-normal:         null !default
+$text-shadow-high:           null !default
 
 
 
@@ -152,9 +168,9 @@ $button-primary-active-background:      darken($background-color-primary, 4%) !d
 $button-primary-border-color:           null !default
 $button-primary-hover-border-color:     null !default
 $button-primary-active-border-color:    null !default
-$button-primary-box-shadow:             null !default
-$button-primary-hover-box-shadow:       null !default
-$button-primary-active-box-shadow:      null !default
+$button-primary-box-shadow:             $box-shadow-normal !default
+$button-primary-hover-box-shadow:       $box-shadow-high !default
+$button-primary-active-box-shadow:      $button-primary-box-shadow !default
 
 
 
@@ -167,9 +183,9 @@ $button-secondary-active-background:      darken($background-color-secondary, 4%
 $button-secondary-border-color:           null !default
 $button-secondary-hover-border-color:     null !default
 $button-secondary-active-border-color:    null !default
-$button-secondary-box-shadow:             null !default
-$button-secondary-hover-box-shadow:       null !default
-$button-secondary-active-box-shadow:      null !default
+$button-secondary-box-shadow:             $box-shadow-normal !default
+$button-secondary-hover-box-shadow:       $box-shadow-high !default
+$button-secondary-active-box-shadow:      $button-secondary-box-shadow !default
 
 
 
@@ -182,9 +198,9 @@ $button-danger-active-background:      darken($background-color-danger, 4%) !def
 $button-danger-border-color:           null !default
 $button-danger-hover-border-color:     null !default
 $button-danger-active-border-color:    null !default
-$button-danger-box-shadow:             null !default
-$button-danger-hover-box-shadow:       null !default
-$button-danger-active-box-shadow:      null !default
+$button-danger-box-shadow:             $box-shadow-normal !default
+$button-danger-hover-box-shadow:       $box-shadow-high !default
+$button-danger-active-box-shadow:      $button-danger-box-shadow !default
 
 
 
@@ -197,9 +213,9 @@ $button-dark-active-background:      darken($background-color-dark, 4%) !default
 $button-dark-border-color:           null !default
 $button-dark-hover-border-color:     null !default
 $button-dark-active-border-color:    null !default
-$button-dark-box-shadow:             null !default
-$button-dark-hover-box-shadow:       null !default
-$button-dark-active-box-shadow:      null !default
+$button-dark-box-shadow:             $box-shadow-normal !default
+$button-dark-hover-box-shadow:       $box-shadow-high !default
+$button-dark-active-box-shadow:      $button-dark-box-shadow !default
 
 
 
@@ -212,9 +228,9 @@ $button-light-active-background:      darken($background-color-light, 4%) !defau
 $button-light-border-color:           null !default
 $button-light-hover-border-color:     null !default
 $button-light-active-border-color:    null !default
-$button-light-box-shadow:             null !default
-$button-light-hover-box-shadow:       null !default
-$button-light-active-box-shadow:      null !default
+$button-light-box-shadow:             $box-shadow-normal !default
+$button-light-hover-box-shadow:       $box-shadow-high !default
+$button-light-active-box-shadow:      $button-light-box-shadow !default
 
 
 
@@ -333,8 +349,8 @@ $button-text-light-active-text-shadow:    null !default
 
 
 
-$container-max-width-px:    1366px !default
-$container-padding-rem:     $space-medium-rem $space-small-rem !default
+$container-max-width-rem:    105.076923rem !default
+$container-padding-rem:      $space-medium-rem $space-small-rem !default
 
 
 
@@ -366,7 +382,7 @@ $form-element-border-color:                   $line-color-main !default
 $form-element-error-border-color:             $line-color-danger !default
 $form-element-focus-border-color:             $line-color-primary !default
 $form-element-box-shadow:                     null !default
-$form-element-focus-box-shadow:               null !default
+$form-element-focus-box-shadow:               $box-shadow-inset-low !default
 $form-element-error-box-shadow:               null !default
 $form-element-icon-size-em:                   1.286em !default
 $form-element-icon-color:                     $form-element-border-color !default
@@ -393,7 +409,7 @@ $form-element-focus-checked-icon-color:    null !default
 
 
 $form-element-track-height-em:             0.4em !default
-$form-element-track-background:            darken($background-muted, 4%) !default !default
+$form-element-track-background:            darken($background-color-muted, 4%) !default !default
 $form-element-focus-track-background:      null !default
 $form-element-error-track-background:      null !default
 $form-element-track-border-radius:         $border-radius-main !default
@@ -466,7 +482,7 @@ $table-cell-padding-rem:        $space-small-rem !default
 $table-border-style:            solid !default
 $table-border-width:            1px !default
 $table-border-color:            $line-color-main !default
-$table-border-radius:           null !default
+$table-border-radius:           $border-radius-main !default
 $table-head-background:         $background-muted !default
 $table-head-color:              $color-emphasis !default
 $table-body-color:              $color-main !default
@@ -532,7 +548,7 @@ $typography-code-block-padding-rem:    0 $space-medium-rem !default
 $typography-code-padding-em:           0.2em 0.4em !default
 $typography-code-background:           $background-muted !default
 $typography-code-color:                $color-main !default
-$typography-code-border-radius:        null !default
+$typography-code-border-radius:        $border-radius-main !default
 
 
 
@@ -557,11 +573,11 @@ $turbolinks-progress-bar-background:    $background-color-primary !default
 
 
 
-// variables for collections
+// variables for patterns
 $alert-padding-rem:               $space-small-rem !default
-$alert-border-radius:             0 !default
+$alert-border-radius:             $border-radius-main !default
 $alert-background:                $background-color-dark !default
-$alert-box-shadow:                null !default
+$alert-box-shadow:                $box-shadow-normal !default
 $alert-action-margin-left-rem:    $space-small-rem !default
 $alert-title-color:               $color-inverse-emphasis !default
 $alert-content-color:             $color-inverse-main !default
@@ -646,9 +662,9 @@ $dropdown-width-breakpoint:               m !default
 $dropdown-static-menu-margin-left-rem:    $space-small-rem !default
 $dropdown-absolute-max-height-rem:        33rem !default
 $dropdown-absolute-drop-gap-rem:          $space-tiny-rem !default
-$dropdown-absolute-border-radius:         0 !default
+$dropdown-absolute-border-radius:         $border-radius-main !default
 $dropdown-absolute-fixed-background:      $background-main !default
-$dropdown-absolute-box-shadow:            null !default
+$dropdown-absolute-box-shadow:            $box-shadow-normal !default
 
 
 
@@ -659,16 +675,15 @@ $form-group-element-vertical-margin-rem:    $space-small-rem !default
 $media-content-aspect-ratio:    16 / 9 !default
 $media-border-radius:           $border-radius-main !default
 $media-background-color:        $background-muted !default
-$media-description-color:       $color-muted !default
 
 
 
-$modal-padding-rem:                $space-medium-rem !default
-$modal-in-overlay-max-width-px:    600px !default
-$modal-in-overlay-min-width-px:    320px !default
-$modal-background:                 $background-muted !default
-$modal-border-radius:              $border-radius-main !default
-$modal-box-shadow:                 null !default
+$modal-padding-rem:                 $space-medium-rem !default
+$modal-in-overlay-max-width-rem:    46.153846rem !default
+$modal-in-overlay-min-width-rem:    24.615384rem !default
+$modal-background:                  $background-muted !default
+$modal-border-radius:               $border-radius-main !default
+$modal-box-shadow:                  $box-shadow-normal !default
 
 
 
@@ -685,7 +700,7 @@ $nav-background:               $background-color-dark !default
 
 
 
-$nav-header-box-shadow:                         null !default
+$nav-header-box-shadow:                         $box-shadow-normal !default
 $nav-header-breakpoint-search-margin-rem:       0 $space-small-rem !default
 $nav-header-breakpoint-items-margin-rem:        0 auto 0 0 !default
 $nav-header-breakpoint-sub-items-margin-rem:    0 !default
@@ -701,7 +716,7 @@ $nav-aside-breakpoint-logo-image-height-rem:    7rem !default
 $nav-aside-breakpoint-logo-image-width-rem:     9rem !default
 $nav-aside-breakpoint-min-width-rem:            18rem !default
 $nav-aside-breakpoint-max-width-rem:            20rem !default
-$nav-aside-breakpoint-box-shadow:               null !default
+$nav-aside-breakpoint-box-shadow:               $box-shadow-normal !default
 
 
 

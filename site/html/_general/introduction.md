@@ -32,11 +32,11 @@ Luda components are classified into different types, you can follow this archite
 
 ### Element
 
-Elements are basic visible units to create user interface. Each element has a specfic function, they don't rely on other elements. They can be used alone or combined together to create collections. For example, `button` can exist alone or combined to create a `button group`.
+Elements are basic visible units to create user interface. Each element has a specfic function, they don't rely on other elements. They can be used alone or combined together to create UI patterns. For example, `button` can exist alone or combined to create a `button group`.
 
-### Collection
+### Pattern
 
-Collections are implementations of generally used UI patterns. They can be combinations or extensions based on elements or other collections. For example, `form button` is a search bar like component. It's the combination of a `form text field` element and a `button` element.
+Patterns are implementations of generally used UI design patterns. They can be combinations or extensions based on elements or other collections. For example, `form button` is a search bar like component. It's the combination of a `form text field` element and a `button` element.
 
 ### Utility
 

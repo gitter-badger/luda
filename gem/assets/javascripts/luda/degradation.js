@@ -12,7 +12,7 @@
     _CSS_PROPERTIES: [
       {
         display: 'flex',
-        position: ['sticky',
+        position: ['sticky||-webkit-sticky',
       'fixed']
       },
       'transition',
@@ -20,7 +20,8 @@
     ],
     _JS_PROPERTIES: {
       es6Class: 'class X {}',
-      es6ArrowFunction: '((x) => x)()'
+      es6ArrowFunction: '((x) => x)()',
+      mutationObserver: 'new MutationObserver(function(){})'
     },
     _NOTIFY_MILLSECONDS: 500,
     check: function() {
@@ -96,18 +97,32 @@
         throw new Error('Unsupported CSS property: ' + property);
       }
     },
-    _CSSValueSupported: function(ele, property, value) {
-      ele.style[property] = value;
-      if (ele.style[property] !== value) {
-        this._notify();
-        throw new Error('Unsupported CSS property value: ' + property + ' ' + value);
+    _CSSValueSupported: function(ele, property, valueStr) {
+      var i, len, value, values;
+      values = valueStr.split('||');
+      for (i = 0, len = values.length; i < len; i++) {
+        value = values[i];
+        ele.style[property] = value;
+        if (ele.style[property] === value) {
+          return;
+        }
       }
+      this._notify();
+      throw new Error('Unsupported CSS property value: ' + property + ' ' + valueStr);
     },
     _notify: function() {
-      var _self, redirectUrl;
+      var _self, i, len, redirectUrl, ref, script;
       redirectUrl = document.documentElement.getAttribute(this._URL_ATTRIBUTE);
       if (redirectUrl) {
         return location.href = redirectUrl;
+      }
+      ref = document.scripts;
+      for (i = 0, len = ref.length; i < len; i++) {
+        script = ref[i];
+        redirectUrl = script.getAttribute(this._URL_ATTRIBUTE);
+        if (redirectUrl) {
+          return location.href = redirectUrl;
+        }
       }
       _self = this;
       return setInterval(function() {

@@ -63,13 +63,13 @@ includes_dir: src/html/_includes
 collections_dir: src/html
  
 collections:
-  behaviours:
+  behaviors:
     output: true
     permalink: /:collection/:name
   elements:
     output: true
     permalink: /:collection/:name
-  collections:
+  patterns:
     output: true
     permalink: /:collection/:name
   utilities:
