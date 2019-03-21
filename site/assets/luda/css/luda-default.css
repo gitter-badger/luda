@@ -1,5 +1,5 @@
 /*! 
-* * Luda 0.1.8 | Theme default | https://luda.dev
+* * Luda 0.1.9 | Theme default | https://luda.dev
 * * Copyright 2018 oatw | https://oatw.blog
 * * MIT license | http://opensource.org/licenses/MIT
 * */
@@ -2414,6 +2414,7 @@ body:has(.overlay.toggle-active) {
 .avatar-x,
 .avatar-y {
   display: inline-flex;
+  vertical-align: top;
   align-items: center;
 }
 

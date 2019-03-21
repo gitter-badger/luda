@@ -19,17 +19,18 @@ order: 6
 @import 'path_to_node_modules/luda/src/sass/default/mixins'
 // Browser styles normalization based on sanitize.css(https://github.com/csstools/sanitize.css)
 @import 'path_to_node_modules/luda/src/sass/default/base'
-// Theme Behaviours
-@import 'path_to_node_modules/luda/src/sass/default/behaviours/readonly'
-@import 'path_to_node_modules/luda/src/sass/default/behaviours/disabled'
-@import 'path_to_node_modules/luda/src/sass/default/behaviours/focus'
-@import 'path_to_node_modules/luda/src/sass/default/behaviours/toggle'
+// Theme Behaviors
+@import 'path_to_node_modules/luda/src/sass/default/behaviors/readonly'
+@import 'path_to_node_modules/luda/src/sass/default/behaviors/disabled'
+@import 'path_to_node_modules/luda/src/sass/default/behaviors/focus'
+@import 'path_to_node_modules/luda/src/sass/default/behaviors/toggle'
 // Theme Elements
 @import 'path_to_node_modules/luda/src/sass/default/elements/typography'
 @import 'path_to_node_modules/luda/src/sass/default/elements/form'
 @import 'path_to_node_modules/luda/src/sass/default/elements/container'
 @import 'path_to_node_modules/luda/src/sass/default/elements/grid'
 @import 'path_to_node_modules/luda/src/sass/default/elements/button'
+@import 'path_to_node_modules/luda/src/sass/default/elements/media'
 @import 'path_to_node_modules/luda/src/sass/default/elements/table'
 @import 'path_to_node_modules/luda/src/sass/default/elements/overlay'
 @import 'path_to_node_modules/luda/src/sass/default/elements/icon'
@@ -38,22 +39,21 @@ order: 6
 @import 'path_to_node_modules/luda/src/sass/default/elements/scrollbar'
 @import 'path_to_node_modules/luda/src/sass/default/elements/turbolinks-progress-bar'
 @import 'path_to_node_modules/luda/src/sass/default/elements/baseline'
-// Theme Collections
-@import 'path_to_node_modules/luda/src/sass/default/collections/media'
-@import 'path_to_node_modules/luda/src/sass/default/collections/avatar'
-@import 'path_to_node_modules/luda/src/sass/default/collections/breadcrumb'
-@import 'path_to_node_modules/luda/src/sass/default/collections/alert'
-@import 'path_to_node_modules/luda/src/sass/default/collections/modal'
-@import 'path_to_node_modules/luda/src/sass/default/collections/dropdown'
-@import 'path_to_node_modules/luda/src/sass/default/collections/button-icon'
-@import 'path_to_node_modules/luda/src/sass/default/collections/button-group'
-@import 'path_to_node_modules/luda/src/sass/default/collections/form-icon'
-@import 'path_to_node_modules/luda/src/sass/default/collections/form-button'
-@import 'path_to_node_modules/luda/src/sass/default/collections/form-group'
-@import 'path_to_node_modules/luda/src/sass/default/collections/form-dropdown'
-@import 'path_to_node_modules/luda/src/sass/default/collections/carousel'
-@import 'path_to_node_modules/luda/src/sass/default/collections/tab'
-@import 'path_to_node_modules/luda/src/sass/default/collections/nav'
+// Theme Patterns
+@import 'path_to_node_modules/luda/src/sass/default/patterns/avatar'
+@import 'path_to_node_modules/luda/src/sass/default/patterns/breadcrumb'
+@import 'path_to_node_modules/luda/src/sass/default/patterns/alert'
+@import 'path_to_node_modules/luda/src/sass/default/patterns/modal'
+@import 'path_to_node_modules/luda/src/sass/default/patterns/dropdown'
+@import 'path_to_node_modules/luda/src/sass/default/patterns/button-icon'
+@import 'path_to_node_modules/luda/src/sass/default/patterns/button-group'
+@import 'path_to_node_modules/luda/src/sass/default/patterns/form-icon'
+@import 'path_to_node_modules/luda/src/sass/default/patterns/form-button'
+@import 'path_to_node_modules/luda/src/sass/default/patterns/form-group'
+@import 'path_to_node_modules/luda/src/sass/default/patterns/form-dropdown'
+@import 'path_to_node_modules/luda/src/sass/default/patterns/carousel'
+@import 'path_to_node_modules/luda/src/sass/default/patterns/tab'
+@import 'path_to_node_modules/luda/src/sass/default/patterns/nav'
 // Theme Utilities
 @import 'path_to_node_modules/luda/src/sass/default/utilities/display'
 @import 'path_to_node_modules/luda/src/sass/default/utilities/flex'
@@ -75,20 +75,20 @@ order: 6
 ### JavaScript Modular Import in Node.js
 
 ``` javascript
-// Behaviours
-import 'luda/src/js/behaviours/enter-click'
-import 'luda/src/js/behaviours/focus'
-import 'luda/src/js/behaviours/radio-tab'
-import 'luda/src/js/behaviours/readonly'
-import 'luda/src/js/behaviours/toggle'
+// Behaviors
+import 'luda/src/js/behaviors/enter-click'
+import 'luda/src/js/behaviors/focus'
+import 'luda/src/js/behaviors/radio-tab'
+import 'luda/src/js/behaviors/readonly'
+import 'luda/src/js/behaviors/toggle'
 // Elements
 import 'luda/src/js/elements/form-file'
 import 'luda/src/js/elements/form-select'
-// Collections
-import 'luda/src/js/collections/carousel'
-import 'luda/src/js/collections/dropdown'
-import 'luda/src/js/collections/form-dropdown'
-import 'luda/src/js/collections/tab'
+// Patterns
+import 'luda/src/js/patterns/carousel'
+import 'luda/src/js/patterns/dropdown'
+import 'luda/src/js/patterns/form-dropdown'
+import 'luda/src/js/patterns/tab'
 ```
 
 
@@ -106,17 +106,18 @@ import 'luda/src/js/collections/tab'
 @import luda/default/mixins
 // Browser styles normalization based on sanitize.css(https://github.com/csstools/sanitize.css)
 @import luda/default/base
-// Theme Behaviours
-@import luda/default/behaviours/readonly
-@import luda/default/behaviours/disabled
-@import luda/default/behaviours/focus
-@import luda/default/behaviours/toggle
+// Theme Behaviors
+@import luda/default/behaviors/readonly
+@import luda/default/behaviors/disabled
+@import luda/default/behaviors/focus
+@import luda/default/behaviors/toggle
 //Theme Elements
 @import luda/default/elements/typography
 @import luda/default/elements/form
 @import luda/default/elements/container
 @import luda/default/elements/grid
 @import luda/default/elements/button
+@import luda/default/elements/media
 @import luda/default/elements/table
 @import luda/default/elements/overlay
 @import luda/default/elements/icon
@@ -125,22 +126,21 @@ import 'luda/src/js/collections/tab'
 @import luda/default/elements/scrollbar
 @import luda/default/elements/turbolinks-progress-bar
 @import luda/default/elements/baseline
-//Theme Collections
-@import luda/default/collections/media
-@import luda/default/collections/avatar
-@import luda/default/collections/breadcrumb
-@import luda/default/collections/alert
-@import luda/default/collections/modal
-@import luda/default/collections/dropdown
-@import luda/default/collections/button-icon
-@import luda/default/collections/button-group
-@import luda/default/collections/form-icon
-@import luda/default/collections/form-button
-@import luda/default/collections/form-group
-@import luda/default/collections/form-dropdown
-@import luda/default/collections/carousel
-@import luda/default/collections/tab
-@import luda/default/collections/nav
+//Theme Patterns
+@import luda/default/patterns/avatar
+@import luda/default/patterns/breadcrumb
+@import luda/default/patterns/alert
+@import luda/default/patterns/modal
+@import luda/default/patterns/dropdown
+@import luda/default/patterns/button-icon
+@import luda/default/patterns/button-group
+@import luda/default/patterns/form-icon
+@import luda/default/patterns/form-button
+@import luda/default/patterns/form-group
+@import luda/default/patterns/form-dropdown
+@import luda/default/patterns/carousel
+@import luda/default/patterns/tab
+@import luda/default/patterns/nav
 //Theme Utilities
 @import luda/default/utilities/display
 @import luda/default/utilities/flex
@@ -162,20 +162,20 @@ import 'luda/src/js/collections/tab'
 ### JavaScript Modular Import in Sprokets
 
 ``` javascript
-// Behaviours
-//= require luda/behaviours/enter-click
-//= require luda/behaviours/focus
-//= require luda/behaviours/radio-tab
-//= require luda/behaviours/readonly
-//= require luda/behaviours/toggle
+// Behaviors
+//= require luda/behaviors/enter-click
+//= require luda/behaviors/focus
+//= require luda/behaviors/radio-tab
+//= require luda/behaviors/readonly
+//= require luda/behaviors/toggle
 // Elements
 //= require luda/elements/form-file
 //= require luda/elements/form-select
-// Collections
-//= require luda/collections/carousel
-//= require luda/collections/dropdown
-//= require luda/collections/form-dropdown
-//= require luda/collections/tab
+// patterns
+//= require luda/patterns/carousel
+//= require luda/patterns/dropdown
+//= require luda/patterns/form-dropdown
+//= require luda/patterns/tab
 ```
 
 ## In Hanami Apps
