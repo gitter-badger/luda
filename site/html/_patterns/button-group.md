@@ -106,6 +106,12 @@ Add the class `.btns-margin` to add margins around buttons.
 ## Sass Variables
 
 ``` sass
+$button-group-box-shadow: $box-shadow-normal !default
+```
+Description.
+{: .mb-small}
+
+``` sass
 $button-group-children-margin-rem: 0 $space-small-rem $space-small-rem 0 !default
 ```
 Description.

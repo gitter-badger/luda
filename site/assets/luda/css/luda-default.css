@@ -2492,7 +2492,7 @@ body:has(.overlay.toggle-active) {
 }
 
 .avatar-large.avatar-x .avatar-info {
-  padding-left: 0.5rem;
+  padding-left: 1rem;
 }
 
 .avatar-large .avatar-name,
@@ -2815,6 +2815,13 @@ body:has(.overlay.toggle-active) {
   border-right: none;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+.btns-x:not(.btns-margin) [class*=btn-][class*=btn-],
+.btns-x:not(.btns-margin) [class*=btn-][class*=btn-] input ~ label,
+.btns-y:not(.btns-margin) [class*=btn-][class*=btn-],
+.btns-y:not(.btns-margin) [class*=btn-][class*=btn-] input ~ label {
+  box-shadow: none;
 }
 
 .btns-x:not(.btns-margin).btns-fluid [class*=btn-] {
