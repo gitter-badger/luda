@@ -20,6 +20,9 @@
   .btns-y.btns-margin [class*=btn-]
     margin: $button-group-children-margin-rem
 
+  .btns-x:not(.btns-margin),
+  .btns-y:not(.btns-margin)
+    box-shadow: $button-group-box-shadow
 
 
   .btns-x:not(.btns-margin) .btn:not(:first-child),
@@ -33,6 +36,12 @@
     border-right: none
     border-top-right-radius: 0
     border-bottom-right-radius: 0
+
+  .btns-x:not(.btns-margin) [class*=btn-][class*=btn-],
+  .btns-x:not(.btns-margin) [class*=btn-][class*=btn-] input ~ label,
+  .btns-y:not(.btns-margin) [class*=btn-][class*=btn-],
+  .btns-y:not(.btns-margin) [class*=btn-][class*=btn-] input ~ label
+    box-shadow: none
 
   .btns-x:not(.btns-margin).btns-fluid [class*=btn-]
     flex: 1 1 auto
