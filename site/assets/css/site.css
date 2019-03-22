@@ -278,10 +278,12 @@ html {
   box-shadow: inset 1px 1px 0 rgba(250, 115, 160, 0.618), inset -1px -1px 0 rgba(250, 115, 160, 0.618);
 }
 
-#doc-container .button-example .btn,
-#doc-container .button-example .btn-check,
-#doc-container .button-example .btn-radio,
-#doc-container .button-example .btn-file,
+#doc-container .button-example > .btn,
+#doc-container .button-example > .btn-check,
+#doc-container .button-example > .btn-radio,
+#doc-container .button-example > .btn-file,
+#doc-container .button-example > .btns-x,
+#doc-container .button-example > .btns-y,
 #doc-container .form-example > .fm {
   margin-bottom: 1rem;
 }
