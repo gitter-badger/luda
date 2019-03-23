@@ -1,5 +1,5 @@
 /*! 
-* * Luda 0.1.9 | Theme default | https://luda.dev
+* * Luda 0.1.10 | Theme default | https://luda.dev
 * * Copyright 2018 oatw | https://oatw.blog
 * * MIT license | http://opensource.org/licenses/MIT
 * */
@@ -2928,32 +2928,6 @@ body:has(.overlay.toggle-active) {
   fill: #fa73a0;
 }
 
-.fm-btn {
-  display: flex;
-}
-
-.fm-btn .fm {
-  flex-basis: 100%;
-}
-
-.fm-btn .fm input,
-.fm-btn .fm select,
-.fm-btn .fm textarea {
-  border-right: none;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.fm-btn .btn,
-.fm-btn .btn-check,
-.fm-btn .btn-radio,
-.fm-btn .btn-file {
-  flex-shrink: 0;
-  order: 1;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
 .fm-dropdown.dropdown-absolute,
 .fm-dropdown.dropdown-fixed {
   width: 100%;
@@ -3024,6 +2998,42 @@ body:has(.overlay.toggle-active) {
 
 .fm-group .fm {
   margin-bottom: 1rem;
+}
+
+.search-bar {
+  display: flex;
+}
+
+.search-bar > .fm {
+  flex-basis: 100%;
+}
+
+.search-bar > .fm input {
+  border-right-width: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.search-bar .btn {
+  flex-shrink: 0;
+  order: 2;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.search-bar .fm-dropdown {
+  order: 1;
+  width: auto;
+}
+
+.search-bar .fm-dropdown .fm input {
+  border-right: none;
+  border-radius: 0;
+}
+
+.search-bar .fm-dropdown ~ .fm input.focus,
+.search-bar .fm-dropdown ~ .fm[data-error] input {
+  border-right-width: 1px;
 }
 
 .carousel {
