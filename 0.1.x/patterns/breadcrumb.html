@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Space | Luda - A lightweight and responsive UI framework for modern web development.</title>
+    <title>Breadcrumb | Luda - A lightweight and responsive UI framework for modern web development.</title>
     <meta charset="UTF-8">
 <!-- viewport -->
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
@@ -208,7 +208,7 @@
   
 
   
-  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/breadcrumb">Breadcrumb</a>
+  <a class="btn btn-small btn-text-light btn-active" href="/0.1.x/patterns/breadcrumb">Breadcrumb</a>
   
 
   
@@ -305,7 +305,7 @@
   
 
   
-  <a class="btn btn-small btn-text-light btn-active" href="/0.1.x/utilities/space">Space</a>
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/space">Space</a>
   
 
   
@@ -325,10 +325,56 @@
   </div>
 </aside>
 
-  <main id="doc-container" data-chapter="space" class="col-auto pt-medium pb-large px-medium p-large-m">
-    <h1 class="page-title mt-large mt-small-m">Space</h1>
-<p class="p3"></p>
-    
+  <main id="doc-container" data-chapter="breadcrumb" class="col-auto pt-medium pb-large px-medium p-large-m">
+    <h1 class="page-title mt-large mt-small-m">Breadcrumb</h1>
+<p class="p3">Use breadcrumb to show current location of user.</p>
+    <h2 id="usage">Usage</h2>
+<p>Add the class <code class="highlighter-rouge">.breadcrumb</code> to create a breadcrumb.</p>
+<ol class="breadcrumb mb-small">
+  <li><a href="#" data-turbolinks="false">Zoo</a></li>
+  <li><a href="#" data-turbolinks="false">Monkeies</a></li>
+  <li><span>BMonkey</span></li>
+</ol>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ol</span> <span class="na">class=</span><span class="s">"breadcrumb"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Zoo<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Monkeies<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;span&gt;</span>BMonkey<span class="nt">&lt;/span&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;/ol&gt;</span>
+</code></pre></div></div>
+
+<h2 id="color">Color</h2>
+<p>Use color utilities to change color.</p>
+<ol class="breadcrumb mb-small">
+  <li><a href="#" data-turbolinks="false">Zoo</a></li>
+  <li><a href="#" data-turbolinks="false">Monkeies</a></li>
+  <li><span class="c-primary">BMonkey</span></li>
+</ol>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ol</span> <span class="na">class=</span><span class="s">"breadcrumb"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Zoo<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Monkeies<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;span</span> <span class="na">class=</span><span class="s">"c-primary"</span><span class="nt">&gt;</span>BMonkey<span class="nt">&lt;/span&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;/ol&gt;</span>
+</code></pre></div></div>
+
+<h2 id="sass-variables">Sass Variables</h2>
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$breadcrumb-padding-rem</span><span class="p">:</span> <span class="nv">$space-small-rem</span> <span class="m">0</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Description.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$breadcrumb-color</span><span class="p">:</span> <span class="nv">$color-muted</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Description.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$breadcrumb-children-padding-em</span><span class="p">:</span> <span class="m">0</span> <span class="nf">strip-unit</span><span class="p">(</span><span class="nv">$space-tiny-rem</span><span class="p">)</span> <span class="o">*</span> <span class="m">1em</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Description.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$breadcrumb-children-spliter</span><span class="p">:</span> <span class="s2">"/"</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p>Description.</p>
+
   </main>
   <nav id="doc-sub-nav" class="nav-aside col-auto dis-none dis-block-l pr-large pl-medium pb-medium b-none">
     <div class="nav-items m-none">

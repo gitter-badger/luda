@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Space | Luda - A lightweight and responsive UI framework for modern web development.</title>
+    <title>Toggle | Luda - A lightweight and responsive UI framework for modern web development.</title>
     <meta charset="UTF-8">
 <!-- viewport -->
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
@@ -134,7 +134,7 @@
   
 
   
-  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviors/toggle">Toggle</a>
+  <a class="btn btn-small btn-text-light btn-active" href="/0.1.x/behaviors/toggle">Toggle</a>
   
 
 
@@ -305,7 +305,7 @@
   
 
   
-  <a class="btn btn-small btn-text-light btn-active" href="/0.1.x/utilities/space">Space</a>
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/space">Space</a>
   
 
   
@@ -325,10 +325,80 @@
   </div>
 </aside>
 
-  <main id="doc-container" data-chapter="space" class="col-auto pt-medium pb-large px-medium p-large-m">
-    <h1 class="page-title mt-large mt-small-m">Space</h1>
-<p class="p3"></p>
-    
+  <main id="doc-container" data-chapter="toggle" class="col-auto pt-medium pb-large px-medium p-large-m">
+    <h1 class="page-title mt-large mt-small-m">Toggle</h1>
+<p class="p3">Toggle is a convinence behaviour to show or hide a html element. Toggle behaviour can be controlled through html attributes or JavaScript methods.</p>
+    <h2 id="usage">Usage</h2>
+<p>Use the attribute <code class="highlighter-rouge">data-toggle-target</code> to define a toggle target, and use the attribute <code class="highlighter-rouge">data-toggle-for</code> to indicate which target to control.</p>
+
+<p><button class="btn btn-primary" data-toggle-for="toggle_example">Click to toggle</button></p>
+<div class="bc-dark p-small" data-toggle-target="toggle_example">
+  <p class="c-light">Hello Luda!</p>
+</div>
+
+<div class="language-html mt-small highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">data-toggle-for=</span><span class="s">"toggle_example"</span><span class="nt">&gt;</span>Click to toggle<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"bc-dark p-small"</span> <span class="na">data-toggle-target=</span><span class="s">"toggle_example"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"c-light"</span><span class="nt">&gt;</span>Hello Luda!<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>Use the attribute <code class="highlighter-rouge">data-toggle</code> to indicate a toggler inside a toggle target, and use the attribute <code class="highlighter-rouge">data-toggle-disabled</code> to exclude part of the inner toggler.</p>
+
+<p><button class="btn btn-primary" data-toggle-for="toggle_example2">Click to toggle</button></p>
+<div class="bc-dark p-small" data-toggle-target="toggle_example2" data-toggle="">
+  <button class="btn btn-primary">Click to hide</button>
+  <button class="btn btn-light" data-toggle-disabled="">Toggle behaviour disabled</button>
+</div>
+
+<div class="language-html mt-small highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">data-toggle-for=</span><span class="s">"toggle_example2"</span><span class="nt">&gt;</span>Click to toggle<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"bc-dark p-small"</span> <span class="na">data-toggle-target=</span><span class="s">"toggle_example2"</span> <span class="na">data-toggle</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span><span class="nt">&gt;</span>Click to hide<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-light"</span> <span class="na">data-toggle-disabled</span><span class="nt">&gt;</span>Toggle behaviour disabled<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h2 id="html-attributes">HTML Attributes</h2>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data-toggle-target="target_name"
+</code></pre></div></div>
+<p class="mb-small">Sets a toggle target with a name.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data-toggle-for="target_name"
+</code></pre></div></div>
+<p class="mb-small">Sets an outside toggler for named toggle targets.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data-toggle
+</code></pre></div></div>
+<p class="mb-small">Sets an inside toggle in a toggle target.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data-toggle-disabled
+</code></pre></div></div>
+<p>Disable toggle behaviour in an inside toggler.</p>
+
+<h2 id="javascript-methods">Javascript Methods</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">luda</span><span class="p">.</span><span class="nx">toggle</span><span class="p">.</span><span class="nx">active</span><span class="p">(</span><span class="nx">param</span><span class="p">)</span>
+</code></pre></div></div>
+<p class="mb-small">Shows a toggle target. Param can be a toggle target name or toggle target element.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">luda</span><span class="p">.</span><span class="nx">toggle</span><span class="p">.</span><span class="nx">deactive</span><span class="p">(</span><span class="nx">param</span><span class="p">)</span>
+</code></pre></div></div>
+<p class="mb-small">Hides a toggle target. Param can be a toggle target name or toggle target element.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">luda</span><span class="p">.</span><span class="nx">toggle</span><span class="p">.</span><span class="nx">toggle</span><span class="p">(</span><span class="nx">param</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Shows or hides a toggle target depending on its state. Param can be a toggle target name or toggle target element.</p>
+
+<h2 id="dom-events">Dom Events</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">luda</span><span class="p">:</span><span class="nx">toggle</span><span class="p">:</span><span class="nx">actived</span>
+</code></pre></div></div>
+<p class="mb-small">Triggered and bubbled after a toggle target showed.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">luda</span><span class="p">:</span><span class="nx">toggle</span><span class="p">:</span><span class="nx">deactived</span>
+</code></pre></div></div>
+<p>Triggered and bubbled after a toggle target hided.</p>
+
   </main>
   <nav id="doc-sub-nav" class="nav-aside col-auto dis-none dis-block-l pr-large pl-medium pb-medium b-none">
     <div class="nav-items m-none">

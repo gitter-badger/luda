@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Avatar | Luda - A lightweight and responsive UI framework for modern web development.</title>
+    <meta charset="UTF-8">
+<!-- viewport -->
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<!-- render -->
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<!-- apple app mode -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Luda">
+<!-- chrome -->
+<meta name="mobile-web-app-capable" content="yes">
+<!-- Chrome, Firefox OS and Opera -->
+<!-- <meta name="theme-color" content="#525252"> -->
+<!-- Windows Phone -->
+<!-- <meta name="msapplication-navbutton-color" content="#525252"> -->
+<meta name="application-name" content="Luda">
+<!-- apple no tel -->
+<meta content="telephone=no" name="format-detection">
+<!-- windows phone no tap color -->
+<meta name="msapplication-tap-highlight" content="no">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="https://fonts.font.im/css?family=Raleway:400,100,200,300,500,600,700,800,900">
+    <script type="text/javascript" src="/0.1.x/assets/js/turbolinks.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/0.1.x/assets/luda/css/luda-default.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="/0.1.x/assets/css/site.min.css">
+    
+
+    <script type="text/javascript" src="/0.1.x/assets/luda/js/luda-degradation.min.js"></script>
+    <script type="text/javascript" src="/0.1.x/assets/luda/js/luda.min.js"></script>
+    <script type="text/javascript" src="/0.1.x/assets/js/clipboard.js"></script>
+    
+    <script type="text/javascript" src="/0.1.x/assets/js/site.min.js"></script>
+    <script type="text/javascript" src="/version.js"></script>
+    <script type="text/javascript">
+  window.site = window.site || {}
+  window.site.version = "0.1.x"
+  luda.on('docready', function(){
+    if(window.site.version != window.site.latestVersion){
+      luda.toggle.active('site-version-alert')
+    }
+  })
+</script>
+
+    
+  </head>
+  <body>
+    
+    <div class="alert fix-t zi-highest bc-danger jc-center" data-toggle-target="site-version-alert">
+  <div class="alert-content">
+    <p>
+      There is a newer version of <a class="link-light" href="/">Luda</a>.
+    </p>
+  </div>
+  <div class="alert-action">
+    <a href="/" class="btn btn-light btn-small mr-small">Let's go!</a>
+    <button data-toggle class="btn btn-hollow-light btn-small">I don't care.</button>
+  </div>
+</div>
+
+    
+    <div id="doc" class="grid-edge">
+  <aside id="doc-aside" class="nav-aside col-12 col-3-m">
+  <a href="/" class="nav-logo">
+    <img src="/0.1.x/assets/img/logo-text.svg" alt="logo">
+  </a>
+  <button class="nav-open btn btn-text-light btn-ico" data-toggle-for="nav-aside-menu">
+    <i class="ico ico-menu"></i>
+  </button>
+  <div class="nav-menu" data-toggle-target="nav-aside-menu" data-toggle>
+    <button class="nav-close btn btn-text-light btn-ico">
+      <i class="ico ico-cross"></i>
+    </button>
+<!--<div class="nav-search fm fm-search fm-small" data-none-toggle>
+      <input type="search" placeholder="Search anything...">
+    </div>-->
+    <div class="nav-items">
+      <p class="px-small c-light">Get Started</p>
+      
+      
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/introduction">Introduction</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/installation">Installation</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/theming">Theming</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/breakpoints">Breakpoints</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/browser-support">Browser Support</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/modular-import">Modular Import</a>
+  
+
+
+    </div>
+    <div class="nav-items">
+      <p class="px-small c-light">Behaviors</p>
+      
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviors/disabled">Disabled</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviors/enter-click">Enter Click</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviors/focus">Focus</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviors/radio-tab">Radio tab</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviors/readonly">Readonly</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviors/toggle">Toggle</a>
+  
+
+
+    </div>
+    <div class="nav-items">
+      <p class="px-small c-light">Elements</p>
+      
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/badge">Badge</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/baseline">Baseline</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/button">Button</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/container">Container</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/form">Form</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/grid">Grid</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/icon">Icon</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/media">Media</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/overlay">Overlay</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/progress">Progress</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/scrollbar">Scrollbar</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/table">Table</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/typography">Typography</a>
+  
+
+
+    </div>
+    <div class="nav-items">
+      <p class="px-small c-light">Patterns</p>
+      
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/alert">Alert</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light btn-active" href="/0.1.x/patterns/avatar">Avatar</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/breadcrumb">Breadcrumb</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/button-group">Button Group</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/button-icon">Button icon</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/carousel">Carousel</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/dropdown">Dropdown</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/form-dropdown">Form dropdown</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/form-group">Form group</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/form-icon">Form icon</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/modal">Modal</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/navigation">Navigation</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/search-bar">Search Bar</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/tab">Tab</a>
+  
+
+
+    </div>
+    <div class="nav-items">
+      <p class="px-small c-light">Utilities</p>
+      
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/align">Align</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/background">Background</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/color">Color</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/display">Display</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/flex">Flex</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/float">Float</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/opacity">Opacity</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/overflow">Overflow</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/position">Position</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/shape">Shape</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/size">Size</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/space">Space</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/text">Text</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/visibility">Visibility</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/utilities/z-index">Z-index</a>
+  
+
+
+    </div>
+  </div>
+</aside>
+
+  <main id="doc-container" data-chapter="avatar" class="col-auto pt-medium pb-large px-medium p-large-m">
+    <h1 class="page-title mt-large mt-small-m">Avatar</h1>
+<p class="p3">Use avatar to show user photo and information.</p>
+    <h2 id="vertical-avatar">Vertical Avatar</h2>
+<p>Add the class <code class="highlighter-rouge">.avatar-y</code> to create a vertical avatar.</p>
+
+<div class="avatar-y">
+  <figure class="media">
+    <img src="https://m.media-amazon.com/images/M/MV5BMTc5NjA5OTk4Ml5BMl5BanBnXkFtZTYwNzkyNzYz._V1_UX214_CR0,0,214,317_AL_.jpg" />
+  </figure>
+  <div class="avatar-info">
+    <p class="avatar-name">Sophie Marceau</p>
+    <p class="avatar-description">2018/01/02 12:00</p>    
+  </div>
+</div>
+
+<div class="language-html mt-small highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"avatar-y"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"https://m.media-amazon.com/images/M/MV5BMTc5NjA5OTk4Ml5BMl5BanBnXkFtZTYwNzkyNzYz._V1_UX214_CR0,0,214,317_AL_.jpg"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/figure&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"avatar-info"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"avatar-name"</span><span class="nt">&gt;</span>Sophie Marceau<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"avatar-description"</span><span class="nt">&gt;</span>2018/01/02 12:00<span class="nt">&lt;/p&gt;</span>    
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h2 id="horizontal-avatar">Horizontal Avatar</h2>
+<p>Add the class <code class="highlighter-rouge">.avatar-x</code> to create a vertical avatar.</p>
+
+<div class="avatar-x">
+  <figure class="media">
+    <img src="https://m.media-amazon.com/images/M/MV5BMTc5NjA5OTk4Ml5BMl5BanBnXkFtZTYwNzkyNzYz._V1_UX214_CR0,0,214,317_AL_.jpg" />
+  </figure>
+  <div class="avatar-info">
+    <p class="avatar-name">Sophie Marceau</p>
+    <p class="avatar-description">2018/01/02 12:00</p>    
+  </div>
+</div>
+
+<div class="language-html mt-small highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"avatar-x"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"https://m.media-amazon.com/images/M/MV5BMTc5NjA5OTk4Ml5BMl5BanBnXkFtZTYwNzkyNzYz._V1_UX214_CR0,0,214,317_AL_.jpg"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/figure&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"avatar-info"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"avatar-name"</span><span class="nt">&gt;</span>Sophie Marceau<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"avatar-description"</span><span class="nt">&gt;</span>2018/01/02 12:00<span class="nt">&lt;/p&gt;</span>    
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h2 id="style-mofifiers">Style Mofifiers</h2>
+
+<h3 id="smallmodifier">Small<span class="badge bc-dark">Modifier</span></h3>
+<p>Add the class <code class="highlighter-rouge">.avatar-small</code> to create a small avatar.</p>
+
+<div class="avatar-y avatar-small">
+  <figure class="media">
+    <img src="https://m.media-amazon.com/images/M/MV5BMTc5NjA5OTk4Ml5BMl5BanBnXkFtZTYwNzkyNzYz._V1_UX214_CR0,0,214,317_AL_.jpg" />
+  </figure>
+  <div class="avatar-info">
+    <p class="avatar-name">Sophie Marceau</p>
+    <p class="avatar-description">2018/01/02 12:00</p>    
+  </div>
+</div>
+<div class="avatar-x avatar-small">
+  <figure class="media">
+    <img src="https://m.media-amazon.com/images/M/MV5BMTc5NjA5OTk4Ml5BMl5BanBnXkFtZTYwNzkyNzYz._V1_UX214_CR0,0,214,317_AL_.jpg" />
+  </figure>
+  <div class="avatar-info">
+    <p class="avatar-name">Sophie Marceau</p>
+    <p class="avatar-description">2018/01/02 12:00</p>    
+  </div>
+</div>
+
+<div class="language-html mt-small highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"avatar-y avatar-small"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"https://m.media-amazon.com/images/M/MV5BMTc5NjA5OTk4Ml5BMl5BanBnXkFtZTYwNzkyNzYz._V1_UX214_CR0,0,214,317_AL_.jpg"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/figure&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"avatar-info"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"avatar-name"</span><span class="nt">&gt;</span>Sophie Marceau<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"avatar-description"</span><span class="nt">&gt;</span>2018/01/02 12:00<span class="nt">&lt;/p&gt;</span>    
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"avatar-x avatar-small"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"https://m.media-amazon.com/images/M/MV5BMTc5NjA5OTk4Ml5BMl5BanBnXkFtZTYwNzkyNzYz._V1_UX214_CR0,0,214,317_AL_.jpg"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/figure&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"avatar-info"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"avatar-name"</span><span class="nt">&gt;</span>Sophie Marceau<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"avatar-description"</span><span class="nt">&gt;</span>2018/01/02 12:00<span class="nt">&lt;/p&gt;</span>    
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h3 id="largemodifier">Large<span class="badge bc-dark">Modifier</span></h3>
+<p>Add the class <code class="highlighter-rouge">.avatar-large</code> to create a large avatar.</p>
+
+<div class="avatar-y avatar-large">
+  <figure class="media">
+    <img src="https://m.media-amazon.com/images/M/MV5BMTc5NjA5OTk4Ml5BMl5BanBnXkFtZTYwNzkyNzYz._V1_UX214_CR0,0,214,317_AL_.jpg" />
+  </figure>
+  <div class="avatar-info">
+    <p class="avatar-name">Sophie Marceau</p>
+    <p class="avatar-description">2018/01/02 12:00</p>    
+  </div>
+</div>
+<div class="avatar-x avatar-large">
+  <figure class="media">
+    <img src="https://m.media-amazon.com/images/M/MV5BMTc5NjA5OTk4Ml5BMl5BanBnXkFtZTYwNzkyNzYz._V1_UX214_CR0,0,214,317_AL_.jpg" />
+  </figure>
+  <div class="avatar-info">
+    <p class="avatar-name">Sophie Marceau</p>
+    <p class="avatar-description">2018/01/02 12:00</p>    
+  </div>
+</div>
+
+<div class="language-html mt-small highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"avatar-y avatar-large"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"https://m.media-amazon.com/images/M/MV5BMTc5NjA5OTk4Ml5BMl5BanBnXkFtZTYwNzkyNzYz._V1_UX214_CR0,0,214,317_AL_.jpg"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/figure&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"avatar-info"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"avatar-name"</span><span class="nt">&gt;</span>Sophie Marceau<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"avatar-description"</span><span class="nt">&gt;</span>2018/01/02 12:00<span class="nt">&lt;/p&gt;</span>    
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"avatar-x avatar-large"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"https://m.media-amazon.com/images/M/MV5BMTc5NjA5OTk4Ml5BMl5BanBnXkFtZTYwNzkyNzYz._V1_UX214_CR0,0,214,317_AL_.jpg"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/figure&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"avatar-info"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"avatar-name"</span><span class="nt">&gt;</span>Sophie Marceau<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"avatar-description"</span><span class="nt">&gt;</span>2018/01/02 12:00<span class="nt">&lt;/p&gt;</span>    
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<h2 id="sass-variables">Sass Variables</h2>
+
+<h3 id="sizes">Sizes</h3>
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$avatar-image-size-rem</span><span class="p">:</span> <span class="m">3rem</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Description.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$avatar-large-image-size-rem</span><span class="p">:</span> <span class="m">6rem</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Description.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$avatar-small-image-size-rem</span><span class="p">:</span> <span class="m">2rem</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Description.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$avatar-info-height-rem</span><span class="p">:</span> <span class="m">3rem</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Description.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$avatar-info-padding-top-rem</span><span class="p">:</span> <span class="m">0</span><span class="mi">.3rem</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Description.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$avatar-info-padding-left-rem</span><span class="p">:</span> <span class="m">0</span><span class="mi">.5rem</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Description.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$avatar-large-info-height-rem</span><span class="p">:</span> <span class="m">4rem</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Description.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$avatar-large-info-padding-top-rem</span><span class="p">:</span> <span class="m">0</span><span class="mi">.6rem</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Description.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$avatar-large-info-padding-left-rem</span><span class="p">:</span> <span class="m">1rem</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Description.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$avatar-small-info-height-rem</span><span class="p">:</span> <span class="n">null</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Description.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$avatar-small-info-padding-top-rem</span><span class="p">:</span> <span class="n">null</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Description.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$avatar-small-info-padding-left-rem</span><span class="p">:</span> <span class="n">null</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p>Description.</p>
+
+<h3 id="typography">Typography</h3>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$avatar-name-typography-size-level</span><span class="p">:</span> <span class="m">5</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Description.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$avatar-large-name-typography-size-level</span><span class="p">:</span> <span class="m">4</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Description.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$avatar-small-name-typography-size-level</span><span class="p">:</span> <span class="m">6</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Description.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$avatar-description-typography-size-level</span><span class="p">:</span> <span class="m">6</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Description.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$avatar-large-description-typography-size-level</span><span class="p">:</span> <span class="m">5</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Description.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$avatar-small-description-typography-size-level</span><span class="p">:</span> <span class="n">null</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p>Description.</p>
+
+<h3 id="others">Others</h3>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$avatar-image-border-radius</span><span class="p">:</span> <span class="m">100%</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Description.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$avatar-default-image-background-size</span><span class="p">:</span> <span class="m">50%</span> <span class="nb">auto</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Description.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$avatar-default-image</span><span class="p">:</span> <span class="nf">svg-icon</span><span class="p">(</span><span class="s1">'&lt;svg viewBox="..."&gt;&lt;path fill="#fill" d="..."/&gt;&lt;/svg&gt;'</span><span class="o">,</span> <span class="nv">$line-color-muted</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Description.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$avatar-background-color</span><span class="p">:</span> <span class="nv">$background-color-muted</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Description.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$avatar-name-color</span><span class="p">:</span> <span class="nv">$color-muted</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Description.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$avatar-description-color</span><span class="p">:</span> <span class="nv">$avatar-name-color</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p>Description.</p>
+
+  </main>
+  <nav id="doc-sub-nav" class="nav-aside col-auto dis-none dis-block-l pr-large pl-medium pb-medium b-none">
+    <div class="nav-items m-none">
+    </div>
+  </nav>
+</div>
+  </body>
+</html>

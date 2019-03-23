@@ -15,9 +15,9 @@
 <!-- chrome -->
 <meta name="mobile-web-app-capable" content="yes">
 <!-- Chrome, Firefox OS and Opera -->
-<meta name="theme-color" content="#525252">
+<!-- <meta name="theme-color" content="#525252"> -->
 <!-- Windows Phone -->
-<meta name="msapplication-navbutton-color" content="#525252">
+<!-- <meta name="msapplication-navbutton-color" content="#525252"> -->
 <meta name="application-name" content="Luda">
 <!-- apple no tel -->
 <meta content="telephone=no" name="format-detection">
@@ -34,6 +34,7 @@
 
     <script type="text/javascript" src="/0.1.x/assets/luda/js/luda-degradation.min.js"></script>
     <script type="text/javascript" src="/0.1.x/assets/luda/js/luda.min.js"></script>
+    <script type="text/javascript" src="/0.1.x/assets/js/clipboard.js"></script>
     
     <script type="text/javascript" src="/0.1.x/assets/js/site.min.js"></script>
     <script type="text/javascript" src="/version.js"></script>
@@ -92,44 +93,48 @@
   
 
   
-  <a class="btn btn-small btn-text-light" href="/0.1.x/general/browser-support">Browser support</a>
-  
-
-  
-  <a class="btn btn-small btn-text-light" href="/0.1.x/general/build-tools">Build tools</a>
-  
-
-  
   <a class="btn btn-small btn-text-light btn-active" href="/0.1.x/general/theming">Theming</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/breakpoints">Breakpoints</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/browser-support">Browser Support</a>
+  
+
+  
+  <a class="btn btn-small btn-text-light" href="/0.1.x/general/modular-import">Modular Import</a>
   
 
 
     </div>
     <div class="nav-items">
-      <p class="px-small c-light">Behaviours</p>
+      <p class="px-small c-light">Behaviors</p>
       
   
-  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/disabled">Disabled</a>
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviors/disabled">Disabled</a>
   
 
   
-  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/enter-click">Enter click</a>
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviors/enter-click">Enter Click</a>
   
 
   
-  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/focus">Focus</a>
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviors/focus">Focus</a>
   
 
   
-  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/radio-tab">Radio tab</a>
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviors/radio-tab">Radio tab</a>
   
 
   
-  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/readonly">Readonly</a>
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviors/readonly">Readonly</a>
   
 
   
-  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviours/toggle">Toggle</a>
+  <a class="btn btn-small btn-text-light" href="/0.1.x/behaviors/toggle">Toggle</a>
   
 
 
@@ -166,6 +171,10 @@
   
 
   
+  <a class="btn btn-small btn-text-light" href="/0.1.x/elements/media">Media</a>
+  
+
+  
   <a class="btn btn-small btn-text-light" href="/0.1.x/elements/overlay">Overlay</a>
   
 
@@ -188,66 +197,62 @@
 
     </div>
     <div class="nav-items">
-      <p class="px-small c-light">Collections</p>
+      <p class="px-small c-light">Patterns</p>
       
   
-  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/alert">Alert</a>
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/alert">Alert</a>
   
 
   
-  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/avatar">Avatar</a>
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/avatar">Avatar</a>
   
 
   
-  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/breadcrumb">Breadcrumb</a>
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/breadcrumb">Breadcrumb</a>
   
 
   
-  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/button-group">Button group</a>
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/button-group">Button Group</a>
   
 
   
-  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/button-icon">Button icon</a>
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/button-icon">Button icon</a>
   
 
   
-  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/carousel">Carousel</a>
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/carousel">Carousel</a>
   
 
   
-  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/dropdown">Dropdown</a>
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/dropdown">Dropdown</a>
   
 
   
-  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/form-button">Form button</a>
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/form-dropdown">Form dropdown</a>
   
 
   
-  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/form-dropdown">Form dropdown</a>
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/form-group">Form group</a>
   
 
   
-  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/form-group">Form group</a>
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/form-icon">Form icon</a>
   
 
   
-  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/form-icon">Form icon</a>
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/modal">Modal</a>
   
 
   
-  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/media">Media</a>
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/navigation">Navigation</a>
   
 
   
-  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/modal">Modal</a>
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/search-bar">Search Bar</a>
   
 
   
-  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/nav">Navigation</a>
-  
-
-  
-  <a class="btn btn-small btn-text-light" href="/0.1.x/collections/tab">Tab</a>
+  <a class="btn btn-small btn-text-light" href="/0.1.x/patterns/tab">Tab</a>
   
 
 
@@ -320,16 +325,340 @@
   </div>
 </aside>
 
-  <main class="col-auto">
-    <div id="doc-container" class="grid container py-medium p-large-m mx-auto">
-      <div class="col-12">
-        <h1 class="mt-large mt-small-m fw-regular">Theming</h1>
-<p class="p3"></p>
+  <main id="doc-container" data-chapter="theming" class="col-auto pt-medium pb-large px-medium p-large-m">
+    <h1 class="page-title mt-large mt-small-m">Theming</h1>
+<p class="p3">With the power of Sass, you can extend Luda themes just as you wish.</p>
+    <h2 id="override-built-in-styles">Override Built in Styles</h2>
 
-        
-      </div>
-    </div>
+<p>Luda themes are written in Sass, you can override certain css selectors to change built in styles. The source code is idempotent, that means you focus on selector priorities but not orders when overriding. In this way, your styles are more stable and maintainable.</p>
+
+<p>For convinence, there are some built-in modifier classes to change components appearance. Each modifier class is marked as <span class="badge-baseline bc-dark mr-tiny">Modifier</span> in this documentation. If they’re not enough for you, you can create your own modifiers.</p>
+
+<h2 id="override-default-variables">Override Default Variables</h2>
+
+<p>Theme Sass variables are defined with <code class="highlighter-rouge">!default</code> declaration. You should define your variables before importing Luda theme variables, so built-in variables with same name will be overriten.</p>
+
+<p>There are two types of theme variables, global variables and component variables. Component variables targets spefic components, they can be referenced in each component documentation area. Global variables are used to define shared style rules across components. If a global variable is changed, any component reference to it will inherit its style defination. You can find all global variables in below list.</p>
+
+<h2 id="global-sass-variables">Global Sass Variables</h2>
+
+<h3 id="sizes">Sizes</h3>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$breakpoint-width-pxs</span><span class="p">:</span> <span class="p">(</span><span class="n">s</span><span class="o">:</span> <span class="m">0</span><span class="o">,</span> <span class="n">m</span><span class="o">:</span> <span class="m">768px</span><span class="o">,</span> <span class="n">l</span><span class="o">:</span> <span class="m">1200px</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Screen width breakpoints. Value should be Map.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$breakpoint-aspect-ratios</span><span class="p">:</span> <span class="p">(</span><span class="n">p</span><span class="o">:</span> <span class="m">0</span><span class="o">,</span> <span class="n">l</span><span class="o">:</span> <span class="m">1</span><span class="mi">.0001</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Screen aspect ratio breakpoints. Value should be Map.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$breakpoint-resolutions</span><span class="p">:</span> <span class="p">(</span><span class="n">l</span><span class="o">:</span> <span class="m">0</span><span class="o">,</span> <span class="n">h</span><span class="o">:</span> <span class="m">105</span><span class="mi">.6dpi</span><span class="o">,</span> <span class="n">xh</span><span class="o">:</span> <span class="m">201</span><span class="mi">.6dpi</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Screen resolution breakpoints. Value should be Map.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$space-base-rem</span><span class="p">:</span> <span class="m">1rem</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Base space size. Value should be Number.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$space-tiny-rem</span><span class="p">:</span> <span class="nv">$space-base-rem</span> <span class="o">/</span> <span class="m">2</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be Number.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$space-small-rem</span><span class="p">:</span> <span class="nv">$space-base-rem</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be Number.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$space-medium-rem</span><span class="p">:</span> <span class="nv">$space-base-rem</span> <span class="o">*</span> <span class="m">2</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be Number.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$space-large-rem</span><span class="p">:</span> <span class="nv">$space-base-rem</span> <span class="o">*</span> <span class="m">4</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p>Value should be Number.</p>
+
+<h3 id="typography">Typography</h3>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$typography-size-scale-ratio</span><span class="p">:</span> <span class="m">1</span><span class="mi">.2</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Scale ratio for type scale. Value should be Number.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$typography-main-size-px</span><span class="p">:</span> <span class="m">14px</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Default font size of html. Value should be Number.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$typography-main-size-level</span><span class="p">:</span> <span class="m">5</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Set font size scale level for calculation. Scale level is from 1 to 6.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$typography-main-line-height-ratio</span><span class="p">:</span> <span class="m">26</span> <span class="o">/</span> <span class="m">14</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p>Default line height of body. Value should be Number.</p>
+
+<h3 id="layers">Layers</h3>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$z-index-low</span><span class="p">:</span> <span class="m">-1</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid z-index value.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$z-index-normal</span><span class="p">:</span> <span class="m">0</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid z-index value.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$z-index-high</span><span class="p">:</span> <span class="m">1</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid z-index value.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$z-index-higher</span><span class="p">:</span> <span class="m">2</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid z-index value.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$z-index-much-higher</span><span class="p">:</span> <span class="m">3</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid z-index value.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$z-index-highest</span><span class="p">:</span> <span class="m">4</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p>Value can be any valid z-index value.</p>
+
+<h3 id="opacities">Opacities</h3>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$opacity-emphasis</span><span class="p">:</span> <span class="m">1</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid opacity value.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$opacity-main</span><span class="p">:</span> <span class="m">0</span><span class="mi">.9</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid opacity value.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$opacity-muted</span><span class="p">:</span> <span class="m">0</span><span class="mi">.618</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid opacity value.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$opacity-more-muted</span><span class="p">:</span> <span class="m">0</span><span class="mi">.382</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid opacity value.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$opacity-most-muted</span><span class="p">:</span> <span class="m">0</span><span class="mi">.1</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid opacity value.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$opacity-disabled</span><span class="p">:</span> <span class="nv">$opacity-muted</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p>Value can be any valid opacity value.</p>
+
+<h3 id="colors">Colors</h3>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$color-primary</span><span class="p">:</span> <span class="nf">hsba</span><span class="p">(</span><span class="m">340</span><span class="o">,</span> <span class="m">54</span><span class="o">,</span> <span class="m">98</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$color-secondary</span><span class="p">:</span> <span class="nf">hsba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">56</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$color-danger</span><span class="p">:</span> <span class="nf">hsba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span> <span class="m">82</span><span class="o">,</span> <span class="m">82</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$color-dark</span><span class="p">:</span> <span class="nf">hsba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">32</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$color-light</span><span class="p">:</span> <span class="nf">hsba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span> <span class="m">0</span><span class="o">,</span> <span class="m">100</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$color-emphasis</span><span class="p">:</span> <span class="nv">$color-dark</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$color-main</span><span class="p">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="nv">$color-dark</span><span class="o">,</span> <span class="m">10%</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$color-muted</span><span class="p">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="nv">$color-dark</span><span class="o">,</span> <span class="m">50%</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$color-inverse-emphasis</span><span class="p">:</span> <span class="nv">$color-light</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$color-inverse-main</span><span class="p">:</span> <span class="nf">rgba</span><span class="p">(</span><span class="nv">$color-light</span><span class="o">,</span> <span class="nv">$opacity-main</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$color-inverse-muted</span><span class="p">:</span> <span class="nf">rgba</span><span class="p">(</span><span class="nv">$color-light</span><span class="o">,</span> <span class="nv">$opacity-muted</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p>Value should be a Color.</p>
+
+<h3 id="backgrounds">Backgrounds</h3>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$background-color-primary</span><span class="p">:</span> <span class="nv">$color-primary</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$background-color-secondary</span><span class="p">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="nv">$color-secondary</span><span class="o">,</span> <span class="m">30%</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$background-color-danger</span><span class="p">:</span> <span class="nv">$color-danger</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$background-color-dark</span><span class="p">:</span> <span class="nv">$color-dark</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$background-color-light</span><span class="p">:</span> <span class="nv">$color-light</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$background-emphasis</span><span class="p">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="nv">$background-color-primary</span><span class="o">,</span> <span class="m">22%</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid background value.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$background-main</span><span class="p">:</span> <span class="nv">$background-color-light</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid background value.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$background-muted</span><span class="p">:</span> <span class="nf">darken</span><span class="p">(</span><span class="nv">$background-color-light</span><span class="o">,</span> <span class="m">3%</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid background value.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$background-inverse-emphasis</span><span class="p">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="nv">$background-color-primary</span><span class="o">,</span> <span class="m">22%</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid background value.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$background-inverse-main</span><span class="p">:</span> <span class="nv">$background-color-dark</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid background value.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$background-inverse-muted</span><span class="p">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="nv">$background-color-dark</span><span class="o">,</span> <span class="m">3%</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p>Value can be any valid background value.</p>
+
+<h3 id="borders">Borders</h3>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$line-color-primary</span><span class="p">:</span> <span class="nv">$color-primary</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$line-color-secondary</span><span class="p">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="nv">$color-secondary</span><span class="o">,</span> <span class="m">30%</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$line-color-danger</span><span class="p">:</span> <span class="nv">$color-danger</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$line-color-dark</span><span class="p">:</span> <span class="nv">$color-dark</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$line-color-light</span><span class="p">:</span> <span class="nv">$color-light</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$line-color-emphasis</span><span class="p">:</span> <span class="nv">$line-color-primary</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$line-color-main</span><span class="p">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="nv">$line-color-dark</span><span class="o">,</span> <span class="m">60%</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$line-color-muted</span><span class="p">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="nv">$line-color-dark</span><span class="o">,</span> <span class="m">40%</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$line-color-inverse-emphasis</span><span class="p">:</span> <span class="nv">$line-color-primary</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$line-color-inverse-main</span><span class="p">:</span> <span class="nf">rgba</span><span class="p">(</span><span class="nv">$line-color-light</span><span class="o">,</span> <span class="nv">$opacity-main</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$line-color-inverse-muted</span><span class="p">:</span> <span class="nf">rgba</span><span class="p">(</span><span class="nv">$line-color-light</span><span class="o">,</span> <span class="nv">$opacity-muted</span><span class="p">)</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$border-radius-sharp</span><span class="p">:</span> <span class="m">0</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid border radius value.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$border-radius-rounded</span><span class="p">:</span> <span class="m">2px</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid border radius value.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$border-radius-circle</span><span class="p">:</span> <span class="m">9999px</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid border radius value.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$border-radius-main</span><span class="p">:</span> <span class="nv">$border-radius-sharp</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p>Value can be any valid border radius value.</p>
+
+<h3 id="others">Others</h3>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$base-cursor</span><span class="p">:</span> <span class="nb">default</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Default cursor of html. Value can be any valid value of cursor.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$base-word-break</span><span class="p">:</span> <span class="n">break-word</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Default word break rule of html. Value can be any valid value of word break.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$base-text-underline-position</span><span class="p">:</span> <span class="n">under</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid value of text underline position.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$base-text-rendering</span><span class="p">:</span> <span class="n">optimizeLegibility</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid value of text rendering.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$base-webkit-font-smoothing</span><span class="p">:</span> <span class="n">antialiased</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid value of webkit font smoothing.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$base-moz-font-smoothing</span><span class="p">:</span> <span class="n">grayscale</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid value of moz font smoothing.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$base-tap-highlight-color</span><span class="p">:</span> <span class="nb">transparent</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$base-webkit-touch-callout</span><span class="p">:</span> <span class="nb">none</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid value of webkit touch callout.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$base-html-background</span><span class="p">:</span> <span class="nv">$background-inverse-muted</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid value of background.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$base-body-min-height</span><span class="p">:</span> <span class="m">100vh</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid value of min-height.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$base-body-background</span><span class="p">:</span> <span class="nv">$background-main</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value can be any valid value of background.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$base-selection-color</span><span class="p">:</span> <span class="nv">$color-inverse-main</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p class="mb-small">Value should be a Color.</p>
+
+<div class="language-sass highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$base-selection-background-color</span><span class="p">:</span> <span class="nv">$background-color-dark</span> <span class="o">!</span><span class="nb">default</span>
+</code></pre></div></div>
+<p>Value should be a Color.</p>
+
   </main>
+  <nav id="doc-sub-nav" class="nav-aside col-auto dis-none dis-block-l pr-large pl-medium pb-medium b-none">
+    <div class="nav-items m-none">
+    </div>
+  </nav>
 </div>
   </body>
 </html>
