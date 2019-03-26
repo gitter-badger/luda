@@ -2663,6 +2663,11 @@ body:has(.overlay.toggle-active) {
   justify-content: space-between;
 }
 
+.dropdown-menu .dropdown-items [class*=btn-][class*=btn-],
+.dropdown-menu .dropdown-items [class*=btn-][class*=btn-] input ~ label {
+  box-shadow: none;
+}
+
 @supports (-ms-ime-align: auto) {
   .dropdown-items input.btn:not(.btn-ico):not(.btn-ico-top):not(.btn-ico-right) {
     text-align: left;

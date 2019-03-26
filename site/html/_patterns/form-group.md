@@ -1,11 +1,13 @@
 ---
 title: Form group
-description: Form group description.
+description: Form group is used to nest form elements.
 ---
 
-{% capture form_group_code %}
+## Usage
+Use `.fm-group` to wrap form elements.
+{% capture form_group %}
 <div class="fm-group">
-  <label class="fm-label fm-label-required">Full Name</label>
+  <label class="fm-label">Full Name</label>
   <div class="fm fm-text">
     <input type="text" placeholder="Enter your full name">
   </div>
@@ -52,17 +54,19 @@ description: Form group description.
     <label><input type="checkbox">Spanish</label>
     </div>
 </div>
-<input class="btn btn-primary mt-small" type="submit" value="Submit">
+<input class="btn btn-primary" type="submit" value="Submit">
 {% endcapture %}
+{{ form_group }}
+``` html{{ form_group }}```
+{: .mt-small}
 
-{%
-  include doc-example.html
-  title="Form group usage"
-  content="Form group usage description"
-  code=form_group_code
-%}
 
-{% capture form_group_with_grid_code %}
+
+## Grid in Form Group
+`.grid` can be nested in `.fm-group`.
+{: .mb-small}
+
+{% capture grid_in_form_group %}
 <div class="fm-group">
   <div class="grid">
     <label class="fm-label fm-label-wrap col-auto">Full Name (Wrap This Label)</label>
@@ -119,17 +123,16 @@ description: Form group description.
     </div>
   </div>
 </div>
-<input class="btn btn-primary mt-small" type="submit" value="Submit">
+<input class="btn btn-primary" type="submit" value="Submit">
 {% endcapture %}
+{{ grid_in_form_group }}
+``` html{{ grid_in_form_group }}```
+{: .mt-small}
 
-{%
-  include doc-example.html
-  title="Form group with grid"
-  content="Form group with grid description"
-  code=form_group_with_grid_code
-%}
 
-{% capture form_group_in_grid_code %}
+
+## Form Group in Grid
+{% capture form_group_in_grid %}
 <div class="grid">
   <div class="fm-group col-6">
     <label class="fm-label">Full Name</label>
@@ -188,15 +191,13 @@ description: Form group description.
       </div>
     </div>
   </div>
-  <div class="col-12">
-    <input class="btn btn-primary mt-small" type="submit" value="Submit">
+  <div class="col-12 mt-small">
+    <input class="btn btn-primary" type="submit" value="Submit">
   </div>
 </div>
 {% endcapture %}
-
-{%
-  include doc-example.html
-  title="Form group in grid"
-  content="Form group in grid description"
-  code=form_group_in_grid_code
-%}
+<div style="margin: 0 -1rem">
+  {{ form_group_in_grid }}
+</div>
+``` html{{ form_group_in_grid }}```
+{: .mt-small}
