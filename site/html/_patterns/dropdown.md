@@ -1,266 +1,235 @@
 ---
 title: Dropdown
-description: Dropdown description
+description: Learn how to create dropdowns in Luda.
 ---
 
-{% capture absolute_dropdown_code %}
+
+## Absolute Dropdown
+
+### Usage
+Add the class `.dropdown-absolute` to create an absolute dropdown.
+
+{% capture absolute_dropdown %}
 <div class="dropdown-absolute">
-  <button class="btn btn-dark btn-ico-right">
-    What would you like to eat?
-    <i class="ico ico-down"></i>
-  </button>
-  <div class="dropdown-menu">
-    <div class="dropdown-items">
-      <button class="btn btn-dark">Apple</button>
-      <button class="btn btn-dark">Orange</button>
-      <button class="btn btn-dark">A very very big banana</button>
-    </div>
-  </div>
-</div>
-{% endcapture %}
-
-{%
-  include doc-example.html
-  title="Absolute dropdown"
-  content=""
-  code=absolute_dropdown_code
-%}
-
-{% capture static_dropdown_code %}
-<div class="dropdown-static">
-  <button class="btn btn-text-dark btn-ico-right fw-bold">
-    Where are you going?
-    <i class="ico ico-down"></i>
-  </button>
-  <div class="dropdown-menu">
-    <div class="dropdown-items">
-      <button class="btn btn-text-dark">Home</button>
-      <button class="btn btn-text-dark">Market</button>
-      <button class="btn btn-text-dark">Company</button>
-    </div>
-  </div>
-</div>
-{% endcapture %}
-
-{%
-  include doc-example.html
-  title="Static dropdown"
-  content=""
-  code=static_dropdown_code
-%}
-
-{%
-  include doc-chapter.html
-  title="Responsive dropdown"
-  content=""
-%}
-
-{% capture responsive_dropdown_code %}
-<div class="dropdown-fixed dropdown-absolute-m">
-  <button class="btn btn-dark btn-ico-right">
-    What you want?
-    <i class="ico ico-down"></i>
-  </button>
-  <div class="dropdown-menu">
-    <div class="dropdown-items">
-      <button class="btn btn-light">Apple</button>
-      <button class="btn btn-light">Orange</button>
-      <button class="btn btn-light">Banana</button>
-    </div>
-  </div>
-</div>
-<div class="dropdown-static dropdown-absolute-m">
-  <button class="btn btn-text-primary btn-ico-right">
-    What you want?
-    <i class="ico ico-down"></i>
+  <button class="btn btn-primary btn-ico-right">
+    Dropdown <i class="ico ico-down"></i>
   </button>
   <div class="dropdown-menu">
     <div class="dropdown-items">
       <div class="btns-y">
-        <button class="btn btn-text-primary">Apple</button>
-        <button class="btn btn-text-primary">Orange</button>
-        <button class="btn btn-text-primary">Banana</button>
+        <button class="btn btn-primary">One</button>
+        <button class="btn btn-primary">Two</button>
+        <button class="btn btn-primary">Three</button>        
       </div>
     </div>
   </div>
 </div>
 {% endcapture %}
+{{ absolute_dropdown }}
+``` html{{ absolute_dropdown }}```
+{: .mt-small}
 
-{%
-  include doc-example.html
-  title="Responsive dropdown usage"
-  content=""
-  code=responsive_dropdown_code
-%}
 
-{%
-  include doc-chapter.html
-  title="Dropdown position modifiers"
-  content=""
-%}
+### Style Modifiers
 
-{% capture dropdown_align_right_code %}
-<div class="dropdown-absolute dropdown-align-right">
-  <button class="btn btn-hollow-primary btn-ico-right">
-    What you want?
-    <i class="ico ico-down"></i>
+#### Top{% include modifier.html %}
+Add the class `.dropdown-top` to an absolute dropdown.
+
+{% capture top %}
+<div class="dropdown-absolute dropdown-top">
+  <button class="btn btn-primary btn-ico-right">
+    Dropdown <i class="ico ico-up"></i>
   </button>
   <div class="dropdown-menu">
     <div class="dropdown-items">
-      <button class="btn btn-primary">A very very big apple</button>
-      <button class="btn btn-primary">A very very big orange</button>
-      <button class="btn btn-primary">A very very big banana</button>
+      <div class="btns-y">
+        <button class="btn btn-primary">One</button>
+        <button class="btn btn-primary">Two</button>
+        <button class="btn btn-primary">Three</button>        
+      </div>
     </div>
   </div>
 </div>
 {% endcapture %}
+{{ top }}
+``` html{{ top }}```
+{: .mt-small}
 
-{%
-  include doc-example.html
-  title="Dropdown align right"
-  content=""
-  is_modifier=true
-  code=dropdown_align_right_code
-%}
+#### Right{% include modifier.html %}
+Add the class `.dropdown-right` to an absolute dropdown.
 
-{% capture dropdown_top_code %}
-<div class="dropdown-absolute dropdown-top mt-small">
-  <button class="btn btn-hollow-primary btn-ico-right">
-    Any fruit?
-    <i class="ico ico-up"></i>
-  </button>
-  <div class="dropdown-menu">
-    <div class="dropdown-items">
-      <button class="btn btn-primary">Apple</button>
-      <button class="btn btn-primary">Orange</button>
-      <button class="btn btn-primary">Banana</button>
-    </div>
-  </div>
-</div>
-{% endcapture %}
-
-{%
-  include doc-example.html
-  title="Dropdown top"
-  content=""
-  is_modifier=true
-  code=dropdown_top_code
-%}
-
-{% capture dropdown_left_code %}
-<div class="dropdown-absolute dropdown-left f-right">
-  <button class="btn btn-hollow-primary btn-ico-left">
-    Any fruit?
-    <i class="ico ico-left"></i>
-  </button>
-  <div class="dropdown-menu">
-    <div class="dropdown-items">
-      <button class="btn btn-primary">Apple</button>
-      <button class="btn btn-primary">Orange</button>
-      <button class="btn btn-primary">Banana</button>
-    </div>
-  </div>
-</div>
-{% endcapture %}
-
-{%
-  include doc-example.html
-  title="Dropdown left"
-  content=""
-  is_modifier=true
-  code=dropdown_left_code
-%}
-
-{% capture dropdown_right_code %}
+{% capture right %}
 <div class="dropdown-absolute dropdown-right">
-  <button class="btn btn-hollow-primary btn-ico-right">
-    Any fruit?
-    <i class="ico ico-right"></i>
+  <button class="btn btn-primary btn-ico-right">
+    Dropdown <i class="ico ico-right"></i>
   </button>
   <div class="dropdown-menu">
     <div class="dropdown-items">
-      <button class="btn btn-primary">Apple</button>
-      <button class="btn btn-primary">Orange</button>
-      <button class="btn btn-primary">Banana</button>
+      <div class="btns-y">
+        <button class="btn btn-primary">One</button>
+        <button class="btn btn-primary">Two</button>
+        <button class="btn btn-primary">Three</button>        
+      </div>
     </div>
   </div>
 </div>
 {% endcapture %}
+{{ right }}
+``` html{{ right }}```
+{: .mt-small}
 
-{%
-  include doc-example.html
-  title="Dropdown right"
-  content=""
-  is_modifier=true
-  code=dropdown_right_code
-%}
 
-{%
-  include doc-chapter.html
-  title="Nested dropdown"
-  content=""
-%}
+#### Left{% include modifier.html %}
+Add the class `.dropdown-left` to an absolute dropdown.
+
+{% capture left %}
+<div class="dropdown-absolute dropdown-left">
+  <button class="btn btn-primary btn-ico-left">
+    Dropdown <i class="ico ico-left"></i>
+  </button>
+  <div class="dropdown-menu">
+    <div class="dropdown-items">
+      <div class="btns-y">
+        <button class="btn btn-primary">One</button>
+        <button class="btn btn-primary">Two</button>
+        <button class="btn btn-primary">Three</button>        
+      </div>
+    </div>
+  </div>
+</div>
+{% endcapture %}
+<div class="dis-flex jc-end">
+  {{ left }}
+</div>
+``` html{{ left }}```
+{: .mt-small}
+
+
+#### Align Right
+Add the class `.dropdown-align-right` to an absolute dropdown.
+
+{% capture align_right %}
+<div class="dropdown-absolute dropdown-align-right">
+  <button class="btn btn-primary btn-ico-right">
+    Dropdown <i class="ico ico-down"></i>
+  </button>
+  <div class="dropdown-menu">
+    <div class="dropdown-items">
+      <div class="btns-y">
+        <button class="btn btn-primary">One</button>
+        <button class="btn btn-primary">Two</button>
+        <button class="btn btn-primary">A long long line</button>        
+      </div>
+    </div>
+  </div>
+</div>
+{% endcapture %}
+{{ align_right }}
+``` html{{ align_right }}```
+{: .mt-small}
+
+
+
+
+## Static Dropdown
+Add the class `.dropdown-static` to create an absolute dropdown.
+
+{% capture static_dropdown %}
+<div class="dropdown-static">
+  <button class="btn btn-text-dark btn-ico-right">
+    Dropdown <i class="ico ico-down"></i>
+  </button>
+  <div class="dropdown-menu">
+    <div class="dropdown-items">
+      <div class="btns-y">
+        <button class="btn btn-text-dark">One</button>
+        <button class="btn btn-text-dark">Two</button>
+        <button class="btn btn-text-dark">Three</button>        
+      </div>
+    </div>
+  </div>
+</div>
+{% endcapture %}
+{{ static_dropdown }}
+``` html{{ static_dropdown }}```
+{: .mt-small}
+
+
+
+## Nested Dropdown
+
+
+### Nested Absolute Dropdown
+Absolute dropdown can be nested.
 
 {% capture nested_absolute_dropdown %}
 <div class="dropdown-absolute">
-  <button class="btn btn-hollow-primary">Any thing to eat?</button>
+  <button class="btn btn-primary">Eat something?</button>
   <div class="dropdown-menu">
     <div class="dropdown-items of-visible">
       <div class="dropdown-absolute dropdown-right">
-        <button class="btn btn-primary btn-ico-right">Fruit<i class="ico ico-right"></i></button>
+        <button class="btn btn-primary btn-ico-right sharp-b">Fruit <i class="ico ico-right"></i></button>
         <div class="dropdown-menu">
           <div class="dropdown-items">
-            <button class="btn btn-dark">Apple</button>
-            <button class="btn btn-dark">Orange</button>
-            <button class="btn btn-dark">Banana</button>
+            <div class="btns-y">
+              <button class="btn btn-dark">Apple</button>
+              <button class="btn btn-dark">Orange</button>
+              <button class="btn btn-dark">Banana</button>
+            </div>
           </div>
         </div>
       </div>
       <div class="dropdown-absolute dropdown-right">
-        <button class="btn btn-primary btn-ico-right">Meat<i class="ico ico-right"></i></button>
+        <button class="btn btn-primary btn-ico-right sharp">Meat<i class="ico ico-right"></i></button>
         <div class="dropdown-menu">
           <div class="dropdown-items">
-            <button class="btn btn-dark">Chicken</button>
-            <button class="btn btn-dark">Pig</button>
-            <button class="btn btn-dark">Duck</button>
+            <div class="btns-y">
+              <button class="btn btn-dark">Chicken</button>
+              <button class="btn btn-dark">Pig</button>
+              <button class="btn btn-dark">Duck</button>
+            </div>
           </div>
         </div>
       </div>
-      <button class="btn btn-primary">No, Thanks.</button>
+      <button class="btn btn-primary sharp-t">No, Thanks.</button>
     </div>
   </div>
 </div>
 {% endcapture %}
+{{ nested_absolute_dropdown }}
+``` html{{ nested_absolute_dropdown }}```
+{: .mt-small}
 
-{%
-  include doc-example.html
-  title="Nested absolute dropdown"
-  content=""
-  code=nested_absolute_dropdown
-%}
+
+### Nested Static Dropdown
+Static Dropdown can be nested too.
 
 {% capture nested_static_dropdown %}
-<div class="dropdown-static dropdown-active">
+<div class="dropdown-static">
   <button class="btn btn-text-dark">Any thing to eat?</button>
   <div class="dropdown-menu">
     <div class="dropdown-items of-visible">
-      <div class="dropdown-static dropdown-active">
-        <button class="btn btn-text-dark btn-ico-right">Fruit<i class="ico ico-down"></i></button>
+      <div class="dropdown-static">
+        <button class="btn btn-text-dark btn-ico-right">Fruit <i class="ico ico-down"></i></button>
         <div class="dropdown-menu">
           <div class="dropdown-items">
-            <button class="btn btn-text-dark">Apple</button>
-            <button class="btn btn-text-dark">Orange</button>
-            <button class="btn btn-text-dark">Banana</button>
+            <div class="btns-y">
+              <button class="btn btn-text-dark">Apple</button>
+              <button class="btn btn-text-dark">Orange</button>
+              <button class="btn btn-text-dark">Banana</button>
+            </div>
           </div>
         </div>
       </div>
       <div class="dropdown-static">
-        <button class="btn btn-text-dark btn-ico-right">Meat<i class="ico ico-down"></i></button>
+        <button class="btn btn-text-dark btn-ico-right">Meat <i class="ico ico-down"></i></button>
         <div class="dropdown-menu">
           <div class="dropdown-items">
-            <button class="btn btn-text-dark">Chicken</button>
-            <button class="btn btn-text-dark">Pig</button>
-            <button class="btn btn-text-dark">Duck</button>
+            <div class="btns-y">
+              <button class="btn btn-text-dark">Chicken</button>
+              <button class="btn btn-text-dark">Pig</button>
+              <button class="btn btn-text-dark">Duck</button>
+            </div>
           </div>
         </div>
       </div>
@@ -269,36 +238,115 @@ description: Dropdown description
   </div>
 </div>
 {% endcapture %}
+{{ nested_static_dropdown }}
+``` html{{ nested_static_dropdown }}```
+{: .mt-small}
 
-{%
-  include doc-example.html
-  title="Nested static dropdown"
-  content=""
-  code=nested_static_dropdown
-%}
 
-{%
-  include doc-chapter.html
-  title="Standalone dropdown"
-  content=""
-%}
 
-{% capture standalone_dropdown_code %}
-<div class="dropdown-absolute" data-dropdown-standalone>
-  <button class="btn btn-primary">Any fruit?</button>
+## Responsive Dropdown
+The class `.dropdown-absolute` is prefixed with breakpoint `m`.
+
+{% capture responsive_dropdown %}
+<div class="dropdown-fixed dropdown-absolute-m">
+  <button class="btn btn-primary btn-ico-right">
+    Dropdown <i class="ico ico-down"></i>
+  </button>
   <div class="dropdown-menu">
     <div class="dropdown-items">
-      <button class="btn btn-primary">Apple</button>
-      <button class="btn btn-primary">Orange</button>
-      <button class="btn btn-primary">Banana</button>
+      <div class="btns-y">
+        <button class="btn btn-primary">One</button>
+        <button class="btn btn-primary">Two</button>
+        <button class="btn btn-primary">Three</button>
+      </div>
     </div>
   </div>
 </div>
 {% endcapture %}
+{{ responsive_dropdown }}
+``` html{{ responsive_dropdown }}```
+{: .mt-small}
 
-{%
-  include doc-example.html
-  title="Standalone dropdown usage"
-  content=""
-  code=standalone_dropdown_code
-%}
+
+
+
+## HTML Attributes
+
+``` html
+data-dropdown-standalone
+```
+Description.
+{: .mb-small}
+
+``` html
+data-dropdown-toggle
+```
+Description.
+{: .mb-small}
+
+``` html
+data-dropdown-toggle-disabled
+```
+Description.
+
+
+
+## DOM Events
+
+``` javascript
+luda:dropdown:actived
+```
+Description.
+{: .mb-small}
+
+``` javascript
+luda:dropdown:deactived
+```
+Description.
+
+
+
+## Sass Variables
+
+### Sizes
+``` sass
+$dropdown-width-breakpoint: m !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$dropdown-static-menu-margin-left-rem: $space-small-rem !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$dropdown-absolute-max-height-rem: 33rem !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$dropdown-absolute-drop-gap-rem: $space-tiny-rem !default
+```
+Description.
+
+
+### Others
+``` sass
+$dropdown-absolute-border-radius: $border-radius-main !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$dropdown-absolute-fixed-background: $background-main !default
+```
+Description.
+{: .mb-small}
+
+``` sass
+$dropdown-absolute-box-shadow: $box-shadow-normal !default
+```
+Description.
