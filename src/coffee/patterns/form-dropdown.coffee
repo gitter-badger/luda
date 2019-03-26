@@ -13,7 +13,7 @@ luda class extends luda.Component
 
   @_SELECTOR: '.fm-dropdown'
   @_VALUE_SPLITOR: '   '
-  @_VALUE_ATTRIBUTE: 'data-fm-dropdown-value'
+  @_LABEL_ATTRIBUTE: 'data-fm-dropdown-label'
   @_VALUE_SELECTOR: '.dropdown-items .btn-radio input,
                      .dropdown-items .btn-check input'
   @_DEFAULT_VALUE_SELECTOR: '.dropdown-items .btn-radio label,
@@ -27,7 +27,7 @@ luda class extends luda.Component
     subtree: true
     attributeFilter: [
       'checked'
-      @_VALUE_ATTRIBUTE
+      @_LABEL_ATTRIBUTE
     ]
 
   _getConfig: ->
@@ -54,8 +54,8 @@ luda class extends luda.Component
     values = []
     @_$values.forEach ($value, index) =>
       if $value.checked
-        if $value.hasAttribute @constructor._VALUE_ATTRIBUTE
-          value = $value.getAttribute @constructor._VALUE_ATTRIBUTE
+        if $value.hasAttribute @constructor._LABEL_ATTRIBUTE
+          value = $value.getAttribute @constructor._LABEL_ATTRIBUTE
         else
           value = @_$defaultValues[index].innerText
       values.push value if value and not values.includes value
