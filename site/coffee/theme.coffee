@@ -1,36 +1,38 @@
 (->
   THEME_ID = 'luda-theme'
+  CHANGING_CLASS = 'changing-theme'
+  TRIGGER_SELECTOR = '.change-theme'
+  THEME_NAME_ATTRIBUTE = 'data-theme'
   isChanging = false
+  theme = 'default'
 
-  changeTheme = (themeName, callback) ->
+  loadTheme = (callback) ->
 
-    unless isChanging
+    $theme = luda.$child "##{THEME_ID}"
+    themeHref = $theme.getAttribute 'href'
+    oldTheme = themeHref.match(/luda-(.*)\.min\.css/)[1]
+    themeHref = themeHref.replace oldTheme, theme
+    $theme.href = themeHref
+    $theme.onload = callback
+
+  luda.on 'click', TRIGGER_SELECTOR, (e) ->
+    newTheme = this.getAttribute THEME_NAME_ATTRIBUTE
+    unless isChanging or newTheme is theme
       isChanging = true
-      $currentTheme = luda.$child "##{THEME_ID}"
-      currentThemeHref = $currentTheme.href
-      currentThemeName = currentThemeHref.match(/luda-(.*)\.min\.css/)[1]
+      theme = newTheme
+      document.body.classList.add CHANGING_CLASS
+      setTimeout(->
+        loadTheme ->
+          document.body.classList.remove CHANGING_CLASS
+          setTimeout(->
+            isChanging = false
+          , 500)
+      , 500)
 
-      $theme = document.createElement 'link'
-      $theme.rel = 'stylesheet'
-      $theme.type = 'text/css'
-      $theme.dataset.turbolinksPermanent = ''
-      $theme.id = THEME_ID
-      $theme.href = currentThemeHref.replace currentThemeName, themeName
-      $currentTheme.remove()
-      document.head.insertAdjacentElement 'afterbegin', $theme
-      $theme.onload = ->
-        isChanging = false
-        callback() if callback
-
-  currentTheme = 'default'
-
-  luda.on 'click', '.change-theme', (e) ->
-    themeName = this.dataset.theme
-    unless themeName is currentTheme
-      changeThemeFn = ->
-        changeTheme themeName, ->
-          currentTheme = themeName
-          document.body.classList.remove 'changing-theme'
-      document.body.classList.add 'changing-theme'
-      setTimeout changeThemeFn, 600
+  # luda.on 'turbolinks:before-render', (e) ->
+    # window.newBody = e.data.newBody
+    # console.log e.data.newBody.parentNode
+    # themeHref = luda.$child("##{THEME_ID}").getAttribute 'href'
+    # $theme = e.data.newBody.querySelector("##{THEME_ID}")
+    # $theme.href = themeHref
 )()

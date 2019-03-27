@@ -103,48 +103,47 @@
   })();
 
   (function() {
-    var THEME_ID, changeTheme, currentTheme, isChanging;
+    var CHANGING_CLASS, THEME_ID, THEME_NAME_ATTRIBUTE, TRIGGER_SELECTOR, isChanging, loadTheme, theme;
     THEME_ID = 'luda-theme';
+    CHANGING_CLASS = 'changing-theme';
+    TRIGGER_SELECTOR = '.change-theme';
+    THEME_NAME_ATTRIBUTE = 'data-theme';
     isChanging = false;
-    changeTheme = function(themeName, callback) {
-      var $currentTheme, $theme, currentThemeHref, currentThemeName;
-      if (!isChanging) {
-        isChanging = true;
-        $currentTheme = luda.$child(`#${THEME_ID}`);
-        currentThemeHref = $currentTheme.href;
-        currentThemeName = currentThemeHref.match(/luda-(.*)\.min\.css/)[1];
-        $theme = document.createElement('link');
-        $theme.rel = 'stylesheet';
-        $theme.type = 'text/css';
-        $theme.dataset.turbolinksPermanent = '';
-        $theme.id = THEME_ID;
-        $theme.href = currentThemeHref.replace(currentThemeName, themeName);
-        $currentTheme.remove();
-        document.head.insertAdjacentElement('afterbegin', $theme);
-        return $theme.onload = function() {
-          isChanging = false;
-          if (callback) {
-            return callback();
-          }
-        };
-      }
+    theme = 'default';
+    loadTheme = function(callback) {
+      var $theme, oldTheme, themeHref;
+      $theme = luda.$child(`#${THEME_ID}`);
+      themeHref = $theme.getAttribute('href');
+      oldTheme = themeHref.match(/luda-(.*)\.min\.css/)[1];
+      themeHref = themeHref.replace(oldTheme, theme);
+      $theme.href = themeHref;
+      return $theme.onload = callback;
     };
-    currentTheme = 'default';
-    return luda.on('click', '.change-theme', function(e) {
-      var changeThemeFn, themeName;
-      themeName = this.dataset.theme;
-      if (themeName !== currentTheme) {
-        changeThemeFn = function() {
-          return changeTheme(themeName, function() {
-            currentTheme = themeName;
-            return document.body.classList.remove('changing-theme');
+    return luda.on('click', TRIGGER_SELECTOR, function(e) {
+      var newTheme;
+      newTheme = this.getAttribute(THEME_NAME_ATTRIBUTE);
+      if (!(isChanging || newTheme === theme)) {
+        isChanging = true;
+        theme = newTheme;
+        document.body.classList.add(CHANGING_CLASS);
+        return setTimeout(function() {
+          return loadTheme(function() {
+            document.body.classList.remove(CHANGING_CLASS);
+            return setTimeout(function() {
+              return isChanging = false;
+            }, 500);
           });
-        };
-        document.body.classList.add('changing-theme');
-        return setTimeout(changeThemeFn, 600);
+        }, 500);
       }
     });
   })();
+
+  // luda.on 'turbolinks:before-render', (e) ->
+  // window.newBody = e.data.newBody
+  // console.log e.data.newBody.parentNode
+  // themeHref = luda.$child("##{THEME_ID}").getAttribute 'href'
+  // $theme = e.data.newBody.querySelector("##{THEME_ID}")
+  // $theme.href = themeHref
 
 })));
 //# sourceMappingURL=site.js.map
