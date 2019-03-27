@@ -309,5 +309,12 @@ html {
     max-width: 16rem;
   }
 }
+body {
+  transition: opacity 0.5s ease;
+}
+
+body.changing-theme {
+  opacity: 0;
+}
 
 /*# sourceMappingURL=site.css.map */

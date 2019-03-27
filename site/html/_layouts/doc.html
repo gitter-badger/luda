@@ -6,6 +6,8 @@ layout: common
   <main id="doc-container" data-chapter="{{ page.title | downcase | replace: ' ', '-' }}" class="col-auto pt-medium pb-large px-medium p-large-m">
     <h1 class="page-title mt-large mt-small-m">{{ page.title }}</h1>
     <p class="p3">{{ page.description }}</p>
+    <button class="btn btn-primary change-theme" data-theme="default">default</button>
+    <button class="btn btn-primary change-theme" data-theme="defa">defa</button>
     {{ content }}
   </main>
   <nav id="doc-sub-nav" class="nav-aside col-auto d-none d-block-l pr-large pl-medium pb-medium bc-none bi-none">
