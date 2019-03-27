@@ -299,8 +299,9 @@ Add the class `.fm-label` to create a label for input elements.
 </div>
 ``` html{{ form_label }}```
 
+### Form Label Modifiers
 
-### Required{% include modifier.html %}
+#### Required{% include modifier.html %}
 Add the class `.fm-label-required` to `.fm-label` to show required mark.
 {% capture required_form_label %}
 <label class="fm-label fm-label-required">Fullname</label>
@@ -312,6 +313,34 @@ Add the class `.fm-label-required` to `.fm-label` to show required mark.
   {{ required_form_label }}
 </div>
 ``` html{{ required_form_label }}```
+
+
+#### Small{% include modifier.html %}
+Add the class `.fm-label-small` to `.fm-label` to make it smaller.
+{% capture small_form_label %}
+<label class="fm-label fm-label-small">Fullname</label>
+<div class="fm fm-text fm-small">
+  <input placeholder="Please enter your fullname">
+</div>
+{% endcapture %}
+<div class="form-example">
+  {{ small_form_label }}
+</div>
+``` html{{ small_form_label }}```
+
+
+#### Large{% include modifier.html %}
+Add the class `.fm-label-large` to `.fm-label` to make it largeer.
+{% capture large_form_label %}
+<label class="fm-label fm-label-large">Fullname</label>
+<div class="fm fm-text fm-large">
+  <input placeholder="Please enter your fullname">
+</div>
+{% endcapture %}
+<div class="form-example">
+  {{ large_form_label }}
+</div>
+``` html{{ large_form_label }}```
 
 
 
