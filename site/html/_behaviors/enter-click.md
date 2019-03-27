@@ -20,7 +20,7 @@ description: Enter click enhances checkbox, radio and elements with tabindex att
 ```
 
 
-<div class="dis-flex my-small">
+<div class="d-flex my-small">
   <div class="fm fm-radio">
     <label>
       <input type="radio" name="enter_click_radio" value="one">

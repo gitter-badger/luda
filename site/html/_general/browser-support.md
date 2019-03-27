@@ -7,7 +7,7 @@ description: Luda supports most modern browsers, for browsers not supported, you
 
 ## Supported Browsers
 
-<div class="dis-flex fw-wrap mt-small">
+<div class="d-flex fw-wrap mt-small">
   <div class="mr-small ta-center">
     <img width="50" height="50" src="{{ '/assets/img/chrome.svg' | relative_url }}" alt="chrome">
     <p class="p6">Latest Versions</p>

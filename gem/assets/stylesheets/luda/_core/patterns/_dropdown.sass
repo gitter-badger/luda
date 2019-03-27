@@ -32,6 +32,10 @@
   .dropdown-items [class*=btn-].btn-ico-right label
     justify-content: space-between
 
+  .dropdown-menu .dropdown-items [class*=btn-][class*=btn-],
+  .dropdown-menu .dropdown-items [class*=btn-][class*=btn-] input ~ label
+    box-shadow: none
+
   +browser-edge
     .dropdown-items input.btn:not(.btn-ico):not(.btn-ico-top):not(.btn-ico-right)
       text-align: left

@@ -125,7 +125,7 @@ See below exammple.
 {% endhighlight %}
 {% endcapture %}
 
-<div class="dis-block dis-flex-m">
+<div class="d-block d-flex-m">
   <aside class="nav-aside">
     <a class="nav-logo" data-turbolinks="false" href="#aside-navigation">
       <img src="{{ '/assets/img/logo-text.svg' | relative_url }}" alt="logo">

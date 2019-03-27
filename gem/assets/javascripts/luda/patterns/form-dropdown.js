@@ -38,8 +38,8 @@
         this._$values.forEach(($value, index) => {
           var value;
           if ($value.checked) {
-            if ($value.hasAttribute(this.constructor._VALUE_ATTRIBUTE)) {
-              value = $value.getAttribute(this.constructor._VALUE_ATTRIBUTE);
+            if ($value.hasAttribute(this.constructor._LABEL_ATTRIBUTE)) {
+              value = $value.getAttribute(this.constructor._LABEL_ATTRIBUTE);
             } else {
               value = this._$defaultValues[index].innerText;
             }
@@ -88,7 +88,7 @@
 
     _Class._VALUE_SPLITOR = '   ';
 
-    _Class._VALUE_ATTRIBUTE = 'data-fm-dropdown-value';
+    _Class._LABEL_ATTRIBUTE = 'data-fm-dropdown-label';
 
     _Class._VALUE_SELECTOR = '.dropdown-items .btn-radio input, .dropdown-items .btn-check input';
 
@@ -102,7 +102,7 @@
       childList: true,
       attributes: true,
       subtree: true,
-      attributeFilter: ['checked', _Class._VALUE_ATTRIBUTE]
+      attributeFilter: ['checked', _Class._LABEL_ATTRIBUTE]
     };
 
     return _Class;

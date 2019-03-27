@@ -8,28 +8,28 @@ description: Css icons, font icons, svg icons and image icons are all supported 
 Luda includes some most commonly used icons by default, they're written in pure css.
 
 <p>
-  <span class="pr-small ws-nowrap dis-inline-block" style="width:10em">
+  <span class="pr-small ws-nowrap d-inline-block" style="width:10em">
     <i class="ico ico-left"></i> .ico.ico-left
   </span>
-  <span class="pr-small ws-nowrap dis-inline-block" style="width:10em">
+  <span class="pr-small ws-nowrap d-inline-block" style="width:10em">
     <i class="ico ico-right"></i> .ico.ico-right
   </span>
-  <span class="pr-small ws-nowrap dis-inline-block" style="width:10em">
+  <span class="pr-small ws-nowrap d-inline-block" style="width:10em">
     <i class="ico ico-up"></i> .ico.ico-up
   </span>
-  <span class="pr-small ws-nowrap dis-inline-block" style="width:10em">
+  <span class="pr-small ws-nowrap d-inline-block" style="width:10em">
     <i class="ico ico-down"></i> .ico.ico-down
   </span>
-  <span class="pr-small ws-nowrap dis-inline-block" style="width:10em">
+  <span class="pr-small ws-nowrap d-inline-block" style="width:10em">
     <i class="ico ico-plus"></i> .ico.ico-plus
   </span>
-  <span class="pr-small ws-nowrap dis-inline-block" style="width:10em">
+  <span class="pr-small ws-nowrap d-inline-block" style="width:10em">
     <i class="ico ico-cross"></i> .ico.ico-cross
   </span>
-  <span class="pr-small ws-nowrap dis-inline-block" style="width:10em">
+  <span class="pr-small ws-nowrap d-inline-block" style="width:10em">
     <i class="ico ico-menu"></i> .ico.ico-menu
   </span>
-  <span class="pr-small ws-nowrap dis-inline-block" style="width:10em">
+  <span class="pr-small ws-nowrap d-inline-block" style="width:10em">
     <i class="ico ico-search"></i> .ico.ico-search
   </span>
 </p>

@@ -98,7 +98,7 @@ Add the class `.dropdown-left` to an absolute dropdown.
   </div>
 </div>
 {% endcapture %}
-<div class="dis-flex jc-end">
+<div class="d-flex jc-end">
   {{ left }}
 </div>
 ``` html{{ left }}```
@@ -168,7 +168,7 @@ Absolute dropdown can be nested.
   <div class="dropdown-menu">
     <div class="dropdown-items of-visible">
       <div class="dropdown-absolute dropdown-right">
-        <button class="btn btn-primary btn-ico-right sharp-b">Fruit <i class="ico ico-right"></i></button>
+        <button class="btn btn-primary btn-ico-right sharp-b bd-b-none">Fruit <i class="ico ico-right"></i></button>
         <div class="dropdown-menu">
           <div class="dropdown-items">
             <div class="btns-y">
@@ -180,7 +180,7 @@ Absolute dropdown can be nested.
         </div>
       </div>
       <div class="dropdown-absolute dropdown-right">
-        <button class="btn btn-primary btn-ico-right sharp">Meat<i class="ico ico-right"></i></button>
+        <button class="btn btn-primary btn-ico-right sharp bd-t-none bd-b-none">Meat<i class="ico ico-right"></i></button>
         <div class="dropdown-menu">
           <div class="dropdown-items">
             <div class="btns-y">
@@ -191,7 +191,7 @@ Absolute dropdown can be nested.
           </div>
         </div>
       </div>
-      <button class="btn btn-primary sharp-t">No, Thanks.</button>
+      <button class="btn btn-primary sharp-t bd-t-none">No, Thanks.</button>
     </div>
   </div>
 </div>
