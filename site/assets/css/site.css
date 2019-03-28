@@ -315,7 +315,16 @@ body {
 }
 
 body.changing-theme {
+  pointer-events: none;
   opacity: 0;
+}
+
+#theme-dropdown .change-theme-trigger {
+  font-size: 1.4em;
+}
+
+#theme-pannel {
+  padding-left: 20rem;
 }
 
 /*# sourceMappingURL=site.css.map */

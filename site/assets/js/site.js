@@ -103,31 +103,39 @@
   })();
 
   (function() {
-    var CHANGING_CLASS, THEME_ID, THEME_NAME_ATTRIBUTE, TRIGGER_SELECTOR, isChanging, loadTheme, theme;
-    THEME_ID = 'luda-theme';
+    var APPLIED_THEME_ATTRIBUTE, APPLIED_THEME_STYLE_ATTRIBUTE, CHANGING_CLASS, HIDDEN_CLASS, SHOW_FOR_THEME_ATTRIBUTE, THEME_PATH_PATTERN_ATTRIBUTE, THEME_PATH_PLACEHOLDER, TRIGGER_SELECTOR, appliedTheme, changeTheme, isChanging, loadTheme, removeOldThemes, toggleThemeElements;
+    APPLIED_THEME_ATTRIBUTE = 'data-applied-theme';
+    THEME_PATH_PATTERN_ATTRIBUTE = 'data-theme-path-pattern';
+    THEME_PATH_PLACEHOLDER = '$theme$';
+    APPLIED_THEME_STYLE_ATTRIBUTE = 'data-theme-style';
+    SHOW_FOR_THEME_ATTRIBUTE = 'data-theme';
+    HIDDEN_CLASS = 'd-none';
     CHANGING_CLASS = 'changing-theme';
     TRIGGER_SELECTOR = '.change-theme';
-    THEME_NAME_ATTRIBUTE = 'data-theme';
     isChanging = false;
-    theme = 'default';
-    loadTheme = function(callback) {
-      var $theme, oldTheme, themeHref;
-      $theme = luda.$child(`#${THEME_ID}`);
-      themeHref = $theme.getAttribute('href');
-      oldTheme = themeHref.match(/luda-(.*)\.min\.css/)[1];
-      themeHref = themeHref.replace(oldTheme, theme);
-      $theme.href = themeHref;
-      return $theme.onload = callback;
+    appliedTheme = function() {
+      return document.documentElement.getAttribute(APPLIED_THEME_ATTRIBUTE);
     };
-    return luda.on('click', TRIGGER_SELECTOR, function(e) {
-      var newTheme;
-      newTheme = this.getAttribute(THEME_NAME_ATTRIBUTE);
-      if (!(isChanging || newTheme === theme)) {
+    loadTheme = function(theme, callback) {
+      var $appliedTheme, $theme, pathPattern;
+      pathPattern = document.documentElement.getAttribute(THEME_PATH_PATTERN_ATTRIBUTE);
+      $appliedTheme = luda.$child(`[${APPLIED_THEME_STYLE_ATTRIBUTE}]`);
+      $theme = document.createElement('link');
+      $theme.rel = 'stylesheet';
+      $theme.type = 'text/css';
+      $theme.setAttribute(APPLIED_THEME_STYLE_ATTRIBUTE, theme);
+      $theme.href = pathPattern.replace(THEME_PATH_PLACEHOLDER, theme);
+      $theme.onload = callback;
+      return document.head.replaceChild($theme, $appliedTheme);
+    };
+    changeTheme = function(theme) {
+      if (!(isChanging || theme === appliedTheme())) {
         isChanging = true;
-        theme = newTheme;
+        document.documentElement.setAttribute(APPLIED_THEME_ATTRIBUTE, theme);
         document.body.classList.add(CHANGING_CLASS);
         return setTimeout(function() {
-          return loadTheme(function() {
+          return loadTheme(theme, function() {
+            toggleThemeElements();
             document.body.classList.remove(CHANGING_CLASS);
             return setTimeout(function() {
               return isChanging = false;
@@ -135,15 +143,46 @@
           });
         }, 500);
       }
+    };
+    removeOldThemes = function() {
+      var appliedThemeName;
+      appliedThemeName = appliedTheme();
+      return luda.$children(`[${APPLIED_THEME_STYLE_ATTRIBUTE}]`).forEach(function($theme) {
+        var themeName;
+        themeName = $theme.getAttribute(APPLIED_THEME_STYLE_ATTRIBUTE);
+        if (themeName !== appliedThemeName) {
+          return $theme.remove();
+        }
+      });
+    };
+    toggleThemeElements = function($range) {
+      var appliedThemeName;
+      appliedThemeName = appliedTheme();
+      return luda.$children(`[${SHOW_FOR_THEME_ATTRIBUTE}]`, $range).forEach(function($ele) {
+        var themeName;
+        themeName = $ele.getAttribute(SHOW_FOR_THEME_ATTRIBUTE);
+        if (themeName === appliedThemeName) {
+          return $ele.classList.remove(HIDDEN_CLASS);
+        } else {
+          return $ele.classList.add(HIDDEN_CLASS);
+        }
+      });
+    };
+    luda.on('change', TRIGGER_SELECTOR, function() {
+      return changeTheme(this.value);
+    });
+    luda.on('turbolinks:render', function() {
+      return removeOldThemes();
+    });
+    luda.on('turbolinks:before-render', function(e) {
+      return toggleThemeElements(e.data.newBody);
+    });
+    return luda.on('turbolinks:load', function(e) {
+      if (!e.data.timing.requestStart) {
+        return toggleThemeElements();
+      }
     });
   })();
-
-  // luda.on 'turbolinks:before-render', (e) ->
-  // window.newBody = e.data.newBody
-  // console.log e.data.newBody.parentNode
-  // themeHref = luda.$child("##{THEME_ID}").getAttribute 'href'
-  // $theme = e.data.newBody.querySelector("##{THEME_ID}")
-  // $theme.href = themeHref
 
 })));
 //# sourceMappingURL=site.js.map

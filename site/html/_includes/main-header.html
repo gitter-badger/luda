@@ -15,7 +15,7 @@
       {% else %}
       <a href="/" class="btn btn-text-light">Home</a>
       {% endif %}
-      <a href="{{ '/general/introduction' | relative_url }}" class="btn btn-text-light">Documentation</a>
+      <a data-turbolinks="false" href="{{ '/general/introduction' | relative_url }}" class="btn btn-text-light">Documentation</a>
       {% if page.title == 'Themes' %}
       <a href="{{ '/themes' | relative_url }}" class="btn btn-text-light btn-active">Themes</a>
       {% else %}
@@ -35,6 +35,7 @@
         </button>
         <div class="dropdown-menu mx-small-m">
           <div class="dropdown-items mt-small-m">
+            <!-- to do -->
           </div>
         </div>
       </div>

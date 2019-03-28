@@ -1,8 +1,9 @@
 <aside id="doc-aside" class="nav-aside col-12 col-3-m">
-  <a href="/" class="nav-logo">
+  <a data-turbolinks="false" href="/" class="nav-logo">
     <img src="{{ '/assets/img/logo-text.svg' | relative_url }}" alt="logo">
   </a>
-  <button class="nav-open btn btn-text-light btn-ico" data-toggle-for="nav-aside-menu">
+  {% include theme-dropdown.html %}
+  <button class="nav-open btn btn-text-light btn-ico ml-none" data-toggle-for="nav-aside-menu">
     <i class="ico ico-menu"></i>
   </button>
   <div class="nav-menu" data-toggle-target="nav-aside-menu" data-toggle>

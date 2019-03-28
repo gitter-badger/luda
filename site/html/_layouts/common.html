@@ -1,5 +1,8 @@
+{% include variables.html %}
+{% capture theme_path_pattern %}{{ '/assets/luda/css/luda-$theme$.min.css' | relative_url }}{% endcapture %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-init-theme="{{ theme }}" data-applied-theme="{{ theme }}" data-theme-path-pattern="{{ theme_path_pattern }}">
   <head>
     <title>{{ page.title }} | Luda - A lightweight and responsive UI framework for modern web development.</title>
     {% include head.html %}
@@ -7,7 +10,8 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.font.im/css?family=Raleway:400,100,200,300,500,600,700,800,900">
     <script type="text/javascript" src="{{ '/assets/js/turbolinks.js' | relative_url }}"></script>
 
-    <link id="luda-theme" rel="stylesheet" type="text/css" href="{{ '/assets/luda/css/luda-default.min.css' | relative_url }}">
+    <link rel="stylesheet" type="text/css" data-theme-style="{{ theme }}" href="{{ theme_path_pattern | replace: '$theme$', theme }}">
+
     {% if jekyll.environment == "development" %}
     <link rel="stylesheet" type="text/css" href="{{ '/assets/css/site.css' | relative_url }}">
     {% else %}
