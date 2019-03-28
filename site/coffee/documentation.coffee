@@ -19,7 +19,7 @@
       $code.classList.add 'rendered'
       $code.outerHTML = "<div class='rel'>\
       <button type='button' \
-      class='code-copy abs-r abs-t btn btn-small btn-secondary'>\
+      class='code-copy abs-r abs-t zi-high btn btn-small btn-secondary'>\
       Copy</button>#{$code.outerHTML}</div>"
 
   initClipboard = ->
