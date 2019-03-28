@@ -30,12 +30,22 @@
     </nav>
     <nav class="nav-sub-items">
       <div class="dropdown-static dropdown-absolute-m dropdown-align-right">
+        {% if site.versions.size != 1 %}
+        <button class="btn btn-text-light btn-ico-right btn-active">
+          v{{ site.version }} <i class="ico ico-down"></i>
+        </button>
+        {% else %}
         <button class="btn btn-text-light btn-active">
           v{{ site.version }}
         </button>
+        {% endif %}
         <div class="dropdown-menu mx-small-m">
-          <div class="dropdown-items mt-small-m">
-            <!-- to do -->
+          <div id="site-versions" class="dropdown-items mt-small-m">
+            {% for version in site.versions %}
+            {% if version != site.version %}
+            <a data-turbolinks="false" class="btn btn-text-light" href="/{{ version }}">v{{ version }}</a>
+            {% endif %}
+            {% endfor %}
           </div>
         </div>
       </div>

@@ -194,6 +194,15 @@ html {
     background: none !important;
   }
 }
+#home #main-header #site-versions {
+  margin-top: 0 !important;
+  background: none;
+}
+
+#home #main-header #site-versions .btn {
+  padding-right: 0;
+}
+
 #home-background {
   height: 100vh;
   background-color: #f8427f;
