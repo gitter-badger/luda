@@ -498,7 +498,7 @@ $typography-size-scale-ratio:    constant-get(scale-ratios, minor-third) !defaul
 
 $typography-main-size-px:                  14px !default
 $typography-main-size-level:               5 !default
-$typography-main-line-height-ratio:        26 / 14 !default
+$typography-main-line-height-ratio:        26 / strip-unit($typography-main-size-px) !default
 $typography-main:                          constant-get(typography-stacks, sans-serif) !default
 $typography-main-baseline-offset-ratio:    constant-get(baseline-offset-ratios, "Helvetica Neue") !default
 $typography-main-color:                    $color-main !default
