@@ -1,16 +1,15 @@
 ---
 title: Button
-description: Buttons can be created easly by Luda CSS calsses
-  in various styles, sizes, actions and more.
+description: Buttons may be the most widely used elements in web applications. Let's have a look at how to create buttons with different styles, functions and states in Luda.
 ---
 
 
 ## Button Styles
+To create a button, add the `.btn` class and button style classes to a `<button>` element. Let's preview the button styles through below examples.
 
 
-
-### Solid Button
-Add the class `.btn.btn-<color>` to create solid buttons.
+### Solid Buttons
+Add the `.btn-*` classes to style buttons with solid backgrounds.
 {% capture solid_button %}
 <button class="btn btn-primary">Primary</button>
 <button class="btn btn-secondary">Secondary</button>
@@ -25,8 +24,8 @@ Add the class `.btn.btn-<color>` to create solid buttons.
 
 
 
-### Hollow Button
-Add the class `.btn.btn-hollow-<color>` to create hollow buttons.
+### Hollow Buttons
+A hollow button shows its background when hovered or actived, to create hollow buttons, add the `.btn-hollow-*` classes.
 {% capture hollow_button %}
 <button class="btn btn-hollow-primary">Primary</button>
 <button class="btn btn-hollow-secondary">Secondary</button>
@@ -41,8 +40,8 @@ Add the class `.btn.btn-hollow-<color>` to create hollow buttons.
 
 
 
-### Text Button
-Add the class `.btn.btn-text-<color>` to create text buttons.
+### Text Buttons
+Text buttons has the same sizes as solid buttons and hollow buttons. They have no backgrounds and borders. To create text buttons, add the `.btn-text-*` classes.
 {% capture text_button %}
 <button class="btn btn-text-primary">Primary</button>
 <button class="btn btn-text-secondary">Secondary</button>
@@ -57,8 +56,8 @@ Add the class `.btn.btn-text-<color>` to create text buttons.
 
 
 
-### Button Tags
-Button classes can be added to other html tags to create a button.
+## Button Tags
+The `.btn` class and the button style classes can also be added to other elements to create button like elements. See below examples.
 <div class="button-example">
   <a data-turbolinks="false" href="#" class="btn btn-primary">Link</a>
   <input type="submit" value="Submit" class="btn btn-hollow-primary">
@@ -74,11 +73,13 @@ Button classes can be added to other html tags to create a button.
 
 
 ## Functional Buttons
+Luda offers some functional buttons, let's find out what they can do.
 
 
+### Checkbox Buttons
+Checkbox buttons are checkboxes wrapped within button classes, they look like buttons but behave the same as normal checkboxes.
 
-### Checkbox Button
-Use the class `.btn-check` and other button style classes to create checkbox buttons.
+A checkbox button is very simple to create, add the `.btn-check` class and the button style classes to a container, then wrap a checkbox type `<input>` and a `<label>` inside. 
 {% capture checkbox_button %}
 <div class="btn-check btn-hollow-primary">
   <input type="checkbox" name="favriout_films" value="kill_bill">
@@ -96,8 +97,10 @@ Use the class `.btn-check` and other button style classes to create checkbox but
 
 
 
-### Radio Button
-Use the class `.btn-radio` and other button style classes to create radio buttons.
+### Radio Buttons
+Radio buttons are similar to checkbox buttons, they wrap radios inside, so they behave as normal radio elements.
+
+A radio button can be created just like a checkbox button, just replace the `.btn-check` class with the `.btn-radio` class, and replace the checkbox type `<input>` with a radio type `<input>`.
 {% capture radio_button %}
 <div class="btn-radio btn-hollow-primary">
   <input type="radio" name="decision" value="yes">
@@ -115,8 +118,9 @@ Use the class `.btn-radio` and other button style classes to create radio button
 
 
 
-### File Button
-Use the class `.btn-file` and other button style classes to create file buttons.
+### File Buttons
+File buttons are used to pick up files, they wrap file type inputs.
+It's almost the same as creating checkbox buttons and radio buttons to create file buttons. No more blahblah..., just see the examples.
 {% capture file_button %}
 <div class="btn-file btn-primary">
   <input type="file">
@@ -135,21 +139,25 @@ Use the class `.btn-file` and other button style classes to create file buttons.
 
 
 ## Button States
-
+Button states can be controled through state classes and attributes.
 
 
 ### Active
-Add the class `.btn-active` to set button state to active.
+The `.btn-active` class is used to show the actived state of a button or a functional button, you can see the effect in below examples.
 {% capture active_button %}
+<!-- An actived button -->
 <button class="btn btn-hollow-primary btn-active">Button</button>
+<!-- An actived checkbox button -->
 <div class="btn-check btn-hollow-primary btn-active">
   <input type="check">
   <label>Checkbox button</label>
 </div>
+<!-- An actived radio button -->
 <div class="btn-radio btn-hollow-primary btn-active">
   <input type="radio">
   <label>Radio button</label>
 </div>
+<!-- An actived file button -->
 <div class="btn-file btn-hollow-primary btn-active">
   <input type="file">
   <label>File button</label>
@@ -162,17 +170,25 @@ Add the class `.btn-active` to set button state to active.
 
 
 ### Disabled
-Add the attribute `disabled` to disable buttons.
+The `disabled` attribute can be used to disable a button or a functional button. Disabled buttons and functional buttons cannot trigger any pointer events, and they can't be accessed to through keyboard either.
+
+If you want to disable a function button, don't forget to add the `disabled` attribute to the nested `<input>`.
+{: .c-danger}
+
 {% capture disabled_button %}
+<!-- A disabled button -->
 <button class="btn btn-hollow-primary" disabled>Button</button>
+<!-- A disabled checkbox button -->
 <div class="btn-check btn-hollow-primary" disabled>
   <input disabled type="checkbox">
   <label>Checkbox button</label>
 </div>
+<!-- A disabled radio button -->
 <div class="btn-radio btn-hollow-primary" disabled>
   <input disabled type="radio">
   <label>Radio button</label>
 </div>
+<!-- A disabled file button -->
 <div class="btn-file btn-hollow-primary" disabled>
   <input disabled type="file">
   <label>File button</label>
@@ -184,13 +200,42 @@ Add the attribute `disabled` to disable buttons.
 ``` html{{ disabled_button }}```
 
 
+### Readonly
+The readonly state is available for functional buttons, readonly function buttons can not trigger any pointer events and cannot accessed to through keyboard.
+
+The readonly state seems like the disabled state, but it's different. The value of a disabled `<input>` element will be ignored when its parent form submited, but the value of a readonly `<input>` will not be ignored.
+
+If you want to make a readonly functional button, add the `data-readonly` attribute to it and the nested `<input>`.
+{: .c-danger}
+
+{% capture readonly_button %}
+<!-- A readonly checkbox button -->
+<div class="btn-check btn-hollow-primary" data-readonly>
+  <input type="checkbox" data-readonly>
+  <label>Checkbox button</label>
+</div>
+<!-- A readonly radio button -->
+<div class="btn-radio btn-hollow-primary" data-readonly>
+  <input type="radio" data-readonly>
+  <label>Radio button</label>
+</div>
+{% endcapture %}
+<div class="button-example">
+  {{ readonly_button }}
+</div>
+``` html{{ readonly_button }}```
+
+
 ### Checked
-Add the attribute `checked` to checkbox button and radio button to set checked state.
+The checked state is only available for checkbox buttons and radio buttons. To set the checked state, just add the `checked` attribute to the nested `<input>` elements.
+
 {% capture checked_button %}
+<!-- A checked checkbox button -->
 <div class="btn-check btn-hollow-primary">
   <input checked type="checkbox">
   <label>Checkbox button</label>
 </div>
+<!-- A checked radio button -->
 <div class="btn-radio btn-hollow-primary">
   <input checked type="radio">
   <label>Radio button</label>
@@ -202,22 +247,6 @@ Add the attribute `checked` to checkbox button and radio button to set checked s
 ``` html{{ checked_button }}```
 
 
-### Readonly
-Add the attribute `data-readonly` to checkbox button and radio button to set readonly state.
-{% capture readonly_button %}
-<div class="btn-check btn-hollow-primary" data-readonly>
-  <input type="checkbox" data-readonly>
-  <label>Checkbox button</label>
-</div>
-<div class="btn-radio btn-hollow-primary" data-readonly>
-  <input type="radio" data-readonly>
-  <label>Radio button</label>
-</div>
-{% endcapture %}
-<div class="button-example">
-  {{ readonly_button }}
-</div>
-``` html{{ readonly_button }}```
 
 
 
