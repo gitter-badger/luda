@@ -1,23 +1,23 @@
 ---
 title: Form
-description: Lean how to create form elements and helpers, control states through behaviours.
+description: Form elements are essential when you need collect data from users. Let's see the various form elements Luda offers in this chapter.
 ---
 
 
 ## Input Elements
-
+In Luda, we don't add style classes to input elements directly, we add them to a container instead. It's more flexible to control and extend input elements styles in this way. All input elements are wrapped by a container with the `.fm` class, for different style inputs, just add style classes to the container. 
 
 
 ### Text Field and Text Area
-Add the classes `.fm.fm-text` to create a text field or a text area.
+Add the style class `.fm-text` to the container to create a text filed or a text area.
 {% capture text_field %}
-<div class="form-example">
-  <div class="fm fm-text">
-    <input placeholder="Enter some text">
-  </div>
-  <div class="fm fm-text">
-    <textarea placeholder="Enter more text"></textarea>
-  </div>
+<!-- Wrap a <input> -->
+<div class="fm fm-text">
+  <input placeholder="Enter some text">
+</div>
+<!-- Wrap a <textarea> -->
+<div class="fm fm-text">
+  <textarea placeholder="Enter more text"></textarea>
 </div>
 {% endcapture %}
 <div class="form-example">
@@ -28,7 +28,7 @@ Add the classes `.fm.fm-text` to create a text field or a text area.
 
 
 ### Search Field
-Add the classes `.fm.fm-search` to create a search field.
+Add the class `.fm-search` to the container to create a search filed. The nested `<input>`'s attribute can be `search` or any other types support entering texts. 
 {% capture search_field %}
 <div class="fm fm-search">
   <input type="search" placeholder="Search anything...">
@@ -42,14 +42,16 @@ Add the classes `.fm.fm-search` to create a search field.
 
 
 ### Select Field
-Add the classes `.fm.fm-select` to create single select filed and multiple select field. Set the attribute `selected` value to `selected` to indicate selected values.
+Add the class `.fm-select` to the container to create a select field. A `<select>` element should be wrapped in the container. For default selected options, set their `selected` attributes to `selected`.
 {% capture select_field %}
+<!-- A single select field -->
 <div class="fm fm-select">
   <select placeholder="Select a word">
     <option value="hello">Hello!</option>
     <option value="goodbye">Goodbye!</option>
   </select>
 </div>
+<!-- A multiple select filed with a default selected option -->
 <div class="fm fm-select">
   <select multiple placeholder="Select words">
     <option value="hello" selected="selected">Hello!</option>
@@ -65,11 +67,13 @@ Add the classes `.fm.fm-select` to create single select filed and multiple selec
 
 
 ### File Picker
-Add the classes `.fm.fm-file` to create single or multiple file picker. Use the attribute `value` to show filenames.
+Add the class `.fm-file` to the container to create a file picker. A `<input type="file">` element should be wrapped. You can set the value attribute of the `<input>` to show default filenames.
 {% capture file_picker %}
+<!-- A single file picker -->
 <div class="fm fm-file">
   <input type="file" placeholder="Add a file">
 </div>
+<!-- An multiple files picker with a default value -->
 <div class="fm fm-file">
   <input type="file" multiple value="luda.min.css" placeholder="Add files">
 </div>
@@ -82,11 +86,13 @@ Add the classes `.fm.fm-file` to create single or multiple file picker. Use the 
 
 
 ### Checkbox
-Add the classes `.fm.fm-check` to create checkboxes.
+Add the class `.fm-check` to the container to create checkboxes. One or more `<input type="checkbox">` elements can be wrapped. 
 {% capture checkboxes %}
+<!-- A checkbox without label texts -->
 <div class="fm fm-check">
   <input type="checkbox">
 </div>
+<!-- Checkboxes with label texts -->
 <div class="fm fm-check">
   <label><input type="checkbox">Checkbox one in label</label>
   <label><input type="checkbox">Checkbox two in label</label>
@@ -99,11 +105,13 @@ Add the classes `.fm.fm-check` to create checkboxes.
 
 
 ### Radio
-Add the classes `.fm.fm-radio` to create radioes.
+Add the classes `.fm-radio` to the container to create radios. Just like creating checkboxes, one or more `<input type="radio">` elements can be wrapped.
 {% capture radioes %}
+<!-- A radio without label texts -->
 <div class="fm fm-radio">
   <input type="radio" name="radio_example">
 </div>
+<!-- Radios with label texts -->
 <div class="fm fm-radio">
   <label><input type="radio" name="radio_example" value="one">Radio one in label</label>
   <label><input type="radio" name="radio_example" value="two">Radio two in label</label>
@@ -117,7 +125,7 @@ Add the classes `.fm.fm-radio` to create radioes.
 
 
 ### Range Slider
-Add the classes `.fm.fm-range` to create a range slider.
+To create a range slider, add the `.fm-range` class to the container. Then wrap a `<input type="range">` element inside.
 {% capture range_slider %}
 <div class="fm fm-range">
   <input type="range">
@@ -129,18 +137,22 @@ Add the classes `.fm.fm-range` to create a range slider.
 
 
 ## Input States
-
+The state of input elements can be controlled by adding state attributes.
 
 
 ### Readonly
-Add the attribute `data-readonly` to make a input element readonly.
+If the value of some input element should not be changed by users, you can add the `data-readonly` attribute to itself and its `.fm` container. Let's see below examples.
+
 {% capture readonly %}
+<!-- A readonly text field -->
 <div class="fm fm-text" data-readonly>
   <input data-readonly value="A readonly text field">
 </div>
+<!-- A readonly checkbox -->
 <div class="fm fm-check" data-readonly>
   <label><input data-readonly checked type="checkbox">A readonly checkbox</label>
 </div>
+<!-- A readonly select field -->
 <div class="fm fm-select" data-readonly>
   <select data-readonly placeholder="Select a word">
     <option selected="selected" value="hello">A readonly select with Hello selected</option>
@@ -156,14 +168,19 @@ Add the attribute `data-readonly` to make a input element readonly.
 
 
 ### Disabled
-Add the attribute `disabled` to make a disabled input element.
+The value of disabled input elements cannot be changed by users either, but they are different from readonly input elements. The value of a readonly input element will be submited when parent form submited, but a disabled input element's value will be ignored.
+
+To disable an input element, add the `disabled` attribute to itself and its `.fm` container.
 {% capture disabled %}
+<!-- A disabled search field -->
 <div class="fm fm-search" disabled>
   <input disabled value="This search field is disabled">
 </div>
+<!-- A disabled radio -->
 <div class="fm fm-radio" disabled>
   <label><input disabled type="radio">This radio is disabled</label>
 </div>
+<!-- A disabled file picker -->
 <div class="fm fm-file" disabled>
   <input disabled type="file" value="This file picker is disabled">
 </div>
@@ -175,20 +192,25 @@ Add the attribute `disabled` to make a disabled input element.
 
 
 
-## Input Modifiers
+## Input Element Modifiers
+The size of input elements can be changed by adding size modifier classes.
 
 ### Small{% include modifier.html %}
-Add the class `.fm-small` to make an input element smaller.
+If you want a smaller input element, add the `.fm-small` class to its `.fm` container.
 {% capture small %}
+<!-- A small checkbox with label texts -->
 <div class="fm fm-check fm-small">
   <label><input type="checkbox">A small form checkbox</label>
 </div>
+<!-- A small range slider -->
 <div class="fm fm-range fm-small">
   <input type="range">
 </div>
+<!-- A small search field -->
 <div class="fm fm-search fm-small">
   <input placeholder="A small form search">
 </div>
+<!-- A small textarea -->
 <div class="fm fm-text fm-small">
   <textarea placeholder="A small from textarea"></textarea>
 </div>
@@ -201,17 +223,21 @@ Add the class `.fm-small` to make an input element smaller.
 
 
 ### Large{% include modifier.html %}
-Add the class `.fm-large` to make an input element larger.
+The size of an input element can be larger by adding the `.fm-large` class.
 {% capture large %}
+<!-- A large radio -->
 <div class="fm fm-radio fm-large">
   <label><input type="radio">A large form radio</label>
 </div>
+<!-- A large file picker -->
 <div class="fm fm-file fm-large">
   <input type="file" placeholder="A large form file">
 </div>
+<!-- A large text filed -->
 <div class="fm fm-text fm-large">
   <input placeholder="A large form text">
 </div>
+<!-- A large select field -->
 <div class="fm fm-select fm-large">
   <select multiple placeholder="A large multiple select">
     <option value="1">One</option>
@@ -228,16 +254,19 @@ Add the class `.fm-large` to make an input element larger.
 
 
 ### Inline{% include modifier.html %}
-Add the class `.fm-inline` to make a input element inline.
+Luda form elements occupy entire space in the horizontal by default, you can add the class `.fm-inline` to change this behavior.
 {% capture inline %}
-<div class="fm fm-check fm-inline">
-  <label><input type="checkbox">An inline checbox</label>
-</div>
+<!-- An inline search field -->
 <div class="fm fm-search fm-inline">
   <input placeholder="An inline form search">
 </div>
+<!-- An inline file picker -->
 <div class="fm fm-file fm-inline">
   <input type="file" placeholder="An inline form file">
+</div>
+<!-- An inline checkbox -->
+<div class="fm fm-check fm-inline">
+  <label><input type="checkbox">An inline checbox</label>
 </div>
 {% endcapture %}
 <div class="form-example">
@@ -247,14 +276,17 @@ Add the class `.fm-inline` to make a input element inline.
 
 
 
-## Input Helpers
+## Input Helper Texts
+Luda offers form hint and error text helper attributes, additional information can be showed conveniently by adding these attributes.
 
-### Hint Text
-Use the attribute `data-hint` to show hint text for input elements.
+### Hint Texts
+Add the `data-hint` attribute to the `.fm` container to show some hint texts. The value of this attribute will be showed at the bottom of the container.
 {% capture hint %}
+<!-- Show some hint texts for a text field -->
 <div class="fm fm-text" data-hint="Your email will be a secret.">
   <input type="email" placeholder="Please enter your email">
 </div>
+<!-- Show some hint texts for radios -->
 <div class="fm fm-radio" data-hint="Your gender also will be a secret.">
   <label><input type="radio" value="male">Male</label>
   <label><input type="radio" value="female">Female</label>
@@ -267,11 +299,17 @@ Use the attribute `data-hint` to show hint text for input elements.
 
 
 ### Error Text
-Use the attribute `data-error` to show error text for input elements.
+To show the error state and error texts of a input element, just add the `data-error` attribute to its `.fm` container. The value of the `data-error` attribute will be showed as the error information.
+
+If you add the `data-error` attribute and the `data-hint` attribute to a `.fm` container at the same time, only the error texts will be showed.
+{: .c-danger}
+
 {% capture error %}
+<!-- Show error texts for a text field -->
 <div class="fm fm-text" data-error="Email cannot be blank!">
   <input type="email" placeholder="Please enter your email">
 </div>
+<!-- Show error texts for radios -->
 <div class="fm fm-radio" data-error="Genger must be choosen!">
   <label><input type="radio" value="male">Male</label>
   <label><input type="radio" value="female">Female</label>
@@ -285,59 +323,61 @@ Use the attribute `data-error` to show error text for input elements.
 
 
 ## Form Label
+A form label is used to indicate what kind of information should used fill in an input element, it's super easy to create.
 
 ### Usage
-Add the class `.fm-label` to create a label for input elements.
+Just add the `.fm-label` class to a `<label>` element.
 {% capture form_label %}
 <label class="fm-label">Fullname</label>
 <div class="fm fm-text">
   <input placeholder="Please enter your fullname">
 </div>
 {% endcapture %}
-<div class="form-example">
+<div class="form-example mt-none">
   {{ form_label }}
 </div>
 ``` html{{ form_label }}```
 
 ### Form Label Modifiers
+You can change the size and show "Required" texts by adding label modifier classes.
 
 #### Required{% include modifier.html %}
-Add the class `.fm-label-required` to `.fm-label` to show required mark.
+Add the class `.fm-label-required` to show "Required" text.
 {% capture required_form_label %}
 <label class="fm-label fm-label-required">Fullname</label>
 <div class="fm fm-text">
   <input placeholder="Please enter your fullname">
 </div>
 {% endcapture %}
-<div class="form-example">
+<div class="form-example mt-none">
   {{ required_form_label }}
 </div>
 ``` html{{ required_form_label }}```
 
 
 #### Small{% include modifier.html %}
-Add the class `.fm-label-small` to `.fm-label` to make it smaller.
+Add the `.fm-label-small` class to make a form label smaller.
 {% capture small_form_label %}
 <label class="fm-label fm-label-small">Fullname</label>
 <div class="fm fm-text fm-small">
   <input placeholder="Please enter your fullname">
 </div>
 {% endcapture %}
-<div class="form-example">
+<div class="form-example mt-none">
   {{ small_form_label }}
 </div>
 ``` html{{ small_form_label }}```
 
 
 #### Large{% include modifier.html %}
-Add the class `.fm-label-large` to `.fm-label` to make it largeer.
+Add the `.fm-label-large` class to to make a form label larger.
 {% capture large_form_label %}
 <label class="fm-label fm-label-large">Fullname</label>
 <div class="fm fm-text fm-large">
   <input placeholder="Please enter your fullname">
 </div>
 {% endcapture %}
-<div class="form-example">
+<div class="form-example mt-none">
   {{ large_form_label }}
 </div>
 ``` html{{ large_form_label }}```

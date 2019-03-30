@@ -22,7 +22,9 @@ If you want a badge aligned to text baseline, replace the `.badge` class with `.
   Messages <span class="badge-baseline">22</span>
 </button>
 {% endcapture %}
-{{ badge_baseline }}
+<div class="button-example">
+  {{ badge_baseline }}
+</div>
 ``` html{{ badge_baseline }}```
 
 
@@ -33,9 +35,10 @@ We can change color and background of badges with color and background utilities
   Messages <span class="badge-baseline c-dark bc-light">99+</span>
 </button>
 {% endcapture %}
-{{ badge_color_and_background }}
+<div class="button-example">
+  {{ badge_color_and_background }}
+</div>
 ``` html{{ badge_color_and_background }}```
-
 
 ## Sass Variables
 

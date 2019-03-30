@@ -250,24 +250,30 @@ The checked state is only available for checkbox buttons and radio buttons. To s
 
 
 
-## Style Modifiers
-
+## Size Modifiers
+If you want to change a button's size, you can use size modifier classes.
 
 
 ### Small{% include modifier.html %}
-Add the class `.btn-small` to make small buttons.
+Add the `.btn-small` class to a button or a function button to make it smaller.
 {% capture small_button %}
+<!-- A small button -->
 <button class="btn btn-primary btn-small">Solid button</button>
+<!-- A small hollow button -->
 <button class="btn btn-hollow-primary btn-small">Hollow button</button>
+<!-- A small text button -->
 <button class="btn btn-text-primary btn-small">Text button</button>
+<!-- A small checkbox button -->
 <div class="btn-check btn-hollow-primary btn-small">
   <input type="checkbox">
   <label>Checkbox button</label>
 </div>
+<!-- A small radio button -->
 <div class="btn-radio btn-hollow-primary btn-small">
   <input type="radio">
   <label>Radio button</label>
 </div>
+<!-- A small file button -->
 <div class="btn-file btn-hollow-primary btn-small">
   <input type="file">
   <label>File button</label>
@@ -281,19 +287,25 @@ Add the class `.btn-small` to make small buttons.
 
 
 ### Large{% include modifier.html %}
-Add the class `.btn-large` to make large buttons.
+Oppsitely, you can add the `.btn-large` class to make a button or a functional button larger.
 {% capture large_button %}
+<!-- A large button -->
 <button class="btn btn-primary btn-large">Solid button</button>
+<!-- A large hollow button -->
 <button class="btn btn-hollow-primary btn-large">Hollow button</button>
+<!-- A large text button -->
 <button class="btn btn-text-primary btn-large">Text button</button>
+<!-- A large checkbox button -->
 <div class="btn-check btn-hollow-primary btn-large">
   <input type="checkbox">
   <label>Checkbox button</label>
 </div>
+<!-- A large radio button -->
 <div class="btn-radio btn-hollow-primary btn-large">
   <input type="radio">
   <label>Radio button</label>
 </div>
+<!-- A large file button -->
 <div class="btn-file btn-hollow-primary btn-large">
   <input type="file">
   <label>File button</label>
@@ -307,19 +319,25 @@ Add the class `.btn-large` to make large buttons.
 
 
 ### Fluid{% include modifier.html %}
-Add the class `.btn-fluid` to make fluid buttons.
+If you want a button or a functional button ocuppy all the left space in horizontal, you can add the `.btn-fluid` class. The `.btn-fluid` class can be mixed with other size modifier classes.
 {% capture fluid_button %}
+<!-- A fluid button -->
 <button class="btn btn-primary btn-fluid">Solid button</button>
+<!-- A fluid hollow button -->
 <button class="btn btn-hollow-primary btn-fluid">Hollow button</button>
+<!-- A fluid text button -->
 <button class="btn btn-text-primary btn-fluid">Text button</button>
+<!-- A fluid checkbox button -->
 <div class="btn-check btn-hollow-primary btn-fluid">
   <input type="checkbox">
   <label>Checkbox button</label>
 </div>
+<!-- A fluid radio button -->
 <div class="btn-radio btn-hollow-primary btn-fluid">
   <input type="radio">
   <label>Radio button</label>
 </div>
+<!-- A fluid file button -->
 <div class="btn-file btn-primary btn-fluid">
   <input type="file">
   <label>File button</label>

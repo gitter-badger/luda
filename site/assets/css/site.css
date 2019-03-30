@@ -279,6 +279,7 @@ html {
 
 #doc-container .grid-example {
   padding-top: 1rem;
+  margin-top: 1rem;
   margin-bottom: 1rem;
   background: #525252;
 }
@@ -286,6 +287,16 @@ html {
 #doc-container .grid-example [class^=col] {
   margin-bottom: 1rem;
   box-shadow: inset 1px 1px 0 rgba(250, 115, 160, 0.618), inset -1px -1px 0 rgba(250, 115, 160, 0.618);
+}
+
+#doc-container .example,
+#doc-container .form-example {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#doc-container .button-example {
+  margin-top: 1rem;
 }
 
 #doc-container .button-example > .btn,

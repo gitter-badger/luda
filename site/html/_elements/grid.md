@@ -4,14 +4,14 @@ description: With Luda grid, you can create mobile-first responsive layout fast 
 ---
 
 
-## Column Width
+## Column Widths
 Luda provides 12 columns grid by default, column width can be setted as spefic or auto expaned.
-Each column has `1rem` padding left and right by default. Columns must be wrapped by a `.grid` container.
+Each column has `1rem` padding on the left and right by default. Columns must be wrapped by a `.grid` container.
 You can preview grid layout in below examples.
 
 ### Specfic Width Columns
-The classes `.col-<n>` means this column ocupies `n/12` of its `.grid` container horizontal space.
-Add the classes from `.col-1` to `.col-12` to create spefic width column.
+The classes `.col-<n>` means this column occupies `n/12` of its `.grid` container horizontal space.
+Add the classes from `.col-1` to `.col-12` to create spefic width columns of different widths.
 <div class="grid grid-example">
   <div class="col-9"><p class="p6 bc-primary c-light ta-center">9/12</p></div>
   <div class="col-3"><p class="p6 bc-primary c-light ta-center">3/12</p></div>
@@ -33,8 +33,8 @@ Add the classes from `.col-1` to `.col-12` to create spefic width column.
 ```
 
 
-### Responsive Column Width
-All spefic column width classes are extended by responsive refixers. `.col-<n>-m` classes means column width will be `n/12` of the `.grid` when screen width matches the `m` breakpoint. For large screens, the breakpoint prefix is `l`.
+### Responsive Column Widths
+All spefic column width classes are extended by responsive postfixes. `.col-<n>-m` classes means the column width will be `n/12` of the `.grid` when screen width matches the `m` breakpoint. For large screens, the breakpoint postfix is `l`.
 
 <div class="grid grid-example">
   <div class="col-12 col-10-m col-8-l">
@@ -43,13 +43,14 @@ All spefic column width classes are extended by responsive refixers. `.col-<n>-m
 </div>
 ``` html
 <div class="grid">
+  <!-- 12/12 for small screens, 10/12 for middle size screens and 8/12 for large screens -->
   <div class="col-12 col-10-m col-8-l"></div>
 </div>
 ```
 
 
 ### Fluid Column Width
-Add the class `.col-auto` to make a column width auto adjusted. The width of this column depends on the left horizontal space of its `.grid` container.
+Add the class `.col-auto` to make a column width auto adjusted. The width of this column depends on the availiable horizontal space of its `.grid` container, all the left space will be occupied.
 
 <div class="grid grid-example">
   <div class="col-4"><p class="p6 bc-primary c-light ta-center">.col-4</p></div>
@@ -58,16 +59,17 @@ Add the class `.col-auto` to make a column width auto adjusted. The width of thi
 ``` html
 <div class="grid">
   <div class="col-4"></div>
+  <!-- Occupy the left 8/12 horizontal spaces -->
   <div class="col-auto"></div>
 </div>
 ```
 
 
 
-## Column Offset
-Like column width, column offset also can be spefic or auto adjust through offset utilities and margin utilities.
+## Column Offsets
+Like column widths, column offsets also can be spefic or auto adjusted through offset utilities and margin utilities.
 
-### Specfic Offset
+### Specfic Offsets
 Add the offset utiltiy classes from `.offset-1` to `.offset-11` to control spefic offset distance.
 
 <div class="grid grid-example">

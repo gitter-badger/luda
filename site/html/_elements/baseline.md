@@ -9,6 +9,8 @@ The height of baseline grid is set at `1rem` in Luda. The vertical sizes of most
 If you need change elements height to match the baseline grid, you can add the `.baseline` class to elements' container to show the baseline grid. So the vertical rhythm of your layout can be checked easily.
 
 Let's see below example.
+{: .mb-small}
+
 {% capture baseline %}
 <div class="baseline">
   <!-- Set the height of this div at 3rem to match the baseline grid. -->
