@@ -224,7 +224,8 @@ html {
     height: 100%;
   }
 }
-#doc-aside {
+#doc-aside,
+#doc-container .overlay {
   z-index: 5;
 }
 
