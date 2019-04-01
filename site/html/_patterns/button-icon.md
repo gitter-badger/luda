@@ -4,8 +4,8 @@ description: Nest icons in buttons to create beautiful button icon.
 ---
 
 
-## Icon on the Left
-Add the class `.btn-ico-left` to create a button with an icon on the left.
+## Icon in the Left
+Add the class `.btn-ico-left` to create a button with an icon in the left.
 
 {% capture icon_on_the_left %}
 <button class="btn btn-primary btn-ico-left btn-small">
@@ -25,8 +25,8 @@ Add the class `.btn-ico-left` to create a button with an icon on the left.
 ``` html{{ icon_on_the_left }}```
 
 
-## Icon on the Right
-Add the class `.btn-ico-right` to create a button with an icon on the right.
+## Icon in the Right
+Add the class `.btn-ico-right` to create a button with an icon in the right.
 
 {% capture icon_on_the_right %}
 <div class="btn-check btn-hollow-primary btn-ico-right btn-small">
@@ -49,8 +49,8 @@ Add the class `.btn-ico-right` to create a button with an icon on the right.
 ``` html{{ icon_on_the_right }}```
 
 
-## Icon on the Top
-Add the class `.btn-ico-top` to create a button with and icon on the top.
+## Icon in the Top
+Add the class `.btn-ico-top` to create a button with and icon in the top.
 
 {% capture icon_on_the_top %}
 <button class="btn btn-primary btn-ico-top btn-small">

@@ -5,13 +5,11 @@ description: With Luda grid, you can create mobile-first responsive layout fast 
 
 
 ## Column Widths
-Luda provides 12 columns grid by default, column width can be setted as spefic or auto expaned.
-Each column has `1rem` padding on the left and right by default. Columns must be wrapped by a `.grid` container.
-You can preview grid layout in below examples.
+Luda offers a 12 columns grid by default, column widths can be spefic or auto-adjusted. Each column has `1rem` padding in the left and right, and they must be wrapped in a container with the `.grid` class. You can preview grid layouts in the below examples.
 
-### Specfic Width Columns
-The classes `.col-<n>` means this column occupies `n/12` of its `.grid` container horizontal space.
-Add the classes from `.col-1` to `.col-12` to create spefic width columns of different widths.
+### Specfic Column Widths
+The class `.col-*` means this column occupies `*/12` of the grid's horizontal space.
+Add the classes from `.col-1` to `.col-12` to create columns with specfic widths.
 <div class="grid grid-example">
   <div class="col-9"><p class="p6 bc-primary c-light ta-center">9/12</p></div>
   <div class="col-3"><p class="p6 bc-primary c-light ta-center">3/12</p></div>
@@ -34,7 +32,7 @@ Add the classes from `.col-1` to `.col-12` to create spefic width columns of dif
 
 
 ### Responsive Column Widths
-All spefic column width classes are extended by responsive postfixes. `.col-<n>-m` classes means the column width will be `n/12` of the `.grid` when screen width matches the `m` breakpoint. For large screens, the breakpoint postfix is `l`.
+All specfic column width classes are extended with responsive postfixes. For example, the `.col-1-m` class means the column width will be `1/12` of the grid's width when screen width matches the `m` breakpoint. For large screens, the breakpoint postfix is `l`.
 
 <div class="grid grid-example">
   <div class="col-12 col-10-m col-8-l">
@@ -49,8 +47,8 @@ All spefic column width classes are extended by responsive postfixes. `.col-<n>-
 ```
 
 
-### Fluid Column Width
-Add the class `.col-auto` to make a column width auto adjusted. The width of this column depends on the availiable horizontal space of its `.grid` container, all the left space will be occupied.
+### Auto-Adjusted Column Width
+The class `.col-auto` is used to make a column's width auto adjusted. The width of an auto-adjusted column depends on the availiable horizontal space of the grid, all the availiable space will be occupied.
 
 <div class="grid grid-example">
   <div class="col-4"><p class="p6 bc-primary c-light ta-center">.col-4</p></div>
@@ -59,7 +57,7 @@ Add the class `.col-auto` to make a column width auto adjusted. The width of thi
 ``` html
 <div class="grid">
   <div class="col-4"></div>
-  <!-- Occupy the left 8/12 horizontal spaces -->
+  <!-- Occupies the left 8/12 horizontal space -->
   <div class="col-auto"></div>
 </div>
 ```
@@ -67,10 +65,10 @@ Add the class `.col-auto` to make a column width auto adjusted. The width of thi
 
 
 ## Column Offsets
-Like column widths, column offsets also can be spefic or auto adjusted through offset utilities and margin utilities.
+Like column widths, column offsets can also be specfic or auto-adjusted. Let's see how to control column offsets with offset and margin utility classes.
 
-### Specfic Offsets
-Add the offset utiltiy classes from `.offset-1` to `.offset-11` to control spefic offset distance.
+### Specfic Column Offsets
+The specfic offset distances are from 1 column with to 11 columns width. You can add the offset utiltiy classes from `.offset-1` to `.offset-11` to control column offsets specificly.
 
 <div class="grid grid-example">
   <div class="col-11 offset-1"><p class="p6 bc-primary c-light ta-center">.offset-1</p></div>
@@ -88,8 +86,8 @@ Add the offset utiltiy classes from `.offset-1` to `.offset-11` to control spefi
 ```
 
 
-### Auto Adjust Offset
-Add the margin utility classes `.mx-auto`, `.mr-auto`, `.ml-auto` to set offset distance auto adjusted.
+### Auto-Adjusted Column Offsets
+The margin utility classes `.mx-auto`, `.mr-auto` and `.ml-auto` can also be used to control column offsets. The `.mx-auto` class makes a column aligned in the horizontal center of the grid, and the `.mr-auto` and `.ml-auto` classes makes a column algined in the left or right of the grid.
 
 <div class="grid grid-example">
   <div class="col-10 mx-auto">
@@ -112,7 +110,7 @@ Add the margin utility classes `.mx-auto`, `.mr-auto`, `.ml-auto` to set offset 
 
 
 ### Responsive Offset Control
-The offset utilities and margin utilities are both responsive, responsive offset can be easily controlled by adding breakpoins prefixers.
+The offset and margin utility classes are both responsive, responsive offsets can be easily controlled by adding breakpoint postfixes. Let's see the below examples.
 
 <div class="grid grid-example">
   <div class="col-9 offset-3 offset-2-m offset-1-l">
@@ -125,15 +123,15 @@ The offset utilities and margin utilities are both responsive, responsive offset
 
 
 
-## Column Align
+## Column Alignment
 
 
-### Horizontal Align
-Horizontal alignment of columns can be controlled by flex utility classes `.jc-start`, `.jc-center`, `.jc-end`, `.jc-around` and `.jc-between`.
+### Horizontal Alignment
+Horizontal alignment of columns can be controlled by adding the flex utility classes `.jc-start`, `.jc-center`, `.jc-end`, `.jc-around` and `.jc-between`.
 
 
 #### Align to Horizontal Center
-Add the class `.jc-center` to `.grid` to center columns in horizontal.
+Add the class `.jc-center` to the grid to position columns in the horizontal center.
 
 <div class="grid grid-example jc-center">
   <div class="col-10">
@@ -145,7 +143,7 @@ Add the class `.jc-center` to `.grid` to center columns in horizontal.
 ```
 
 #### Align to Horizontal End
-Add the class `.jc-end` to `.grid` to align columns to horizontal end.
+Add the class `.jc-end` to the grid to position columns in the right of horizontal.
 
 <div class="grid grid-example jc-end">
   <div class="col-10">
@@ -156,8 +154,8 @@ Add the class `.jc-end` to `.grid` to align columns to horizontal end.
 <div class="grid jc-end"></div>
 ```
 
-#### Align Around Horizontal
-Add the class `.jc-around` to `.grid` to align columns around horizontal.
+#### Align With Horizontal Space Around Columns
+Add the class `.jc-around` to the grid to position columns with extra horizontal space around.
 
 <div class="grid grid-example jc-around">
   <div class="col-5">
@@ -171,8 +169,8 @@ Add the class `.jc-around` to `.grid` to align columns around horizontal.
 <div class="grid jc-around"></div>
 ```
 
-#### Align Between Horizontal
-Add the class `.jc-between` to `.grid` to align columns between horizontal.
+#### Align With Horizontal Space Between Columns
+Add the class `.jc-between` to the grid to position columns with extra horizontal space between each other and the grid's edges.
 
 <div class="grid grid-example jc-between">
   <div class="col-5">
@@ -188,11 +186,11 @@ Add the class `.jc-between` to `.grid` to align columns between horizontal.
 
 
 
-### Vertical Align
-Vertical alignment of columns can be controlled by flex utility classes `.ai-start`, `.ai-center` and `.ai-end`. You can also control spefic column vertical align with classes `.as-start`, `.as-center` and `.as-end`.
+### Vertical Alignment
+Vertical alignment of columns can be controlled by adding the flex utility classes `.ai-start`, `.ai-center` and `.ai-end`. You can also control spefic column vertical alignment with the classes `.as-start`, `.as-center` and `.as-end`.
 
-#### Align to Vertical Center
-Add the class `.ai-center` to `.grid` to center columns in vertical.
+#### Align in Vertical Center
+Add the class `.ai-center` to the grid to position columns in the vertical center.
 
 <div class="grid grid-example ai-center" style="height: 8rem">
   <div class="col-12">
@@ -204,7 +202,7 @@ Add the class `.ai-center` to `.grid` to center columns in vertical.
 ```
 {: .mb-small}
 
-Add the class `.as-center` to align a single column in vertical center.
+If you just want specfic columns to be aligned in the vertical center, you can add the class `.as-center` to these columns.
 
 <div class="grid grid-example" style="height: 8rem">
   <div class="col-auto">
@@ -222,11 +220,11 @@ Add the class `.as-center` to align a single column in vertical center.
 
 
 #### Align to Vertical End
-Add the class `.ai-end` to `.grid` to align columns to vertical end.
+Add the class `.ai-end` to the grid to position columns in the bottom of the grid.
 
 <div class="grid grid-example ai-end" style="height: 8rem">
   <div class="col-12">
-    <p class="p6 bc-primary c-light ta-center">Center</p>
+    <p class="p6 bc-primary c-light ta-center">End</p>
   </div>
 </div>
 ``` html
@@ -234,14 +232,14 @@ Add the class `.ai-end` to `.grid` to align columns to vertical end.
 ```
 {: .mb-small}
 
-Add the class `.as-end` to align a single column to vertical end.
+If you want specfic columns to be aligned in the bottom, just add the class `.as-end` to these columns.
 
 <div class="grid grid-example" style="height: 8rem">
   <div class="col-auto">
     <p class="p6 bc-primary c-light ta-center">Start</p>
   </div>
   <div class="col-auto as-end">
-    <p class="p6 bc-primary c-light ta-center">Center</p>
+    <p class="p6 bc-primary c-light ta-center">End</p>
   </div>
 </div>
 ``` html
@@ -251,9 +249,9 @@ Add the class `.as-end` to align a single column to vertical end.
 ```
 
 
-### Responsive Align Control
+### Responsive Alignment Control
 
-The flex utilities and margin utilities are extantded with responsive prefixers, see below example.
+The flex and margin utility classes are extended with responsive postfixes, see the below examples.
 
 <div class="grid grid-example jc-center jc-end-m jc-start-l">
   <div class="col-10">
@@ -262,6 +260,7 @@ The flex utilities and margin utilities are extantded with responsive prefixers,
 </div>
 
 ``` html
+<!-- Align columns in the center of horizontal for small screens, in the right for middle size screens and in the left for large screens. -->
 <div class="grid jc-center jc-end-m jc-start-l"></div>
 ```
 
@@ -272,14 +271,17 @@ The flex utilities and margin utilities are extantded with responsive prefixers,
 </div>
 
 ``` html
+<!-- Align columns in the center of vertical for small screens, in the bottom for middle size screens and in the top for large screens. -->
 <div class="grid ai-center ai-end-m ai-start-l"></div>
 ```
 
 
-## Column Order
+## Column Orders
 
 ### Usage
-The order utilities classes from `.od-1` to `.od-6` are used to backward column orders and from `.on-1` to `.on-6` are used to forward column orders. The `on` is short for negative order.  
+Grid columns are not sorted by default, they appear just as the order in html. But if you want to change the order a column appears, you need the order utility classes.
+
+The order utility classes from `.od-1` to `.od-6` are used to move columns after unsorted columns, and from `.on-1` to `.on-6` are used to move columns before unsorted columns. The `on` is short for "negative order".
 
 <div class="grid grid-example">
   <div class="col-6 od-6">
@@ -338,8 +340,8 @@ The order utilities classes from `.od-1` to `.od-6` are used to backward column 
 ```
 
 
-### Responsive Column Order
-Order utilities are extended with breakpoints prefixers, see how to control column order responsively.
+### Responsive Column Orders
+The order utility classes are extended with breakpoint postfixes, see how to control column order responsively in the blow examples.
 
 <div class="grid grid-example">
   <div class="col-12 od-2 on-1-m od-1-l">
@@ -363,7 +365,7 @@ Order utilities are extended with breakpoints prefixers, see how to control colu
 
 
 ## Column Breaker
-You can break columns in newline with a `hr` element.
+Columns will not be aligned to a new line unless the grid's horizontal space is not enough. If you need break a column in a newline by force, insert a `hr` element before the column. Let's see the below example.
 
 <div class="grid grid-example">
   <div class="col-6">
@@ -379,15 +381,15 @@ You can break columns in newline with a `hr` element.
 <div class="grid">
   <div class="col-6"></div>
   <hr>
+  <!-- The left space is enough, but use a <hr> to break the column in a newline. -->
   <div class="col-6"></div>
 </div>
 ```
 
 
 
-## Gutterless Grid
-If you don't want the horizontal padding in grid columns, you can use gutterless grid.
-Just use the class `.grid-edge` instead of `.grid`.
+## Grid Without Gutters
+As metioned at the begining, there're `1rem` padding in the left and right of grid columns, but if you don't need the paddings, you can replace the container's `.grid` class by the `.grid-edge` class.
 
 <div class="grid-edge grid-example">
   <div class="col-auto">
@@ -399,12 +401,13 @@ Just use the class `.grid-edge` instead of `.grid`.
 </div>
 
 ``` html
+<!-- Columns in this grid has no horizontal paddings. -->
 <div class="grid-edge"></div>
 ```
 
 
 ## Nested Grid
-Grid can be nested, see below example.
+Grid can be nested, nested grids should be wrapped in a parent grid's column. See the below examples for details.
 
 <div class="grid grid-example">
   <div class="col-6">
@@ -433,12 +436,14 @@ Grid can be nested, see below example.
 <div class="grid">
   <div class="col-6"></div>
   <div class="col-12">
+    <!-- A nested grid -->
     <div class="grid">
       <div class="col-6"></div>
     </div>
   </div>
   <div class="col-10"></div>  
   <div class="col-10">
+    <!-- A nother nested grid -->
     <div class="grid">
       <div class="col-6"></div>
     </div>
@@ -463,6 +468,7 @@ Grid can be nested, see below example.
 <div class="grid">
   <div class="col-12"></div>
   <div class="col-12">
+    <!-- A nested grid hasn't column getters -->
     <div class="grid-edge">
       <div class="col-12"></div>
     </div>
@@ -487,6 +493,7 @@ Grid can be nested, see below example.
 <div class="grid-edge">
   <div class="col-12"></div>
   <div class="col-12">
+    <!-- A grid has column getters nested in another grid has not column getters -->
     <div class="grid">
       <div class="col-12"></div>
     </div>
