@@ -1,13 +1,14 @@
 ---
 title: Table
-description: Lean how to create nice looking tables in Luda.
+description: Table should be used for showing data in rows and columns.
 ---
 
 
 
 ## Striped Table
-Use the calss `.table` to create a striped table.
-<div class="table mb-small">
+The default style of table is striped in Luda, this makes the rows easy to read, a scrollbar will show if the width of the table content is too much. To create a striped table, add the class `.table` to a block element like `<div>`, then wrap a `<table>` element inside.
+
+<div class="table my-small">
   <table>
     <thead>
       <tr>
@@ -61,9 +62,10 @@ Use the calss `.table` to create a striped table.
 
 
 ## Borders
-If you want a striped table with row deviders, replace the class `.table` with `.table-border`
 
-<div class="table-border mb-small">
+If you want to add surrounding borders and row deviders to a table, replace the container's `.table` class with the `.table-border` class.
+
+<div class="table-border my-small">
   <table>
     <thead>
       <tr>
@@ -119,9 +121,10 @@ If you want a striped table with row deviders, replace the class `.table` with `
 ## Style Modifiers
 
 ### No Wrap{% include modifier.html %}
-Add the class `.table-nowrap` to prevent table cell content breaking in new line.
 
-<div class="table table-nowrap mb-small">
+A `.table` container with the class `.table-nowrap` will prevent table cell content breaking in newlines. Let's see the below example.
+
+<div class="table table-nowrap my-small">
   <table>
     <thead>
       <tr>
@@ -185,9 +188,9 @@ Add the class `.table-nowrap` to prevent table cell content breaking in new line
 ```
 
 ### Stripless{% include modifier.html %}
-Add the class `.table-stripless` to remove the striped row styles.
+If you don't want a striped table, you can add the `.table-stripless` class to the `.table` container to remove the stripes of table rows.
 
-<div class="table-border table-stripless mb-small">
+<div class="table-border table-stripless my-small">
   <table>
     <thead>
       <tr>
@@ -242,9 +245,9 @@ Add the class `.table-stripless` to remove the striped row styles.
 
 
 ### Hover{% include modifier.html %}
-Add the class `.table-hover` to show background highlight when row hovered.
+The `.table-hover` class enhances hovered table row styles, a highlight background color will show. Hover the rows in the below example to preview.
 
-<div class="table table-hover mb-small">
+<div class="table table-hover my-small">
   <table>
     <thead>
       <tr>

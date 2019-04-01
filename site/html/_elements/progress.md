@@ -1,23 +1,28 @@
 ---
 title: Progress
-description: Progress is designed to show progress data.
+description: Progress is designed to show in-progress data.
 ---
 
 
 ## Usage
-Nest `.progress-bar` in `.progress` and use size utilities to control progress width.
+A progress bar is offen used to show in-progress data like loading progress and data percentage. Progress bars can be easily created, add the `.progress` class to a container and the `.progress-bar` class to wrapped elements.
+
+The below example shows a single progress bar wrapped in a `.progress` container, we use a size utility class to control the progress bar's width.
+
 {% capture usage %}
 <div class="progress">
   <div class="progress-bar w-25">25%</div>
 </div>
 {% endcapture %}
-{{ usage }}
+<div class="example">
+  {{ usage }}
+</div>
 ``` html{{ usage }}```
 {: .mt-small}
 
 
-## Backgrounds
-Use background utilities to change `.progress-bar` backgrounds.
+## Background
+The background color of progress bars can be changed by adding background utility classes. Let's see the below example.
 {% capture backgrounds %}
 <div class="progress">
   <div class="progress-bar w-25">25%</div>
@@ -25,22 +30,24 @@ Use background utilities to change `.progress-bar` backgrounds.
   <div class="progress-bar w-33 bc-dark">33%</div>
 </div>
 {% endcapture %}
-{{ backgrounds }}
+<div class="example">
+  {{ backgrounds }}
+</div>
 ``` html{{ backgrounds }}```
-{: .mt-small}
 
 
 ## Height
-Change `.progress-bar` height to make it thinner.
+In the below example, the progress bars' height is changed by adding an inline style to the `.progress` container. Of course, you'd better change the height in stylesheets in real projects. 
 {% capture height %}
 <div class="progress" style="height:1rem">
   <div class="progress-bar w-25"></div>
   <div class="progress-bar bc-danger w-50"></div>
 </div>
 {% endcapture %}
-{{ height }}
+<div class="example">
+  {{ height }}
+</div>
 ``` html{{ height }}```
-{: .mt-small}
 
 
 

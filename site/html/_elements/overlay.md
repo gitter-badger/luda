@@ -1,24 +1,27 @@
 ---
 title: Overlay
-description: Overlay can be used as the background of promotion dialogs to cover document viewport.
+description: Overlay can be used as the background of promotion dialogs to cover the document viewport.
 ---
 
 
 
 ## Usage
-The `.overlay` is the cover of document viewport, put elements in a nested `.overlay-body`.
-See below example to know how to use overlay with toggle behaviour.
+Use the class `.overlay` to create a cover of the document viewport, and used the class `.overlay-body` to wrap the content. Let's see an example in action.
 {% capture overlay %}
-<button class="btn btn-primary" data-toggle-for="overlay">Active overlay</button>
+<!-- Create a toggle trigger to active the overlay -->
+<button class="btn btn-primary" data-toggle-for="overlay">Active the overlay</button>
+<!-- The document viewport cover -->
 <div class="overlay" data-toggle-target="overlay" data-toggle>
+  <!-- The content in the overlay -->
   <div class="overlay-body bc-light">
     Overlay content
   </div>
 </div>
 {% endcapture %}
-{{ overlay }}
+<div class="example">
+  {{ overlay }}
+</div>
 ``` html{{ overlay }}```
-{: .mt-small}
 
 
 
