@@ -1,25 +1,35 @@
 ---
 title: Media
-description: Use media to show images, videos and more.
+description: The media classes helps to control the appearances of images and videos easily.
 ---
 
 
+## Why the Media Classes
+In most cases, images and videos need more time to be loaded. To avoid browser reflow problems, we usually add the `width` and `height` attributes to them. Well, sometimes you just don't care and forget to add them.
 
-## Image
+A container with the `.media` class adds a max width rule to the wrapped element to make sure the inside element won't break out.
 
-Wrap `img` tag in `.media` container to show an image.
+A light background color is also added, so visitors will know there is something not ready when an image or a video is being loaded.
+
+The aspect radio of a wrapped media element depends on its original size and its `width` and `height` attributes, but we can change this through the `.media-content` container.
+
+Let's go into detail through the below examples.
+
+## Images
+In the below example, the image is wrapped in a `.media` container, it will not break out of the container, even though its original size is larger than the container.
 {% capture image %}
 <figure class="media">
   <img src="https://cdn.stocksnap.io/img-thumbs/960w/CTCNBFUFH8.jpg" alt="img">
 </figure>
 {% endcapture %}
-{{ image }}
+<div class="example">
+  {{ image }}
+</div>
 ``` html{{ image }}```
-{: .mt-small}
 
 
-## Video
-Wrap `video` tag in `.media` to show a video.
+## Videos
+Just like images, videos can also be wrapped in a `.media` container.
 {% capture video %}
 <div class="media">
   <video autoplay controls loop>
@@ -27,18 +37,21 @@ Wrap `video` tag in `.media` to show a video.
   </video>
 </div>
 {% endcapture %}
-{{ video }}
+<div class="example">
+  {{ video }}
+</div>
 ``` html{{ video }}```
-{: .mt-small}
 
 
 
-## Responsive
+## Responsive Control
 
-Use size utilities and the class `.media-content` to control responsive media. The default ratio of `.media-content` is `16:9`.
+The class `.media-content` can be wrapped in the `.media` container to create a responsive media element, the element's height is 9/16 of the container's width by default.
 
-### Responsive image
-{: .mb-small}
+You can use size utility classes to change the `.media` container's width responsively and change the `.media-content` container's aspect radio by changing its `padding-top` value.
+
+### Responsive images
+Here is a responsive image occupies 100% horizontal space in small screens and 66% horizontal space in middle size screens.
 {% capture responsive_image %}
 <figure class="media w-100 w-66-m">
   <picture class="media-content">
@@ -47,13 +60,14 @@ Use size utilities and the class `.media-content` to control responsive media. T
   </picture>
 </figure>
 {% endcapture %}
-{{ responsive_image }}
+<div class="example">
+  {{ responsive_image }}
+</div>
 ``` html{{ responsive_image }}```
-{: .mt-small}
 
 
-### Responsive Video
-{: .mb-small}
+### Responsive Videos
+Like responsive images, videos can also be wrapped in the `.media-content` container.
 {% capture responsive_video %}
 <div class="media w-100 w-66-m">
   <div class="media-content">
@@ -63,13 +77,15 @@ Use size utilities and the class `.media-content` to control responsive media. T
   </div>
 </div>
 {% endcapture %}
-{{ responsive_video }}
+<div class="example">
+  {{ responsive_video }}
+</div>
 ``` html{{ responsive_video }}```
 {: .mt-small}
 
 
-### Responsive Video in Iframe
-{: .mb-small}
+### Responsive Iframes
+Videos in iframe can also be wrapped, see the below example.
 {% capture responsive_iframe %}
 <div class="media w-100 w-66-m">
   <div class="media-content">
@@ -77,15 +93,17 @@ Use size utilities and the class `.media-content` to control responsive media. T
   </div>
 </div>
 {% endcapture %}
-{{ responsive_iframe }}
+<div class="example">
+  {{ responsive_iframe }}
+</div>
 ``` html{{ responsive_iframe }}```
 {: .mt-small}
 
 
-### Radio 1by1
-You can change responsive video ratio to `1:1` by resplace the class `.media-content` with `.media-content-1by-1`.
+### Aspect Radio 1by1
+The class `.media-content-1by1` is built-in. You can change a responsive media elements' aspect ratio to `1:1` by replace the `.media-content` class with it.
 
-Responsive image with radio `1:1`.
+Here is a responsive image with the aspect radio `1:1`.
 {% capture one_by_one_image %}
 <figure class="media w-100 w-66-m">
   <picture class="media-content-1by1">
@@ -94,11 +112,13 @@ Responsive image with radio `1:1`.
   </picture>
 </figure>
 {% endcapture %}
-{{ one_by_one_image }}
+<div class="example">
+  {{ one_by_one_image }}
+</div>
 ``` html{{ one_by_one_image }}```
-{: .my-small}
 
-Responsive video with ratio `1:1`.
+Here is a responsive video with the aspect ratio `1:1`.
+{: .mt-small}
 {% capture one_by_one_video %}
 <div class="media w-100 w-66-m">
   <div class="media-content-1by1">
@@ -108,7 +128,9 @@ Responsive video with ratio `1:1`.
   </div>
 </div>
 {% endcapture %}
-{{ one_by_one_video }}
+<div class="example">
+  {{ one_by_one_video }}
+</div>
 ``` html{{ one_by_one_video }}```
 {: .mt-small}
 
@@ -116,20 +138,23 @@ Responsive video with ratio `1:1`.
 
 ## Style Modifiers
 
-### Media Contain{% include modifier.html %}
-Add the class `.media-contain` to `.media` to change media contain mode.
+### Media Contained{% include modifier.html %}
+A wrapped media element will cover the whole space of its container by default, but if the aspect radio of the element is different than the its container, some content area will be invisible. You can change this by adding the `.media-contain` class to the `.media` container, so the whole content will be visible.
 
-Spefic image with and height against the original image ratio, but use `.media-contain` to enforce whole image shows.
+In the below example, we set spefic with and height values to the image against its original aspect ratio, but use the `.media-contain` class to show the whole image content area.
+
 {% capture contain_image %}
 <figure class="media media-contain">
   <img width="300" height="300" src="https://cdn.stocksnap.io/img-thumbs/960w/CTCNBFUFH8.jpg" alt="img">
 </figure>
 {% endcapture %}
-{{ contain_image }}
+<div class="example">
+  {{ contain_image }}
+</div>
 ``` html{{ contain_image }}```
-{: .my-small}
 
-Spefic video ratio `1:1` against its original ratio, but use `.media-contain` to enforece whole video shows.
+In the below example, we use the `.media-content-1by1` class to change the container's aspect radio, but use the `.media-contain` class to show the whole video content area.
+{: .mt-small}
 {% capture contain_video %}
 <div class="media media-contain w-100 w-50-m">
   <div class="media-content-1by1">
@@ -139,9 +164,10 @@ Spefic video ratio `1:1` against its original ratio, but use `.media-contain` to
   </div>
 </div>
 {% endcapture %}
-{{ contain_video }}
+<div class="example">
+  {{ contain_video }}
+</div>
 ``` html{{ contain_video }}```
-{: .mt-small}
 
 
 
