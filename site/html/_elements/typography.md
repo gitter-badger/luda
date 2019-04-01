@@ -1,12 +1,12 @@
 ---
 title: Typography
-description: Learn how to use headings, paragraphs and more kind of typography in Luda.
+description: Learn how to use headings, paragraphs and more kinds of texts in Luda.
 ---
 
 ## Headings
 
 ### Heading Global Styles
-Heading tags from `h1` to `h6` are global styled, see below examples.
+Global styles are added to heading elements from `h1` to `h6`, extra paddings are added in the top and bottom of these elements to ensure baseline alignment, see below examples.
 {% capture headings %}
 <h1>Heading h1</h1>
 <h2>Heading h2</h2>
@@ -15,12 +15,13 @@ Heading tags from `h1` to `h6` are global styled, see below examples.
 <h5>Heading h5</h5>
 <h6>Heading h6</h6>
 {% endcapture %}
-{{ headings }}
+<div class="example baseline">
+  {{ headings }}
+</div>
 ``` html{{ headings }}```
-{: .mt-small}
 
 ### Heading Classes
-You can also use heading classes from `.h1` to `.h6` to create heading like text.
+The classes from `.h1` to `.h6` can be used to create texts look like headings.
 {% capture heading_classes %}
 <span class="h1">Heading class .h1</span>
 <span class="h2">Heading class .h2</span>
@@ -29,15 +30,16 @@ You can also use heading classes from `.h1` to `.h6` to create heading like text
 <span class="h5">Heading class .h5</span>
 <span class="h6">Heading class .h6</span>
 {% endcapture %}
-{{ heading_classes }}
+<div class="example baseline">
+  {{ heading_classes }}
+</div>
 ``` html{{ heading_classes }}```
-{: .mt-small}
 
 
-## Paragraph
+## Paragraphs
 
-### Paragraph Global style
-The `p` tag is global styled, see below example.
+### Paragraph Global styles
+Global styles are added to the `p` element, like headings, extra padding in the top and bottom are also added to ensure baseline alignment.
 
 {% capture paragraph %}
 <p>
@@ -47,12 +49,14 @@ The `p` tag is global styled, see below example.
   One day, big news came to town.  The King and Queen were going to have a ball!  It was time for the Prince to find a bride. All of the young ladies in the land were invited to come.  They were wild with joy! They would wear their most beautiful gown and fix their hair extra nice. Maybe the prince would like them!
 </p>
 {% endcapture %}
-{{ paragraph }}
+<div class="example baseline">
+  {{ paragraph }}
+</div>
 ``` html{{ paragraph }}```
 
 
 ### Paragraph Classes
-Just like heading classes, you can use `.p1` to `p6` to create paragraph like text.
+Just like heading classes, you can use the classes from `.p1` to `p6` to create texts look like paragraphs. In most cases, the classes `.p4`, `.p5` and `.p6` are easy for reading, other paragraph texts' sizes are too large, except you have a meaningful design purpose. 
 
 {% capture paragraph_classes %}
 <span class="p1">Paragraph class .p1</span>
@@ -62,42 +66,51 @@ Just like heading classes, you can use `.p1` to `p6` to create paragraph like te
 <span class="p5">Paragraph class .p5</span>
 <span class="p6">Paragraph class .p6</span>
 {% endcapture %}
-{{ paragraph_classes }}
+<div class="example baseline">
+  {{ paragraph_classes }}
+</div>
 ``` html{{ paragraph_classes }}```
-{: .mt-small}
 
 
 ## Inline Modifier{% include modifier.html %}
-Sometimes texts with different font size need be nested, to ensure baseline alignment, the `.typo-inline` modifier is created. See below example.
+Sometimes, texts with different font sizes need be nested together, remember to use the `.typo-inline` modifier class to ensure baseline alignment, see the below example.
 
 {% capture inline %}
-<p class="baseline">
+<p>
   Here are
   <span class="p2 typo-inline">some nested inline texts</span>.
 </p>
 {% endcapture %}
-{{ inline }}
+<div class="example baseline">
+  {{ inline }}
+</div>
 ``` html{{ inline }}```
 
 
 
-## Code
+## Codes
+If you need show large amount of codes in your applications, you'd better use code highlighting libraries like [rouge](), they support many languages and features.
 
-### Inline Code
-The `code` tag, `samp` tag and `kbd` tag are global styled.
+But if you just want to show small pieces of codes, you can use the code styles in Luda directly.  
+
+### Inline Codes
+Global styles are added to the `code`, `samp` and `kbd` elements, to use inline codes, just wrap you code snippets in these elements as below.
+
 {% capture inline_code %}
 <p>
-  See how inline code looks
-  <code>code</code>,
-  <code>samp</code>,
-  <code>kbd</code>
+  <code>const DOMAIN = 'luda.com'</code><br>
+  <samp>Disk fault</samp><br>
+  <kbd>CTRL + ALT + M</kbd>
 </p>
 {% endcapture %}
-{{ inline_code }}
+<div class="example baseline">
+  {{ inline_code }}
+</div>
 ``` html{{ inline_code }}```
 
 ### Code Block
-To create a code block, add the class `.code` to a `pre` tag and nest `code` tag inside.
+To create a code block, add the class `.code` to a `pre` element, then wrap a `code` element inside.
+
 {% capture code_block %}
 <pre class="code">
 <code>
@@ -114,17 +127,19 @@ To create a code block, add the class `.code` to a `pre` tag and nest `code` tag
 </code>
 </pre>
 {% endcapture %}
-{{ code_block }}
+<div class="example baseline">
+  {{ code_block }}
+</div>
 ``` html{{ code_block }}```
-{: .mt-small}
 
 
 
 
-## Quote
+## Quotes
+To include quotes in your applications, you should use the `<q>` element and the `<blockquote>` element.
 
 ### Inline Quote
-The `q` tag and the `cite` tag are global styled. See below example.
+Global styles are added to the `<q>` element and the `<cite>` element, to use inline quotes, just wrap your content in these elements.
 
 {% capture inline_quote %}
 <p>
@@ -134,12 +149,15 @@ The `q` tag and the `cite` tag are global styled. See below example.
   <cite>IEEE802.3</cite>.
 </p>
 {% endcapture %}
-{{ inline_quote }}
+<div class="example baseline">
+  {{ inline_quote }}
+</div>
 ``` html{{ inline_quote }}```
 
 
 ### Blockquote
-To create a blockquote, add the class `.quote` to `blockquote` tag, and nest paragraphs and footer.
+To include long quotes, add the class `.quote` to the `<blockquote>` element, then wrap `<p>` elements inside for content and a `<footer>` element for footnote if necessary.
+
 {% capture blockquote %}
 <blockquote class="quote" cite="https://tools.ietf.org/html/rfc1149">
   <p>
@@ -153,57 +171,66 @@ To create a blockquote, add the class `.quote` to `blockquote` tag, and nest par
   <footer class="p5">Someone famous in <cite title="Source Title">Source Title</cite></footer>
 </blockquote>
 {% endcapture %}
-{{ blockquote }}
+<div class="example baseline">
+  {{ blockquote }}
+</div>
 ``` html{{ blockquote }}```
 
 
-## Link
+## Links
 
-### Link Global Style
-The `a` tag is global styled.
-<p><a href="#" data-turbolinks="false">This is a link.</a></p>
+### Link Global Styles
+Global styles are added to the `<a>` element.
+<p class="example baseline"><a href="#" data-turbolinks="false">This is a link.</a></p>
 ``` html
 <a href="#">This is a link.</a>
 ```
 
 ### Light Link
-For using in dark background, add the class `.link-light` to change link color.
-<p class="bc-dark"><a class="link-light" href="#" data-turbolinks="false">This is a light link.</a></p>
+For using links in dark background, add the class `.link-light` to the `<a>` element to change its color.
+<p class="example baseline bc-dark"><a class="link-light" href="#" data-turbolinks="false">This is a light link.</a></p>
 ``` html
 <a class="link-light" href="#">This is a light link.</a>
 ```
-{: .mt-small}
 
-## List
+## Lists
+For different purpose, you should use different type lists.
 
 ### Unordered List
+The `<ul>` element represents an unordered list of items.
+
 {% capture ul %}
-<ul>
+<ul class="p5">
   <li>Unordered list item one</li>
   <li>Unordered list item two</li>
   <li>Unordered list item three</li>
 </ul>
 {% endcapture %}
-{{ ul }}
+<div class="example baseline">
+  {{ ul }}
+</div>
 ``` html{{ ul }}```
-{: .mt-small}
 
 
 ### Ordered List
+The `<ol>` element represents an ordered list of items.
+
 {% capture ol %}
-<ol>
+<ol class="p5">
   <li>Ordered list item one</li>
   <li>Ordered list item two</li>
   <li>Ordered list item three</li>
 </ol>
 {% endcapture %}
-{{ ol }}
+<div class="example baseline">
+  {{ ol }}
+</div>
 ``` html{{ ol }}```
-{: .mt-small}
 
 ### Definition List
+The `<dl`> element represents a description list.
 {% capture dl %}
-<dl>
+<dl class="p5">
   <dt>Titled one</dt>
   <dd>Definition list item one</dd>
   <dt>Titled two</dt>
@@ -212,16 +239,17 @@ For using in dark background, add the class `.link-light` to change link color.
   <dd>Definition list item three</dd>
 </dl>
 {% endcapture %}
-{{ dl }}
+<div class="example baseline">
+  {{ dl }}
+</div>
 ``` html{{ dl }}```
-{: .mt-small}
 
 
 
 
-## Others
-
-<p class="mb-small">
+## Other Inline Texts
+For other inline texts, you can below the appearances in the below example.
+<p class="example baseline">
   <b>Bold</b>&nbsp;&nbsp;
   <strong>Strong</strong>&nbsp;&nbsp;
   <ins>Inserted</ins>&nbsp;&nbsp;

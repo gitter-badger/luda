@@ -224,6 +224,10 @@ html {
     height: 100%;
   }
 }
+#doc-aside {
+  z-index: 5;
+}
+
 #doc-container {
   max-width: 58rem;
   margin: 0 auto;
