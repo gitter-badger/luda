@@ -1,6 +1,6 @@
 ---
 title: Alert
-description: Use alert to show state messages and combine toggle behaviour to control display.
+description: Use alert to show state messages and combine toggle behavior to control display.
 ---
 
 
