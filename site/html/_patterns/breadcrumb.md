@@ -5,36 +5,51 @@ description: Use breadcrumb to show current location of user.
 
 
 ## Usage
-Add the class `.breadcrumb` to create a breadcrumb.
-<ol class="breadcrumb mb-small">
+Add the class `.breadcrumb` to an `<ol>` element and wrap links inside to create a breadcrumb.
+<ol class="breadcrumb">
   <li><a href="#" data-turbolinks="false">Zoo</a></li>
   <li><a href="#" data-turbolinks="false">Monkeies</a></li>
-  <li><span>BMonkey</span></li>
+  <li><a href="#" data-turbolinks="false">BMonkey</a></li>
 </ol>
-{{ breadcrumb }}
 ``` html
 <ol class="breadcrumb">
   <li><a href="#">Zoo</a></li>
   <li><a href="#">Monkeies</a></li>
-  <li><span>BMonkey</span></li>
+  <li><a href="#">BMonkey</a></li>
 </ol>
 ```
 
-## Color
-Use color utilities to change color.
-<ol class="breadcrumb mb-small">
+
+## States and Colors
+If you want part of a breadcrumb to be disabled, you can replace the `<a>` element with a `<span>` element.
+<ol class="breadcrumb">
   <li><a href="#" data-turbolinks="false">Zoo</a></li>
   <li><a href="#" data-turbolinks="false">Monkeies</a></li>
-  <li><span class="c-primary">BMonkey</span></li>
+  <li><span>BMonkey</span></li>
 </ol>
-{{ breadcrumb }}
 ``` html
 <ol class="breadcrumb">
   <li><a href="#">Zoo</a></li>
   <li><a href="#">Monkeies</a></li>
-  <li><span class="c-primary">BMonkey</span></li>
+  <li><span>BMonkey</span></li>
 </ol>
 ```
+And if you want to enhance part of a breadcrumb, you can use color utility classes for highlighting.
+{: .mt-small}
+
+<ol class="breadcrumb">
+  <li><a href="#" data-turbolinks="false">Zoo</a></li>
+  <li><a href="#" data-turbolinks="false">Monkeies</a></li>
+  <li><a class="c-primary" href="#" data-turbolinks="false">BMonkey</a></li>
+</ol>
+``` html
+<ol class="breadcrumb">
+  <li><a href="#">Zoo</a></li>
+  <li><a href="#">Monkeies</a></li>
+  <li><a class="c-primary" href="#">BMonkey</a></li>
+</ol>
+```
+
 
 ## Sass Variables
 ``` sass

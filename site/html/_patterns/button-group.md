@@ -1,12 +1,11 @@
 ---
 title: Button Group
-description: Groups similar function buttons together.
+description: Button group is designed to group similar function buttons together.
 ---
 
 
 ## Horizontal Button Group
-
-Add the class `.btns-x` to create a horizontal button group.
+Add the class `.btns-x` to a container, then wrap buttons inside to create a horizontal button group.
 {% capture button_group_x %}
 <div class="btns-x">
   <button class="btn btn-primary">One</button>
@@ -36,8 +35,7 @@ Add the class `.btns-x` to create a horizontal button group.
 
 
 ## Vertical Button Group
-
-Add the class `.btns-y` to create a vertical button group.
+Add the class `.btns-y` to a container, then wrap buttons inside to create a vertical button group.
 
 {% capture button_group_y %}
 <div class="btns-y">
@@ -61,8 +59,8 @@ Add the class `.btns-y` to create a vertical button group.
 
 ## Style Modifiers
 
-### Fluid
-Add the class `.btns-fluid` to make button group fluid.
+### Fluid{% include modifier.html %}
+A fluid button group occupy all the availiable horizontal space, to make a button group fluid, just add the class `.btns-fluid`.
 
 {% capture button_group_fluid %}
 <div class="btns-x btns-fluid">
@@ -82,8 +80,8 @@ Add the class `.btns-fluid` to make button group fluid.
 ``` html{{ button_group_fluid }}```
 
 
-### Margin
-Add the class `.btns-margin` to add margins around buttons.
+### Margin{% include modifier.html %}
+If you want to split buttons in a button group, you can add the `.btns-margin` class. This modifier adds margins at the right and bottom of wrapped buttons.
 
 {% capture button_group_margin %}
 <div class="btns-y btns-margin">
@@ -99,7 +97,9 @@ Add the class `.btns-margin` to add margins around buttons.
   <button class="btn btn-hollow-secondary">9</button>
 </div>
 {% endcapture %}
-{{ button_group_margin }}
+<div class="button-example">
+  {{ button_group_margin }}
+</div>
 ``` html{{ button_group_margin }}```
 
 

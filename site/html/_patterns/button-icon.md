@@ -5,7 +5,7 @@ description: Nest icons in buttons to create beautiful button icon.
 
 
 ## Icon in the Left
-Add the class `.btn-ico-left` to create a button with an icon in the left.
+We can wrap icons in buttons, add the class `.btn-ico-left` to a button element, then wrap an icon inside.
 
 {% capture icon_on_the_left %}
 <button class="btn btn-primary btn-ico-left btn-small">
@@ -50,7 +50,7 @@ Add the class `.btn-ico-right` to create a button with an icon in the right.
 
 
 ## Icon in the Top
-Add the class `.btn-ico-top` to create a button with and icon in the top.
+Add the class `.btn-ico-top` to create a button with an icon in the top.
 
 {% capture icon_on_the_top %}
 <button class="btn btn-primary btn-ico-top btn-small">
@@ -71,7 +71,7 @@ Add the class `.btn-ico-top` to create a button with and icon in the top.
 
 
 ## Icon Only
-Add the class `.btn-ico` to create an icon only button.
+If you just want an icon button, add the class `.btn-ico` to a button element, then wrap only an icon inside.
 
 {% capture icon_only %}
 <div class="btn-file btn-primary btn-ico btn-small">

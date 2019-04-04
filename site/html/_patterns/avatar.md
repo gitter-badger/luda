@@ -1,11 +1,11 @@
 ---
 title: Avatar
-description: Use avatar to show user photo and information.
+description: Avatar can be used to show user photo and information.
 ---
 
 
 ## Vertical Avatar
-Add the class `.avatar-y` to create a vertical avatar.
+To create a vertical avatar, add the class `.avatar-y` to a container, then wrap a photo and texts like the below example. 
 
 {% capture avatar_y %}
 <div class="avatar-y">
@@ -18,14 +18,14 @@ Add the class `.avatar-y` to create a vertical avatar.
   </div>
 </div>
 {% endcapture %}
-{{ avatar_y }}
+<div class="example">
+  {{ avatar_y }}
+</div>
 ``` html{{ avatar_y }}```
-{: .mt-small}
-
 
 
 ## Horizontal Avatar
-Add the class `.avatar-x` to create a vertical avatar.
+If a horizontal avatar is prefered, replace the class `.avatar-y` with the class `.avatar-x`.
 
 {% capture avatar_x %}
 <div class="avatar-x">
@@ -38,7 +38,9 @@ Add the class `.avatar-x` to create a vertical avatar.
   </div>
 </div>
 {% endcapture %}
-{{ avatar_x }}
+<div class="example">
+  {{ avatar_x }}
+</div>
 ``` html{{ avatar_x }}```
 {: .mt-small}
 
@@ -47,7 +49,7 @@ Add the class `.avatar-x` to create a vertical avatar.
 ## Style Mofifiers
 
 ### Small{% include modifier.html %}
-Add the class `.avatar-small` to create a small avatar.
+The class `.avatar-small` makes avatars smaller.
 
 {% capture avatar_small %}
 <div class="avatar-y avatar-small">
@@ -69,13 +71,14 @@ Add the class `.avatar-small` to create a small avatar.
   </div>
 </div>
 {% endcapture %}
-{{ avatar_small }}
+<div class="example">
+  {{ avatar_small }}
+</div>
 ``` html{{ avatar_small }}```
-{: .mt-small}
 
 
 ### Large{% include modifier.html %}
-Add the class `.avatar-large` to create a large avatar.
+Oppsite, the class `.avatar-lager` makes avatars larger.
 
 {% capture avatar_large %}
 <div class="avatar-y avatar-large">
@@ -97,9 +100,10 @@ Add the class `.avatar-large` to create a large avatar.
   </div>
 </div>
 {% endcapture %}
-{{ avatar_large }}
+<div class="example">
+  {{ avatar_large }}
+</div>
 ``` html{{ avatar_large }}```
-{: .mt-small}
 
 
 

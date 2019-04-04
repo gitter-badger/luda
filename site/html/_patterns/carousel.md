@@ -4,8 +4,14 @@ description: Luda carousel includes full support for events control, like slide,
 ---
 
 
-## Slide Animation
-Carousel offers a slide animation by default.
+## Usage
+A carousel includes three parts, content, control buttons and indicator buttons. The control buttons and indicator buttons are optional. The default aspect ratio of the content part is `16:9`. The control buttons only shows for middle size screens and large screens by default. 
+
+A carousel can be controlled through mouse clicking or screen swiping. When mouse hovered or screen touched, the carousel will be paused, and started again after mouse leave or touch end.
+
+All the three parts should be wrapped in a `.carousel` container. The classes `.carousel-box`, `.carousel-item`, `.carousel-figure` and `.carousel-description` are used to create the content part, the classes `.carousel-prev` and `.carousel-next` are used to create the control buttons, and the class `.carousel-indicators` is used to wrap the indicator buttons.
+
+Let's see the below example for detail. 
 
 {% capture carousel %}
 <div class="carousel">
@@ -35,13 +41,17 @@ Carousel offers a slide animation by default.
   </div>
 </div>
 {% endcapture %}
-{{ carousel }}
+<div class="example">
+  {{ carousel }}
+</div>
 ``` html{{ carousel }}```
-{: .mt-small}
 
 
-## Opacity Animation
-Add the class `.carousel-ani-opacity` to change animation. You can also create your own `.carousel-ani-*` classes to customize the animation.
+## Customize Animation
+Luda use CSS transation to create carousel animations. If you don't like the default slide animation, you can add the class `.carousel-ani-opacity` to have an opacity change animation, or you can write your own animation class.
+
+Your custom animation class should be defined like `.carousel-ani-*`. And the `.carousel-item-prev` and `.carousel-item-next` classes can be used to indicate the carousel item states for transation.
+
 {% capture carousel_opacity %}
 <div class="carousel carousel-ani-opacity">
   <!-- Carousel images -->
@@ -70,9 +80,10 @@ Add the class `.carousel-ani-opacity` to change animation. You can also create y
   </div>
 </div>
 {% endcapture %}
-{{ carousel_opacity }}
+<div class="example">
+  {{ carousel_opacity }}
+</div>
 ``` html{{ carousel_opacity }}```
-{: .mt-small}
 
 
 ## HTML Attributes

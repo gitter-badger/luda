@@ -1,13 +1,14 @@
 ---
 title: Dropdown
-description: Learn how to create dropdowns in Luda.
+description: Dropdown is designed to show a toggleable menu or a nested tree. Pointer events and keyboard events are both well supported for control.
 ---
 
 
 ## Absolute Dropdown
+The trigger of an absolute dropdown is positioned in the normal document flow, but the menu is not. 
 
 ### Usage
-Add the class `.dropdown-absolute` to create an absolute dropdown.
+Add the class `.dropdown-absolute` to a container, then wrap a button element as the trigger, a button group as the dropdown menu. Let's see the below example for detail.
 
 {% capture absolute_dropdown %}
 <div class="dropdown-absolute">
@@ -25,15 +26,16 @@ Add the class `.dropdown-absolute` to create an absolute dropdown.
   </div>
 </div>
 {% endcapture %}
-{{ absolute_dropdown }}
+<div class="example">
+  {{ absolute_dropdown }}
+</div>
 ``` html{{ absolute_dropdown }}```
-{: .mt-small}
 
 
 ### Style Modifiers
 
 #### Top{% include modifier.html %}
-Add the class `.dropdown-top` to an absolute dropdown.
+Add the class `.dropdown-top` to an absolute dropdown to position its menu on the top of its trigger.
 
 {% capture top %}
 <div class="dropdown-absolute dropdown-top">
@@ -51,12 +53,14 @@ Add the class `.dropdown-top` to an absolute dropdown.
   </div>
 </div>
 {% endcapture %}
-{{ top }}
+<div class="example">
+  {{ top }}
+</div>
 ``` html{{ top }}```
-{: .mt-small}
+
 
 #### Right{% include modifier.html %}
-Add the class `.dropdown-right` to an absolute dropdown.
+Add the class `.dropdown-right` to an absolute dropdown to position its menu on the right of its trigger.
 
 {% capture right %}
 <div class="dropdown-absolute dropdown-right">
@@ -74,13 +78,14 @@ Add the class `.dropdown-right` to an absolute dropdown.
   </div>
 </div>
 {% endcapture %}
-{{ right }}
+<div class="example">
+  {{ right }}
+</div>
 ``` html{{ right }}```
-{: .mt-small}
 
 
 #### Left{% include modifier.html %}
-Add the class `.dropdown-left` to an absolute dropdown.
+Add the class `.dropdown-left` to an absolute dropdown to position its menu on the left of its trigger.
 
 {% capture left %}
 <div class="dropdown-absolute dropdown-left">
@@ -98,7 +103,7 @@ Add the class `.dropdown-left` to an absolute dropdown.
   </div>
 </div>
 {% endcapture %}
-<div class="d-flex jc-end">
+<div class="example d-flex jc-end">
   {{ left }}
 </div>
 ``` html{{ left }}```
@@ -106,7 +111,7 @@ Add the class `.dropdown-left` to an absolute dropdown.
 
 
 #### Align Right
-Add the class `.dropdown-align-right` to an absolute dropdown.
+Add the class `.dropdown-align-right` to an absolute dropdown to position its menu aligned to the right edge of its trigger.
 
 {% capture align_right %}
 <div class="dropdown-absolute dropdown-align-right">
@@ -124,15 +129,16 @@ Add the class `.dropdown-align-right` to an absolute dropdown.
   </div>
 </div>
 {% endcapture %}
-{{ align_right }}
+<div class="example">
+  {{ align_right }}
+</div>
 ``` html{{ align_right }}```
-{: .mt-small}
 
 
 
 
 ## Static Dropdown
-Add the class `.dropdown-static` to create an absolute dropdown.
+A static dropdown is positioned in the normal document flow. Add the class `.dropdown-static` to a container to create a static dropdown like the below example.
 
 {% capture static_dropdown %}
 <div class="dropdown-static">
@@ -150,25 +156,28 @@ Add the class `.dropdown-static` to create an absolute dropdown.
   </div>
 </div>
 {% endcapture %}
-{{ static_dropdown }}
+<div class="example">
+  {{ static_dropdown }}
+</div>
 ``` html{{ static_dropdown }}```
-{: .mt-small}
 
 
 
-## Nested Dropdown
+## Nested Dropdowns
 
 
-### Nested Absolute Dropdown
-Absolute dropdown can be nested.
+### Nested Absolute Dropdowns
+Absolute dropdowns can be nested. Let's see the below example for detail.
 
 {% capture nested_absolute_dropdown %}
 <div class="dropdown-absolute">
-  <button class="btn btn-primary">Eat something?</button>
+  <button class="btn btn-primary">Drink something?</button>
   <div class="dropdown-menu">
+    <!-- The of-visible utility prevents scrolling in the root dropdown. -->
     <div class="dropdown-items of-visible">
       <div class="dropdown-absolute dropdown-right">
-        <button class="btn btn-primary btn-ico-right sharp-b bd-b-none">Fruit <i class="ico ico-right"></i></button>
+        <!-- The bd-b-none utility removes the bottom border and the sharp-b utility removes the bottom border radius.  -->
+        <button class="btn btn-primary btn-ico-right bd-b-none sharp-b">Juice <i class="ico ico-right"></i></button>
         <div class="dropdown-menu">
           <div class="dropdown-items">
             <div class="btns-y">
@@ -179,36 +188,26 @@ Absolute dropdown can be nested.
           </div>
         </div>
       </div>
-      <div class="dropdown-absolute dropdown-right">
-        <button class="btn btn-primary btn-ico-right sharp bd-t-none bd-b-none">Meat<i class="ico ico-right"></i></button>
-        <div class="dropdown-menu">
-          <div class="dropdown-items">
-            <div class="btns-y">
-              <button class="btn btn-dark">Chicken</button>
-              <button class="btn btn-dark">Pig</button>
-              <button class="btn btn-dark">Duck</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="btn btn-primary sharp-t bd-t-none">No, Thanks.</button>
+      <button class="btn btn-primary bd-t-none bd-b-none sharp">Whiskey, please.</button>
+      <button class="btn btn-primary bd-t-none sharp-t">No, thanks.</button>
     </div>
   </div>
 </div>
 {% endcapture %}
-{{ nested_absolute_dropdown }}
+<div class="example">
+  {{ nested_absolute_dropdown }}
+</div>
 ``` html{{ nested_absolute_dropdown }}```
-{: .mt-small}
 
 
 ### Nested Static Dropdown
-Static Dropdown can be nested too.
+Static dropdowns can also be nested, we can use nested static dropdowns to create a menu tree. Let's see the below example for detail.
 
 {% capture nested_static_dropdown %}
 <div class="dropdown-static">
   <button class="btn btn-text-dark">Any thing to eat?</button>
   <div class="dropdown-menu">
-    <div class="dropdown-items of-visible">
+    <div class="dropdown-items">
       <div class="dropdown-static">
         <button class="btn btn-text-dark btn-ico-right">Fruit <i class="ico ico-down"></i></button>
         <div class="dropdown-menu">
@@ -238,19 +237,22 @@ Static Dropdown can be nested too.
   </div>
 </div>
 {% endcapture %}
-{{ nested_static_dropdown }}
+<div class="example">
+  {{ nested_static_dropdown }}
+</div>
 ``` html{{ nested_static_dropdown }}```
-{: .mt-small}
 
 
 
 ## Responsive Dropdown
-The class `.dropdown-absolute` is prefixed with breakpoint `m`.
+Actually, there is another dropdown class `.dropdown-fixed`, it's designed for mobile and responsive control. The `.dropdown-fixed` class positioned a dropdown in the document viewport with an overlay cover, we can combine it with the `.dropdown-absolute-m` class to create a responsive dropdown.
+
+The combination of these two classes means a fixed dropdown is prefered for small screens, but when the screen width matches the `m` breakpoint, an absolute dropdown is prefered. Let's see the below example for detail.
 
 {% capture responsive_dropdown %}
 <div class="dropdown-fixed dropdown-absolute-m">
   <button class="btn btn-primary btn-ico-right">
-    Dropdown <i class="ico ico-down"></i>
+    I'm responsive <i class="ico ico-down"></i>
   </button>
   <div class="dropdown-menu">
     <div class="dropdown-items">
@@ -263,9 +265,10 @@ The class `.dropdown-absolute` is prefixed with breakpoint `m`.
   </div>
 </div>
 {% endcapture %}
-{{ responsive_dropdown }}
+<div class="example">
+  {{ responsive_dropdown }}
+</div>
 ``` html{{ responsive_dropdown }}```
-{: .mt-small}
 
 
 

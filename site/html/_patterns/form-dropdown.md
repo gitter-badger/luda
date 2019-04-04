@@ -1,12 +1,12 @@
 ---
 title: Form Dropdown
-description: Learn how to create form dropdown in Luda.
+description: Form dropdown is an alternative to form select, it offers a more beautiful appearance and flexible customization support.
 ---
 
 
 ## Single Select
+To simulate a single form select, we can use a form dropdown to wrap radio buttons. Add the class `.fm-dropdown` to a container and wrap elements like the below example.  
 
-Combine radio input to create a single select dropdown.
 {% capture single %}
 <div class="fm-dropdown dropdown-fixed dropdown-absolute-m">
   <div class="fm fm-select">
@@ -28,13 +28,14 @@ Combine radio input to create a single select dropdown.
   </div>
 </div>
 {% endcapture %}
-{{ single }}
+<div class="example">
+  {{ single }}
+</div>
 ``` html{{ single }}```
-{: .mt-small}
 
 
 ## Multiple Select
-Combine checkbox input to create a multiple select dropdown.
+To simulate a multiple select, we can wrap checkbox buttons in a `.fm-dropdown` container and use the `data-dropdown-toggle-disabled` attribute to control the toggle behavior.
 
 {% capture multiple %}
 <div class="fm-dropdown dropdown-fixed dropdown-absolute-m">
@@ -57,28 +58,33 @@ Combine checkbox input to create a multiple select dropdown.
   </div>
 </div>
 {% endcapture %}
-{{ multiple }}
+<div class="example">
+  {{ multiple }}
+</div>
 ``` html{{ multiple }}```
-{: .mt-small}
 
 
 
-## Customized Option Text
-Use the attribute `data-fm-dropdown-label` to indicate selected text.
+
+## Customized Option Texts
+By default, the form dropdown component uses the `innerText` of its selected radio buttons' or checkbox buttons' labels as the text for display. But if the `data-fm-dropdown-label` attribute are setted on the wrapped inputs, the attributes' values will be used for display instead.
+
+In the below example, we use material icons in the nested radio buttons, if we don't set the `data-fm-dropdown-label` attribute, the display texts will includes the material icons' texts. The `data-fm-dropdown-label` helps in situations like this.
+
 {% capture customized_option_text %}
 <div class="fm-dropdown dropdown-fixed dropdown-absolute-m">
   <div class="fm fm-select">
     <input placeholder="Form dropdown with customized value">
   </div>
   <div class="dropdown-menu">
-    <div class="dropdown-items" data-dropdown-toggle-disabled>
+    <div class="dropdown-items">
       <div class="btns-y">
-        <div class="btn-check btn-hollow-primary btn-ico-left">
-          <input checked type="checkbox" name="custom_fm_dropdown" value="one" data-fm-dropdown-label="Item one">
+        <div class="btn-radio btn-hollow-primary btn-ico-left">
+          <input data-fm-dropdown-label="Item one" checked type="radio" name="custom_fm_dropdown" value="one">
           <label>Item one<i class="ico material-icons">face</i></label>
         </div>
-        <div class="btn-check btn-hollow-primary btn-ico-left">
-          <input type="checkbox" name="custom_fm_dropdown" value="two" data-fm-dropdown-label="Item two">
+        <div class="btn-radio btn-hollow-primary btn-ico-left">
+          <input data-fm-dropdown-label="Item two" type="radio" name="custom_fm_dropdown" value="two">
           <label>Item two<i class="ico material-icons">face</i></label>
         </div>
       </div>
@@ -86,6 +92,7 @@ Use the attribute `data-fm-dropdown-label` to indicate selected text.
   </div>
 </div>
 {% endcapture %}
-{{ customized_option_text }}
+<div class="example">
+  {{ customized_option_text }}
+</div>
 ``` html{{ customized_option_text }}```
-{: .mt-small}

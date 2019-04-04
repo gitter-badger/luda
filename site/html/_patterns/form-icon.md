@@ -1,6 +1,6 @@
 ---
 title: Form Icon
-description: Icons can be nested in form elements.
+description: Icons can be wrapped in form elements.
 ---
 
 

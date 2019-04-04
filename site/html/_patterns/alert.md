@@ -5,21 +5,24 @@ description: Use alert to show state messages and combine toggle behavior to con
 
 
 ## Usage
-Use `.alert` and `.alert-content` to show messages.
+Add the `.alert` class to a container, then add the class `.alert-content` to the element wraps the message.
+
 {% capture alert %}
 <div class="alert">
   <p class="alert-content">This is the default alert.</p>
 </div>
 {% endcapture %}
-{{ alert }}
+<div class="example">
+  {{ alert }}
+</div>
 ``` html{{ alert }}```
-{: .mt-small}
 
 
-## Combine Toggle Behaviour
-Use `.alert-action` to show actions and combine toggle behaviour.
+## Wrap a Toggle
+A toggle can be wrapped in the `.alert` container to control the alert's display. Add the `.alert-action` to a button, and combine the toggle behavior like the below example.
+
 {% capture toggle %}
-<button class="btn btn-primary" data-toggle-for="alert_example">Show alert</button>
+<button class="btn btn-primary" data-toggle-for="alert_example">Show the alert</button>
 <div class="alert" data-toggle-target="alert_example">
   <p class="alert-content">This is the default alert.</p>
   <button class="alert-action btn btn-ico btn-dark btn-small" data-toggle>
@@ -27,30 +30,33 @@ Use `.alert-action` to show actions and combine toggle behaviour.
   </button>
 </div>
 {% endcapture %}
-{{ toggle }}
+<div class="example">
+  {{ toggle }}
+</div>
 ``` html{{ toggle }}```
-{: .mt-small}
 
 
 ## Color and Background
-Use color and background utiltities to change alert style.
-<div class="alert bc-primary mb-small">
-  <p class="alert-content">This is a primary alert.</p>
-  <button class="alert-action btn btn-primary btn-ico btn-small">
-    <i class="ico ico-cross"></i>
-  </button>
-</div>
-<div class="alert bc-secondary mb-small">
-  <p class="alert-content c-dark">This is a secondary alert.</p>
-  <button class="alert-action btn btn-secondary btn-ico btn-small">
-    <i class="ico ico-cross"></i>
-  </button>
-</div>
-<div class="alert bc-danger mb-small">
-  <p class="alert-content">This is a danger alert.</p>
-  <button class="alert-action btn btn-danger btn-ico btn-small">
-    <i class="ico ico-cross"></i>
-  </button>
+We can use color and background utility classes to change alert's appearance. See the below examples.
+<div class="example">
+  <div class="alert bc-primary mb-small">
+    <p class="alert-content">This is a primary alert.</p>
+    <button class="alert-action btn btn-primary btn-ico btn-small">
+      <i class="ico ico-cross"></i>
+    </button>
+  </div>
+  <div class="alert bc-secondary mb-small">
+    <p class="alert-content c-dark">This is a secondary alert.</p>
+    <button class="alert-action btn btn-secondary btn-ico btn-small">
+      <i class="ico ico-cross"></i>
+    </button>
+  </div>
+  <div class="alert bc-danger">
+    <p class="alert-content">This is a danger alert.</p>
+    <button class="alert-action btn btn-danger btn-ico btn-small">
+      <i class="ico ico-cross"></i>
+    </button>
+  </div>
 </div>
 ``` html
 <div class="alert bc-primary">
@@ -76,6 +82,7 @@ Use color and background utiltities to change alert style.
 
 ## A More Complex Example
 
+Finally, let's see a complex example.
 
 <div class="alert bc-danger my-small">
   <div class="alert-content">
