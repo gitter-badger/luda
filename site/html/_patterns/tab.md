@@ -1,10 +1,17 @@
 ---
 title: Tab
-description: Learn how to create tabs in Luda.
+description: Tab navigations can be vertical or horizontal in Luda, let's see how to create them.
 ---
 
+
+## Introduction
+A tab navigation includes two parts, tab indicators and tab panes.
+Tab panes are used to wrap contents and tab indicators are used to control which
+tab pane to show.
+
 ## Vertical
-Add the class `.tab` to create a vertical tab.
+Add the class `.tab` to a container and wrap tab indicators and tab pages like the below
+example to create a vertical tab navigation.
 {% capture tab %}
 <div class="tab">
   <nav class="tab-indicators btns-x">
@@ -34,14 +41,14 @@ Add the class `.tab` to create a vertical tab.
   </div>
 </div>
 {% endcapture %}
-{{ tab }}
+<div class="example">
+  {{ tab }}
+</div>
 ``` html{{ tab }}```
-{: .mt-small}
-
 
 
 ## Horizontal
-Use grid to create a horizontal tab.
+To create a horizontal navigation, we need wrap a `.grid` container inside like the below example.
 {% capture horizontal %}
 <div class="tab">
   <div class="grid">
@@ -77,11 +84,10 @@ Use grid to create a horizontal tab.
   </div>
 </div>
 {% endcapture %}
-<div style="margin: 0 -1rem">
+<div style="margin: 1rem -1rem">
   {{ horizontal }}  
 </div>
 ``` html{{ horizontal }}```
-{: .mt-small}
 
 
 

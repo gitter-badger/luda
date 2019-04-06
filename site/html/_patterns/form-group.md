@@ -139,7 +139,7 @@ In the below example, we wrap `.grid` containers in form groups to create anothe
 <form>
   <div class="fm-group">
     <div class="grid">
-      <!-- The .fm-label-wrap modifier wraps a long label in two lines -->
+      <!-- The .fm-label-wrap modifier breaks a long label into two lines -->
       <label class="fm-label fm-label-wrap col-auto">Full Name (Wrap This Label)</label>
       <div class="fm fm-text col-8 col-10-m">
         <input type="text" placeholder="Enter your full name">
@@ -159,7 +159,7 @@ In the below example, we wrap `.grid` containers in form groups to create anothe
   </div>
   <div class="fm-group">
     <div class="grid">
-      <!-- The .fm-label-nowrap enforce a label not break into newlines -->
+      <!-- The .fm-label-nowrap enforces a label not breaked into newlines -->
       <label class="fm-label fm-label-nowrap col-auto">Hobbit</label>
       <div class="fm-dropdown dropdown-fixed dropdown-absolute-m col-8 col-10-m">
         <div class="fm fm-select">

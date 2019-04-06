@@ -1,11 +1,13 @@
 ---
 title: Form Icon
-description: Icons can be wrapped in form elements.
+description: Icons can be wrapped in the left or right of form elements.
 ---
 
 
 ## Icon in the Left
-Add the class `.fm-ico-left` to nest an icon in the left.
+To add an icon in the left of a form element,
+add the `.fm-ico-left` class to the `.fm` container,
+then wrap an icon element inside.
 
 {% capture left %}
 <div class="fm fm-text fm-ico-left fm-small">
@@ -28,7 +30,8 @@ Add the class `.fm-ico-left` to nest an icon in the left.
 
 
 ## Icon in the Right
-Add the class `.fm-ico-right` to nest an icon in the right.
+Also, you can wrap an icon in the right of a form element,
+just replace the `.fm-ico-left` class with `.fm-ico-right`. 
 
 {% capture right %}
 <div class="fm fm-select fm-ico-right fm-small">

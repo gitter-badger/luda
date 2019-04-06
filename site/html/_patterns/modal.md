@@ -1,11 +1,12 @@
 ---
 title: Modal
-description: Learn how to create a modal in Luda.
+description: Modal is designed to show custom dialogs to communicate with users.
 ---
 
 
 ## Usage
-Use the class `.modal` to nest content.
+Add the `.modal` class to a container, then wrap elements inside to create a modal,
+see the below example. 
 {% capture modal %}
 <div class="modal">
   <h4>Confirm your operation</h4>
@@ -16,18 +17,21 @@ Use the class `.modal` to nest content.
   </div>
 </div>
 {% endcapture %}
-{{ modal }}
+<div class="example">
+  {{ modal }}
+</div>
 ``` html{{ modal }}```
-{: .mt-small}
 
 
 ## Combine Toggle Behavior
-Modal can be combined with toggle behavior.
+In most cases, modal is used with the overlay element and the toggle behavior together.
+Let's see the below example for detail.
+
 {% capture modal_toggle %}
 <button class="btn btn-danger" data-toggle-for="delete_confirmation">Delete</button>
-<div class="overlay" data-toggle-target="delete_confirmation">
+<div class="overlay" data-toggle-target="delete_confirmation" data-toggle>
   <div class="overlay-body">
-    <div class="modal">
+    <div class="modal" data-toggle-disabled>
       <h4>Do you really want to delete this?</h4>
       <p>This operation is permanent, password must be entered to confirm.</p>
       <div class="fm fm-text">
@@ -41,9 +45,10 @@ Modal can be combined with toggle behavior.
   </div>
 </div>
 {% endcapture %}
-{{ modal_toggle }}
+<div class="example">
+  {{ modal_toggle }}
+</div>
 ``` html{{ modal_toggle }}```
-{: .mt-small}
 
 
 

@@ -4,10 +4,21 @@ description: Learn how to create header navigation and aside navigation in Luda.
 ---
 
 
-## Header Navigation
-See below example.
+## Introduction
+The navigation component includes three parts, a logo, a navigation menu and an opener.
+The navigation menu includes four parts, main navigation items, sub navigation items,
+a search field and a closer.
 
-<header class="nav-header sta">
+The opener and the closer only shows on small screens for opening and closing the navigation menu.
+Except the opener and the closer, all the other parts in the navigation component are optional.
+
+Based on the `position: sticky` rule, the navigation component will be sticky to the top of the
+viewport for middle size screens and larger screens.
+
+## Header Navigation
+To create a header navigation, add the class `.nav-header` to a container, then wrap
+elements like the below example.
+<header class="nav-header sti my-small">
   <a class="nav-logo" data-turbolinks="false" href="#header-navigation">
     <img src="{{ '/assets/img/logo-text.svg' | relative_url }}" alt="logo">
   </a>
@@ -76,13 +87,13 @@ See below example.
   </div>
 </header>
 ```
-{: .mt-small}
 
 
 
 
 ## Aside Navigation
-See below exammple.
+To create an aside navigation, add the `.nav-aside` class to a container, then wrap elements
+like the below example.
 
 {% capture nav_aside_code %}
 {% highlight html %}
@@ -125,7 +136,7 @@ See below exammple.
 {% endhighlight %}
 {% endcapture %}
 
-<div class="d-block d-flex-m">
+<div class="d-block d-flex-m my-small">
   <aside class="nav-aside">
     <a class="nav-logo" data-turbolinks="false" href="#aside-navigation">
       <img src="{{ '/assets/img/logo-text.svg' | relative_url }}" alt="logo">

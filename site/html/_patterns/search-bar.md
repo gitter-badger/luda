@@ -1,11 +1,14 @@
 ---
 title: Search Bar
-description: Learn how to create a search bar in Luda.
+description: Learn how to create a search bar and combine a search option filter in Luda.
 ---
 
 
 ## Usage
-Add the class `.search-bar` to create a search bar.
+To create a search bar, add the `.search-bar` class to a container,
+then wrap a form search filed and a button inside.
+Let's see the below example for detail.
+
 {% capture search_bar %}
 <div class="search-bar">
   <div class="fm fm-text">
@@ -16,14 +19,16 @@ Add the class `.search-bar` to create a search bar.
   </button>
 </div>
 {% endcapture %}
-{{ search_bar }}
+<div class="example">
+  {{ search_bar }}
+</div>
 ``` html{{ search_bar }}```
-{: .mt-small}
 
 
 
 ## Search Options
-Prepend a form dropdown or a form select as search options.
+If you want a search option filter, prepend a form dropdown or a form select into the
+search bar container like the below example.
 
 {% capture options %}
 <div class="search-bar">
@@ -50,6 +55,8 @@ Prepend a form dropdown or a form select as search options.
   <button class="btn btn-primary">Search</button>
 </div>
 {% endcapture %}
-{{ options }}
+<div class="example">
+  {{ options }}
+</div>
 ``` html{{ options }}```
 {: .mt-small}
