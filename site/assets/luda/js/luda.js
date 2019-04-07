@@ -351,14 +351,6 @@
 
   luda(Singleton = (function() {
     class Singleton {
-      static active() {
-        return this._actived = true;
-      }
-
-      static deactive() {
-        return this._actived = false;
-      }
-
       static _add(selector) {
         if (typeof selector !== 'string') {
           throw new Error(this._SELECTOR_INVALID_ERROR);
@@ -409,8 +401,6 @@
 
     Singleton._selector = '';
 
-    Singleton._actived = true;
-
     return Singleton;
 
   }).call(this));
@@ -423,7 +413,7 @@
         var self;
         self = this;
         return luda.on('keydown', function(e) {
-          if (self._actived && e.keyCode === luda.KEY_ENTER && e.target.matches(self._selector)) {
+          if (!document.documentElement.hasAttribute(self._DISABLED_ATTRIBUTE) && e.keyCode === luda.KEY_ENTER && e.target.matches(self._selector)) {
             e.preventDefault();
             return setTimeout(function() {
               return e.target.click();
@@ -438,6 +428,8 @@
 
     _Class._SELECTORS = ['input[type=checkbox]', 'input[type=radio]', '[tabindex]'];
 
+    _Class._DISABLED_ATTRIBUTE = 'data-enter-click-disabled';
+
     return _Class;
 
   }).call(this));
@@ -446,6 +438,10 @@
     var _Class;
 
     _Class = class extends luda.Singleton {
+      static _actived() {
+        return !document.documentElement.hasAttribute(this._DISABLED_ATTRIBUTE);
+      }
+
       static _removeFocusClassExcept($exception) {
         return Array.from(this._$focus).forEach(($focus) => {
           if ($focus !== $exception) {
@@ -461,7 +457,7 @@
       }
 
       static _changeFocusStateOnKeyEvent(e) {
-        if (this._actived) {
+        if (this._actived()) {
           this._removeFocusClassExcept(e.target);
           return this._addFocusClassExceptHtmlAndBody(e.target);
         }
@@ -469,7 +465,7 @@
 
       static _changeFocusStateOnMouseDownEvent(e) {
         var target;
-        if (this._actived) {
+        if (this._actived()) {
           if (e.target.matches(this._PARENT_FOCUS_CHILDREN_SELECTOR)) {
             target = luda.$parent(this._PARENT_FOCUS_SELECTOR, e.target);
           } else {
@@ -491,14 +487,14 @@
         self = this;
         HTMLElement.prototype.focus = function() {
           focus.apply(this, arguments);
-          if (self._actived && document.activeElement === this) {
+          if (self._actived() && document.activeElement === this) {
             self._removeFocusClassExcept(this);
             return self._addFocusClassExceptHtmlAndBody(this);
           }
         };
         return HTMLElement.prototype.blur = function() {
           blur.apply(this, arguments);
-          if (self._actived) {
+          if (self._actived()) {
             return this.classList.remove(self._CSS_CLASS);
           }
         };
@@ -527,6 +523,8 @@
     _Class._PARENT_FOCUS_SELECTOR = 'select[multiple]';
 
     _Class._PARENT_FOCUS_CHILDREN_SELECTOR = `${_Class._PARENT_FOCUS_SELECTOR} *`;
+
+    _Class._DISABLED_ATTRIBUTE = 'data-focus-disabled';
 
     _Class._$focus = document.getElementsByClassName(_Class._CSS_CLASS);
 
@@ -565,7 +563,7 @@
         self = this;
         return luda.on('keydown', function(e) {
           var $next, $prev;
-          if (self._actived && e.keyCode === luda.KEY_TAB && e.target.nodeName.toUpperCase() === 'INPUT' && e.target.type === 'radio') {
+          if (!document.documentElement.hasAttribute(self._DISABLED_ATTRIBUTE) && e.keyCode === luda.KEY_TAB && e.target.nodeName.toUpperCase() === 'INPUT' && e.target.type === 'radio') {
             if (e.shiftKey) {
               if ($prev = self._query$prev$next(e.target).$prev) {
                 e.preventDefault();
@@ -586,6 +584,8 @@
     _Class._SCOPE = 'radioTab';
 
     _Class._SELECTORS = ['input[type=radio]:not([disabled])'];
+
+    _Class._DISABLED_ATTRIBUTE = 'data-radio-tab-disabled';
 
     return _Class;
 

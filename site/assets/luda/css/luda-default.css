@@ -387,11 +387,11 @@ textarea,
   opacity: 1;
 }
 
-:focus {
+html:not([data-focus-disabled]) :focus {
   outline: none;
 }
 
-.focus {
+html:not([data-focus-disabled]) .focus {
   outline: dashed 2px #b8b8b8;
   outline-offset: -2px;
 }
@@ -729,7 +729,7 @@ sup {
   display: block;
 }
 
-.fm .focus {
+html:not([data-focus-disabled]) .fm .focus {
   outline: none;
 }
 
@@ -5280,6 +5280,10 @@ body:has(.overlay.toggle-active) {
 
 .c-inverse-muted {
   color: rgba(255, 255, 255, 0.618) !important;
+}
+
+.c-none {
+  color: transparent !important;
 }
 
 .bc-primary {
