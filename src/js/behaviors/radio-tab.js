@@ -35,7 +35,7 @@
         self = this;
         return luda.on('keydown', function(e) {
           var $next, $prev;
-          if (self._actived && e.keyCode === luda.KEY_TAB && e.target.nodeName.toUpperCase() === 'INPUT' && e.target.type === 'radio') {
+          if (!document.documentElement.hasAttribute(self._DISABLED_ATTRIBUTE) && e.keyCode === luda.KEY_TAB && e.target.nodeName.toUpperCase() === 'INPUT' && e.target.type === 'radio') {
             if (e.shiftKey) {
               if ($prev = self._query$prev$next(e.target).$prev) {
                 e.preventDefault();
@@ -56,6 +56,8 @@
     _Class._SCOPE = 'radioTab';
 
     _Class._SELECTORS = ['input[type=radio]:not([disabled])'];
+
+    _Class._DISABLED_ATTRIBUTE = 'data-radio-tab-disabled';
 
     return _Class;
 

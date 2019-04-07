@@ -12,6 +12,8 @@ luda class extends luda.Singleton
 
   @_SELECTORS: ['input[type=radio]:not([disabled])']
 
+  @_DISABLED_ATTRIBUTE: 'data-radio-tab-disabled'
+
   @_querySameName$radios: ($radio) ->
     if $radio.name
       selector = "#{@_selector}[name=#{$radio.name}]"
@@ -30,7 +32,7 @@ luda class extends luda.Singleton
   @_init: ->
     self = this
     luda.on 'keydown', (e) ->
-      if self._actived \
+      if not document.documentElement.hasAttribute(self._DISABLED_ATTRIBUTE) \
       and e.keyCode is luda.KEY_TAB \
       and e.target.nodeName.toUpperCase() is 'INPUT' \
       and e.target.type is 'radio'

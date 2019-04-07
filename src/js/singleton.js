@@ -8,14 +8,6 @@
 
   luda(Singleton = (function() {
     class Singleton {
-      static active() {
-        return this._actived = true;
-      }
-
-      static deactive() {
-        return this._actived = false;
-      }
-
       static _add(selector) {
         if (typeof selector !== 'string') {
           throw new Error(this._SELECTOR_INVALID_ERROR);
@@ -65,8 +57,6 @@
     Singleton._SELECTORS = [];
 
     Singleton._selector = '';
-
-    Singleton._actived = true;
 
     return Singleton;
 

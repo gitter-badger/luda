@@ -12,7 +12,7 @@
         var self;
         self = this;
         return luda.on('keydown', function(e) {
-          if (self._actived && e.keyCode === luda.KEY_ENTER && e.target.matches(self._selector)) {
+          if (!document.documentElement.hasAttribute(self._DISABLED_ATTRIBUTE) && e.keyCode === luda.KEY_ENTER && e.target.matches(self._selector)) {
             e.preventDefault();
             return setTimeout(function() {
               return e.target.click();
@@ -26,6 +26,8 @@
     _Class._SCOPE = 'enterClick';
 
     _Class._SELECTORS = ['input[type=checkbox]', 'input[type=radio]', '[tabindex]'];
+
+    _Class._DISABLED_ATTRIBUTE = 'data-enter-click-disabled';
 
     return _Class;
 

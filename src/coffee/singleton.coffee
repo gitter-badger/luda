@@ -11,13 +11,6 @@ luda class Singleton
   @_SELECTORS: []
 
   @_selector: ''
-  @_actived: true
-
-  @active: ->
-    @_actived = true
-
-  @deactive: ->
-    @_actived = false
 
   @_add: (selector) ->
     throw new Error @_SELECTOR_INVALID_ERROR if typeof selector isnt 'string'

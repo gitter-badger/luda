@@ -1,7 +1,7 @@
 +install(shared-behavior-focus)
 
-  \:focus
+  html:not([data-focus-disabled]) :focus
     outline: none
 
-  .focus
+  html:not([data-focus-disabled]) .focus
     +_focus
