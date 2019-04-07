@@ -62,12 +62,32 @@
   box-shadow: inset 1px 1px 0 rgba($color-primary, $opacity-muted), inset -1px -1px 0 rgba($color-primary, $opacity-muted)
 
 #doc-container .example,
-#doc-container .form-example
+#doc-container .form-example,
+#doc-container .background-example
   margin-top: $space-small-rem
   margin-bottom: $space-small-rem
 
 #doc-container .button-example
   margin-top: $space-small-rem
+
+#doc-container .background-example
+  display: flex
+  flex-wrap: wrap
+
+#doc-container .background-example > div
+  margin: 0 1rem 1rem 0
+
+#doc-container .background-example > div > div
+  flex: 0 0 auto
+  width: 9rem
+  height: 4rem
+  border: solid 1px $line-color-main
+
+#doc-container .background-example > div > .p6
+  width: 9rem
+  white-space: nowrap
+  text-align: center
+  overflow: hidden
 
 #doc-container .button-example > .btn,
 #doc-container .button-example > .btn-check,
@@ -75,7 +95,8 @@
 #doc-container .button-example > .btn-file,
 #doc-container .button-example > .btns-x,
 #doc-container .button-example > .btns-y,
-#doc-container .form-example > .fm
+#doc-container .form-example > .fm,
+#doc-container .background-example > div
   margin-bottom: $space-small-rem
 
 +media-width(m)
