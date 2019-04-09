@@ -78,6 +78,10 @@ $line-color-inverse-muted:       rgba($line-color-light, $opacity-muted) !defaul
 
 
 
+$line-width-main:    1px !default
+
+
+
 $border-radius-sharp:      0 !default
 $border-radius-rounded:    2px !default
 $border-radius-circle:     9999px !default
@@ -152,7 +156,7 @@ $button-helvertical-padding-em:         strip-unit($space-small-rem) * 1em !defa
 $button-typography-size-level:          5 !default
 $button-small-typography-size-level:    6 !default
 $button-large-typography-size-level:    4 !default
-$button-border-width:                   1px !default
+$button-border-width:                   $line-width-main !default
 $button-border-style:                   solid !default
 $button-border-radius:                  $border-radius-main !default
 
@@ -374,7 +378,7 @@ $form-element-focus-color:                    null !default
 $form-element-background:                     $background-color-main !default
 $form-element-focus-background:               null !default
 $form-element-error-background:               null !default
-$form-element-border-width:                   1px !default
+$form-element-border-width:                   $line-width-main !default
 $form-element-border-style:                   solid !default
 $form-element-border-radius:                  $border-radius-main !default
 $form-element-border-color:                   $line-color-main !default
@@ -479,7 +483,7 @@ $scrollbar-ie-edge-overflow-style:              -ms-autohiding-scrollbar !defaul
 
 $table-cell-padding-rem:        $space-small-rem !default
 $table-border-style:            solid !default
-$table-border-width:            1px !default
+$table-border-width:            $line-width-main !default
 $table-border-color:            $line-color-main !default
 $table-border-radius:           $border-radius-main !default
 $table-head-background:         $background-color-muted !default
@@ -554,7 +558,7 @@ $typography-code-border-radius:        $border-radius-main !default
 $typography-cite-color:                      $color-muted !default
 $typography-quote-block-padding-rem:         $space-medium-rem !default
 $typography-quote-block-p-margin-rem:        0 auto $space-small-rem !default
-$typography-quote-block-cite-lead-height:    1px !default
+$typography-quote-block-cite-lead-height:    $line-width-main !default
 
 
 
