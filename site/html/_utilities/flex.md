@@ -15,7 +15,7 @@ All flexbox utilities are extended with [screen width breakpoint postfixes]() fo
 
 
 ## Flex Direction
-Flex direction utilities are classes for changing the value of the [`flex-direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction) property,
+Flex direction utilities are classes for setting the value of the [`flex-direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction) property,
 they are named using the format: `.fd-{value}-{breakpoint}`. The value can be one of `row`, `row-reverse`,
 `column`, `column-reverse` and `column-reverse`. See how they change flex items' direction in the below examples.
 
@@ -68,7 +68,7 @@ they are named using the format: `.fd-{value}-{breakpoint}`. The value can be on
 
 
 ## Flex Wrap
-Flex wrap utilities are classes for changing the value of the [`flex-wrap`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap) property,
+Flex wrap utilities are classes for setting the value of the [`flex-wrap`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap) property,
 they are named using the format: `.fw-{value}-{breakpoint}`. The value can be one of `nowrap`,
 `wrap` and `wrap-reverse`. Let's see the below examples for detail.
 
@@ -110,7 +110,7 @@ they are named using the format: `.fw-{value}-{breakpoint}`. The value can be on
 
 
 ## Justify Content
-Justify content utilities are classes for changing the value of the [`justify-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) property,
+Justify content utilities are classes for setting the value of the [`justify-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) property,
 they are named using the format: `.jc-{value}-{breakpoint}`. The value can be one of `start`,
 `center`, `end`, `between` and `around`. See how they change flex items' alignment in the below examples.
 
@@ -175,7 +175,7 @@ they are named using the format: `.jc-{value}-{breakpoint}`. The value can be on
 
 
 ## Align Content
-Align content utilities are classes for changing the value of the [`align-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content) property,
+Align content utilities are classes for setting the value of the [`align-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content) property,
 they are named using the format: `.ac-{value}-{breakpoint}`. The value can be one of `start`,
 `center`, `end`, `between`, `around` and `stretch`. See how they change flex items' alignment in the below examples.
 
@@ -253,7 +253,7 @@ they are named using the format: `.ac-{value}-{breakpoint}`. The value can be on
 
 
 ## Align Items
-Align item utilities are classes for changing the value of the [`align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) property,
+Align item utilities are classes for setting the value of the [`align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) property,
 they are named using the format `.ai-{value}-{breakpoint}`. The value can be one of `start`,
 `center`, `end`, `baseline` and `stretch`. See how they change flex items' alignment in the below examples.
 
@@ -318,7 +318,7 @@ they are named using the format `.ai-{value}-{breakpoint}`. The value can be one
 
 
 ## Align Self
-Align self utilities are classes for changing the value of the [`align-self`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-self) propery,
+Align self utilities are classes for setting the value of the [`align-self`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-self) propery,
 they are like align items utilities, but only affect specfic flex items.
 
 Align self utilities are named using the format: `.as-{value}-{breakpoint}`. The value can be
@@ -385,7 +385,7 @@ alignment in the below examples.
 ``` html{{ as_stretch }}```
 
 ## Flex Order
-Flex order utilities are classes for changing the value of the [`order`](https://developer.mozilla.org/en-US/docs/Web/CSS/order) property
+Flex order utilities are classes for setting the value of the [`order`](https://developer.mozilla.org/en-US/docs/Web/CSS/order) property
 to sort flex items. There're two kinds of order utilities in Luda, positive order utilities and negative order utilities.
 Positive order utilities move flex items after unsorted items and negative order utilities move flex items
 before unsorted items.

@@ -5,7 +5,7 @@ description: Use display utilities to control an element's display property resp
 
 
 ## Introduction
-Display utilities are classes for changing the value of the `display` property.
+Display utilities are classes for setting the value of the `display` property.
 The `display` property is widely used in front-end development, if you're not familiar
 with it, please read [this tutorial](https://developer.mozilla.org/en-US/docs/Web/CSS/display) at first.
 

@@ -6,7 +6,7 @@ description: Use alignment utilities to change vertical alignment of elements.
 
 ## Introduction
 
-Alignment utilities are classes for changing the value of the `vertical-align` property.
+Alignment utilities are classes for setting the value of the `vertical-align` property.
 The `vertical-align` property sets vertical alignment of an inline or table-cell box,
 if you're not familiar with this property, please read [this tutorial](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align) at first.
 

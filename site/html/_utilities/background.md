@@ -5,7 +5,7 @@ description: Use background utilities to change the background color, background
 
 
 ## Background Color
-Background color utilities are classes for changing the value of the [`background-color`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color) property.
+Background color utilities are classes for setting the value of the [`background-color`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color) property.
 You can preview the colors in the below gallery. When you pick up a background color class, consider
 the meaning in your context but not only the appearance, since in different themes background colors may be
 changed but the meanings keep the same.
@@ -77,7 +77,7 @@ to transparent. If you want to remove an element's background images, you can us
 
 
 ## Background Size
-Background size utilities are classes for changing the value of the `background-size` property.
+Background size utilities are classes for setting the value of the `background-size` property.
 If you're not familiar with the `background-size` property, please read [this tutorial](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size) at first.
 
 You can preview how background size classes affect the size of an element's background in the below gallery.
@@ -115,7 +115,7 @@ You can preview how background size classes affect the size of an element's back
 
 ## Background Position
 
-Background position utilities are classes for changing the value of the [`background-position`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-position) property.
+Background position utilities are classes for setting the value of the [`background-position`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-position) property.
 They are named using the format: `.bp-{horizontal value}{vertical value}`.
 
 We use the first letter of each value word for short, all value shortcuts are listed in the below table.
