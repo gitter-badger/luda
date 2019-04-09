@@ -1,15 +1,16 @@
 ---
 title: Background
-description: Use background utilities to change background color, background size, background pisition and more.
+description: Use background utilities to change the background color, background size and background pisition of an element.
 ---
 
 
-## Background Colors
-Background color utilities include `.bc-primary`, `.bc-secondary`, `.bc-danger`, `.bc-dark`,
-`.bc-light`, `.bc-emphasis`, `.bc-main`, `.bc-muted`, `.bc-inverse-emphasis`,
-`.bc-inverse-main` and `.bc-inverse-muted`, see how they change elements' background color.
+## Background Color
+Background color utilities are classes for changing the value of the [`background-color`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color) property.
+You can preview the colors in the below gallery. When you pick up a background color class, consider
+the meaning in your context but not only the appearance, since in different themes background colors may be
+changed but the meanings keep the same.
 
-<div class="background-example">
+<div class="background-example mb-none">
   <div>
     <div class="bc-primary"></div>
     <p class="p6">.bc-primary</p>
@@ -57,30 +58,31 @@ Background color utilities include `.bc-primary`, `.bc-secondary`, `.bc-danger`,
 </div>
 
 ``` html
-  <div class="bc-primary">.bc-primary</div>
-  <div class="bc-secondary">.bc-secondary</div>
-  <div class="bc-danger">.bc-danger</div>
-  <div class="bc-dark">.bc-dark</div>
-  <div class="bc-light">.bc-light</div>
-  <div class="bc-emphasis">.bc-emphasis</div>
-  <div class="bc-main">.bc-main</div>
-  <div class="bc-muted">.bc-muted</div>
-  <div class="bc-inverse-emphasis">.bc-inverse-emphasis</div>
-  <div class="bc-inverse-main">.bc-inverse-main</div>
-  <div class="bc-inverse-muted">.bc-inverse-muted</div>
+  <div class="bc-primary"></div>
+  <div class="bc-secondary"></div>
+  <div class="bc-danger"></div>
+  <div class="bc-dark"></div>
+  <div class="bc-light"></div>
+  <div class="bc-emphasis"></div>
+  <div class="bc-main"></div>
+  <div class="bc-muted"></div>
+  <div class="bc-inverse-emphasis"></div>
+  <div class="bc-inverse-main"></div>
+  <div class="bc-inverse-muted"></div>
 ```
 
-There is another special background color utility class `.bc-none`,
-this class set background color as transparent. If you want to set
-background image as none, you can use the `.bi-none` utility class.
+`.bc-none` is a special background color class, it sets the value of the background color property
+to transparent. If you want to remove an element's background images, you can use the `.bi-none` class.
 {: .mt-small}
 
 
-## Background Sizes
-Background size utilities include `.bs-cover`, `.bs-contain`, `.bs-auto`,
-`.bs-100-auto` and `.bs-auto-100`, see how they change elements' background size.
+## Background Size
+Background size utilities are classes for changing the value of the `background-size` property.
+If you're not familiar with the `background-size` property, please read [this tutorial](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size) at first.
 
-<div class="background-example">
+You can preview how background size classes affect the size of an element's background in the below gallery.
+
+<div class="background-example mb-none">
   <div>
     <div class="bs-cover" style="background: url(https://cdn.stocksnap.io/img-thumbs/960w/CTCNBFUFH8.jpg) no-repeat"></div>
     <p class="p6">.bs-cover</p>
@@ -104,21 +106,38 @@ Background size utilities include `.bs-cover`, `.bs-contain`, `.bs-auto`,
 </div>
 
 ``` html
-<div class="bs-cover">.bs-cover</div>
-<div class="bs-contain">.bs-contain</div>
-<div class="bs-auto">.bs-auto</div>
-<div class="bs-100-auto">.bs-100-auto</div>
-<div class="bs-auto-100">.bs-auto-100</div>
+<div class="bs-cover"></div>
+<div class="bs-contain"></div>
+<div class="bs-auto"></div>
+<div class="bs-100-auto"></div>
+<div class="bs-auto-100"></div>
 ```
 
-## Background Positions
+## Background Position
 
-Background size utilities include `.bp-c`, `.bp-rc`, `.bp-lc`, `.bp-ct`, `.bp-cb`,
-`.bp-lt`, `.bp-lb`, `.bp-rt` and `.bp-rb`, "c" is short for "center", "t" is short
-for "top", "r" is short for "right", "b" is short for "bottom" and "l" is short for
-"left", see how they change elements' background size.
+Background position utilities are classes for changing the value of the [`background-position`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-position) property.
+They are named using the format: `.bp-{horizontal value}{vertical value}`.
 
-<div class="background-example">
+We use the first letter of each value word for short, all value shortcuts are listed in the below table.
+
+<div class="table table-border my-small">
+  <table>
+    <thead>
+      <tr><th>Shortcut</th><th>Value</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>c</td><td>center</td></tr>
+      <tr><td>t</td><td>top</td></tr>
+      <tr><td>r</td><td>right</td></tr>
+      <tr><td>b</td><td>bottom</td></tr>
+      <tr><td>l</td><td>left</td></tr>
+    </tbody>
+  </table>
+</div>
+
+You can preview how they affect the position of an element's background images in the below gallery.
+
+<div class="background-example mb-none">
   <div>
     <div class="bp-c" style="background: url(https://cdn.stocksnap.io/img-thumbs/960w/CTCNBFUFH8.jpg) no-repeat;background-size: 4rem"></div>
     <p class="p6">.bp-c</p>

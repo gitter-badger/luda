@@ -5,20 +5,24 @@ description: Use flexbox utilities to change flexbox properties responsively.
 
 
 ## Introduction
-Flexbox utilities must be applied to flexbox containers, you can add the `.d-flex` or the `.d-inline-flex` classes to create a flexbox container.
+Flexbox is a widely used layout scenario in CSS, if you're not familiar with it, be sure to read
+[this tutorial](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox) at first.
 
-All flexbox utilities are extended with breakpoint postfixes.
+Flexbox utilities must be applied to flexbox containers or flexbox items,
+you can use the `.d-flex` class or the `.d-inline-flex` class to create a flexbox container.
+
+All flexbox utilities are extended with [screen width breakpoint postfixes]() for responsive control.
 
 
 ## Flex Direction
-Flex direction utility classes are named in the format: `.fd-{value}-{breakpoint}`.
-
-All availiable value: `row`, `row-reverse`, `column`, `column-reverse`, `column-reverse`. See how they change flex items' flex directions in the below example.
+Flex direction utilities are classes for changing the value of the [`flex-direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction) property,
+they are named using the format: `.fd-{value}-{breakpoint}`. The value can be one of `row`, `row-reverse`,
+`column`, `column-reverse` and `column-reverse`. See how they change flex items' direction in the below examples.
 
 {% capture direction_row %}
 <div class="d-flex fd-row bc-dark">
-  <p class="bc-primary px-medium c-light">One</p>
-  <p class="bc-danger px-medium c-light">Two</p>
+  <p class="bc-primary px-small c-light">One</p>
+  <p class="bc-danger px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -29,8 +33,8 @@ All availiable value: `row`, `row-reverse`, `column`, `column-reverse`, `column-
 
 {% capture direction_row_reverse %}
 <div class="d-flex fd-row-reverse bc-dark">
-  <p class="bc-primary px-medium c-light">One</p>
-  <p class="bc-danger px-medium c-light">Two</p>
+  <p class="bc-primary px-small c-light">One</p>
+  <p class="bc-danger px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -41,8 +45,8 @@ All availiable value: `row`, `row-reverse`, `column`, `column-reverse`, `column-
 
 {% capture direction_column %}
 <div class="d-flex fd-column">
-  <p class="bc-primary px-medium c-light">One</p>
-  <p class="bc-danger px-medium c-light">Two</p>
+  <p class="bc-primary px-small c-light">One</p>
+  <p class="bc-danger px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -53,8 +57,8 @@ All availiable value: `row`, `row-reverse`, `column`, `column-reverse`, `column-
 
 {% capture direction_column_reverse %}
 <div class="d-flex fd-column-reverse">
-  <p class="bc-primary px-medium c-light">One</p>
-  <p class="bc-danger px-medium c-light">Two</p>
+  <p class="bc-primary px-small c-light">One</p>
+  <p class="bc-danger px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -64,14 +68,14 @@ All availiable value: `row`, `row-reverse`, `column`, `column-reverse`, `column-
 
 
 ## Flex Wrap
-Flex wrap utility classes are named in the format: `.fw-{value}-{breakpoint}`.
-
-All avaliable value: `nowrap`, `wrap`, `wrap-reverse`. See how they change flex items wrap behavior in the below example.
+Flex wrap utilities are classes for changing the value of the [`flex-wrap`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap) property,
+they are named using the format: `.fw-{value}-{breakpoint}`. The value can be one of `nowrap`,
+`wrap` and `wrap-reverse`. Let's see the below examples for detail.
 
 {% capture nowrap %}
 <div class="d-flex fw-nowrap">
-  <p class="bc-primary w-100 px-medium c-light">One</p>
-  <p class="bc-danger w-100 px-medium c-light">Two</p>
+  <p class="bc-primary w-100 px-small c-light">One</p>
+  <p class="bc-danger w-100 px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -82,8 +86,8 @@ All avaliable value: `nowrap`, `wrap`, `wrap-reverse`. See how they change flex 
 
 {% capture wrap %}
 <div class="d-flex fw-wrap">
-  <p class="bc-primary w-100 px-medium c-light">One</p>
-  <p class="bc-danger w-100 px-medium c-light">Two</p>
+  <p class="bc-primary w-100 px-small c-light">One</p>
+  <p class="bc-danger w-100 px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -94,8 +98,8 @@ All avaliable value: `nowrap`, `wrap`, `wrap-reverse`. See how they change flex 
 
 {% capture wrap_reverse %}
 <div class="d-flex fw-wrap-reverse">
-  <p class="bc-primary w-100 px-medium c-light">One</p>
-  <p class="bc-danger w-100 px-medium c-light">Two</p>
+  <p class="bc-primary w-100 px-small c-light">One</p>
+  <p class="bc-danger w-100 px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -106,14 +110,14 @@ All avaliable value: `nowrap`, `wrap`, `wrap-reverse`. See how they change flex 
 
 
 ## Justify Content
-Justify content utility classes are named in the format: `.jc-{value}-{breakpoint}`.
-
-All availiable value: `start`, `center`, `end`, `between`, `around`. See how they change flex items alignment in the below examples.
+Justify content utilities are classes for changing the value of the [`justify-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) property,
+they are named using the format: `.jc-{value}-{breakpoint}`. The value can be one of `start`,
+`center`, `end`, `between` and `around`. See how they change flex items' alignment in the below examples.
 
 {% capture jc_start %}
 <div class="d-flex jc-start bc-dark">
-  <p class="bc-primary w-33 px-medium c-light">One</p>
-  <p class="bc-danger w-33 px-medium c-light">Two</p>
+  <p class="bc-primary w-33 px-small c-light">One</p>
+  <p class="bc-danger w-33 px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -124,8 +128,8 @@ All availiable value: `start`, `center`, `end`, `between`, `around`. See how the
 
 {% capture jc_center %}
 <div class="d-flex jc-center bc-dark">
-  <p class="bc-primary w-33 px-medium c-light">One</p>
-  <p class="bc-danger w-33 px-medium c-light">Two</p>
+  <p class="bc-primary w-33 px-small c-light">One</p>
+  <p class="bc-danger w-33 px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -136,8 +140,8 @@ All availiable value: `start`, `center`, `end`, `between`, `around`. See how the
 
 {% capture jc_end %}
 <div class="d-flex jc-end bc-dark">
-  <p class="bc-primary w-33 px-medium c-light">One</p>
-  <p class="bc-danger w-33 px-medium c-light">Two</p>
+  <p class="bc-primary w-33 px-small c-light">One</p>
+  <p class="bc-danger w-33 px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -148,8 +152,8 @@ All availiable value: `start`, `center`, `end`, `between`, `around`. See how the
 
 {% capture jc_between %}
 <div class="d-flex jc-between bc-dark">
-  <p class="bc-primary w-33 px-medium c-light">One</p>
-  <p class="bc-danger w-33 px-medium c-light">Two</p>
+  <p class="bc-primary w-33 px-small c-light">One</p>
+  <p class="bc-danger w-33 px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -160,8 +164,8 @@ All availiable value: `start`, `center`, `end`, `between`, `around`. See how the
 
 {% capture jc_around %}
 <div class="d-flex jc-around bc-dark">
-  <p class="bc-primary w-33 px-medium c-light">One</p>
-  <p class="bc-danger w-33 px-medium c-light">Two</p>
+  <p class="bc-primary w-33 px-small c-light">One</p>
+  <p class="bc-danger w-33 px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -171,14 +175,14 @@ All availiable value: `start`, `center`, `end`, `between`, `around`. See how the
 
 
 ## Align Content
-Align content utility classes are named in the format `.ac-{value}-{breakpoint}`.
-
-All availiabe value: `start`, `center`, `end`, `between`, `around`, `stretch`. See how they change flex items layout in the below example.
+Align content utilities are classes for changing the value of the [`align-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content) property,
+they are named using the format: `.ac-{value}-{breakpoint}`. The value can be one of `start`,
+`center`, `end`, `between`, `around` and `stretch`. See how they change flex items' alignment in the below examples.
 
 {% capture ac_start %}
 <div class="d-flex fw-wrap ac-start bc-dark" style="height: 9rem">
-  <p class="bc-primary w-100 px-medium c-light">One</p>
-  <p class="bc-danger w-100 px-medium c-light">Two</p>
+  <p class="bc-primary w-100 px-small c-light">One</p>
+  <p class="bc-danger w-100 px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -189,8 +193,8 @@ All availiabe value: `start`, `center`, `end`, `between`, `around`, `stretch`. S
 
 {% capture ac_center %}
 <div class="d-flex fw-wrap ac-center bc-dark" style="height: 9rem">
-  <p class="bc-primary w-100 px-medium c-light">One</p>
-  <p class="bc-danger w-100 px-medium c-light">Two</p>
+  <p class="bc-primary w-100 px-small c-light">One</p>
+  <p class="bc-danger w-100 px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -201,8 +205,8 @@ All availiabe value: `start`, `center`, `end`, `between`, `around`, `stretch`. S
 
 {% capture ac_end %}
 <div class="d-flex fw-wrap ac-end bc-dark" style="height: 9rem">
-  <p class="bc-primary w-100 px-medium c-light">One</p>
-  <p class="bc-danger w-100 px-medium c-light">Two</p>
+  <p class="bc-primary w-100 px-small c-light">One</p>
+  <p class="bc-danger w-100 px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -213,8 +217,8 @@ All availiabe value: `start`, `center`, `end`, `between`, `around`, `stretch`. S
 
 {% capture ac_between %}
 <div class="d-flex fw-wrap ac-between bc-dark" style="height: 9rem">
-  <p class="bc-primary w-100 px-medium c-light">One</p>
-  <p class="bc-danger w-100 px-medium c-light">Two</p>
+  <p class="bc-primary w-100 px-small c-light">One</p>
+  <p class="bc-danger w-100 px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -225,8 +229,8 @@ All availiabe value: `start`, `center`, `end`, `between`, `around`, `stretch`. S
 
 {% capture ac_around %}
 <div class="d-flex fw-wrap ac-around bc-dark" style="height: 9rem">
-  <p class="bc-primary w-100 px-medium c-light">One</p>
-  <p class="bc-danger w-100 px-medium c-light">Two</p>
+  <p class="bc-primary w-100 px-small c-light">One</p>
+  <p class="bc-danger w-100 px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -237,8 +241,8 @@ All availiabe value: `start`, `center`, `end`, `between`, `around`, `stretch`. S
 
 {% capture ac_stretch %}
 <div class="d-flex fw-wrap ac-stretch bc-dark" style="height: 9rem">
-  <p class="bc-primary w-100 px-medium c-light">One</p>
-  <p class="bc-danger w-100 px-medium c-light">Two</p>
+  <p class="bc-primary w-100 px-small c-light">One</p>
+  <p class="bc-danger w-100 px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -249,14 +253,14 @@ All availiabe value: `start`, `center`, `end`, `between`, `around`, `stretch`. S
 
 
 ## Align Items
-Align item utility classes are named in the format `.ai-{value}-{breakpoint}`.
-
-All availiable value: `start`, `center`, `end`, `baseline`, `stretch`. See how they change flex items layout in the below examples.
+Align item utilities are classes for changing the value of the [`align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) property,
+they are named using the format `.ai-{value}-{breakpoint}`. The value can be one of `start`,
+`center`, `end`, `baseline` and `stretch`. See how they change flex items' alignment in the below examples.
 
 {% capture ai_start %}
 <div class="d-flex ai-start bc-dark" style="height: 6rem">
-  <p class="bc-primary w-50 px-medium c-light">One</p>
-  <p class="p2 bc-danger w-50 px-medium c-light">Two</p>
+  <p class="bc-primary w-50 px-small c-light">One</p>
+  <p class="p2 bc-danger w-50 px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -267,8 +271,8 @@ All availiable value: `start`, `center`, `end`, `baseline`, `stretch`. See how t
 
 {% capture ai_center %}
 <div class="d-flex ai-center bc-dark" style="height: 6rem">
-  <p class="bc-primary w-50 px-medium c-light">One</p>
-  <p class="p2 bc-danger w-50 px-medium c-light">Two</p>
+  <p class="bc-primary w-50 px-small c-light">One</p>
+  <p class="p2 bc-danger w-50 px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -279,8 +283,8 @@ All availiable value: `start`, `center`, `end`, `baseline`, `stretch`. See how t
 
 {% capture ai_baseline %}
 <div class="d-flex ai-baseline bc-dark" style="height: 6rem">
-  <p class="bc-primary w-50 px-medium c-light">One</p>
-  <p class="p2 bc-danger w-50 px-medium c-light">Two</p>
+  <p class="bc-primary w-50 px-small c-light">One</p>
+  <p class="p2 bc-danger w-50 px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -291,8 +295,8 @@ All availiable value: `start`, `center`, `end`, `baseline`, `stretch`. See how t
 
 {% capture ai_end %}
 <div class="d-flex ai-end bc-dark" style="height: 6rem">
-  <p class="bc-primary w-50 px-medium c-light">One</p>
-  <p class="p2 bc-danger w-50 px-medium c-light">Two</p>
+  <p class="bc-primary w-50 px-small c-light">One</p>
+  <p class="p2 bc-danger w-50 px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -303,8 +307,8 @@ All availiable value: `start`, `center`, `end`, `baseline`, `stretch`. See how t
 
 {% capture ai_stretch %}
 <div class="d-flex ai-stretch bc-dark" style="height: 6rem">
-  <p class="bc-primary w-50 px-medium c-light">One</p>
-  <p class="p2 bc-danger w-50 px-medium c-light">Two</p>
+  <p class="bc-primary w-50 px-small c-light">One</p>
+  <p class="p2 bc-danger w-50 px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -314,14 +318,17 @@ All availiable value: `start`, `center`, `end`, `baseline`, `stretch`. See how t
 
 
 ## Align Self
-Align self utility classes are named in the format `.as-{value}-{breakpoint}`.
+Align self utilities are classes for changing the value of the [`align-self`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-self) propery,
+they are like align items utilities, but only affect specfic flex items.
 
-All availiable value: `start`, `center`, `end`, `baseline`, `stretch`. See how they change flex items layout in the below examples.
+Align self utilities are named using the format: `.as-{value}-{breakpoint}`. The value can be
+one of `start`, `center`, `end`, `baseline` and `stretch`. See how they change a flex item's
+alignment in the below examples.
 
 {% capture as_start %}
 <div class="d-flex bc-dark" style="height: 6rem">
-  <p class="as-start bc-primary w-50 px-medium c-light">One</p>
-  <p class="p2 bc-danger w-50 px-medium c-light">Two</p>
+  <p class="as-start bc-primary w-50 px-small c-light">One</p>
+  <p class="p2 bc-danger w-50 px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -332,8 +339,8 @@ All availiable value: `start`, `center`, `end`, `baseline`, `stretch`. See how t
 
 {% capture as_center %}
 <div class="d-flex as-center bc-dark" style="height: 6rem">
-  <p class="as-center bc-primary w-50 px-medium c-light">One</p>
-  <p class="p2 bc-danger w-50 px-medium c-light">Two</p>
+  <p class="as-center bc-primary w-50 px-small c-light">One</p>
+  <p class="p2 bc-danger w-50 px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -344,8 +351,8 @@ All availiable value: `start`, `center`, `end`, `baseline`, `stretch`. See how t
 
 {% capture as_baseline %}
 <div class="d-flex as-baseline bc-dark" style="height: 6rem">
-  <p class="as-baseline bc-primary w-50 px-medium c-light">One</p>
-  <p class="p2 bc-danger w-50 px-medium c-light">Two</p>
+  <p class="as-baseline bc-primary w-50 px-small c-light">One</p>
+  <p class="p2 bc-danger w-50 px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -356,8 +363,8 @@ All availiable value: `start`, `center`, `end`, `baseline`, `stretch`. See how t
 
 {% capture as_end %}
 <div class="d-flex as-end bc-dark" style="height: 6rem">
-  <p class="as-end bc-primary w-50 px-medium c-light">One</p>
-  <p class="p2 bc-danger w-50 px-medium c-light">Two</p>
+  <p class="as-end bc-primary w-50 px-small c-light">One</p>
+  <p class="p2 bc-danger w-50 px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -368,8 +375,8 @@ All availiable value: `start`, `center`, `end`, `baseline`, `stretch`. See how t
 
 {% capture as_stretch %}
 <div class="d-flex as-stretch bc-dark" style="height: 6rem">
-  <p class="as-stretch bc-primary w-50 px-medium c-light">One</p>
-  <p class="p2 bc-danger w-50 px-medium c-light">Two</p>
+  <p class="as-stretch bc-primary w-50 px-small c-light">One</p>
+  <p class="p2 bc-danger w-50 px-small c-light">Two</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -378,22 +385,29 @@ All availiable value: `start`, `center`, `end`, `baseline`, `stretch`. See how t
 ``` html{{ as_stretch }}```
 
 ## Flex Order
-The order utility classes from `.od-1` to `.od-6` are used to move columns after unsorted columns, and from `.on-1` to `.on-6` are used to move columns before unsorted columns. The `on` is short for "negative order".
+Flex order utilities are classes for changing the value of the [`order`](https://developer.mozilla.org/en-US/docs/Web/CSS/order) property
+to sort flex items. There're two kinds of order utilities in Luda, positive order utilities and negative order utilities.
+Positive order utilities move flex items after unsorted items and negative order utilities move flex items
+before unsorted items.
+
+Positive order utilities are named using the format: `.od-{value}-{breakpoint}`, and negative order utilities are
+named using the format: `.on-{value}-{breakpoint}`. The value can be from `1` to `6`. Let's preview how they change
+flex items' orders in the below examples.
 
 {% capture flex_order %}
 <div class="d-flex fw-wrap bc-dark">
-  <p class="od-6 w-100 px-medium bc-primary c-light">.od-6</p>
-  <p class="od-5 w-100 px-medium bc-danger c-light">.od-5</p>
-  <p class="od-4 w-100 px-medium bc-primary c-light">.od-4</p>
-  <p class="od-3 w-100 px-medium bc-danger c-light">.od-3</p>
-  <p class="od-2 w-100 px-medium bc-primary c-light">.od-2</p>
-  <p class="od-1 w-100 px-medium bc-danger c-light">.od-1</p>
-  <p class="on-1 w-100 px-medium bc-primary c-light">.on-1</p>
-  <p class="on-2 w-100 px-medium bc-danger c-light">.on-2</p>
-  <p class="on-3 w-100 px-medium bc-primary c-light">.on-3</p>
-  <p class="on-4 w-100 px-medium bc-danger c-light">.on-4</p>
-  <p class="on-5 w-100 px-medium bc-primary c-light">.on-5</p>
-  <p class="on-6 w-100 px-medium bc-danger c-light">.on-6</p>  
+  <p class="od-6 w-100 px-small bc-primary c-light">.od-6</p>
+  <p class="od-5 w-100 px-small bc-danger c-light">.od-5</p>
+  <p class="od-4 w-100 px-small bc-primary c-light">.od-4</p>
+  <p class="od-3 w-100 px-small bc-danger c-light">.od-3</p>
+  <p class="od-2 w-100 px-small bc-primary c-light">.od-2</p>
+  <p class="od-1 w-100 px-small bc-danger c-light">.od-1</p>
+  <p class="on-1 w-100 px-small bc-primary c-light">.on-1</p>
+  <p class="on-2 w-100 px-small bc-danger c-light">.on-2</p>
+  <p class="on-3 w-100 px-small bc-primary c-light">.on-3</p>
+  <p class="on-4 w-100 px-small bc-danger c-light">.on-4</p>
+  <p class="on-5 w-100 px-small bc-primary c-light">.on-5</p>
+  <p class="on-6 w-100 px-small bc-danger c-light">.on-6</p>  
 </div>
 {% endcapture %}
 <div class="example">
@@ -402,15 +416,23 @@ The order utility classes from `.od-1` to `.od-6` are used to move columns after
 ``` html{{ flex_order }}```
 
 
-## Grow and Shrink
-Flex grow utility classes are named in the format `.fg-{value}-{breakpoint}` and flex shrink utility classes are named in the format `.fs-{value}-{breakpoint}`, value can be `1` or `0`.
+## Flex Grow and Flex Shrink
+Flex grow utilities set the value of the [`flex-grow`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow) property, they are named using
+the format: `.fg-{value}-{breakpoint}`, and the value can be `1` or `0`. The value `1` makes a flex item able to grow to fill the remaining space in its flex container.
+Oppsite, the value `0` makes a flex item not able to grow.
 
-The `.flex-auto-{breakpoint}` classes...
+Flex shrink utilities set the value of the [`flex-shrink`](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink) property, they are named using
+the format: `.fs-{value}-{breakpoint}`, and the value can be `0` or `1`. The value `1` makes a flex item able to shrink when the space in its flex container is not enough.
+Oppsite, the value `0` makes a flex item not able to shrink.
+
+The `.flex-auto-{breakpoint}` class makes a flex item able to grow and shrink.
+
+Let's see the below examples for detail.
 
 {% capture fg %}
 <div class="d-flex bc-dark">
-  <p class="fg-1 w-33 bc-primary c-light px-medium">.fg-1.w-33</p>
-  <p class="fg-0 w-33 bc-danger c-light px-medium">.fg-0.w-33</p>
+  <p class="fg-1 w-33 bc-primary c-light px-small">.fg-1.w-33</p>
+  <p class="fg-0 w-33 bc-danger c-light px-small">.fg-0.w-33</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -421,8 +443,8 @@ The `.flex-auto-{breakpoint}` classes...
 
 {% capture fs %}
 <div class="d-flex bc-dark">
-  <p class="fs-1 w-66 bc-primary c-light px-medium">.fs-1.w-66</p>
-  <p class="fs-0 w-66 bc-danger c-light px-medium">.fs-0.w-66</p>
+  <p class="fs-1 w-66 bc-primary c-light px-small">.fs-1.w-66</p>
+  <p class="fs-0 w-66 bc-danger c-light px-small">.fs-0.w-66</p>
 </div>
 {% endcapture %}
 <div class="example">
@@ -433,8 +455,8 @@ The `.flex-auto-{breakpoint}` classes...
 
 {% capture flex_auto %}
 <div class="d-flex bc-dark">
-  <p class="flex-auto w-66 bc-primary c-light px-medium">.flex-auto.w-66</p>
-  <p class="flex-auto w-66 bc-danger c-light px-medium">.flex-auto.w-66</p>
+  <p class="flex-auto w-66 bc-primary c-light px-small">.flex-auto.w-66</p>
+  <p class="flex-auto w-66 bc-danger c-light px-small">.flex-auto.w-66</p>
 </div>
 {% endcapture %}
 <div class="example">

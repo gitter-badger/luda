@@ -74,34 +74,3 @@ title: Shape
 
 
 ## Sharp
-
-<div class="d-flex">
-  <div class="mr-small mb-small">
-    <div style="border-radius: 100%" class="p-medium sharp-t bc-primary"></div>
-    <p class="p6 ta-center">.sharp-t</p>
-  </div>
-  <div class="mr-small mb-small">
-    <div style="border-radius: 100%" class="p-medium sharp-r bc-primary"></div>
-    <p class="p6 ta-center">.sharp-r</p>
-  </div>
-  <div class="mr-small mb-small">
-    <div style="border-radius: 100%" class="p-medium sharp-b bc-primary"></div>
-    <p class="p6 ta-center">.sharp-b</p>
-  </div>
-  <div class="mr-small mb-small">
-    <div style="border-radius: 100%" class="p-medium sharp-l bc-primary"></div>
-    <p class="p6 ta-center">.sharp-l</p>
-  </div>
-  <div class="mb-small">
-    <div style="border-radius: 100%" class="p-medium sharp bc-primary"></div>
-    <p class="p6 ta-center">.sharp</p>
-  </div>
-</div>
-
-``` html
-<div class="sharp-t" style="border-radius: 100%"></div>
-<div class="sharp-r" style="border-radius: 100%"></div>
-<div class="sharp-b" style="border-radius: 100%"></div>
-<div class="sharp-l" style="border-radius: 100%"></div>
-<div class="sharp" style="border-radius: 100%"></div>
-```
