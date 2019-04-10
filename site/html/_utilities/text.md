@@ -1,8 +1,10 @@
 ---
 title: Text
+description: Use text utilities to control text alignment, font weight, font style and more of an element.
 ---
 
 ## Text Alignment
+Text alignment utilities are extended with [screen width breakpoint postfixes]() for responsive control. They are named using the format `.ta-{direction}-{breakpoint}`. Let's preview their effects in the below examples.
 
 {% capture left %}
 <p class="ta-left">
@@ -13,6 +15,7 @@ title: Text
   {{ left }}
 </div>
 ``` html{{ left }}```
+{: .mb-medium}
 
 {% capture right %}
 <p class="ta-right">
@@ -23,6 +26,7 @@ title: Text
   {{ right }}
 </div>
 ``` html{{ right }}```
+{: .mb-medium}
 
 {% capture center %}
 <p class="ta-center">
@@ -33,6 +37,8 @@ title: Text
   {{ center }}
 </div>
 ``` html{{ center }}```
+{: .mb-medium}
+
 
 {% capture justify %}
 <p class="ta-justify">
@@ -46,6 +52,31 @@ title: Text
 
 
 ## Font Weight
+Font weight utility classes are named using the format `.fw-{value}`. We use meaningful value words in the class names, all the value words are listed in the below table.
+
+<div class="table table-border my-small">
+  <table>
+    <thead>
+      <tr><th>Word</th><th>Value</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>lightest</td><td>100</td></tr>
+      <tr><td>lighter</td><td>200</td></tr>
+      <tr><td>light</td><td>300</td></tr>
+      <tr><td>regular</td><td>400</td></tr>
+      <tr><td>medium</td><td>500</td></tr>
+      <tr><td>semibold</td><td>600</td></tr>
+      <tr><td>bold</td><td>700</td></tr>
+      <tr><td>bolder</td><td>800</td></tr>
+      <tr><td>boldest</td><td>900</td></tr>
+    </tbody>
+  </table>
+</div>
+
+When you use font weight utilities, make sure the value words you pick up are supported by the fonts you embeded in your projects. Otherwise, the font weight effects will not be visible.
+
+Let's preview the effects in the below examples.
+
 
 {% capture lightest %}
 <p class="fw-lightest">
@@ -156,6 +187,7 @@ title: Text
 
 
 ## Font Style
+Font style utility classes are named using the format `.fs-{value}`. The value can be one of `italic` and `normal`. Let's preview the effects in the below examples.
 
 {% capture italic %}
 <p class="fs-italic">
@@ -180,9 +212,8 @@ title: Text
 
 
 
-
-
 ## Text Transform
+Text transform utility classes are named using the format `.tt-{value}`. The value can be one of `upper`, `lower` and `cap`. Let's preview the effects in the below examples.
 
 {% capture upper %}
 <p class="tt-upper">once upon time...</p>
@@ -212,6 +243,7 @@ title: Text
 
 
 ## Text Decoration
+Text decoration utility classes are named using the format `.td-{value}`. The value can be one of `stroke`, `underline` and `none`. Let's preview the effects in the below examples.
 
 {% capture stroke %}
 <p class="td-stroke">once upon time...</p>
@@ -234,7 +266,7 @@ title: Text
 
 
 {% capture none %}
-<p class="td-none">once upon time...</p>
+<p class="td-none" style="text-decoration: underline">once upon time...</p>
 {% endcapture %}
 <div class="example">
   {{ none }}
@@ -243,7 +275,8 @@ title: Text
 
 
 
-## Word Break And Wrap
+## Word Break
+There're two utility classes for breaking words. The `.wb-all` class breaks a long word into newlines and the `.text-ellipsis` class cuts a long word with ellipsis into a single line. Let's preview the effects in the below examples.
 
 {% capture break_all %}
 <p class="wb-all">onceupontimeonceupontimeonceupontimeonceupontimeonceupontimeonceupontimeonceupontimeonceupontimeonceupontimeonceupontime</p>
@@ -264,20 +297,3 @@ title: Text
   {{ ellipsis }}
 </div>
 ``` html{{ ellipsis }}```
-{: .mb-medium}
-
-{% capture ws_normal %}
-<p class="ws-normal">
-  Once upon time a girl named Cinderella lived with her stepmother and two stepsisters.  Poor Cinderella had to work hard all day long so the others could rest. It was she who had to wake up each morning when it was still dark and cold to start the fire...
-</p>
-{% endcapture %}
-<div class="example">
-  {{ ws_normal }}
-</div>
-``` html{{ ws_normal }}```
-
-
-
-
-
-

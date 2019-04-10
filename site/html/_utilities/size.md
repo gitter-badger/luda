@@ -1,8 +1,13 @@
 ---
 title: Size
+description: Use size utilities to control an element's width and height responsively.
 ---
 
-## Responsive Sizes
+## Size
+
+Size utility classes are extended with [screen width breakpoint postfixes](), they can be used to control an element's size responsively. Width classes are named using the format: `.w-{value}-{breakpoint}`, and height classes are named using the format: `.h-{value}-{breakpoint}`. The value can be one of `25`, `33`, `50`, `66`, `75`, `100` and `auto`.
+
+Let's see the below examples for detail.
 
 {% capture width %}
 <div class="bc-dark">
@@ -19,6 +24,7 @@ title: Size
   {{ width }}
 </div>
 ``` html{{ width }}```
+{: .mb-medium}
 
 {% capture height %}
 <div class="d-flex bc-dark" style="height: 21rem">
@@ -38,7 +44,24 @@ title: Size
 
 
 
-## Size Limits
+## Size Limitation
+
+Size limitation utilities are not responsive, they're used to limit the size of an element.
+
+The `.max-w-100` class limits the maximum width of an element to `100%`.
+
+The `.min-w-100` class limits the minimum width of an element to `100%`.
+
+The `.min-w-100vw` class limits the minimum width of an element to `100vw`.
+
+The `.max-h-100` class limits the maximum height of an element to `100%`.
+
+The `.min-h-100` class limits the minimum height of an element to `100%`.
+
+The `.min-h-100vh` class limits the minimum height of an element to `100vh`.
+
+
+
 
 {% capture max_w_100 %}
 <div class="bc-dark">

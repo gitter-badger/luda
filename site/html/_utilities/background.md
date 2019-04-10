@@ -116,14 +116,14 @@ You can preview how background size classes affect the size of an element's back
 ## Background Position
 
 Background position utilities are classes for setting the value of the [`background-position`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-position) property.
-They are named using the format: `.bp-{horizontal value}{vertical value}`.
+They are named using the format: `.bp-{horizontal position}{vertical position}`.
 
-We use the first letter of each value word for short, all value shortcuts are listed in the below table.
+We use the first letter of each position for short, all position abbreviations are listed in the below table.
 
 <div class="table table-border my-small">
   <table>
     <thead>
-      <tr><th>Shortcut</th><th>Value</th></tr>
+      <tr><th>Abbreviation</th><th>Position</th></tr>
     </thead>
     <tbody>
       <tr><td>c</td><td>center</td></tr>

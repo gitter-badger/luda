@@ -1,11 +1,30 @@
 ---
 title: Shape
+description: Use shape utilities to quickly change the shape of an element.
 ---
 
 
-## Rounded
+## Introduction
+Shape utilities are classes for setting the value of the [`border-radius`](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius) property. They are named using the format: `.{shape}-{direction}`. Like some other utility classes, we use the first letter of each direction in the class names for short. All direction abbreviations are listed in the below table.
 
-<div class="d-flex">
+<div class="table table-border my-small">
+  <table>
+    <thead>
+      <tr><th>Abbreviation</th><th>Direction</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>t</td><td>top</td></tr>
+      <tr><td>r</td><td>right</td></tr>
+      <tr><td>b</td><td>bottom</td></tr>
+      <tr><td>l</td><td>left</td></tr>
+    </tbody>
+  </table>
+</div>
+
+## Rounded
+Rounded shape utilities set a small `border-radius` value(2px by default) to an element. Let's see the effects in the below gallery.
+
+<div class="d-flex example">
   <div class="mr-small mb-small">
     <div class="p-medium rounded-t bc-primary"></div>
     <p class="p6 ta-center">.rounded-t</p>
@@ -39,8 +58,9 @@ title: Shape
 
 
 ## Circle
+Circle utilities add a very large `border-radius` to an element to make it more rounded. Let's preview the effects in the below gallery.
 
-<div class="d-flex">
+<div class="d-flex example">
   <div class="mr-small mb-small">
     <div class="p-medium circle-t bc-primary"></div>
     <p class="p6 ta-center">.circle-t</p>
@@ -74,3 +94,35 @@ title: Shape
 
 
 ## Sharp
+Sharp utilities set the value of the `border-radius` property to `0`, so it's usally used to remove an element's border radius.
+
+<div class="d-flex example">
+  <div class="mr-small mb-small">
+    <div style="border-radius: 10px" class="p-medium sharp-t bc-primary"></div>
+    <p class="p6 ta-center">.sharp-t</p>
+  </div>
+  <div class="mr-small mb-small">
+    <div style="border-radius: 10px" class="p-medium sharp-r bc-primary"></div>
+    <p class="p6 ta-center">.sharp-r</p>
+  </div>
+  <div class="mr-small mb-small">
+    <div style="border-radius: 10px" class="p-medium sharp-b bc-primary"></div>
+    <p class="p6 ta-center">.sharp-b</p>
+  </div>
+  <div class="mr-small mb-small">
+    <div style="border-radius: 10px" class="p-medium sharp-l bc-primary"></div>
+    <p class="p6 ta-center">.sharp-l</p>
+  </div>
+  <div class="mb-small">
+    <div style="border-radius: 10px" class="p-medium sharp bc-primary"></div>
+    <p class="p6 ta-center">.sharp</p>
+  </div>
+</div>
+
+``` html
+<div style="border-radius: 10px" class="sharp-t"></div>
+<div style="border-radius: 10px" class="sharp-r"></div>
+<div style="border-radius: 10px" class="sharp-b"></div>
+<div style="border-radius: 10px" class="sharp-l"></div>
+<div style="border-radius: 10px" class="sharp"></div>
+```

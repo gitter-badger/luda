@@ -6,7 +6,7 @@ description: Use opacity utilities to change elements' opacities responsively.
 
 ## Introduction
 Opacity utilities are classes for setting the value of the [`opacity`](https://developer.mozilla.org/en-US/docs/Web/CSS/opacity) property.
-Let's see how they change an element's opacity in the below example.
+Let's see how they change an element's opacity in the below gellery.
 
 <div class="background-example mb-none">
   <div>

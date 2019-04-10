@@ -1,7 +1,11 @@
 ---
 title: Overflow
+description: Use overflow utilities to control how content overflows a container.
 ---
 
+
+## Introduction
+Overflow utilities are classes for setting the value of the [`overflow`](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow) property. There're three overflow classes, `.of-hidden`, `.of-auto` and `.of-visible`. Let's see the below examples for detail.
 
 <div class="my-small of-hidden bc-dark" style="height: 8rem">
   <div class="bc-primary" style="width: 80%; height: 200%">
