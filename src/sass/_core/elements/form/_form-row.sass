@@ -16,36 +16,36 @@
   .fm-select input,
   .fm-file input,
   .fm-select select:not([multiple])
-    height: $form-element-textfield-height-rem
+    height: $form-element-height-rem
     line-height: normal // fix safari blinking cursor not in input center
 
   .fm-text input,
   .fm-select select:not([multiple])
-    padding: 0 $form-element-text-helvertical-padding-em
+    padding: 0 $form-element-horizontal-padding-em
     background: $form-element-background
 
   .fm-search input,
   .fm-select input,
   .fm-file input
-    $padding-right: $form-element-icon-size-em + $form-element-text-helvertical-padding-em * 2
-    padding: 0 $padding-right 0 $form-element-text-helvertical-padding-em
+    $padding-right: $form-element-icon-size-em + $form-element-horizontal-padding-em * 2
+    padding: 0 $padding-right 0 $form-element-horizontal-padding-em
 
   .fm-search input
-    +form-row-background-icon($form-element-search-icon, $form-element-icon-color, $form-element-background)
+    +form-element-background($form-element-search-icon, $form-element-icon-color, $form-element-background)
 
   .fm-select input
-    +form-row-background-icon($form-element-select-icon, $form-element-icon-color, $form-element-background)
+    +form-element-background($form-element-select-icon, $form-element-icon-color, $form-element-background)
 
   .fm-file input
-    +form-row-background-icon($form-element-add-icon, $form-element-icon-color, $form-element-background)
+    +form-element-background($form-element-file-icon, $form-element-icon-color, $form-element-background)
 
   .fm-text textarea,
   .fm-select select[multiple]
     $padding-top: typo-padding-top($form-element-typography-size-level, $typography-main-baseline-offset-ratio)
     $padding-bottom: typo-padding-bottom($form-element-typography-size-level, $typography-main-baseline-offset-ratio)
-    height: $form-element-textarea-height-rem
-    min-height: $form-element-textarea-height-rem
-    padding: $padding-top $form-element-text-helvertical-padding-em $padding-bottom
+    height: $form-element-multiple-rows-height-rem
+    min-height: $form-element-multiple-rows-height-rem
+    padding: $padding-top $form-element-horizontal-padding-em $padding-bottom
     line-height: typo-line-height($form-element-typography-size-level)
     overflow: auto
     -webkit-overflow-scrolling: touch
@@ -57,29 +57,29 @@
   .fm-file[data-error] input,
   .fm-text[data-error] textarea,
   .fm-select[data-error] select[multiple]
-    color: $form-element-error-color
-    border-color: $form-element-error-border-color
-    box-shadow: $form-element-error-box-shadow
+    color: $form-element-color-on-error
+    border-color: $form-element-border-color-on-error
+    box-shadow: $form-element-box-shadow-on-error
 
   .fm-text[data-error] input,
   .fm-text[data-error] textarea,
   .fm-select[data-error] select[multiple]
-    background: $form-element-error-background
+    background: $form-element-background-on-error
 
-  @if $form-element-error-background or $form-element-error-icon-color
+  @if $form-element-background-on-error or $form-element-icon-color-on-error
     // sass-lint:disable empty-args
-    $icon-color: form-error-icon-color()
-    $background: form-error-background()
+    $icon-color: form-element-icon-color-on-error()
+    $background: form-element-background-on-error()
     // sass-lint:enable empty-args
 
     .fm-search[data-error] input
-      +form-row-background-icon($form-element-search-icon, $icon-color, $background)
+      +form-element-background($form-element-search-icon, $icon-color, $background)
 
     .fm-select[data-error] input
-      +form-row-background-icon($form-element-select-icon, $icon-color, $background)
+      +form-element-background($form-element-select-icon, $icon-color, $background)
 
     .fm-file[data-error] input
-      +form-row-background-icon($form-element-add-icon, $icon-color, $background)
+      +form-element-background($form-element-file-icon, $icon-color, $background)
   +_sass-lint-fix-if-else
 
   .fm.fm-text input.focus,
@@ -89,46 +89,46 @@
   .fm.fm-file .focus ~ input,
   .fm.fm-text textarea.focus,
   .fm.fm-select select[multiple].focus
-    color: $form-element-focus-color
-    border-color: $form-element-focus-border-color
-    box-shadow: $form-element-focus-box-shadow
+    color: $form-element-color-on-focus
+    border-color: $form-element-border-color-on-focus
+    box-shadow: $form-element-box-shadow-on-focus
 
   .fm.fm-text input.focus,
   .fm.fm-text textarea.focus,
   .fm.fm-select select[multiple].focus
-    background: $form-element-focus-background
+    background: $form-element-background-on-focus
 
-  @if $form-element-focus-background or $form-element-focus-icon-color
+  @if $form-element-background-on-focus or $form-element-icon-color-on-focus
     // sass-lint:disable empty-args
-    $icon-color: form-focus-icon-color()
-    $background: form-focus-background()
+    $icon-color: form-element-icon-color-on-focus()
+    $background: form-element-background-on-focus()
     // sass-lint:enable empty-args
 
     .fm.fm-search input.focus
-      +form-row-background-icon($form-element-search-icon, $icon-color, $background)
+      +form-element-background($form-element-search-icon, $icon-color, $background)
 
     .fm.fm-select .focus ~ input,
     .fm.fm-select input.focus
-      +form-row-background-icon($form-element-select-icon, $icon-color, $background)
+      +form-element-background($form-element-select-icon, $icon-color, $background)
 
     .fm.fm-file .focus ~ input
-      +form-row-background-icon($form-element-add-icon, $icon-color, $background)
+      +form-element-background($form-element-file-icon, $icon-color, $background)
 
-    @if $form-element-error-background or $form-element-error-icon-color
+    @if $form-element-background-on-error or $form-element-icon-color-on-error
       // sass-lint:disable empty-args
-      $focus-icon-color: form-error-focus-icon-color()
-      $focus-background: form-error-focus-background()
+      $focus-icon-color: form-element-icon-color-on-error-and-focus()
+      $focus-background: form-element-background-on-error-and-focus()
       // sass-lint:enable empty-args
 
       .fm.fm-search[data-error] input.focus
-        +form-row-background-icon($form-element-search-icon, $focus-icon-color, $focus-background)
+        +form-element-background($form-element-search-icon, $focus-icon-color, $focus-background)
 
       .fm.fm-select[data-error] .focus ~ input,
       .fm.fm-select[data-error] input.focus
-        +form-row-background-icon($form-element-select-icon, $focus-icon-color, $focus-background)
+        +form-element-background($form-element-select-icon, $focus-icon-color, $focus-background)
 
       .fm.fm-file[data-error] .focus ~ input
-        +form-row-background-icon($form-element-add-icon, $focus-icon-color, $focus-background)
+        +form-element-background($form-element-file-icon, $focus-icon-color, $focus-background)
     +_sass-lint-fix-if-else
 
 
@@ -138,12 +138,12 @@
   .fm-small.fm-select input,
   .fm-small.fm-file input,
   .fm-small.fm-select select:not([multiple])
-    height: $form-element-small-textfield-height-rem
+    height: $form-element-small-height-rem
 
   .fm-small.fm-text textarea,
   .fm-small.fm-select select[multiple]
-    height: $form-element-small-textarea-height-rem
-    min-height: $form-element-small-textarea-height-rem
+    height: $form-element-multiple-rows-small-height-rem
+    min-height: $form-element-multiple-rows-small-height-rem
     padding-top: typo-padding-top($form-element-small-typography-size-level, $typography-main-baseline-offset-ratio)
     padding-bottom: typo-padding-bottom($form-element-small-typography-size-level, $typography-main-baseline-offset-ratio)
     line-height: typo-line-height($form-element-small-typography-size-level)
@@ -153,12 +153,12 @@
   .fm-large.fm-select input,
   .fm-large.fm-file input,
   .fm-large.fm-select select:not([multiple])
-    height: $form-element-large-textfield-height-rem
+    height: $form-element-large-height-rem
 
   .fm-large.fm-text textarea,
   .fm-large.fm-select select[multiple]
-    height: $form-element-large-textarea-height-rem
-    min-height: $form-element-large-textarea-height-rem
+    height: $form-element-multiple-rows-large-height-rem
+    min-height: $form-element-multiple-rows-large-height-rem
     padding-top: typo-padding-top($form-element-large-typography-size-level, $typography-main-baseline-offset-ratio)
     padding-bottom: typo-padding-bottom($form-element-large-typography-size-level, $typography-main-baseline-offset-ratio)
     line-height: typo-line-height($form-element-large-typography-size-level)
@@ -168,7 +168,7 @@
   .fm-select select:not([multiple]),
   .fm-file [type=file]
     width: 100%
-    margin-bottom: - $form-element-textfield-height-rem
+    margin-bottom: - $form-element-height-rem
     // opacity: 0
 
   .fm.fm-select select:not([multiple]),
@@ -182,11 +182,11 @@
 
   .fm-small.fm-select select:not([multiple]),
   .fm-small.fm-file [type=file]
-    margin-bottom: - $form-element-small-textfield-height-rem
+    margin-bottom: - $form-element-small-height-rem
 
   .fm-large.fm-select select:not([multiple]),
   .fm-large.fm-file [type=file]
-    margin-bottom: - $form-element-large-textfield-height-rem
+    margin-bottom: - $form-element-large-height-rem
 
 
 
@@ -210,11 +210,11 @@
   .fm-select select[multiple] option.fm-select-multiple-placeholder:disabled
     overflow: hidden
     opacity: 1
-    color: $form-element-placeholder-color
+    color: $form-placeholder-color
     text-overflow: ellipsis
 
   .fm-select[data-error] select[multiple] option.fm-select-multiple-placeholder:disabled
-    color: $form-element-error-placeholder-color
+    color: $form-placeholder-color-on-error
 
   .fm.fm-select select[multiple].focus option.fm-select-multiple-placeholder:disabled
-    color: $form-element-focus-placeholder-color
+    color: $form-placeholder-color-on-focus

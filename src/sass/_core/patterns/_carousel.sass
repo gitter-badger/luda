@@ -17,23 +17,23 @@
   .carousel-indicators
     display: flex
     position: absolute
-    top: $carousel-control-indicators-top-rem
-    right: $carousel-control-indicators-right-rem
+    top: $carousel-indicators-top-spacing-rem
+    right: $carousel-indicators-right-spacing-rem
     z-index: $z-index-higher
     justify-content: center
 
   .carousel-indicators .btn
-    height: $carousel-control-indicator-height-rem
+    height: $carousel-indicator-height-rem
     font-size: 0
     opacity: $carousel-control-disabled-opacity
     outline-offset: $carousel-indicator-outline-offset-px
-    transition: opacity $carousel-control-opacity-transition-duration $carousel-control-opacity-transition-timing-function
+    transition: opacity $carousel-controls-opacity-transition-duration $carousel-controls-opacity-transition-timing-function
 
   .carousel-indicators.btns-x.btns-margin .btn:last-child
     margin-right: 0
 
   .carousel-indicators .btn[disabled]
-    opacity: $carousel-control-opacity
+    opacity: $carousel-controls-opacity
 
   .carousel-item,
   .carousel-figure
@@ -72,7 +72,7 @@
       z-index: $z-index-higher
       margin: auto
       opacity: 0
-      transition: opacity $carousel-control-opacity-transition-duration $carousel-control-opacity-transition-timing-function
+      transition: opacity $carousel-controls-opacity-transition-duration $carousel-controls-opacity-transition-timing-function
 
     .carousel-prev.btn-text-light,
     .carousel-next.btn-text-light
@@ -82,7 +82,7 @@
     .carousel-box:hover > .carousel-next,
     .carousel-prev.focus,
     .carousel-next.focus
-      opacity: $carousel-control-opacity
+      opacity: $carousel-controls-opacity
 
     .carousel-box:hover > .carousel-prev[disabled],
     .carousel-box:hover > .carousel-next[disabled],
@@ -91,14 +91,14 @@
       opacity: $carousel-control-disabled-opacity
 
     .carousel-prev
-      left: $carousel-breakpoint-control-prev-left-rem
+      left: $carousel-breakpoint-prev-button-left-spacing-rem
 
     .carousel-next
-      right: $carousel-breakpoint-control-next-right-rem
+      right: $carousel-breakpoint-next-button-right-spacing-rem
 
     .carousel-indicators
-      top: $carousel-breakpoint-control-indicators-top-rem
-      right: $carousel-breakpoint-control-indicators-right-rem
+      top: $carousel-breakpoint-indicators-top-spacing-rem
+      right: $carousel-breakpoint-indicators-right-spacing-rem
 
     .carousel-description
       padding: $carousel-breakpoint-description-padding-rem

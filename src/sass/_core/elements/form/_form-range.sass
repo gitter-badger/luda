@@ -2,7 +2,7 @@
 
   .fm-range input
     width: 100%
-    height: $form-element-textfield-height-rem
+    height: $form-element-height-rem
     background: none
 
   .fm-range ::-webkit-slider-runnable-track
@@ -25,7 +25,7 @@
     +_form-range-track-skin
 
   .fm-range ::-webkit-slider-thumb
-    +_form-range-thumb-styles
+    +_form-thumb-styles
     -webkit-appearance: none
     -moz-appearance: none
     appearance: none
@@ -36,57 +36,57 @@
       margin-top: 0
 
   .fm-range ::-moz-range-thumb
-    +_form-range-thumb-styles
+    +_form-thumb-styles
 
   .fm-range ::-ms-thumb
-    +_form-range-thumb-styles
+    +_form-thumb-styles
 
   .fm-range ::-ms-tooltip
     display: none
 
   .fm-range[data-error] ::-webkit-slider-runnable-track
-    background: $form-element-error-track-background
+    background: $form-element-track-background-on-error
 
   .fm-range[data-error] ::-moz-range-track
-    background: $form-element-error-track-background
+    background: $form-element-track-background-on-error
 
   .fm-range[data-error] ::-ms-fill-lower
-    background: $form-element-error-track-background
+    background: $form-element-track-background-on-error
 
   .fm-range[data-error] ::-ms-fill-upper
-    background: $form-element-error-track-background
+    background: $form-element-track-background-on-error
 
   .fm-range[data-error] ::-webkit-slider-thumb
-    +_form-range-error-thumb-skin
+    +_form-thumb-skin-on-error
 
   .fm-range[data-error] ::-moz-range-thumb
-    +_form-range-error-thumb-skin
+    +_form-thumb-skin-on-error
 
   .fm-range[data-error] ::-ms-thumb
-    +_form-range-error-thumb-skin
+    +_form-thumb-skin-on-error
 
   .fm-range input.focus::-webkit-slider-runnable-track
-    background: $form-element-focus-track-background
+    background: $form-element-track-background-on-focus
 
   .fm-range input.focus::-moz-range-track
-    background: $form-element-focus-track-background
+    background: $form-element-track-background-on-focus
 
   .fm-range input.focus::-ms-track
-    background: $form-element-focus-track-background
+    background: $form-element-track-background-on-focus
 
   .fm-range input.focus::-webkit-slider-thumb
-    +_form-range-focus-thumb-skin
+    +_form-thumb-skin-on-focus
 
   .fm-range input.focus::-moz-range-thumb
-    +_form-range-focus-thumb-skin
+    +_form-thumb-skin-on-focus
 
   .fm-range input.focus::-ms-thumb
-    +_form-range-focus-thumb-skin
+    +_form-thumb-skin-on-focus
 
 
 
   .fm-small.fm-range input
-    height: $form-element-small-textfield-height-rem
+    height: $form-element-small-height-rem
 
   .fm-large.fm-range input
-    height: $form-element-large-textfield-height-rem
+    height: $form-element-large-height-rem

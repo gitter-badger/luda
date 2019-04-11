@@ -14,22 +14,22 @@ luda class extends luda.Component
   @_INDICATOR_SELECTOR: '.tab-indicators .btn-radio input[type=radio]'
   @_PANE_ACTIVE_CSS_CLASS: 'tab-pane-active'
   @_ACTIVE_INDEX: 0
-  @_ACTIVED_EVENT_TYPE: "#{@_SCOPE}:actived"
-  @_DEACTIVED_EVENT_TYPE: "#{@_SCOPE}:deactived"
+  @_ACTIVATED_EVENT_TYPE: "#{@_SCOPE}:activated"
+  @_DEACTIVATED_EVENT_TYPE: "#{@_SCOPE}:deactivated"
 
   @_observerConfig:
     childList: true
     subtree: true
  
   # public
-  active: (index) ->
+  activate: (index) ->
     if @_$panes.length
-      activedIndex = @_activeIndex
+      activatedIndex = @_activeIndex
       if index? \
       and index isnt @_activeIndex \
       and 0 <= index <= @_$panes.length - 1
         @_activeIndex = index
-        @_active(activedIndex)
+        @_active(activatedIndex)
 
   # private
   _getConfig: ->
@@ -50,20 +50,20 @@ luda class extends luda.Component
       @_$indicators,
       @_activeIndex
     } = @_getConfig()
-    @_active()
+    @_activate()
 
   _onMutations: (mutations) ->
     @_constructor()
 
-  _active: (activedIndex) ->
+  _activate: (activatedIndex) ->
     @_$panes.forEach ($pane, index) =>
       if index is @_activeIndex
         $pane.classList.add @constructor._PANE_ACTIVE_CSS_CLASS
-        luda.dispatch($pane, @constructor._ACTIVED_EVENT_TYPE, index)
+        luda.dispatch($pane, @constructor._ACTIVATED_EVENT_TYPE, index)
       else
         $pane.classList.remove @constructor._PANE_ACTIVE_CSS_CLASS
-        if index is activedIndex
-          luda.dispatch($pane, @constructor._DEACTIVED_EVENT_TYPE, index)
+        if index is activatedIndex
+          luda.dispatch($pane, @constructor._DEACTIVATED_EVENT_TYPE, index)
     @_setIndicatorsState()
 
   _setIndicatorsState: ->
@@ -79,4 +79,4 @@ luda class extends luda.Component
     luda.on 'change', @_INDICATOR_SELECTOR, (e) ->
       if this.checked
         instance = self.query luda.$parent self._SELECTOR, this
-        instance.active instance._$indicators.indexOf this
+        instance.activate instance._$indicators.indexOf this

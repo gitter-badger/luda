@@ -24,7 +24,7 @@ luda class extends luda.Singleton
 
   @_$focus: document.getElementsByClassName(@_CSS_CLASS)
 
-  @_actived: ->
+  @_isActive: ->
     not document.documentElement.hasAttribute(@_DISABLED_ATTRIBUTE)
 
   @_removeFocusClassExcept: ($exception) ->
@@ -36,12 +36,12 @@ luda class extends luda.Singleton
       $target.classList.add @_CSS_CLASS
 
   @_changeFocusStateOnKeyEvent: (e) ->
-    if @_actived()
+    if @_isActive()
       @_removeFocusClassExcept e.target
       @_addFocusClassExceptHtmlAndBody e.target
 
   @_changeFocusStateOnMouseDownEvent: (e) ->
-    if @_actived()
+    if @_isActive()
       if e.target.matches @_PARENT_FOCUS_CHILDREN_SELECTOR
         target = luda.$parent @_PARENT_FOCUS_SELECTOR, e.target
       else
@@ -58,12 +58,12 @@ luda class extends luda.Singleton
     self = this
     HTMLElement.prototype.focus = ->
       focus.apply this, arguments
-      if self._actived() and document.activeElement is this
+      if self._isActive() and document.activeElement is this
         self._removeFocusClassExcept this
         self._addFocusClassExceptHtmlAndBody this
     HTMLElement.prototype.blur = ->
       blur.apply this, arguments
-      this.classList.remove self._CSS_CLASS if self._actived()
+      this.classList.remove self._CSS_CLASS if self._isActive()
 
   @_init: ->
     self = this

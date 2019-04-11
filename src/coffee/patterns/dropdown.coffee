@@ -20,8 +20,8 @@ luda class extends luda.Component
   @_SWITCHES_SELECTOR: "[#{@_TOGGLE_ATTRIBUTE}]"
   @_NONE_SWITCHES_SELECTOR: "[#{@_NONE_TOGGLE_ATTRIBUTE}]"
   @_ACTIVE_CSS_CLASS: 'dropdown-active'
-  @_ACTIVED_EVENT_TYPE: "#{@_SCOPE}:actived"
-  @_DEACTIVED_EVENT_TYPE: "#{@_SCOPE}:deactived"
+  @_ACTIVATED_EVENT_TYPE: "#{@_SCOPE}:activated"
+  @_DEACTIVATED_EVENT_TYPE: "#{@_SCOPE}:deactivated"
 
   @_observerConfig:
     childList: true
@@ -35,33 +35,33 @@ luda class extends luda.Component
 
   @_$focused: []
 
-  active: ->
-    unless @_actived()
+  activate: ->
+    unless @_isActive()
       @_$component.classList.add @constructor._ACTIVE_CSS_CLASS
       @constructor._$focused.push document.activeElement
-      @_parent?.active()
-      luda.dispatch(@_$component, @constructor._ACTIVED_EVENT_TYPE)
+      @_parent?.activate()
+      luda.dispatch(@_$component, @constructor._ACTIVATED_EVENT_TYPE)
 
-  deactive: (focus) ->
-    if @_actived()
+  deactivate: (focus) ->
+    if @_isActive()
       @_$component.classList.remove @constructor._ACTIVE_CSS_CLASS
-      @_children.forEach (child) -> child.deactive()
+      @_children.forEach (child) -> child.deactivate()
       if focus
         @constructor._$focused[@constructor._$focused.length - 1]?.focus()
       @constructor._$focused.splice @constructor._$focused.length - 1, 1
-      luda.dispatch(@_$component, @constructor._DEACTIVED_EVENT_TYPE)
+      luda.dispatch(@_$component, @constructor._DEACTIVATED_EVENT_TYPE)
 
   toggle: (focus) ->
-    if @_actived() then @deactive(focus) else @active()
+    if @_isActive() then @deactivate(focus) else @activate()
 
   prev: ->
-    if @_$items.length and @_actived()
+    if @_$items.length and @_isActive()
       focusIndex = @_$items.indexOf(document.activeElement) - 1
       focusIndex = 0 if focusIndex < 0
       @_$items[focusIndex].focus()
 
   next: ->
-    if @_$items.length and @_actived()
+    if @_$items.length and @_isActive()
       focusIndex = @_$items.indexOf(document.activeElement) + 1
       focusIndex = @_$items.length - 1 if focusIndex > @_$items.length - 1
       @_$items[focusIndex].focus()
@@ -93,20 +93,20 @@ luda class extends luda.Component
   _onMutations: (mutations) ->
     @_constructor()
 
-  _actived: ->
+  _isActive: ->
     @_$component.classList.contains @constructor._ACTIVE_CSS_CLASS
 
-  _deactiveChildrenExcept: (exceptions) ->
+  _deactivateChildrenExcept: (exceptions) ->
     if exceptions and not (exceptions instanceof Array)
       exceptions = [exceptions]
     if exceptions
       @_children.forEach (child) ->
-        child.deactive() if child._actived() and not exceptions.includes child
+        child.deactivate() if child._isActive() and not exceptions.includes child
     else
       @_children.forEach (child) ->
-        child.deactive() if child._actived()
+        child.deactivate() if child._isActive()
 
-  @deactiveExcept: (instances$dropdowns) ->
+  @deactivateExcept: (instances$dropdowns) ->
     exceptions = []
     if instances$dropdowns and not (instances$dropdowns instanceof Array)
       instances$dropdowns = [instances$dropdowns]
@@ -118,13 +118,13 @@ luda class extends luda.Component
         instanceIsntInExceptions = not exceptions.includes instance
         instanceHasntExceptionChild = exceptions.every (exception) ->
           not instance._hasDescendant exception
-        if instance._actived() \
+        if instance._isActive() \
         and instanceIsntInExceptions \
         and instanceHasntExceptionChild
-          instance.deactive()
+          instance.deactivate()
     else
       @_instances.forEach (instance) ->
-        instance.deactive() if instance._actived()
+        instance.deactivate() if instance._isActive()
 
   @_standaloneInstances: ->
     @_instances.filter (instance) -> instance if instance._isStandalone
@@ -132,14 +132,14 @@ luda class extends luda.Component
   @_init: ->
     self = this
     luda.onOpposite 'click', @_SELECTOR, (e) ->
-      self.deactiveExcept self._standaloneInstances()
+      self.deactivateExcept self._standaloneInstances()
     luda.on 'click', @_SELECTOR, (e) ->
       if instance = self.query this
         toggleChecked = false
         focus = not e.detail
-        self.deactiveExcept(self._standaloneInstances().concat instance)
-        instance._deactiveChildrenExcept()
-        instance._parent._deactiveChildrenExcept(instance) if instance._parent
+        self.deactivateExcept(self._standaloneInstances().concat instance)
+        instance._deactivateChildrenExcept()
+        instance._parent._deactivateChildrenExcept(instance) if instance._parent
         if instance._$switches.length or instance._$noneSwitches.length
           luda.eventPath(e).some ($path) ->
             if instance._$switches.includes $path
@@ -149,30 +149,30 @@ luda class extends luda.Component
               toggleChecked = true
         instance.toggle focus unless toggleChecked
 
-    luda.onOpposite 'keyup', @_SELECTOR, (e) -> self.deactiveExcept()
+    luda.onOpposite 'keyup', @_SELECTOR, (e) -> self.deactivateExcept()
     luda.on 'keyup', @_SELECTOR, (e) ->
       if e.keyCode is luda.KEY_TAB and instance = self.query this
-        self.deactiveExcept(instance)
-        instance.active()
+        self.deactivateExcept(instance)
+        instance.activate()
     luda.on 'keydown', @_SELECTOR, (e) ->
       if e.keyCode is luda.KEY_ESC and instance = self.query this
         e.preventDefault()
-        if instance._actived()
-          instance.deactive true
+        if instance._isActive()
+          instance.deactivate true
         else
-          instance._parent?.deactive true
+          instance._parent?.deactivate true
     luda.on 'keydown', @_SELECTOR, (e) ->
       if [luda.KEY_LEFT, luda.KEY_UP].includes(e.keyCode) \
       and instance = self.query this
         e.preventDefault()
-        if instance._actived()
+        if instance._isActive()
           instance.prev()
         else
           instance._parent?.prev()
       else if [luda.KEY_RIGHT, luda.KEY_DOWN].includes(e.keyCode) \
       and instance = self.query this
         e.preventDefault()
-        if instance._actived()
+        if instance._isActive()
           instance.next()
         else
           instance._parent?.next()

@@ -4,13 +4,13 @@
 
     $is-default-typo-level: $type-level == $typography-main-size-level
     $paragraph-selector: if($is-default-typo-level, "p,.p#{$type-level}", ".p#{$type-level}")
-    $lead-selector: "h#{$type-level},.h#{$type-level}"
-    $baseline-offset-ratio-changed: $typography-lead-baseline-offset-ratio != $typography-main-baseline-offset-ratio
+    $heading-selector: "h#{$type-level},.h#{$type-level}"
+    $baseline-offset-ratio-changed: $typography-heading-baseline-offset-ratio != $typography-main-baseline-offset-ratio
 
-    @if $typography-lead-baseline-offset-ratio and $baseline-offset-ratio-changed
+    @if $typography-heading-baseline-offset-ratio and $baseline-offset-ratio-changed
 
-      #{$lead-selector}
-        +typo-level($type-level, $typography-lead-baseline-offset-ratio)
+      #{$heading-selector}
+        +typo-level($type-level, $typography-heading-baseline-offset-ratio)
         display: block
 
       #{$paragraph-selector}
@@ -19,7 +19,7 @@
 
     @else
 
-      #{$lead-selector},
+      #{$heading-selector},
       #{$paragraph-selector}
         +typo-level($type-level, $typography-main-baseline-offset-ratio)
         display: block
@@ -40,9 +40,9 @@
   .h4,
   .h5,
   .h6
-    color: $typography-lead-color
-    font-family: $typography-lead
-    font-weight: $typography-lead-font-weight
+    color: $typography-heading-color
+    font-family: $typography-heading
+    font-weight: $typography-heading-font-weight
 
 
 

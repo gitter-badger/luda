@@ -3,7 +3,7 @@
   +media-width($scrollbar-width-breakpoint)
 
     html
-      -ms-overflow-style: $scrollbar-ie-edge-overflow-style
+      -ms-overflow-style: $scrollbar-edge-overflow-style
 
   +browser-chrome-and-opera
 
@@ -19,3 +19,9 @@
       ::-webkit-scrollbar-thumb
         background: $scrollbar-thumb-background
         border-radius: $scrollbar-thumb-border-radius
+
+      ::-webkit-scrollbar-corner
+        display: none
+
+      ::-webkit-resizer
+        display: none

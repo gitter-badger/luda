@@ -12,7 +12,7 @@
   .dropdown-absolute#{$class-fix} > .dropdown-menu > .dropdown-items
     position: absolute
     max-height: $dropdown-absolute-max-height-rem
-    margin: $dropdown-absolute-drop-gap-rem 0 0
+    margin: $dropdown-absolute-active-gap-rem 0 0
     overflow: auto
     -webkit-overflow-scrolling: touch
     background: $dropdown-absolute-fixed-background
@@ -26,15 +26,15 @@
 
   .dropdown-absolute#{$class-fix}.dropdown-top > .dropdown-menu > .dropdown-items
     bottom: 0
-    margin: 0 0 $dropdown-absolute-drop-gap-rem
+    margin: 0 0 $dropdown-absolute-active-gap-rem
 
   .dropdown-absolute#{$class-fix}.dropdown-align-right > .dropdown-menu > .dropdown-items
     right: 0
 
   .dropdown-absolute#{$class-fix}.dropdown-right > .dropdown-menu > .dropdown-items
     left: 100%
-    margin: 0 0 0 $dropdown-absolute-drop-gap-rem
+    margin: 0 0 0 $dropdown-absolute-active-gap-rem
 
   .dropdown-absolute#{$class-fix}.dropdown-left > .dropdown-menu > .dropdown-items
     right: 100%
-    margin: 0 $dropdown-absolute-drop-gap-rem 0 0
+    margin: 0 $dropdown-absolute-active-gap-rem 0 0

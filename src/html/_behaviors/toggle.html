@@ -27,12 +27,12 @@ title: Toggle
   <script type="text/javascript">
     (function(){
       $toggleEventPreview = luda.$child('#toggle-event-preview')
-      luda.on('luda:toggle:actived', '#toggle-event-preview', function(e){
+      luda.on('luda:toggle:activated', '#toggle-event-preview', function(e){
         setTimeout(function(){
           $toggleEventPreview.classList.add('toggle-event-preview-active')
         })
       })
-      luda.on('luda:toggle:deactived', '#toggle-event-preview', function(e){
+      luda.on('luda:toggle:deactivated', '#toggle-event-preview', function(e){
         $toggleEventPreview.classList.add('toggle-active')
         $toggleEventPreview.classList.remove('toggle-event-preview-active')
         setTimeout(function(){

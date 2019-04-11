@@ -10,11 +10,11 @@ $breakpoint-aspect-ratios:    (p: 0, l: 1.0001) !default
 $breakpoint-resolutions:      (l: 0, h: 105.6dpi, xh: 201.6dpi) !default
 
 
-$space-base-rem:      1rem !default
-$space-tiny-rem:      $space-base-rem / 2 !default
-$space-small-rem:     $space-base-rem !default
-$space-medium-rem:    $space-base-rem * 2 !default
-$space-large-rem:     $space-base-rem * 4 !default
+$spacing-base-rem:      1rem !default
+$spacing-tiny-rem:      $spacing-base-rem / 2 !default
+$spacing-small-rem:     $spacing-base-rem !default
+$spacing-medium-rem:    $spacing-base-rem * 2 !default
+$spacing-large-rem:     $spacing-base-rem * 4 !default
 
 
 
@@ -104,6 +104,13 @@ $text-shadow-high:           null !default
 
 
 
+$transition-duration-short:     0.25s !default
+$transition-duration-normal:    0.5s !default
+$transition-duration-long:      1s !default
+
+$transition-timing-function-main:    ease !default
+
+
 // variables for base
 $base-cursor:                     default !default
 $base-word-break:                 break-word !default
@@ -152,7 +159,7 @@ $badge-color:             $color-inverse-emphasis !default
 $button-height-rem:                     3rem !default
 $button-small-height-rem:               2rem !default
 $button-large-height-rem:               4rem !default
-$button-helvertical-padding-em:         strip-unit($space-small-rem) * 1em !default
+$button-horizontal-padding-em:          strip-unit($spacing-small-rem) * 1em !default
 $button-typography-size-level:          5 !default
 $button-small-typography-size-level:    6 !default
 $button-large-typography-size-level:    4 !default
@@ -222,7 +229,7 @@ $button-dark-active-box-shadow:      $button-dark-box-shadow !default
 
 
 
-$button-light-color:                  $color-main !default
+$button-light-color:                  $color-dark !default
 $button-light-hover-color:            null !default
 $button-light-active-color:           null !default
 $button-light-background:             $background-color-light !default
@@ -353,7 +360,7 @@ $button-text-light-active-text-shadow:    null !default
 
 
 $container-max-width-rem:    105.076923rem !default
-$container-padding-rem:      $space-medium-rem $space-small-rem !default
+$container-padding-rem:      $spacing-medium-rem $spacing-small-rem !default
 
 
 
@@ -373,81 +380,81 @@ $form-element-typography-size-level:          5 !default
 $form-element-small-typography-size-level:    6 !default
 $form-element-large-typography-size-level:    4 !default
 $form-element-color:                          $color-main !default
-$form-element-error-color:                    null !default
-$form-element-focus-color:                    null !default
+$form-element-color-on-error:                 null !default
+$form-element-color-on-focus:                 null !default
 $form-element-background:                     $background-color-main !default
-$form-element-focus-background:               null !default
-$form-element-error-background:               null !default
+$form-element-background-on-focus:            null !default
+$form-element-background-on-error:            null !default
 $form-element-border-width:                   $line-width-main !default
 $form-element-border-style:                   solid !default
 $form-element-border-radius:                  $border-radius-main !default
 $form-element-border-color:                   $line-color-main !default
-$form-element-error-border-color:             $line-color-danger !default
-$form-element-focus-border-color:             $line-color-primary !default
+$form-element-border-color-on-error:          $line-color-danger !default
+$form-element-border-color-on-focus:          $line-color-primary !default
 $form-element-box-shadow:                     null !default
-$form-element-focus-box-shadow:               null !default
-$form-element-error-box-shadow:               null !default
+$form-element-box-shadow-on-focus:            null !default
+$form-element-box-shadow-on-error:            null !default
 $form-element-icon-size-em:                   1.286em !default
 $form-element-icon-color:                     $form-element-border-color !default
-$form-element-error-icon-color:               $form-element-error-border-color !default
-$form-element-focus-icon-color:               $form-element-focus-border-color !default
+$form-element-icon-color-on-error:            $form-element-border-color-on-error !default
+$form-element-icon-color-on-focus:            $form-element-border-color-on-focus !default
 
 
 
-$form-element-text-helvertical-padding-em:    strip-unit($space-small-rem) * 1em !default
-$form-element-textfield-height-rem:           3rem !default
-$form-element-small-textfield-height-rem:     2rem !default
-$form-element-large-textfield-height-rem:     4rem !default
-$form-element-textarea-height-rem:            9rem !default
-$form-element-small-textarea-height-rem:      6rem !default
-$form-element-large-textarea-height-rem:      12rem !default
+$form-element-horizontal-padding-em:             strip-unit($spacing-small-rem) * 1em !default
+$form-element-height-rem:                        3rem !default
+$form-element-small-height-rem:                  2rem !default
+$form-element-large-height-rem:                  4rem !default
+$form-element-multiple-rows-height-rem:          9rem !default
+$form-element-multiple-rows-small-height-rem:    6rem !default
+$form-element-multiple-rows-large-height-rem:    12rem !default
 
 
 
-$form-element-checkfield-height-em:        1.4em !default
-$form-element-checked-icon-color:          $form-element-color !default
-$form-element-error-checked-icon-color:    null !default
-$form-element-focus-checked-icon-color:    null !default
+$form-element-checkfield-size-em:             1.4em !default
+$form-element-checked-icon-color:             $form-element-color !default
+$form-element-checked-icon-color-on-error:    null !default
+$form-element-checked-icon-color-on-focus:    null !default
 
 
 
-$form-element-track-height-em:             0.4em !default
-$form-element-track-background:            darken($background-color-muted, 4%) !default !default
-$form-element-focus-track-background:      null !default
-$form-element-error-track-background:      null !default
-$form-element-track-border-radius:         $border-radius-main !default
-$form-element-thumb-height-em:             1.4em !default
-$form-element-thumb-width-em:              1.4em !default
-$form-element-thumb-background:            $form-element-track-background !default
-$form-element-error-thumb-background:      null !default
-$form-element-focus-thumb-background:      $background-color-primary !default
-$form-element-thumb-border-radius:         100% !default
-$form-element-thumb-border-color:          transparent !default
-$form-element-error-thumb-border-color:    $form-element-error-border-color !default
-$form-element-focus-thumb-border-color:    null !default
+$form-element-track-height-em:                0.4em !default
+$form-element-track-background:               darken($background-color-muted, 4%) !default !default
+$form-element-track-background-on-focus:      null !default
+$form-element-track-background-on-error:      null !default
+$form-element-track-border-radius:            $border-radius-main !default
+$form-element-thumb-height-em:                1.4em !default
+$form-element-thumb-width-em:                 1.4em !default
+$form-element-thumb-background:               $form-element-track-background !default
+$form-element-thumb-background-on-error:      null !default
+$form-element-thumb-background-on-focus:      $background-color-primary !default
+$form-element-thumb-border-radius:            100% !default
+$form-element-thumb-border-color:             transparent !default
+$form-element-thumb-border-color-on-error:    $form-element-border-color-on-error !default
+$form-element-thumb-border-color-on-focus:    null !default
 
 
 
-$form-element-helper-typography-size-level:          6 !default
-$form-element-small-helper-typography-size-level:    null !default
-$form-element-large-helper-typography-size-level:    5 !default
-$form-element-hint-message-color:                    $color-muted !default
-$form-element-error-message-color:                   $color-danger !default
-$form-element-placeholder-color:                     $color-muted !default
-$form-element-error-placeholder-color:               null !default
-$form-element-focus-placeholder-color:               null !default
+$form-helper-typography-size-level:          6 !default
+$form-helper-small-typography-size-level:    null !default
+$form-helper-large-typography-size-level:    5 !default
+$form-hint-color:                            $color-muted !default
+$form-error-color:                           $color-danger !default
+$form-placeholder-color:                     $color-muted !default
+$form-placeholder-color-on-error:            null !default
+$form-placeholder-color-on-focus:            null !default
 
 
 
 $form-element-search-icon:     '<svg viewBox="0 0 1000 1000"><path fill="#fill" d="M983.1,908.7L702.1,625.9c114.2-150.9,102.6-366.6-35-504.2c-150.3-150.3-394.1-150.3-544.4,0c-150.3,150.3-150.3,394,0,544.4c137.5,137.5,353.1,149.2,504,35.2l281,282.8c9.2,9.2,24.2,9.2,33.5,0l41.9-41.9C992.3,932.9,992.3,917.9,983.1,908.7L983.1,908.7z M194.1,596.9c-110.4-110.4-110.4-289.4,0-399.7c110.4-110.4,289.4-110.4,399.8,0c110.4,110.4,110.4,289.3,0,399.7C483.4,707.3,304.5,707.3,194.1,596.9L194.1,596.9z"/></svg>' !default
 $form-element-select-icon:     '<svg viewBox="0 0 18 18"><path fill="#fill" d="M2.16,6.246 C2.385,6.246 2.61,6.308 2.81,6.442 L9.039,10.598 L15.076,6.401 C15.617,6.042 16.346,6.188 16.705,6.729 C17.065,7.268 16.92,8 16.38,8.359 L9.692,12.989 C9.298,13.253 8.784,13.254 8.388,12.991 L1.508,8.402 C0.966,8.042 0.82,7.31 1.179,6.77 C1.407,6.429 1.78,6.246 2.16,6.246 L2.16,6.246 Z"></path></svg>' !default
-$form-element-add-icon:        '<svg viewBox="-100 0 600 500"><path fill="#fill" d="M465.064,207.566l0.028,0H284.436V27.25c0-14.84-12.016-27.248-26.856-27.248h-23.116c-14.836,0-26.904,12.408-26.904,27.248v180.316H26.908c-14.832,0-26.908,12-26.908,26.844v23.248c0,14.832,12.072,26.78,26.908,26.78h180.656v180.968c0,14.832,12.064,26.592,26.904,26.592h23.116c14.84,0,26.856-11.764,26.856-26.592V284.438h180.624c14.84,0,26.936-11.952,26.936-26.78V234.41C492,219.566,479.904,207.566,465.064,207.566z"/></svg>' !default
+$form-element-file-icon:       '<svg viewBox="-100 0 600 500"><path fill="#fill" d="M465.064,207.566l0.028,0H284.436V27.25c0-14.84-12.016-27.248-26.856-27.248h-23.116c-14.836,0-26.904,12.408-26.904,27.248v180.316H26.908c-14.832,0-26.908,12-26.908,26.844v23.248c0,14.832,12.072,26.78,26.908,26.78h180.656v180.968c0,14.832,12.064,26.592,26.904,26.592h23.116c14.84,0,26.856-11.764,26.856-26.592V284.438h180.624c14.84,0,26.936-11.952,26.936-26.78V234.41C492,219.566,479.904,207.566,465.064,207.566z"/></svg>' !default
 $form-element-checked-icon:    '<svg viewBox="-150 -150 800 800"><path fill="#fill" d="M487.75,78.125c-13-13-33-13-46,0l-272,272l-114-113c-13-13-33-13-46,0s-13,33,0,46l137,136c6,6,15,10,23,10s17-4,23-10l295-294C500.75,112.125,500.75,91.125,487.75,78.125z"/></svg>' !default
 
 
 
 $grid-columns:             12 !default
-$grid-gutter-width-rem:    $space-medium-rem !default
+$grid-gutter-width-rem:    $spacing-medium-rem !default
 
 
 
@@ -466,7 +473,7 @@ $progress-border-radius:                $border-radius-main !default
 $progress-background:                   $background-color-muted !default
 $progress-bar-typography-size-level:    6 !default
 $progress-bar-min-width-em:             3em !default
-$progress-bar-padding:                  0 $space-tiny-rem !default
+$progress-bar-padding:                  0 $spacing-tiny-rem !default
 $progress-bar-background:               $background-color-primary !default
 $progress-bar-color:                    $color-inverse-main !default
 
@@ -477,11 +484,11 @@ $scrollbar-breakpoint-vertical-width-rem:       0.5rem !default
 $scrollbar-breakpoint-horizontal-height-rem:    0.5rem !default
 $scrollbar-thumb-background:                    rgba($color-muted, $opacity-more-muted) !default
 $scrollbar-thumb-border-radius:                 0.5rem !default
-$scrollbar-ie-edge-overflow-style:              -ms-autohiding-scrollbar !default
+$scrollbar-edge-overflow-style:                 -ms-autohiding-scrollbar !default
 
 
 
-$table-cell-padding-rem:        $space-small-rem !default
+$table-cell-padding-rem:        $spacing-small-rem !default
 $table-border-style:            solid !default
 $table-border-width:            $line-width-main !default
 $table-border-color:            $line-color-main !default
@@ -509,10 +516,10 @@ $typography-main-color:                    $color-main !default
 
 
 
-$typography-lead:                          null !default
-$typography-lead-baseline-offset-ratio:    $typography-main-baseline-offset-ratio !default
-$typography-lead-color:                    $color-emphasis !default
-$typography-lead-font-weight:              700 !default
+$typography-heading:                          null !default
+$typography-heading-baseline-offset-ratio:    $typography-main-baseline-offset-ratio !default
+$typography-heading-color:                    $color-emphasis !default
+$typography-heading-font-weight:              700 !default
 
 
 
@@ -547,7 +554,7 @@ $typography-link-light-active-color:        null !default
 
 
 
-$typography-code-block-padding-rem:    0 $space-medium-rem !default
+$typography-code-block-padding-rem:    0 $spacing-medium-rem !default
 $typography-code-padding-em:           0.1em 0.3em !default
 $typography-code-background:           $background-color-muted !default
 $typography-code-color:                $color-main !default
@@ -556,9 +563,9 @@ $typography-code-border-radius:        $border-radius-main !default
 
 
 $typography-cite-color:                      $color-muted !default
-$typography-quote-block-padding-rem:         $space-medium-rem !default
-$typography-quote-block-p-margin-rem:        0 auto $space-small-rem !default
-$typography-quote-block-cite-lead-height:    $line-width-main !default
+$typography-quote-block-padding-rem:         $spacing-medium-rem !default
+$typography-quote-block-p-margin-rem:        0 auto $spacing-small-rem !default
+$typography-quote-block-cite-line-height:    $line-width-main !default
 
 
 
@@ -568,7 +575,7 @@ $typography-sup-top-offset-em:       -0.5em !default
 
 
 
-$typography-list-nested-padding-em:    0 0 0 strip-unit($space-medium-rem) * 1em !default
+$typography-list-nested-padding-em:    0 0 0 strip-unit($spacing-medium-rem) * 1em !default
 
 
 $turbolinks-progress-bar-height-px:     2px !default
@@ -577,11 +584,11 @@ $turbolinks-progress-bar-background:    $background-color-primary !default
 
 
 // variables for patterns
-$alert-padding-rem:               $space-small-rem !default
+$alert-padding-rem:               $spacing-small-rem !default
 $alert-border-radius:             $border-radius-main !default
 $alert-background:                $background-color-dark !default
 $alert-box-shadow:                null !default
-$alert-action-margin-left-rem:    $space-small-rem !default
+$alert-action-margin-left-rem:    $spacing-small-rem !default
 $alert-title-color:               $color-inverse-emphasis !default
 $alert-content-color:             $color-inverse-main !default
 
@@ -614,14 +621,14 @@ $avatar-description-color:                          $avatar-name-color !default
 
 
 
-$breadcrumb-padding-rem:            $space-small-rem 0 !default
-$breadcrumb-color:                  $color-muted !default
-$breadcrumb-children-padding-em:    0 strip-unit($space-tiny-rem) * 1em !default
-$breadcrumb-children-spliter:       "/" !default
+$breadcrumb-padding-rem:           $spacing-small-rem 0 !default
+$breadcrumb-color:                 $color-muted !default
+$breadcrumb-spliter:               "/" !default
+$breadcrumb-spliter-padding-em:    0 strip-unit($spacing-tiny-rem) * 1em !default
 
 
 $button-group-box-shadow:             null !default
-$button-group-children-margin-rem:    0 $space-small-rem $space-small-rem 0 !default
+$button-group-buttons-margin-rem:    0 $spacing-small-rem $spacing-small-rem 0 !default
 
 
 
@@ -636,43 +643,43 @@ $button-small-icon-top-height-rem:    3rem !default
 
 
 
-$carousel-width-breakpoint:                              m !default
-$carousel-aspect-ratio:                                  16 / 9 !default
-$carousel-control-indicators-top-rem:                    $space-small-rem !default
-$carousel-control-indicators-right-rem:                  $space-small-rem !default
-$carousel-control-indicator-height-rem:                  0.2rem !default
-$carousel-indicator-outline-offset-px:                   2px !default
-$carousel-description-padding-rem:                       $space-small-rem !default
-$carousel-breakpoint-control-indicators-top-rem:         $space-medium-rem !default
-$carousel-breakpoint-control-indicators-right-rem:       $space-medium-rem !default
-$carousel-breakpoint-control-prev-left-rem:              $space-small-rem !default
-$carousel-breakpoint-control-next-right-rem:             $space-small-rem !default
-$carousel-breakpoint-description-padding-rem:            $space-medium-rem !default
-$carousel-background:                                    $background-color-muted !default
-$carousel-description-background:                        linear-gradient(180deg, transparent 0, rgba($background-color-dark, $opacity-most-muted) 2rem) !default
-$carousel-description-color:                             $color-inverse-main !default
-$carousel-control-opacity:                               $opacity-main !default
-$carousel-control-disabled-opacity:                      $opacity-more-muted !default
-$carousel-control-opacity-transition-duration:           0.5s !default
-$carousel-control-opacity-transition-timing-function:    ease !default
-$carousel-transition-duration:                           1s !default
-$carousel-transition-timing-function:                    ease !default
-$carousel-ani-opacity-transition-duration:               1s !default
-$carousel-ani-opacity-transition-timing-function:        ease !default
+$carousel-width-breakpoint:                               m !default
+$carousel-aspect-ratio:                                   16 / 9 !default
+$carousel-indicators-top-spacing-rem:                     $spacing-small-rem !default
+$carousel-indicators-right-spacing-rem:                   $spacing-small-rem !default
+$carousel-indicator-height-rem:                           0.2rem !default
+$carousel-indicator-outline-offset-px:                    2px !default
+$carousel-description-padding-rem:                        $spacing-small-rem !default
+$carousel-breakpoint-indicators-top-spacing-rem:          $spacing-medium-rem !default
+$carousel-breakpoint-indicators-right-spacing-rem:        $spacing-medium-rem !default
+$carousel-breakpoint-prev-button-left-spacing-rem:        $spacing-small-rem !default
+$carousel-breakpoint-next-button-right-spacing-rem:       $spacing-small-rem !default
+$carousel-breakpoint-description-padding-rem:             $spacing-medium-rem !default
+$carousel-background:                                     $background-color-muted !default
+$carousel-description-background:                         linear-gradient(180deg, transparent 0, rgba($background-color-dark, $opacity-most-muted) 2rem) !default
+$carousel-description-color:                              $color-inverse-main !default
+$carousel-controls-opacity:                               $opacity-main !default
+$carousel-controls-disabled-opacity:                      $opacity-more-muted !default
+$carousel-controls-opacity-transition-duration:           $transition-duration-normal !default
+$carousel-controls-opacity-transition-timing-function:    $transition-timing-function-main !default
+$carousel-transition-duration:                            $transition-duration-long !default
+$carousel-transition-timing-function:                     $transition-timing-function-main !default
+$carousel-ani-opacity-transition-duration:                $transition-duration-long !default
+$carousel-ani-opacity-transition-timing-function:         $transition-timing-function-main !default
 
 
 
 $dropdown-width-breakpoint:               m !default
-$dropdown-static-menu-margin-left-rem:    $space-small-rem !default
+$dropdown-static-menu-margin-left-rem:    $spacing-small-rem !default
 $dropdown-absolute-max-height-rem:        33rem !default
-$dropdown-absolute-drop-gap-rem:          $space-tiny-rem !default
+$dropdown-absolute-active-gap-rem:        $spacing-tiny-rem !default
 $dropdown-absolute-border-radius:         $border-radius-main !default
 $dropdown-absolute-fixed-background:      $background-color-main !default
 $dropdown-absolute-box-shadow:            null !default
 
 
 
-$form-group-element-vertical-margin-rem:    $space-small-rem !default
+$form-group-element-vertical-margin-rem:    $spacing-small-rem !default
 
 
 
@@ -682,7 +689,7 @@ $media-background-color:        $background-color-muted !default
 
 
 
-$modal-padding-rem:                 $space-medium-rem !default
+$modal-padding-rem:                 $spacing-medium-rem !default
 $modal-in-overlay-max-width-rem:    46.153846rem !default
 $modal-in-overlay-min-width-rem:    24.615384rem !default
 $modal-background:                  $background-color-muted !default
@@ -691,39 +698,37 @@ $modal-box-shadow:                  null !default
 
 
 
-$navigation-width-breakpoint:         m !default
-$navigation-padding-rem:              $space-tiny-rem $space-small-rem !default
-$navigation-logo-margin-rem:          0 $space-small-rem !default
-$navigation-open-margin-rem:          0 0 0 auto !default
-$navigation-close-margin-rem:         $space-small-rem $space-small-rem 0 auto !default
-$navigation-search-margin-rem:        $space-medium-rem !default
-$navigation-items-margin-rem:         $space-small-rem !default
-$navigation-sub-items-margin-rem:     $navigation-items-margin-rem !default
-$navigation-logo-image-height-rem:    2rem !default
-$navigation-background:               $background-color-dark !default
+$navigation-width-breakpoint:           m !default
+$navigation-padding-rem:                $spacing-tiny-rem $spacing-small-rem !default
+$navigation-logo-margin-rem:            0 $spacing-small-rem !default
+$navigation-open-button-margin-rem:     0 0 0 auto !default
+$navigation-close-button-margin-rem:    $spacing-small-rem $spacing-small-rem 0 auto !default
+$navigation-search-field-margin-rem:    $spacing-medium-rem !default
+$navigation-items-margin-rem:           $spacing-small-rem !default
+$navigation-sub-items-margin-rem:       $navigation-items-margin-rem !default
+$navigation-logo-image-height-rem:      2rem !default
+$navigation-background:                 $background-color-dark !default
 
 
 
-$navigation-header-box-shadow:                         null !default
-$navigation-header-breakpoint-search-margin-rem:       0 $space-small-rem !default
-$navigation-header-breakpoint-items-margin-rem:        0 auto 0 0 !default
-$navigation-header-breakpoint-sub-items-margin-rem:    0 !default
-$navigation-header-breakpoint-search-width-rem:        16rem !default
-$navigation-header-breakpoint-dropdown-background:     $navigation-background !default
+$navigation-header-box-shadow:                            null !default
+$navigation-header-breakpoint-search-field-margin-rem:    0 $spacing-small-rem !default
+$navigation-header-breakpoint-items-margin-rem:           0 auto 0 0 !default
+$navigation-header-breakpoint-sub-items-margin-rem:       0 !default
+$navigation-header-breakpoint-search-field-width-rem:     16rem !default
+$navigation-header-breakpoint-dropdown-background:        $navigation-background !default
 
 
 
 $navigation-aside-box-shadow:                          $navigation-header-box-shadow !default
 $navigation-aside-breakpoint-padding-rem:              0 !default
-$navigation-aside-breakpoint-logo-margin-rem:          3 * $space-small-rem $space-medium-rem $space-small-rem !default
+$navigation-aside-breakpoint-logo-margin-rem:          3 * $spacing-small-rem $spacing-medium-rem $spacing-small-rem !default
 $navigation-aside-breakpoint-logo-image-height-rem:    7rem !default
 $navigation-aside-breakpoint-logo-image-width-rem:     9rem !default
 $navigation-aside-breakpoint-min-width-rem:            18rem !default
 $navigation-aside-breakpoint-max-width-rem:            20rem !default
-$navigation-aside-breakpoint-box-shadow:               null !default
+$navigation-aside-breakpoint-box-shadow:               none !default
 
 
 
-$tab-panes-padding-top-rem:       null !default
-$tab-panes-padding-bottom-rem:    null !default
-$tab-panes-background:            $background-color-main !default
+$tab-panes-padding-rem:    null !default

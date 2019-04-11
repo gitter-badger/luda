@@ -195,14 +195,14 @@ $_CONSTANTS: (scale-ratios: (minor-second: 1.067, major-second: 1.125, minor-thi
   $icon: if($stroke, _str-replace($icon, "#stroke", "#{$stroke}"), $icon)
   @return svg-encode($icon)
 
-@function _form-icon-margin-top($form-element-textfield-height-rem, $form-element-typography-size-level)
+@function _form-icon-margin-top($form-element-height-rem, $form-element-typography-size-level)
   $border-bottom-width: mirror-nth($form-element-border-width, 3)
   $border-top-width: nth($form-element-border-width, 1)
   $border-bottom-unit-is-rem: _is-rem($border-bottom-width)
   $border-top-unit-is-rem: _is-rem($border-top-width)
   $font-size: typo-size($form-element-typography-size-level)
   $icon-size: $font-size * strip-unit($form-element-icon-size-em)
-  $total-height: ($form-element-textfield-height-rem + $icon-size) / 2
+  $total-height: ($form-element-height-rem + $icon-size) / 2
   $border-unit-is-rem: $border-bottom-unit-is-rem and $border-top-unit-is-rem
   $border-unit-is-the-same: _is-same-unit($border-bottom-width, $border-top-width)
   $border-vertical-diff: if($border-unit-is-the-same, ($border-top-width - $border-bottom-width) / 2, null)
@@ -215,26 +215,26 @@ $_CONSTANTS: (scale-ratios: (minor-second: 1.067, major-second: 1.125, minor-thi
   @else
     @return calc(#{$border-top-width / 2} - #{$border-bottom-width / 2} - #{$total-height})
 
-@function form-focus-icon-color()
-  $icon-color: if($form-element-focus-icon-color, $form-element-focus-icon-color, $form-element-icon-color)
+@function form-element-icon-color-on-focus()
+  $icon-color: if($form-element-icon-color-on-focus, $form-element-icon-color-on-focus, $form-element-icon-color)
   @return $icon-color
 
-@function form-error-icon-color()
-  $icon-color: if($form-element-error-icon-color, $form-element-error-icon-color, $form-element-icon-color)
+@function form-element-icon-color-on-error()
+  $icon-color: if($form-element-icon-color-on-error, $form-element-icon-color-on-error, $form-element-icon-color)
   @return $icon-color
 
-@function form-error-focus-icon-color()
-  $icon-color: if($form-element-focus-icon-color, $form-element-focus-icon-color, $form-element-error-icon-color)
+@function form-element-icon-color-on-error-and-focus()
+  $icon-color: if($form-element-icon-color-on-focus, $form-element-icon-color-on-focus, $form-element-icon-color-on-error)
   @return $icon-color
 
-@function form-focus-background()
-  $background: if($form-element-focus-background, $form-element-focus-background, $form-element-background)
+@function form-element-background-on-focus()
+  $background: if($form-element-background-on-focus, $form-element-background-on-focus, $form-element-background)
   @return $background
 
-@function form-error-background()
-  $background: if($form-element-error-background, $form-element-error-background, $form-element-background)
+@function form-element-background-on-error()
+  $background: if($form-element-background-on-error, $form-element-background-on-error, $form-element-background)
   @return $background
 
-@function form-error-focus-background()
-  $background: if($form-element-focus-background, $form-element-focus-background, $form-element-error-background)
+@function form-element-background-on-error-and-focus()
+  $background: if($form-element-background-on-focus, $form-element-background-on-focus, $form-element-background-on-error)
   @return $background

@@ -17,25 +17,25 @@ luda class extends luda.Singleton
     "[#{@_TOGGLE_FOR_ATTRIBUTE}]"
     "[#{@_TOGGLE_ATTRIBUTE}]"
   ]
-  @_ACTIVED_EVENT_TYPE: "#{@_SCOPE}:actived"
-  @_DEACTIVED_EVENT_TYPE: "#{@_SCOPE}:deactived"
+  @_ACTIVATED_EVENT_TYPE: "#{@_SCOPE}:activated"
+  @_DEACTIVATED_EVENT_TYPE: "#{@_SCOPE}:deactivated"
 
-  @active: (name$target) ->
+  @activate: (name$target) ->
     @_query$targets(name$target).forEach ($target) =>
       $target.classList.add @_ACTIVE_CSS_CLASS
-      luda.dispatch($target, @_ACTIVED_EVENT_TYPE)
+      luda.dispatch($target, @_ACTIVATED_EVENT_TYPE)
 
-  @deactive: (name$target) ->
+  @deactivate: (name$target) ->
     @_query$targets(name$target).forEach ($target) =>
       $target.classList.remove @_ACTIVE_CSS_CLASS
-      luda.dispatch($target, @_DEACTIVED_EVENT_TYPE)
+      luda.dispatch($target, @_DEACTIVATED_EVENT_TYPE)
 
   @toggle: (name$target) ->
     @_query$targets(name$target).forEach ($target) =>
       if $target.classList.contains @_ACTIVE_CSS_CLASS
-        @deactive($target)
+        @deactivate($target)
       else
-        @active($target)
+        @activate($target)
 
   @_query$targets: (name$target) ->
     if name$target instanceof Element

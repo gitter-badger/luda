@@ -109,11 +109,11 @@ title: Tab
   </h5>
   <script type="text/javascript">
     (function(){
-      luda.on('luda:tab:actived', '#tab-event-preview', function(e){
+      luda.on('luda:tab:activated', '#tab-event-preview', function(e){
         // console.log(e)
         luda.$child('#tab-event-preview-active-note').innerHTML = e.detail
       })
-      luda.on('luda:tab:deactived', '#tab-event-preview', function(e){
+      luda.on('luda:tab:deactivated', '#tab-event-preview', function(e){
         // console.log(e)
         luda.$child('#tab-event-preview-deactive-note').innerHTML = e.detail
       })

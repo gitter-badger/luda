@@ -1,4 +1,4 @@
-=_media-query($breakpoints, $breakpoint, $query-rule, $down-value: 0)
+=_media-query($breakpoints, $breakpoint, $query-rule, $minus-value: 0)
   $breakpoint-value: map-get($breakpoints, $breakpoint)
   $query-rule-min: null
   $breakpoint-max-value: null
@@ -10,13 +10,13 @@
     @else
       $query-rule-min: "(min-#{$query-rule}:#{$breakpoint-value})"
 
-  @if $down-value > 0
+  @if $minus-value > 0
     $breakpoints-keys: map-keys($breakpoints)
     $breakpoints-values: map-values($breakpoints)
     $breakpoint-index: index($breakpoints-keys, $breakpoint)
     $breakpoint-max-value: null
     @if $breakpoint-index < length($breakpoints-keys)
-      $breakpoint-max-value: nth($breakpoints-values, $breakpoint-index + 1) - $down-value
+      $breakpoint-max-value: nth($breakpoints-values, $breakpoint-index + 1) - $minus-value
     @else
       $breakpoint-max-value: null
     @if $breakpoint-max-value and $breakpoint-max-value > 0
@@ -46,19 +46,19 @@
 
 
 
-=media-width($breakpoint, $only-breakpoint: false)
-  $down-value: if($only-breakpoint, 1, 0)
-  +_media-query($breakpoint-width-pxs, $breakpoint, width, $down-value)
+=media-width($breakpoint, $less-than-next: false)
+  $minus-value: if($less-than-next, 1, 0)
+  +_media-query($breakpoint-width-pxs, $breakpoint, width, $minus-value)
     @content
 
-=media-resolution($breakpoint, $only-breakpoint: false)
-  $down-value: if($only-breakpoint, 9.6, 0)
-  +_media-query($breakpoint-resolutions, $breakpoint, resolution, $down-value)
+=media-resolution($breakpoint, $less-than-next: false)
+  $minus-value: if($less-than-next, 9.6, 0)
+  +_media-query($breakpoint-resolutions, $breakpoint, resolution, $minus-value)
     @content
 
-=media-aspect-ratio($breakpoint, $only-breakpoint: false)
-  $down-value: if($only-breakpoint, 0.0001, 0)
-  +_media-query($breakpoint-aspect-ratios, $breakpoint, aspect-ratio, $down-value)
+=media-aspect-ratio($breakpoint, $less-than-next: false)
+  $minus-value: if($less-than-next, 0.0001, 0)
+  +_media-query($breakpoint-aspect-ratios, $breakpoint, aspect-ratio, $minus-value)
     @content
 
 =media-print
