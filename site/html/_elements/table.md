@@ -306,74 +306,61 @@ The `.table-hover` class enhances hovered table row styles, a highlight backgrou
 
 ### Striped
 ``` sass
-$table-head-background: $background-muted !default
+$table-head-background: $background-color-muted !default
 ```
-Table head background.
 {: .mb-small}
 
 ``` sass
-$table-row-even-background: $background-muted !default
+$table-row-even-background: $background-color-muted !default
 ```
-Even row background.
 {: .mb-small}
 
 ``` sass
-$table-row-odd-background: $background-main !default
+$table-row-odd-background: $background-color-main !default
 ```
-Odd row background.
 {: .mb-small}
-
 
 ### Borders
 ``` sass
 $table-border-style: solid !default
 ```
-Border table border style.
 {: .mb-small}
 
 ``` sass
-$table-border-width: 1px !default
+$table-border-width: $line-width-main !default
 ```
-Border table border width.
 {: .mb-small}
 
 ``` sass
 $table-border-color: $line-color-main !default
 ```
-Border table border color.
 {: .mb-small}
 
 ``` sass
-$table-border-radius: null !default
+$table-border-radius: $border-radius-main !default
 ```
-Border table border radius.
-
 
 ### Hover
 ``` sass
-$table-row-hover-background: $background-emphasis !default
+$table-row-hover-background: $background-color-emphasis !default
 ```
-Row background when hovered.
 {: .mb-small}
+
 ``` sass
 $table-row-hover-color: null !default
 ```
-Row color when hovered.
 
 ### Others
 ``` sass
-$table-cell-padding-rem: $space-small-rem !default
+$table-cell-padding-rem: $spacing-small-rem !default
 ```
-Table cell paddings.
 {: .mb-small}
 
 ``` sass
 $table-head-color: $color-emphasis !default
 ```
-Table head font color.
 {: .mb-small}
 
 ``` sass
 $table-body-color: $color-main !default
 ```
-Table body font color.

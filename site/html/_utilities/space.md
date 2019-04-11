@@ -1,10 +1,14 @@
 ---
-title: Space
-description: Use space utilities to control an elment's margin and padding responsively.
+title: Spacing
+description: Use spacing utilities to control an elment's margin and padding responsively.
 ---
 
+
+{% include variables.html %}
+
+
 ## Introduction
-All space utilities are extend with [screen width breakpoint postfixes]() for responsive control. Margin utility classes are named using the format `.m{direction}-{value}-{breakpoint}`, and padding utilities are named using the format `.p{direction}-{value}-{breakpoint}`. It means all directions if the `{direction}` part is not included.
+All space utilities are extend with [the screen width breakpoint postfixes]({{ width_breakpoints }}) for responsive control. Margin utility classes are named using the format `.m{direction}-{value}-{breakpoint}`, and padding utilities are named using the format `.p{direction}-{value}-{breakpoint}`. It means all directions if the `{direction}` part is not included.
 
 We use shorthand class names and meaningful value words for these utilities, all abbreviations and value words are listed in the below tables.
 
@@ -57,3 +61,27 @@ In the below example, we control elements' margins and paddings according to scr
   {{ space }}
 </div>
 ``` html{{ space }}```
+
+
+
+## Sass Variables
+{: .mb-small}
+
+``` sass
+$spacing-tiny-rem: $spacing-base-rem / 2 !default
+```
+{: .mb-small}
+
+``` sass
+$spacing-small-rem: $spacing-base-rem !default
+```
+{: .mb-small}
+
+``` sass
+$spacing-medium-rem: $spacing-base-rem * 2 !default
+```
+{: .mb-small}
+
+``` sass
+$spacing-large-rem: $spacing-base-rem * 4 !default
+```

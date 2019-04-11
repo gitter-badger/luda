@@ -3,9 +3,13 @@ title: Size
 description: Use size utilities to control an element's width and height responsively.
 ---
 
+
+{% include variables.html %}
+
+
 ## Size
 
-Size utility classes are extended with [screen width breakpoint postfixes](), they can be used to control an element's size responsively. Width classes are named using the format: `.w-{value}-{breakpoint}`, and height classes are named using the format: `.h-{value}-{breakpoint}`. The value can be one of `25`, `33`, `50`, `66`, `75`, `100` and `auto`.
+Size utility classes are extended with [the screen width breakpoint postfixes]({{ width_breakpoints }}), they can be used to control an element's size responsively. Width classes are named using the format: `.w-{value}-{breakpoint}`, and height classes are named using the format: `.h-{value}-{breakpoint}`. The value can be one of `25`, `33`, `50`, `66`, `75`, `100` and `auto`.
 
 Let's see the below examples for detail.
 

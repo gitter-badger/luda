@@ -173,20 +173,18 @@ In the below example, we use the `.media-content-1by1` class to change the conta
 
 
 ## Sass Variables
+{: .mb-small}
 
 ``` sass
-$media-background-color: $background-muted !default
+$media-background-color: $background-color-muted !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $media-border-radius: $border-radius-main !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $media-content-aspect-ratio: 16 / 9 !default
 ```
-Description.

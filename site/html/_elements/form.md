@@ -391,85 +391,73 @@ Add the `.fm-label-large` class to to make a form label larger.
 ``` sass
 $form-element-inline-width-rem: 18rem !default
 ```
-Description.
 {: .mb-small}  
 
 ``` sass
 $form-element-small-inline-width-rem: 14rem !default
 ```
-Description.
 {: .mb-small}  
 
 ``` sass
 $form-element-large-inline-width-rem: 22rem !default
 ```
-Description.
-{: .mb-small}
-``` sass
-$form-element-text-helvertical-padding-em: strip-unit($space-small-rem) * 1em !default
-```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-textfield-height-rem: 3rem !default
+$form-element-horizontal-padding-em: strip-unit($spacing-small-rem) * 1em !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-small-textfield-height-rem: 2rem !default
+$form-element-height-rem: 3rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-large-textfield-height-rem: 4rem !default
+$form-element-small-height-rem: 2rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-textarea-height-rem: 9rem !default
+$form-element-large-height-rem: 4rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-small-textarea-height-rem: 6rem !default
+$form-element-multiple-rows-height-rem: 9rem !default
 ```
-Description.
+Set the height of multiple select field and textarea.
 {: .mb-small}
 
 ``` sass
-$form-element-large-textarea-height-rem: 12rem !default
+$form-element-multiple-rows-small-height-rem: 6rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-checkfield-height-em: 1.4em !default
+$form-element-multiple-rows-large-height-rem: 12rem !default
 ```
-Description.
+{: .mb-small}
+
+``` sass
+$form-element-checkfield-size-em: 1.4em !default
+```
+Set the width and the height of checkboxes and radios.
 {: .mb-small}
 
 ``` sass
 $form-element-track-height-em: 0.4em !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $form-element-thumb-height-em: 1.4em !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $form-element-thumb-width-em: 1.4em !default
 ```
-Description.
-
 
 
 
@@ -477,300 +465,249 @@ Description.
 ``` sass
 $form-element-typography-size-level: 5 !default
 ```
-Description.
 {: .mb-small}  
 
 ``` sass
 $form-element-small-typography-size-level: 6 !default
 ```
-Description.
 {: .mb-small}  
 
 ``` sass
 $form-element-large-typography-size-level: 4 !default
 ```
-Description.
-
 
 
 ### Borders
 ``` sass
-$form-element-border-width: 1px !default
+$form-element-border-width: $line-width-main !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $form-element-border-style: solid !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $form-element-border-radius: $border-radius-main !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $form-element-border-color: $line-color-main !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-error-border-color: $line-color-danger !default
+$form-element-border-color-on-error: $line-color-danger !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-focus-border-color: $line-color-primary !default
+$form-element-border-color-on-focus: $line-color-primary !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $form-element-track-border-radius: $border-radius-main !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $form-element-thumb-border-radius: 100% !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $form-element-thumb-border-color: transparent !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-error-thumb-border-color: $form-element-error-border-color !default
+$form-element-thumb-border-color-on-error: $form-element-border-color-on-error !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-focus-thumb-border-color: null !default
+$form-element-thumb-border-color-on-focus: null !default
 ```
-Description.
-
 
 
 ### Colors
 ``` sass
 $form-element-color: $color-main !default
 ```
-Description.
 {: .mb-small}  
 
 ``` sass
-$form-element-error-color: null !default
+$form-element-color-on-error: null !default
 ```
-Description.
 {: .mb-small}  
 
 ``` sass
-$form-element-focus-color: null !default
+$form-element-color-on-focus: null !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-placeholder-color: $color-muted !default
+$form-placeholder-color: $color-muted !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-error-placeholder-color: null !default
+$form-placeholder-color-on-error: null !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-focus-placeholder-color: null !default
+$form-placeholder-color-on-focus: null !default
 ```
-Description.
-
+{: .mb-small}
 
 
 ### Backgrounds
 ``` sass
-$form-element-background: $background-main !default
+$form-element-background: $background-color-main !default
 ```
-Description.
 {: .mb-small}  
 
 ``` sass
-$form-element-focus-background: null !default
+$form-element-background-on-focus: null !default
 ```
-Description.
 {: .mb-small}  
 
 ``` sass
-$form-element-error-background: null !default
+$form-element-background-on-error: null !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-track-background: darken($background-muted, 4%) !default !default
+$form-element-track-background: darken($background-color-muted, 4%) !default !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-focus-track-background: null !default
+$form-element-track-background-on-focus: null !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-error-track-background: null !default
+$form-element-track-background-on-error: null !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $form-element-thumb-background: $form-element-track-background !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-error-thumb-background: null !default
+$form-element-thumb-background-on-error: null !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-focus-thumb-background: $background-color-primary !default
+$form-element-thumb-background-on-focus: $background-color-primary !default
 ```
-Description.
-
 
 
 ### Shadows
 ``` sass
 $form-element-box-shadow: null !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-focus-box-shadow: null !default
+$form-element-box-shadow-on-focus: null !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-error-box-shadow: null !default
+$form-element-box-shadow-on-error: null !default
 ```
-Description.
-
 
 
 ### Icons
 ``` sass
 $form-element-icon-size-em: 1.286em !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $form-element-icon-color: $form-element-border-color !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-error-icon-color: $form-element-error-border-color !default
+$form-element-icon-color-on-error: $form-element-border-color-on-error !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-focus-icon-color: $form-element-focus-border-color !default
+$form-element-icon-color-on-focus: $form-element-border-color-on-focus !default
 ```
-Description.
 {: .mb-small}
+
 ``` sass
 $form-element-search-icon: '<svg viewBox="..."><path fill="#fill"...</svg>' !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass    
 $form-element-select-icon: '<svg viewBox="..."><path fill="#fill"...</svg>' !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass    
 $form-element-add-icon: '<svg viewBox="..."><path fill="#fill"...</svg>' !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass    
 $form-element-checked-icon: '<svg viewBox="..."><path fill="#fill"...</svg>' !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $form-element-checked-icon-color: $form-element-color !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-error-checked-icon-color: null !default
+$form-element-checked-icon-color-on-error: null !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-focus-checked-icon-color: null !default
+$form-element-checked-icon-color-on-focus: null !default
 ```
-Description.
-
 
 
 ### Helper
+
 ``` sass
-$form-element-helper-typography-size-level: 6 !default
+$form-helper-typography-size-level: 6 !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-small-helper-typography-size-level: null !default
+$form-helper-small-typography-size-level: null !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-large-helper-typography-size-level: 5 !default
+$form-helper-large-typography-size-level: 5 !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-hint-message-color: $color-muted !default
+$form-hint-color: $color-muted !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$form-element-error-message-color: $color-danger !default
+$form-error-color: $color-danger !default
 ```
-Description.
 
 
 
@@ -779,34 +716,28 @@ Description.
 ``` sass
 $form-label-typography-size-level: 5 !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $form-label-small-typography-size-level: 6 !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $form-label-large-typography-size-level: 4 !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $form-label-color: $color-emphasis !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $form-label-required-content: " | Required" !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $form-label-required-color: $color-danger !default
 ```
-Description.

@@ -60,3 +60,27 @@ just replace the `.fm-ico-left` class with `.fm-ico-right`.
   {{ right }}
 </div>
 ``` html{{ right }}```
+
+
+
+## Sass Variables
+{: .mb-small}
+
+``` sass
+$form-element-icon-size-em: 1.286em !default
+```
+{: .mb-small}
+
+``` sass
+$form-element-icon-color: $form-element-border-color !default
+```
+{: .mb-small}
+
+``` sass
+$form-element-error-icon-color: $form-element-error-border-color !default
+```
+{: .mb-small}
+
+``` sass
+$form-element-focus-icon-color: $form-element-focus-border-color !default
+```

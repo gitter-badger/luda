@@ -504,14 +504,15 @@ Grid can be nested, nested grids should be wrapped in a parent grid's column. Se
 
 
 ## Sass Variables
+{: .mb-small}
 
 ``` sass
 $grid-columns: 12 !default
 ```
-Column counts of grid. Value should be number.
+Set how many columns in a grid.
 {: .mb-small}
 
 ``` sass
-$grid-gutter-width-rem: $space-medium-rem !default
+$grid-gutter-width-rem: $spacing-medium-rem !default
 ```
-Horizontal padding with of each grid column. Value should be number.
+Set the horizontal padding of each grid column wrapped in a `.grid` container.

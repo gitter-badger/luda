@@ -16,33 +16,39 @@ In the below example, customized scrollbar styles will show for middle size and 
 
 
 ## Sass Variables
+{: .mb-small}
 
-### Webkit
+``` sass
+$scrollbar-width-breakpoint: m !default
+```
+The customized scrollbar styles will effect when screen width is equal to or larger than the specified breakpoint.
+{: .mb-small}
+
 ``` sass
 $scrollbar-breakpoint-vertical-width-rem: 0.5rem !default
 ```
-Vertical scrollbar width for webkit browsers. Value should be number.
+Vertical scrollbar width for webkit browsers.
 {: .mb-small}
 
 ``` sass
 $scrollbar-breakpoint-horizontal-height-rem: 0.5rem !default
 ```
-Horizontal scrollbar width for webkit browsers. Value should be number.
+Horizontal scrollbar height for webkit browsers.
 {: .mb-small}
 
 ``` sass
 $scrollbar-thumb-background: rgba($color-muted, $opacity-more-muted) !default
 ```
-Scrollbar thumb background for webkit browsers. Value can be any valid background value.
+Scrollbar thumb background for webkit browsers.
 {: .mb-small}
 
 ``` sass
 $scrollbar-thumb-border-radius: 0.5rem !default
 ```
-Scrollbar thumb border radius for webkit browsers. Value can be any valid border radius value.
+Scrollbar thumb border radius for webkit browsers.
+{: .mb-small}
 
-### Edge
 ``` sass
-$scrollbar-ie-edge-overflow-style: -ms-autohiding-scrollbar !default
+$scrollbar-edge-overflow-style: -ms-autohiding-scrollbar !default
 ```
-Scrollbar overflow style for edge browser.
+Scrollbar style for the edge browser.

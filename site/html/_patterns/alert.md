@@ -116,38 +116,31 @@ Finally, let's see a complex example.
 
 ### Sizes
 ``` sass
-$alert-padding-rem: $space-small-rem !default
+$alert-padding-rem: $spacing-small-rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$alert-action-margin-left-rem: $space-small-rem !default
+$alert-action-margin-left-rem: $spacing-small-rem !default
 ```
-Description.
 
 ### Others
 
 ``` sass
 $alert-background: $background-color-dark !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$alert-border-radius: 0 !default
+$alert-border-radius: $border-radius-main !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $alert-box-shadow: null !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $alert-content-color: $color-inverse-main !default
 ```
-Description.
-{: .mb-small}

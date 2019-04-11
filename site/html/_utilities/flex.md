@@ -3,6 +3,7 @@ title: Flex
 description: Use flexbox utilities to change flexbox properties responsively.
 ---
 
+{% include variables.html %}
 
 ## Introduction
 Flexbox is a widely used layout scenario in CSS, if you're not familiar with it, be sure to read
@@ -11,7 +12,7 @@ Flexbox is a widely used layout scenario in CSS, if you're not familiar with it,
 Flexbox utilities must be applied to flexbox containers or flexbox items,
 you can use the `.d-flex` class or the `.d-inline-flex` class to create a flexbox container.
 
-All flexbox utilities are extended with [screen width breakpoint postfixes]() for responsive control.
+All flexbox utilities are extended with [the screen width breakpoint postfixes]({{ width_breakpoints }}) for responsive control.
 
 
 ## Flex Direction

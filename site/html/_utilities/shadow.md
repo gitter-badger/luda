@@ -21,3 +21,22 @@ If you want to remove the shadow effects of an element, add the `.sd-none` class
   {{ shadow }}
 </div>
 ``` html{{ shadow }}```
+
+
+
+## Sass Variables
+{: .mb-small}
+
+``` sass
+$box-shadow-low: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.08) !default
+```
+{: .mb-small}
+
+``` sass
+$box-shadow-normal: 0 0.56rem 1.68rem rgba(0, 0, 0, 0.112) !default
+```
+{: .mb-small}
+
+``` sass
+$box-shadow-high: 0 0.784rem 2.352rem rgba(0, 0, 0, 0.1568) !default
+```

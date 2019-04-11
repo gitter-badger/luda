@@ -33,3 +33,37 @@ Pick up a z-index class, and add it to an element as below.
 <div class="zi-highest"></div>
 ```
 {: .mt-small}
+
+
+
+## Sass Variables
+{: .mb-small}
+
+``` sass
+$z-index-low: -1 !default
+```
+{: .mb-small}
+
+``` sass
+$z-index-normal: 0 !default
+```
+{: .mb-small}
+
+``` sass
+$z-index-high: 1 !default
+```
+{: .mb-small}
+
+``` sass
+$z-index-higher: 2 !default
+```
+{: .mb-small}
+
+``` sass
+$z-index-much-higher: 3 !default
+```
+{: .mb-small}
+
+``` sass
+$z-index-highest: 4 !default
+```

@@ -3,8 +3,12 @@ title: Text
 description: Use text utilities to control text alignment, font weight, font style and more of an element.
 ---
 
+
+{% include variables.html %}
+
+
 ## Text Alignment
-Text alignment utilities are extended with [screen width breakpoint postfixes]() for responsive control. They are named using the format `.ta-{direction}-{breakpoint}`. Let's preview their effects in the below examples.
+Text alignment utilities are extended with [the screen width breakpoint postfixes]({{ width_breakpoints }}) for responsive control. They are named using the format `.ta-{direction}-{breakpoint}`. Let's preview their effects in the below examples.
 
 {% capture left %}
 <p class="ta-left">

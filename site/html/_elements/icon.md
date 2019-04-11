@@ -99,14 +99,14 @@ If the thirdparty icon library included in your project need extra classes, don'
 
 
 ## Sass Variables
+{: .mb-small}
 
 ``` sass
 $icon-size-em: 1.15em !default
 ```
-Icon width and height size. Value should be number.
 {: .mb-small}
 
 ``` sass
 $icon-stroke-width: 2px !default
 ```
-Line width for css icons. Value should be number.
+Line width for css icons.

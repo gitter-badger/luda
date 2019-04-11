@@ -91,21 +91,27 @@ To create a horizontal navigation, we need wrap a `.grid` container inside like 
 
 
 
+
+## DOM Events
+
+``` javascript
+luda:tab:activated
+```
+Description.
+{: .mb-small}
+
+``` javascript
+luda:tab:deactivated
+```
+Description.
+
+
+
+
+
 ## Sass Variables
-
-``` sass
-$tab-panes-padding-top-rem: null !default
-```
-Description.
 {: .mb-small}
 
 ``` sass
-$tab-panes-padding-bottom-rem: null !default
+$tab-panes-padding-rem: null !default
 ```
-Description.
-{: .mb-small}
-
-``` sass
-$tab-panes-background: $background-main !default
-```
-Description.

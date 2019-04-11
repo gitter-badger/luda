@@ -297,13 +297,13 @@ Description.
 ## DOM Events
 
 ``` javascript
-luda:dropdown:actived
+luda:dropdown:activated
 ```
 Description.
 {: .mb-small}
 
 ``` javascript
-luda:dropdown:deactived
+luda:dropdown:deactivated
 ```
 Description.
 
@@ -315,41 +315,35 @@ Description.
 ``` sass
 $dropdown-width-breakpoint: m !default
 ```
-Description.
+Specify a width breakpoint for dropdowns. The layout of dropdowns have the `.dropdown-absolute-{breakpoint}` class will be changed if the screen width is equal to or wider than the breakpoint width.
 {: .mb-small}
 
 ``` sass
-$dropdown-static-menu-margin-left-rem: $space-small-rem !default
+$dropdown-static-menu-margin-left-rem: $spacing-small-rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $dropdown-absolute-max-height-rem: 33rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$dropdown-absolute-drop-gap-rem: $space-tiny-rem !default
+$dropdown-absolute-activated-gap-rem: $spacing-tiny-rem !default
 ```
-Description.
 
 
 ### Others
 ``` sass
 $dropdown-absolute-border-radius: $border-radius-main !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$dropdown-absolute-fixed-background: $background-main !default
+$dropdown-absolute-fixed-background: $background-color-main !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $dropdown-absolute-box-shadow: $box-shadow-normal !default
 ```
-Description.

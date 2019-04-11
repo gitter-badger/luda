@@ -38,3 +38,30 @@ Let's see how they change an element's opacity in the below gellery.
 <div class="o-more-muted"></div>
 <div class="o-most-muted"></div>
 ```
+
+## Sass Variables
+{: .mb-small}
+
+``` sass
+$opacity-emphasis: 1 !default
+```
+{: .mb-small}
+
+``` sass
+$opacity-main: 0.9 !default
+```
+{: .mb-small}
+
+``` sass
+$opacity-muted: 0.618 !default
+```
+{: .mb-small}
+
+``` sass
+$opacity-more-muted: 0.382 !default
+```
+{: .mb-small}
+
+``` sass
+$opacity-most-muted: 0.1 !default
+```

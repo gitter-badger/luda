@@ -26,8 +26,8 @@ Use the class `.overlay` to create a cover of the document viewport, and used th
 
 
 ## Sass Variables
+{: .mb-small}
 
 ``` sass
 $overlay-background: rgba($background-color-dark, $opacity-main) !default
 ```
-The background of overlay. Value can be any valid background value.

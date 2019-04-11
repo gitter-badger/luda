@@ -57,14 +57,14 @@ Disable toggle behaviour in an inside toggler.
 ## Javascript Methods
 
 ``` javascript
-luda.toggle.active(param)
+luda.toggle.activate(param)
 ```
 Shows a toggle target. Param can be a toggle target name or toggle target element.
 {: .mb-small}
 
 
 ``` javascript
-luda.toggle.deactive(param)
+luda.toggle.deactivate(param)
 ```
 Hides a toggle target. Param can be a toggle target name or toggle target element.
 {: .mb-small}
@@ -79,13 +79,13 @@ Shows or hides a toggle target depending on its state. Param can be a toggle tar
 ## Dom Events
 
 ``` javascript
-luda:toggle:actived
+luda:toggle:activated
 ```
 Triggered and bubbled after a toggle target showed.
 {: .mb-small}
 
 
 ``` javascript
-luda:toggle:deactived
+luda:toggle:deactivated
 ```
 Triggered and bubbled after a toggle target hided.

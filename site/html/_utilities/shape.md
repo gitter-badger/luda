@@ -126,3 +126,22 @@ Sharp utilities set the value of the `border-radius` property to `0`, so it's us
 <div style="border-radius: 10px" class="sharp-l"></div>
 <div style="border-radius: 10px" class="sharp"></div>
 ```
+
+
+
+## Sass Variables
+{: .mb-small}
+
+``` sass
+$border-radius-sharp: 0 !default
+```
+{: .mb-small}
+
+``` sass
+$border-radius-rounded: 2px !default
+```
+{: .mb-small}
+
+``` sass
+$border-radius-circle: 9999px !default
+```

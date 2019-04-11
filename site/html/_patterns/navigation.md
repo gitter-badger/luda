@@ -5,12 +5,12 @@ description: Learn how to create header navigation and aside navigation in Luda.
 
 
 ## Introduction
-The navigation component includes three parts, a logo, a navigation menu and an opener.
+The navigation component includes three parts, a logo, a navigation menu and an open button.
 The navigation menu includes four parts, main navigation items, sub navigation items,
-a search field and a closer.
+a search field and a close button.
 
-The opener and the closer only shows on small screens for opening and closing the navigation menu.
-Except the opener and the closer, all the other parts in the navigation component are optional.
+The open button and the close button only shows on small screens for opening and closing the navigation menu.
+Except the open button and the close button, all the other parts in the navigation component are optional.
 
 Based on the `position: sticky` rule, the navigation component will be sticky to the top of the
 viewport for middle size screens and larger screens.
@@ -182,148 +182,126 @@ like the below example.
 ## Sass Variables
 
 ### Sizes
+
 ``` sass
 $navigation-width-breakpoint: m !default
 ```
-Description.
+Specify a width breakpoint for header navigations and aside navigations. The layout of navigations will be changed if the screen width is equal to or wider than the breakpoint width.
 {: .mb-small}
 
 ``` sass
-$navigation-padding-rem: $space-tiny-rem $space-small-rem !default
+$navigation-padding-rem: $spacing-tiny-rem $spacing-small-rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$navigation-logo-margin-rem: 0 $space-small-rem !default
+$navigation-logo-margin-rem: 0 $spacing-small-rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $navigation-logo-image-height-rem: 2rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$navigation-open-margin-rem: 0 0 0 auto !default
+$navigation-open-button-margin-rem: 0 0 0 auto !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$navigation-close-margin-rem: $space-small-rem $space-small-rem 0 auto !default
+$navigation-close-button-margin-rem: $spacing-small-rem $spacing-small-rem 0 auto !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$navigation-search-margin-rem: $space-medium-rem !default
+$navigation-search-field-margin-rem: $spacing-medium-rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$navigation-items-margin-rem: $space-small-rem !default
+$navigation-items-margin-rem: $spacing-small-rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $navigation-sub-items-margin-rem: $navigation-items-margin-rem !default
 ```
-Description.
 
 
 #### Header Navigation Sizes
 ``` sass
-$navigation-header-breakpoint-search-margin-rem: 0 $space-small-rem !default
+$navigation-header-breakpoint-search-field-margin-rem: 0 $spacing-small-rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $navigation-header-breakpoint-items-margin-rem: 0 auto 0 0 !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $navigation-header-breakpoint-sub-items-margin-rem: 0 !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$navigation-header-breakpoint-search-width-rem: 16rem !default
+$navigation-header-breakpoint-search-field-width-rem: 16rem !default
 ```
-Description.
 
 
 #### Aside Navigation Sizes
 ``` sass
 $navigation-aside-breakpoint-padding-rem: 0 !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$navigation-aside-breakpoint-logo-margin-rem: 3 * $space-small-rem $space-medium-rem $space-small-rem !default
+$navigation-aside-breakpoint-logo-margin-rem: 3 * $spacing-small-rem $spacing-medium-rem $spacing-small-rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $navigation-aside-breakpoint-logo-image-height-rem: 7rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $navigation-aside-breakpoint-logo-image-width-rem: 9rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $navigation-aside-breakpoint-min-width-rem: 18rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $navigation-aside-breakpoint-max-width-rem: 20rem !default
 ```
-Description.
 
 
 ### Others
 ``` sass
 $navigation-background: $background-color-dark !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $navigation-header-breakpoint-dropdown-background: $navigation-background !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$navigation-header-box-shadow: $box-shadow-normal !default
+$navigation-header-box-shadow: null !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $navigation-aside-box-shadow: $navigation-header-box-shadow !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$navigation-aside-breakpoint-box-shadow: $box-shadow-normal !default
+$navigation-aside-breakpoint-box-shadow: none !default
 ```
-Description.

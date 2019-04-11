@@ -39,8 +39,8 @@ Disable a form element or a button.
 
 
 ## Sass Variables
+{: .mb-small}
 
 ``` sass
 $opacity-disabled: $opacity-muted !default
 ```
-Opacity of disabled elements, value should be Number, default value is `$opacity-muted`.

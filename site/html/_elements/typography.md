@@ -294,270 +294,238 @@ This mixin is used to import web fonts. `$locals`, `$urls` and `$unicodes` shoul
 
 ## Sass Variables
 
-### Global
-``` sass
-$typography-size-scale-ratio: constant-get(scale-ratios, minor-third) !default
-```
-Description.
-{: .mb-small}
-
-``` sass
-$typography-main-size-px: 14px !default
-```
-Description.
-{: .mb-small}
-
-``` sass
-$typography-main-size-level: 5 !default
-```
-Description.
-{: .mb-small}
-
-``` sass
-$typography-main-line-height-ratio: 26 / 14 !default
-```
-Description.
-
-
-### Paragraph
+### Body Texts
 
 ``` sass
 $typography-main: constant-get(typography-stacks, sans-serif) !default
 ```
-Description.
+Set the font family of body texts.
 {: .mb-small}
 
 ``` sass
 $typography-main-baseline-offset-ratio: constant-get(baseline-offset-ratios, "Helvetica Neue") !default
 ```
-Description.
+Set the baseline offset ratio of body texts for better baseline alignment.
+{: .mb-small}
+
+``` sass
+$typography-main-size-px: 14px !default
+```
+Set the font size of body texts. We don't use the value of this variable to set the `font-size` property of body directly, a calculated `rem` value will be used.
+{: .mb-small}
+
+``` sass
+$typography-main-line-height-ratio: 26 / 14 !default
+```
+Set the line height of body texts. The height of baseline is calculated through this variable and the `$typography-main-size-px` variable.
+{: .mb-small}
+
+``` sass
+$typography-main-size-level: 5 !default
+```
+Specify the font size level of body texts. The value must be an integer between 1 and 6.
+{: .mb-small}
+
+``` sass
+$typography-size-scale-ratio: constant-get(scale-ratios, minor-third) !default
+```
+Set the scale ratio of texts. Different level font sizes are calculated through this variable and the `$typography-main-size-level` variable.
 {: .mb-small}
 
 ``` sass
 $typography-main-color: $color-main !default
 ```
-Description.
+Set the color of body texts.
 
 
 ### Heading
 ``` sass
-$typography-lead: null !default
+$typography-heading: null !default
 ```
-Description.
+Set the font family of headings.
 {: .mb-small}
 
 ``` sass
-$typography-lead-baseline-offset-ratio: $typography-main-baseline-offset-ratio !default
+$typography-heading-baseline-offset-ratio: $typography-main-baseline-offset-ratio !default
 ```
-Description.
+Set the baseline offset ratio of headings for better baseline alignment.
 {: .mb-small}
 
 ``` sass
-$typography-lead-color: $color-emphasis !default
+$typography-heading-color: $color-emphasis !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$typography-lead-font-weight: 700 !default
+$typography-heading-font-weight: 700 !default
 ```
-Description.
-{: .mb-small}
-
 
 ### Code
 ``` sass
 $typography-code: constant-get(typography-stacks, code) !default
 ```
-Description.
+Set the font family of codes.
 {: .mb-small}
 
 ``` sass
 $typography-code-baseline-offset-ratio: constant-get(baseline-offset-ratios, "Courier New") !default
 ```
-Description.
+Set the baseline offset ratio of codes for better baseline alignment.
 {: .mb-small}
 
 ``` sass
 $typography-block-code-size-level: 6 !default
 ```
-Description.
+The value must be an integer between 1 and 6.
 {: .mb-small}
 
 ``` sass
-$typography-code-padding-em: 0.2em 0.4em !default
+$typography-code-padding-em: 0.1em 0.3em !default
 ```
-Description.
+Set the padding of inline codes.
 {: .mb-small}
 
 ``` sass
-$typography-code-background: $background-muted !default
+$typography-code-background: $background-color-muted !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $typography-code-color: $color-main !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$typography-code-border-radius: null !default
+$typography-code-border-radius: $border-radius-main !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$typography-code-block-padding-rem: 0 $space-medium-rem !default
+$typography-code-block-padding-rem: 0 $spacing-medium-rem !default
 ```
-Description.
-
 
 ### Quote
 ``` sass
 $typography-quote: null !default
 ```
-Description.
+Set the font family of quotations.
 {: .mb-small}
 
 ``` sass
 $typography-quote-baseline-offset-ratio: $typography-main-baseline-offset-ratio !default
 ```
-Description.
+Set the baseline offset ratio of quotations for better baseline alignment.
 {: .mb-small}
 
 ``` sass
 $typography-block-quote-size-level: 4 !default
 ```
-Description.
+The value must be an integer between 1 and 6.
 {: .mb-small}
 
 ``` sass
 $typography-cite-color: $color-muted !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$typography-quote-block-padding-rem: 3 * $space-small-rem $space-large-rem $space-medium-rem !default
+$typography-quote-block-padding-rem: 3 * $spacing-small-rem $spacing-large-rem $spacing-medium-rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$typography-quote-block-p-margin-rem: 0 auto $space-small-rem !default
+$typography-quote-block-p-margin-rem: 0 auto $spacing-small-rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$typography-quote-block-cite-lead-height: 1px !default
+$typography-quote-block-cite-line-height: $line-width-main !default
 ```
-Description.
 
 
 ### Link
 ``` sass
 $typography-link-text-decoration: underline !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $typography-link-hover-text-decoration: null !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $typography-link-active-text-decoration: null !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $typography-link-color: $color-main !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $typography-link-hover-color: $color-emphasis !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $typography-link-active-color: null !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $typography-link-light-color: $color-inverse-main !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $typography-link-light-hover-color: $color-inverse-emphasis !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $typography-link-light-active-color: null !default
 ```
-Description.
-
 
 ### List
 ``` sass
-$typography-list-nested-padding-em: 0 0 0 strip-unit($space-medium-rem) * 1em !default
+$typography-list-nested-padding-em: 0 0 0 strip-unit($spacing-medium-rem) * 1em !default
 ```
-Description.
+Set the padding of nested lists.
 
 
 ### Mark
 ``` sass
-$typography-mark-padding-em: 0.2em 0.4em !default
+$typography-mark-padding-em: 0.1em 0.3em !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$typography-mark-background: $background-emphasis !default
+$typography-mark-background: $background-color-emphasis !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $typography-mark-color: $color-primary !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $typography-mark-border-radius: $border-radius-main !default
 ```
-Description.
-
 
 ### Others
 ``` sass
 $typography-sub-sup-size: 100% / $typography-size-scale-ratio !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $typography-sub-bottom-offset-em: -0.25em !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $typography-sup-top-offset-em: -0.5em !default
 ```
-Description.

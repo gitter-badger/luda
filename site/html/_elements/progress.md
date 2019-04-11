@@ -57,46 +57,39 @@ In the below example, the progress bars' height is changed by adding an inline s
 ``` sass
 $progress-height-rem: 2rem !default
 ```
-Default height of progerss. Value should be number.
 {: .mb-small}
 
 ``` sass
 $progress-bar-min-width-em: 3em !default
 ```
-Min width of progress bar. Value should be number.
 {: .mb-small}
 
 ``` sass
-$progress-bar-padding: 0 $space-tiny-rem !default
+$progress-bar-padding: 0 $spacing-tiny-rem !default
 ```
-Padding of progress bar. Value can be any valid padding value.
 
 ### Others
 ``` sass
 $progress-bar-typography-size-level: 6 !default
 ```
-Progress bar font size level. Value should be between 1 ~ 6.
+The value must be an integer between 1 and 6.
 {: .mb-small}
 
 ``` sass
 $progress-bar-color: $color-inverse-main !default
 ```
-Color of progress bar. Value can be any valid color value.
 {: .mb-small}
 
 ``` sass
 $progress-border-radius: $border-radius-main !default
 ```
-Border radius of progress. Value can be any valid border radius value.
 {: .mb-small}
 
 ``` sass
-$progress-background: $background-muted !default
+$progress-background: $background-color-muted !default
 ```
-Background of progress. Value can be any valid background value.
 {: .mb-small}
 
 ``` sass
 $progress-bar-background: $background-color-primary !default
 ```
-Background of progress bar. Value can be any valid background value.

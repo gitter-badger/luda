@@ -202,3 +202,13 @@ In the below example, we wrap `.grid` containers in form groups to create anothe
   {{ grid_in_form_group }}
 </div>
 ``` html{{ grid_in_form_group }}```
+
+
+
+
+## Sass Variables
+{: .mb-small}
+
+``` sass
+$form-group-element-vertical-margin-rem: $spacing-small-rem !default
+```

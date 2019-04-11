@@ -100,145 +100,153 @@ data-carousel-wrap="true"
 Description.
 
 
+
+## DOM Events
+
+``` javascript
+luda:carousel:activate
+```
+Description.
+{: .mb-small}
+
+``` javascript
+luda:carousel:activated
+```
+Description.
+{: .mb-small}
+
+``` javascript
+luda:carousel:deactivate
+```
+Description.
+{: .mb-small}
+
+``` javascript
+luda:carousel:deactivated
+```
+Description.
+
+
+
 ## Sass Variables
 
 ### Sizes
 ``` sass
 $carousel-width-breakpoint: m !default
 ```
-Description.
+Specify a width breakpoint for carousels. The layout of carousels will be changed if the screen width is equal to or wider than the breakpoint width.
 {: .mb-small}
 
 ``` sass
 $carousel-aspect-ratio: 16 / 9 !default
 ```
-Description.
+The aspect ratio of the `.carousel-box` container.
 {: .mb-small}
 
 ``` sass
-$carousel-control-indicators-top-rem: $space-small-rem !default
+$carousel-indicators-top-spacing-rem: $spacing-small-rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$carousel-control-indicators-right-rem: $space-small-rem !default
+$carousel-indicators-right-spacing-rem: $spacing-small-rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$carousel-control-indicator-height-rem: 0.2rem !default
+$carousel-indicator-height-rem: 0.2rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $carousel-indicator-outline-offset-px: 2px !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$carousel-description-padding-rem: $space-small-rem !default
+$carousel-description-padding-rem: $spacing-small-rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$carousel-breakpoint-control-indicators-top-rem: $space-medium-rem !default
+$carousel-breakpoint-indicators-top-spacing-rem: $spacing-medium-rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$carousel-breakpoint-control-indicators-right-rem: $space-medium-rem !default
+$carousel-breakpoint-indicators-right-spacing-rem: $spacing-medium-rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$carousel-breakpoint-control-prev-left-rem: $space-small-rem !default
+$carousel-breakpoint-prev-button-left-spacing-rem: $spacing-small-rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$carousel-breakpoint-control-next-right-rem: $space-small-rem !default
+$carousel-breakpoint-next-button-right-spacing-rem: $spacing-small-rem !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$carousel-breakpoint-description-padding-rem: $space-medium-rem !default
+$carousel-breakpoint-description-padding-rem: $spacing-medium-rem !default
 ```
-Description.
 
 
 ### Animations
 ``` sass
-$carousel-control-opacity-transition-duration: 0.5s !default
+$carousel-transition-duration: $transition-duration-long !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$carousel-control-opacity-transition-timing-function: ease !default
+$carousel-transition-timing-function: $transition-timing-function-main !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$carousel-transition-duration: 1s !default
+$carousel-ani-opacity-transition-duration: $transition-duration-long !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$carousel-transition-timing-function: ease !default
+$carousel-ani-opacity-transition-timing-function: $transition-timing-function-main !default
 ```
-Description.
-{: .mb-small}
-
-``` sass
-$carousel-ani-opacity-transition-duration: 1s !default
-```
-Description.
-{: .mb-small}
-
-``` sass
-$carousel-ani-opacity-transition-timing-function: ease !default
-```
-Description.
 
 
 
 ### Others
 ``` sass
-$carousel-background: $background-muted !default
+$carousel-background: $background-color-muted !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $carousel-description-background: linear-gradient(180deg, transparent 0, rgba($background-color-dark, $opacity-most-muted) 2rem) !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
 $carousel-description-color: $color-inverse-main !default
 ```
-Description.
 {: .mb-small}
 
 ``` sass
-$carousel-control-opacity: $opacity-main !default
+$carousel-controls-opacity: $opacity-main !default
 ```
-Description.
+The opacity of the prev button, the next button and the indicators in the carousel.
 {: .mb-small}
 
 ``` sass
-$carousel-control-disabled-opacity: $opacity-more-muted !default
+$carousel-controls-disabled-opacity: $opacity-more-muted !default
 ```
-Description.
+{: .mb-small}
+
+``` sass
+$carousel-controls-opacity-transition-duration: $transition-duration-normal !default
+```
+{: .mb-small}
+
+``` sass
+$carousel-controls-opacity-transition-timing-function: $transition-timing-function-main !default
+```
