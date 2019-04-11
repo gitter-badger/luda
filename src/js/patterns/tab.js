@@ -10,13 +10,13 @@
     _Class = class extends luda.Component {
       
       // public
-      active(index) {
-        var activedIndex;
+      activate(index) {
+        var activatedIndex;
         if (this._$panes.length) {
-          activedIndex = this._activeIndex;
+          activatedIndex = this._activeIndex;
           if ((index != null) && index !== this._activeIndex && (0 <= index && index <= this._$panes.length - 1)) {
             this._activeIndex = index;
-            return this._active(activedIndex);
+            return this._activate(activatedIndex);
           }
         }
       }
@@ -38,22 +38,22 @@
 
       _constructor() {
         ({_$panes: this._$panes, _$indicators: this._$indicators, _activeIndex: this._activeIndex} = this._getConfig());
-        return this._active();
+        return this._activate();
       }
 
       _onMutations(mutations) {
         return this._constructor();
       }
 
-      _active(activedIndex) {
+      _activate(activatedIndex) {
         this._$panes.forEach(($pane, index) => {
           if (index === this._activeIndex) {
             $pane.classList.add(this.constructor._PANE_ACTIVE_CSS_CLASS);
-            return luda.dispatch($pane, this.constructor._ACTIVED_EVENT_TYPE, index);
+            return luda.dispatch($pane, this.constructor._ACTIVATED_EVENT_TYPE, index);
           } else {
             $pane.classList.remove(this.constructor._PANE_ACTIVE_CSS_CLASS);
-            if (index === activedIndex) {
-              return luda.dispatch($pane, this.constructor._DEACTIVED_EVENT_TYPE, index);
+            if (index === activatedIndex) {
+              return luda.dispatch($pane, this.constructor._DEACTIVATED_EVENT_TYPE, index);
             }
           }
         });
@@ -78,7 +78,7 @@
           var instance;
           if (this.checked) {
             instance = self.query(luda.$parent(self._SELECTOR, this));
-            return instance.active(instance._$indicators.indexOf(this));
+            return instance.activate(instance._$indicators.indexOf(this));
           }
         });
       }
@@ -97,9 +97,9 @@
 
     _Class._ACTIVE_INDEX = 0;
 
-    _Class._ACTIVED_EVENT_TYPE = `${_Class._SCOPE}:actived`;
+    _Class._ACTIVATED_EVENT_TYPE = `${_Class._SCOPE}:activated`;
 
-    _Class._DEACTIVED_EVENT_TYPE = `${_Class._SCOPE}:deactived`;
+    _Class._DEACTIVATED_EVENT_TYPE = `${_Class._SCOPE}:deactivated`;
 
     _Class._observerConfig = {
       childList: true,

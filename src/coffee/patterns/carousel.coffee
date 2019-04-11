@@ -236,7 +236,7 @@ luda class extends luda.Component
         luda.dispatch(this, self._DEACTIVATED_EVENT_TYPE, index)
     luda.on 'click', @_INDICATORS_SELECTOR, (e) ->
       instance = self.query luda.$parent self._SELECTOR, this
-      instance.active instance._$indicators.indexOf this
+      instance.activate instance._$indicators.indexOf this
     luda.on 'touchstart', @_SELECTOR, (e) ->
       self.query(this).pause()
     luda.on 'touchend', @_SELECTOR, (e) ->

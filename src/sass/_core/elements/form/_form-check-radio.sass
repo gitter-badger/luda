@@ -74,15 +74,6 @@
       +form-element-checkfield-background($form-element-checked-icon, $icon-color, $background)
     // sass-lint:enable empty-args
 
-    @if $form-element-background-on-error or $form-element-checked-icon-color-on-error
-      // sass-lint:disable empty-args
-      .fm.fm-check[data-error] input.focus:checked,
-      .fm.fm-radio[data-error] input.focus:checked
-        $icon-color: existing($form-element-checked-icon-color-on-focus, $form-element-checked-icon-color-on-error)
-        $background: form-element-background-on-error-and-focus()
-        +form-element-checkfield-background($form-element-checked-icon, $icon-color, $background)
-      // sass-lint:enable empty-args
-
 
 
   .fm-small.fm-check label,

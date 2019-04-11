@@ -47,11 +47,8 @@ The breakpoints and postfixes are listed in the below table, please check it for
 
 ### Configure Width Breakpoints in Sass
 {: .mb-small}
+{% include doc-sass-variable-breakpoints-width.md %}
 
-``` sass
-$breakpoint-width-pxs: (s: 0, m: 768px, l: 1200px) !default
-```
-You can override this variable according to your need, make sure the value is a sass map. Except the key of the first pair in the sass map, all the other keys are considered as postfixes which will be added to responsive components' class names.
 
 ### Detect Screen Width in Sass
 {: .mb-small}
@@ -97,11 +94,8 @@ The breakpoints and their abbreviations are listed in the below table, please ch
 
 ### Configure Aspect Ratio Breakpoints in Sass
 {: .mb-small}
+{% include doc-sass-variable-breakpoints-aspect-ratio.md %}
 
-``` sass
-$breakpoint-aspect-ratios: (p: 0, l: 1.0001) !default
-```
-You can override this variable according to your need, make sure the value is a map.
 
 ### Detect Aspect Ratio in Sass
 {: .mb-small}
@@ -153,11 +147,7 @@ The breakpoints and their abbreviations are listed in the below table, please ch
 
 ### Configure Resolution Breakpoints in Sass
 {: .mb-small}
-
-``` sass
-$breakpoint-resolutions: (l: 0, h: 105.6dpi, xh: 201.6dpi) !default
-```
-You can override this variable according to your need, make sure the value is a map.
+{% include doc-sass-variable-breakpoints-resolution.md %}
 
 ### Detect Resolution in Sass
 {: .mb-small}

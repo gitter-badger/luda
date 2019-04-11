@@ -10,24 +10,24 @@
     _Class = class extends luda.Component {
       
       // public
-      active(index) {
-        var action, activedIndex;
+      activate(index) {
+        var action, activatedIndex;
         if (this._$items.length && !this._transiting) {
-          activedIndex = this._activeIndex;
+          activatedIndex = this._activeIndex;
           if ((index != null) && index !== this._activeIndex && (0 <= index && index <= this._$items.length - 1)) {
             this._transiting = true;
             this._activeIndex = index;
-            action = index < activedIndex ? '_slidePrev' : '_slideNext';
-            return this[action](this._$items[activedIndex], activedIndex);
+            action = index < activatedIndex ? '_slidePrev' : '_slideNext';
+            return this[action](this._$items[activatedIndex], activatedIndex);
           }
         }
       }
 
       next() {
-        var activedIndex, index;
+        var activatedIndex, index;
         if (this._$items.length && !this._transiting) {
-          activedIndex = this._activeIndex;
-          index = activedIndex + 1;
+          activatedIndex = this._activeIndex;
+          index = activatedIndex + 1;
           if (index > this._$items.length - 1) {
             if (!this._wrap) {
               return;
@@ -36,17 +36,17 @@
           }
           this._transiting = true;
           this._activeIndex = index;
-          this._slideNext(this._$items[activedIndex], activedIndex);
+          this._slideNext(this._$items[activatedIndex], activatedIndex);
           this._playTimeStamp = Date.now();
           return this._pausedRemainTime = this._interval;
         }
       }
 
       prev() {
-        var activedIndex, index;
+        var activatedIndex, index;
         if (this._$items.length && !this._transiting) {
-          activedIndex = this._activeIndex;
-          index = activedIndex - 1;
+          activatedIndex = this._activeIndex;
+          index = activatedIndex - 1;
           if (index < 0) {
             if (!this._wrap) {
               return;
@@ -55,7 +55,7 @@
           }
           this._transiting = true;
           this._activeIndex = index;
-          this._slidePrev(this._$items[activedIndex], activedIndex);
+          this._slidePrev(this._$items[activatedIndex], activatedIndex);
           this._playTimeStamp = Date.now();
           return this._pausedRemainTime = this._interval;
         }
@@ -137,7 +137,7 @@
             $item.classList.remove(this.constructor._ITEM_NEXT_CSS_CLASS);
             $item.classList.remove(this.constructor._ITEM_ACTIVE_CSS_CLASS);
           } else {
-            luda.dispatch($item, this.constructor._ACTIVED_EVENT_TYPE, index);
+            luda.dispatch($item, this.constructor._ACTIVATED_EVENT_TYPE, index);
             $item.classList.add(this.constructor._ITEM_ACTIVE_CSS_CLASS);
             $item.classList.remove(this.constructor._ITEM_NEXT_CSS_CLASS);
             $item.classList.remove(this.constructor._ITEM_PREV_CSS_CLASS);
@@ -149,11 +149,11 @@
         return this._setDirectionControlState();
       }
 
-      _slideNext($activedItem, activedIndex) {
+      _slideNext($activatedItem, activatedIndex) {
         var $item;
         if (this._$items.length > 1) {
           $item = this._$items[this._activeIndex];
-          luda.dispatch($item, this.constructor._ACTIVE_EVENT_TYPE, this._activeIndex);
+          luda.dispatch($item, this.constructor._ACTIVATE_EVENT_TYPE, this._activeIndex);
           $item.style.transition = 'none';
           $item.classList.remove(this.constructor._ITEM_PREV_CSS_CLASS);
           $item.classList.add(this.constructor._ITEM_NEXT_CSS_CLASS);
@@ -161,19 +161,19 @@
           $item.style.transition = '';
           $item.classList.remove(this.constructor._ITEM_NEXT_CSS_CLASS);
           $item.classList.add(this.constructor._ITEM_ACTIVE_CSS_CLASS);
-          luda.dispatch($activedItem, this.constructor._DEACTIVE_EVENT_TYPE, activedIndex);
-          $activedItem.classList.remove(this.constructor._ITEM_ACTIVE_CSS_CLASS);
-          $activedItem.classList.add(this.constructor._ITEM_PREV_CSS_CLASS);
+          luda.dispatch($activatedItem, this.constructor._DEACTIVATE_EVENT_TYPE, activatedIndex);
+          $activatedItem.classList.remove(this.constructor._ITEM_ACTIVE_CSS_CLASS);
+          $activatedItem.classList.add(this.constructor._ITEM_PREV_CSS_CLASS);
           this._setIndicatorsState();
           return this._setDirectionControlState();
         }
       }
 
-      _slidePrev($activedItem, activedIndex) {
+      _slidePrev($activatedItem, activatedIndex) {
         var $item;
         if (this._$items.length > 1) {
           $item = this._$items[this._activeIndex];
-          luda.dispatch($item, this.constructor._ACTIVE_EVENT_TYPE, this._activeIndex);
+          luda.dispatch($item, this.constructor._ACTIVATE_EVENT_TYPE, this._activeIndex);
           $item.style.transition = 'none';
           $item.classList.remove(this.constructor._ITEM_NEXT_CSS_CLASS);
           $item.classList.add(this.constructor._ITEM_PREV_CSS_CLASS);
@@ -181,9 +181,9 @@
           $item.style.transition = '';
           $item.classList.remove(this.constructor._ITEM_PREV_CSS_CLASS);
           $item.classList.add(this.constructor._ITEM_ACTIVE_CSS_CLASS);
-          luda.dispatch($activedItem, this.constructor._DEACTIVE_EVENT_TYPE, activedIndex);
-          $activedItem.classList.remove(this.constructor._ITEM_ACTIVE_CSS_CLASS);
-          $activedItem.classList.add(this.constructor._ITEM_NEXT_CSS_CLASS);
+          luda.dispatch($activatedItem, this.constructor._DEACTIVATE_EVENT_TYPE, activatedIndex);
+          $activatedItem.classList.remove(this.constructor._ITEM_ACTIVE_CSS_CLASS);
+          $activatedItem.classList.add(this.constructor._ITEM_NEXT_CSS_CLASS);
           this._setIndicatorsState();
           return this._setDirectionControlState();
         }
@@ -218,15 +218,15 @@
           instance._transiting = false;
           index = instance._$items.indexOf(this);
           if (this.classList.contains(self._ITEM_ACTIVE_CSS_CLASS)) {
-            return luda.dispatch(this, self._ACTIVED_EVENT_TYPE, index);
+            return luda.dispatch(this, self._ACTIVATED_EVENT_TYPE, index);
           } else {
-            return luda.dispatch(this, self._DEACTIVED_EVENT_TYPE, index);
+            return luda.dispatch(this, self._DEACTIVATED_EVENT_TYPE, index);
           }
         });
         luda.on('click', this._INDICATORS_SELECTOR, function(e) {
           var instance;
           instance = self.query(luda.$parent(self._SELECTOR, this));
-          return instance.active(instance._$indicators.indexOf(this));
+          return instance.activate(instance._$indicators.indexOf(this));
         });
         luda.on('touchstart', this._SELECTOR, function(e) {
           return self.query(this).pause();
@@ -288,13 +288,13 @@
 
     _Class._FALSE = 'false';
 
-    _Class._ACTIVE_EVENT_TYPE = `${_Class._SCOPE}:active`;
+    _Class._ACTIVATE_EVENT_TYPE = `${_Class._SCOPE}:activate`;
 
-    _Class._ACTIVED_EVENT_TYPE = `${_Class._SCOPE}:actived`;
+    _Class._ACTIVATED_EVENT_TYPE = `${_Class._SCOPE}:activated`;
 
-    _Class._DEACTIVE_EVENT_TYPE = `${_Class._SCOPE}:deactive`;
+    _Class._DEACTIVATE_EVENT_TYPE = `${_Class._SCOPE}:deactivate`;
 
-    _Class._DEACTIVED_EVENT_TYPE = `${_Class._SCOPE}:deactived`;
+    _Class._DEACTIVATED_EVENT_TYPE = `${_Class._SCOPE}:deactivated`;
 
     _Class._observerConfig = {
       childList: true,

@@ -8,26 +8,26 @@
     var _Class;
 
     _Class = class extends luda.Singleton {
-      static active(name$target) {
+      static activate(name$target) {
         return this._query$targets(name$target).forEach(($target) => {
           $target.classList.add(this._ACTIVE_CSS_CLASS);
-          return luda.dispatch($target, this._ACTIVED_EVENT_TYPE);
+          return luda.dispatch($target, this._ACTIVATED_EVENT_TYPE);
         });
       }
 
-      static deactive(name$target) {
+      static deactivate(name$target) {
         return this._query$targets(name$target).forEach(($target) => {
           $target.classList.remove(this._ACTIVE_CSS_CLASS);
-          return luda.dispatch($target, this._DEACTIVED_EVENT_TYPE);
+          return luda.dispatch($target, this._DEACTIVATED_EVENT_TYPE);
         });
       }
 
       static toggle(name$target) {
         return this._query$targets(name$target).forEach(($target) => {
           if ($target.classList.contains(this._ACTIVE_CSS_CLASS)) {
-            return this.deactive($target);
+            return this.deactivate($target);
           } else {
-            return this.active($target);
+            return this.activate($target);
           }
         });
       }
@@ -89,9 +89,9 @@
 
     _Class._SELECTORS = [`[${_Class._TOGGLE_FOR_ATTRIBUTE}]`, `[${_Class._TOGGLE_ATTRIBUTE}]`];
 
-    _Class._ACTIVED_EVENT_TYPE = `${_Class._SCOPE}:actived`;
+    _Class._ACTIVATED_EVENT_TYPE = `${_Class._SCOPE}:activated`;
 
-    _Class._DEACTIVED_EVENT_TYPE = `${_Class._SCOPE}:deactived`;
+    _Class._DEACTIVATED_EVENT_TYPE = `${_Class._SCOPE}:deactivated`;
 
     return _Class;
 

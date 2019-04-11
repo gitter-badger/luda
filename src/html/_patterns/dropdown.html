@@ -270,11 +270,11 @@ title: Dropdown
 
   <script type="text/javascript">
     (function(){
-      luda.on('luda:dropdown:actived', '#dropdown-event-preview', function(e){
-        luda.$child('#dropdown-event-preview-note').innerHTML = 'actived'
+      luda.on('luda:dropdown:activated', '#dropdown-event-preview', function(e){
+        luda.$child('#dropdown-event-preview-note').innerHTML = 'activated'
       })
-      luda.on('luda:dropdown:deactived', '#dropdown-event-preview', function(e){
-        luda.$child('#dropdown-event-preview-note').innerHTML = 'deactived'
+      luda.on('luda:dropdown:deactivated', '#dropdown-event-preview', function(e){
+        luda.$child('#dropdown-event-preview-note').innerHTML = 'deactivated'
       })
     })()
   </script>

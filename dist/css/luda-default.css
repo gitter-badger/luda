@@ -898,19 +898,6 @@ html:not([data-focus-disabled]) .fm .focus {
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-100 0 600 500'%3E%3Cpath fill='%23fa73a0' d='M465.064,207.566l0.028,0H284.436V27.25c0-14.84-12.016-27.248-26.856-27.248h-23.116c-14.836,0-26.904,12.408-26.904,27.248v180.316H26.908c-14.832,0-26.908,12-26.908,26.844v23.248c0,14.832,12.072,26.78,26.908,26.78h180.656v180.968c0,14.832,12.064,26.592,26.904,26.592h23.116c14.84,0,26.856-11.764,26.856-26.592V284.438h180.624c14.84,0,26.936-11.952,26.936-26.78V234.41C492,219.566,479.904,207.566,465.064,207.566z'/%3E%3C/svg%3E") right 1em center/1.286em no-repeat, white;
 }
 
-.fm.fm-search[data-error] input.focus {
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'%3E%3Cpath fill='%23fa73a0' d='M983.1,908.7L702.1,625.9c114.2-150.9,102.6-366.6-35-504.2c-150.3-150.3-394.1-150.3-544.4,0c-150.3,150.3-150.3,394,0,544.4c137.5,137.5,353.1,149.2,504,35.2l281,282.8c9.2,9.2,24.2,9.2,33.5,0l41.9-41.9C992.3,932.9,992.3,917.9,983.1,908.7L983.1,908.7z M194.1,596.9c-110.4-110.4-110.4-289.4,0-399.7c110.4-110.4,289.4-110.4,399.8,0c110.4,110.4,110.4,289.3,0,399.7C483.4,707.3,304.5,707.3,194.1,596.9L194.1,596.9z'/%3E%3C/svg%3E") right 1em center/1.286em no-repeat;
-}
-
-.fm.fm-select[data-error] .focus ~ input,
-.fm.fm-select[data-error] input.focus {
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath fill='%23fa73a0' d='M2.16,6.246 C2.385,6.246 2.61,6.308 2.81,6.442 L9.039,10.598 L15.076,6.401 C15.617,6.042 16.346,6.188 16.705,6.729 C17.065,7.268 16.92,8 16.38,8.359 L9.692,12.989 C9.298,13.253 8.784,13.254 8.388,12.991 L1.508,8.402 C0.966,8.042 0.82,7.31 1.179,6.77 C1.407,6.429 1.78,6.246 2.16,6.246 L2.16,6.246 Z'%3E%3C/path%3E%3C/svg%3E") right 1em center/1.286em no-repeat;
-}
-
-.fm.fm-file[data-error] .focus ~ input {
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-100 0 600 500'%3E%3Cpath fill='%23fa73a0' d='M465.064,207.566l0.028,0H284.436V27.25c0-14.84-12.016-27.248-26.856-27.248h-23.116c-14.836,0-26.904,12.408-26.904,27.248v180.316H26.908c-14.832,0-26.908,12-26.908,26.844v23.248c0,14.832,12.072,26.78,26.908,26.78h180.656v180.968c0,14.832,12.064,26.592,26.904,26.592h23.116c14.84,0,26.856-11.764,26.856-26.592V284.438h180.624c14.84,0,26.936-11.952,26.936-26.78V234.41C492,219.566,479.904,207.566,465.064,207.566z'/%3E%3C/svg%3E") right 1em center/1.286em no-repeat;
-}
-
 .fm-small.fm-text input,
 .fm-small.fm-search input,
 .fm-small.fm-select input,
@@ -1762,7 +1749,7 @@ html:not([data-focus-disabled]) .fm .focus {
 .btn-check.btn-light label,
 .btn-radio.btn-light label,
 .btn-file.btn-light label {
-  color: #6b6b6b;
+  color: #525252;
   background: white;
   border-color: transparent;
 }
@@ -1905,7 +1892,7 @@ html:not([data-focus-disabled]) .fm .focus {
 
 .btn.btn-hollow-light:hover,
 .btn-file.btn-hollow-light input:hover ~ label {
-  color: #6b6b6b;
+  color: #525252;
   background: #fafafa;
   border-color: transparent;
 }
@@ -1918,7 +1905,7 @@ html:not([data-focus-disabled]) .fm .focus {
 .btn-check.btn-hollow-light.btn-active input ~ label,
 .btn-radio.btn-hollow-light.btn-active input ~ label,
 .btn-file.btn-hollow-light.btn-active input ~ label {
-  color: #6b6b6b;
+  color: #525252;
   background: whitesmoke;
   border-color: transparent;
 }
@@ -2387,6 +2374,14 @@ body:has(.overlay.toggle-active) {
   ::-webkit-scrollbar-thumb {
     background: rgba(209, 209, 209, 0.382);
     border-radius: 0.5rem;
+  }
+
+  ::-webkit-scrollbar-corner {
+    display: none;
+  }
+
+  ::-webkit-resizer {
+    display: none;
   }
 }
 .turbolinks-progress-bar {
@@ -3201,7 +3196,6 @@ body:has(.overlay.toggle-active) {
 .tab-panes {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  background: white;
 }
 
 .tab-pane {
@@ -3368,6 +3362,7 @@ body:has(.overlay.toggle-active) {
     padding: 0;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
+    box-shadow: none;
   }
 
   .nav-aside .nav-logo {
@@ -3496,7 +3491,7 @@ body:has(.overlay.toggle-active) {
   }
 }
 @media print {
-  .d-none-on-print {
+  .d-none-print {
     display: none !important;
   }
 }
@@ -3566,6 +3561,10 @@ body:has(.overlay.toggle-active) {
 
 .ac-around {
   align-content: space-around !important;
+}
+
+.ac-stretch {
+  align-content: stretch !important;
 }
 
 .ai-start {
@@ -3749,6 +3748,10 @@ body:has(.overlay.toggle-active) {
     align-content: space-around !important;
   }
 
+  .ac-stretch-m {
+    align-content: stretch !important;
+  }
+
   .ai-start-m {
     align-items: flex-start !important;
   }
@@ -3928,6 +3931,10 @@ body:has(.overlay.toggle-active) {
 
   .ac-around-l {
     align-content: space-around !important;
+  }
+
+  .ac-stretch-l {
+    align-content: stretch !important;
   }
 
   .ai-start-l {
@@ -5210,7 +5217,7 @@ body:has(.overlay.toggle-active) {
 }
 
 @media print {
-  .invisible-on-print {
+  .invisible-print {
     visibility: hidden !important;
   }
 }

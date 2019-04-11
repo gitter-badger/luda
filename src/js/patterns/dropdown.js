@@ -8,24 +8,24 @@
     var _Class;
 
     _Class = class extends luda.Component {
-      active() {
+      activate() {
         var ref;
-        if (!this._actived()) {
+        if (!this._isActive()) {
           this._$component.classList.add(this.constructor._ACTIVE_CSS_CLASS);
           this.constructor._$focused.push(document.activeElement);
           if ((ref = this._parent) != null) {
-            ref.active();
+            ref.activate();
           }
-          return luda.dispatch(this._$component, this.constructor._ACTIVED_EVENT_TYPE);
+          return luda.dispatch(this._$component, this.constructor._ACTIVATED_EVENT_TYPE);
         }
       }
 
-      deactive(focus) {
+      deactivate(focus) {
         var ref;
-        if (this._actived()) {
+        if (this._isActive()) {
           this._$component.classList.remove(this.constructor._ACTIVE_CSS_CLASS);
           this._children.forEach(function(child) {
-            return child.deactive();
+            return child.deactivate();
           });
           if (focus) {
             if ((ref = this.constructor._$focused[this.constructor._$focused.length - 1]) != null) {
@@ -33,21 +33,21 @@
             }
           }
           this.constructor._$focused.splice(this.constructor._$focused.length - 1, 1);
-          return luda.dispatch(this._$component, this.constructor._DEACTIVED_EVENT_TYPE);
+          return luda.dispatch(this._$component, this.constructor._DEACTIVATED_EVENT_TYPE);
         }
       }
 
       toggle(focus) {
-        if (this._actived()) {
-          return this.deactive(focus);
+        if (this._isActive()) {
+          return this.deactivate(focus);
         } else {
-          return this.active();
+          return this.activate();
         }
       }
 
       prev() {
         var focusIndex;
-        if (this._$items.length && this._actived()) {
+        if (this._$items.length && this._isActive()) {
           focusIndex = this._$items.indexOf(document.activeElement) - 1;
           if (focusIndex < 0) {
             focusIndex = 0;
@@ -58,7 +58,7 @@
 
       next() {
         var focusIndex;
-        if (this._$items.length && this._actived()) {
+        if (this._$items.length && this._isActive()) {
           focusIndex = this._$items.indexOf(document.activeElement) + 1;
           if (focusIndex > this._$items.length - 1) {
             focusIndex = this._$items.length - 1;
@@ -85,30 +85,30 @@
         return this._constructor();
       }
 
-      _actived() {
+      _isActive() {
         return this._$component.classList.contains(this.constructor._ACTIVE_CSS_CLASS);
       }
 
-      _deactiveChildrenExcept(exceptions) {
+      _deactivateChildrenExcept(exceptions) {
         if (exceptions && !(exceptions instanceof Array)) {
           exceptions = [exceptions];
         }
         if (exceptions) {
           return this._children.forEach(function(child) {
-            if (child._actived() && !exceptions.includes(child)) {
-              return child.deactive();
+            if (child._isActive() && !exceptions.includes(child)) {
+              return child.deactivate();
             }
           });
         } else {
           return this._children.forEach(function(child) {
-            if (child._actived()) {
-              return child.deactive();
+            if (child._isActive()) {
+              return child.deactivate();
             }
           });
         }
       }
 
-      static deactiveExcept(instances$dropdowns) {
+      static deactivateExcept(instances$dropdowns) {
         var exceptions;
         exceptions = [];
         if (instances$dropdowns && !(instances$dropdowns instanceof Array)) {
@@ -129,14 +129,14 @@
             instanceHasntExceptionChild = exceptions.every(function(exception) {
               return !instance._hasDescendant(exception);
             });
-            if (instance._actived() && instanceIsntInExceptions && instanceHasntExceptionChild) {
-              return instance.deactive();
+            if (instance._isActive() && instanceIsntInExceptions && instanceHasntExceptionChild) {
+              return instance.deactivate();
             }
           });
         } else {
           return this._instances.forEach(function(instance) {
-            if (instance._actived()) {
-              return instance.deactive();
+            if (instance._isActive()) {
+              return instance.deactivate();
             }
           });
         }
@@ -154,17 +154,17 @@
         var self;
         self = this;
         luda.onOpposite('click', this._SELECTOR, function(e) {
-          return self.deactiveExcept(self._standaloneInstances());
+          return self.deactivateExcept(self._standaloneInstances());
         });
         luda.on('click', this._SELECTOR, function(e) {
           var focus, instance, toggleChecked;
           if (instance = self.query(this)) {
             toggleChecked = false;
             focus = !e.detail;
-            self.deactiveExcept(self._standaloneInstances().concat(instance));
-            instance._deactiveChildrenExcept();
+            self.deactivateExcept(self._standaloneInstances().concat(instance));
+            instance._deactivateChildrenExcept();
             if (instance._parent) {
-              instance._parent._deactiveChildrenExcept(instance);
+              instance._parent._deactivateChildrenExcept(instance);
             }
             if (instance._$switches.length || instance._$noneSwitches.length) {
               luda.eventPath(e).some(function($path) {
@@ -182,23 +182,23 @@
           }
         });
         luda.onOpposite('keyup', this._SELECTOR, function(e) {
-          return self.deactiveExcept();
+          return self.deactivateExcept();
         });
         luda.on('keyup', this._SELECTOR, function(e) {
           var instance;
           if (e.keyCode === luda.KEY_TAB && (instance = self.query(this))) {
-            self.deactiveExcept(instance);
-            return instance.active();
+            self.deactivateExcept(instance);
+            return instance.activate();
           }
         });
         luda.on('keydown', this._SELECTOR, function(e) {
           var instance, ref;
           if (e.keyCode === luda.KEY_ESC && (instance = self.query(this))) {
             e.preventDefault();
-            if (instance._actived()) {
-              return instance.deactive(true);
+            if (instance._isActive()) {
+              return instance.deactivate(true);
             } else {
-              return (ref = instance._parent) != null ? ref.deactive(true) : void 0;
+              return (ref = instance._parent) != null ? ref.deactivate(true) : void 0;
             }
           }
         });
@@ -206,14 +206,14 @@
           var instance, ref, ref1;
           if ([luda.KEY_LEFT, luda.KEY_UP].includes(e.keyCode) && (instance = self.query(this))) {
             e.preventDefault();
-            if (instance._actived()) {
+            if (instance._isActive()) {
               return instance.prev();
             } else {
               return (ref = instance._parent) != null ? ref.prev() : void 0;
             }
           } else if ([luda.KEY_RIGHT, luda.KEY_DOWN].includes(e.keyCode) && (instance = self.query(this))) {
             e.preventDefault();
-            if (instance._actived()) {
+            if (instance._isActive()) {
               return instance.next();
             } else {
               return (ref1 = instance._parent) != null ? ref1.next() : void 0;
@@ -244,9 +244,9 @@
 
     _Class._ACTIVE_CSS_CLASS = 'dropdown-active';
 
-    _Class._ACTIVED_EVENT_TYPE = `${_Class._SCOPE}:actived`;
+    _Class._ACTIVATED_EVENT_TYPE = `${_Class._SCOPE}:activated`;
 
-    _Class._DEACTIVED_EVENT_TYPE = `${_Class._SCOPE}:deactived`;
+    _Class._DEACTIVATED_EVENT_TYPE = `${_Class._SCOPE}:deactivated`;
 
     _Class._observerConfig = {
       childList: true,

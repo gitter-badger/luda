@@ -74,20 +74,20 @@ title: Tab
 
 
 
-<div id="tab-event" class="mb-large">
+<div id="tab-event" class="mt-large">
   <h4><a href="#tab-event">#tab event</a></h4>
   <div class="tab" id="tab-event-preview">
     <nav class="btns-x tab-indicators">
       <div class="btn-radio btn-hollow-secondary">
-        <input type="radio" name="tab">
+        <input type="radio" name="tab_event">
         <label>Tab One</label>
       </div>
       <div class="btn-radio btn-hollow-secondary">
-        <input type="radio" name="tab">
+        <input type="radio" name="tab_event">
         <label>Tab Two</label>
       </div>
       <div class="btn-radio btn-hollow-secondary">
-        <input type="radio" name="tab">
+        <input type="radio" name="tab_event">
         <label>Tab Three</label>
       </div>
     </nav>
@@ -104,18 +104,18 @@ title: Tab
     </div>
   </div>
   <h5>
-    Actived: <span id="tab-event-preview-active-note"></span>
-    Deactived: <span id="tab-event-preview-deactive-note"></span>
+    Activated: <span id="tab-event-preview-activate-note"></span>
+    Deactivated: <span id="tab-event-preview-deactivate-note"></span>
   </h5>
   <script type="text/javascript">
     (function(){
       luda.on('luda:tab:activated', '#tab-event-preview', function(e){
         // console.log(e)
-        luda.$child('#tab-event-preview-active-note').innerHTML = e.detail
+        luda.$child('#tab-event-preview-activate-note').innerHTML = e.detail
       })
       luda.on('luda:tab:deactivated', '#tab-event-preview', function(e){
         // console.log(e)
-        luda.$child('#tab-event-preview-deactive-note').innerHTML = e.detail
+        luda.$child('#tab-event-preview-deactivate-note').innerHTML = e.detail
       })
     })()
   </script>

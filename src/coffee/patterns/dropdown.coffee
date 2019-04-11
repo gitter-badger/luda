@@ -101,7 +101,8 @@ luda class extends luda.Component
       exceptions = [exceptions]
     if exceptions
       @_children.forEach (child) ->
-        child.deactivate() if child._isActive() and not exceptions.includes child
+        if child._isActive() and not exceptions.includes child
+          child.deactivate()
     else
       @_children.forEach (child) ->
         child.deactivate() if child._isActive()

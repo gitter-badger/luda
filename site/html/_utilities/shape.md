@@ -132,16 +132,4 @@ Sharp utilities set the value of the `border-radius` property to `0`, so it's us
 ## Sass Variables
 {: .mb-small}
 
-``` sass
-$border-radius-sharp: 0 !default
-```
-{: .mb-small}
-
-``` sass
-$border-radius-rounded: 2px !default
-```
-{: .mb-small}
-
-``` sass
-$border-radius-circle: 9999px !default
-```
+{% include doc-sass-variable-shape.md %}

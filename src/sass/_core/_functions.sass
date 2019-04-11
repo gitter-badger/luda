@@ -223,18 +223,10 @@ $_CONSTANTS: (scale-ratios: (minor-second: 1.067, major-second: 1.125, minor-thi
   $icon-color: if($form-element-icon-color-on-error, $form-element-icon-color-on-error, $form-element-icon-color)
   @return $icon-color
 
-@function form-element-icon-color-on-error-and-focus()
-  $icon-color: if($form-element-icon-color-on-focus, $form-element-icon-color-on-focus, $form-element-icon-color-on-error)
-  @return $icon-color
-
 @function form-element-background-on-focus()
   $background: if($form-element-background-on-focus, $form-element-background-on-focus, $form-element-background)
   @return $background
 
 @function form-element-background-on-error()
   $background: if($form-element-background-on-error, $form-element-background-on-error, $form-element-background)
-  @return $background
-
-@function form-element-background-on-error-and-focus()
-  $background: if($form-element-background-on-focus, $form-element-background-on-focus, $form-element-background-on-error)
   @return $background

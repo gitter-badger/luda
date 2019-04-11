@@ -8,7 +8,7 @@
     var _Class;
 
     _Class = class extends luda.Singleton {
-      static _actived() {
+      static _isActive() {
         return !document.documentElement.hasAttribute(this._DISABLED_ATTRIBUTE);
       }
 
@@ -27,7 +27,7 @@
       }
 
       static _changeFocusStateOnKeyEvent(e) {
-        if (this._actived()) {
+        if (this._isActive()) {
           this._removeFocusClassExcept(e.target);
           return this._addFocusClassExceptHtmlAndBody(e.target);
         }
@@ -35,7 +35,7 @@
 
       static _changeFocusStateOnMouseDownEvent(e) {
         var target;
-        if (this._actived()) {
+        if (this._isActive()) {
           if (e.target.matches(this._PARENT_FOCUS_CHILDREN_SELECTOR)) {
             target = luda.$parent(this._PARENT_FOCUS_SELECTOR, e.target);
           } else {
@@ -57,14 +57,14 @@
         self = this;
         HTMLElement.prototype.focus = function() {
           focus.apply(this, arguments);
-          if (self._actived() && document.activeElement === this) {
+          if (self._isActive() && document.activeElement === this) {
             self._removeFocusClassExcept(this);
             return self._addFocusClassExceptHtmlAndBody(this);
           }
         };
         return HTMLElement.prototype.blur = function() {
           blur.apply(this, arguments);
-          if (self._actived()) {
+          if (self._isActive()) {
             return this.classList.remove(self._CSS_CLASS);
           }
         };

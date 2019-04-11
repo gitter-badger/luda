@@ -29,7 +29,7 @@ luda class extends luda.Component
       and index isnt @_activeIndex \
       and 0 <= index <= @_$panes.length - 1
         @_activeIndex = index
-        @_active(activatedIndex)
+        @_activate(activatedIndex)
 
   # private
   _getConfig: ->

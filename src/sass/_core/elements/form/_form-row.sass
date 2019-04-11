@@ -113,23 +113,7 @@
 
     .fm.fm-file .focus ~ input
       +form-element-background($form-element-file-icon, $icon-color, $background)
-
-    @if $form-element-background-on-error or $form-element-icon-color-on-error
-      // sass-lint:disable empty-args
-      $focus-icon-color: form-element-icon-color-on-error-and-focus()
-      $focus-background: form-element-background-on-error-and-focus()
-      // sass-lint:enable empty-args
-
-      .fm.fm-search[data-error] input.focus
-        +form-element-background($form-element-search-icon, $focus-icon-color, $focus-background)
-
-      .fm.fm-select[data-error] .focus ~ input,
-      .fm.fm-select[data-error] input.focus
-        +form-element-background($form-element-select-icon, $focus-icon-color, $focus-background)
-
-      .fm.fm-file[data-error] .focus ~ input
-        +form-element-background($form-element-file-icon, $focus-icon-color, $focus-background)
-    +_sass-lint-fix-if-else
+  +_sass-lint-fix-if-else
 
 
 
