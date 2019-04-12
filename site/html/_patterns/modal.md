@@ -58,12 +58,10 @@ Let's see the below example for detail.
 ``` sass
 $modal-padding-rem: $spacing-medium-rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $modal-in-overlay-max-width-rem: 46.153846rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $modal-in-overlay-min-width-rem: 24.615384rem !default
@@ -73,12 +71,10 @@ $modal-in-overlay-min-width-rem: 24.615384rem !default
 ``` sass
 $modal-background: $background-color-muted !default
 ```
-{: .mb-small}
 
 ``` sass
 $modal-border-radius: $border-radius-main !default
 ```
-{: .mb-small}
 
 ``` sass
 $modal-box-shadow: null !default

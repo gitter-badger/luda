@@ -187,5 +187,4 @@ Sass modular import is the same to [Sprokets Apps]().
 
 Hanami team is considering add Webpack support in v2, but before that you have to manually handle Javascript dependencies if thirdparty assets management gems not installed. That's really old time fashion, and can be painful for large project devloping and maintainance.
 
-
 If you want to import Luda JavaScript modularly before Hanami v2, I strongly recommend use thridparty assets manager instead. Otherwise, you have to dive into Luda source code to figure out Javascript dependencies.

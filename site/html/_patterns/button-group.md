@@ -104,12 +104,10 @@ If you want to split buttons in a button group, you can add the `.btns-margin` c
 
 
 ## Sass Variables
-{: .mb-small}
 
 ``` sass
 $button-group-box-shadow: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-group-buttons-margin-rem: 0 $spacing-small-rem $spacing-small-rem 0 !default

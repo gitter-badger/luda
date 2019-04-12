@@ -7,8 +7,11 @@ description: Use float utilities to control elements' float properties responsiv
 ## Introduction
 Float utilities are classes for setting the value of the [`float`](https://developer.mozilla.org/en-US/docs/Web/CSS/float) property, they
 are responsive and named using the format: `.f-{value}-{breakpoint}`. The value can be one of `left`,
-`right` and `none`. To clear float, use the `.clear` class. Let's see the below examples for detail.
+`right` and `none`. To clear float, use the `.clear` class.
 
+Let's see the below examples for detail.
+
+## Examples
 {% capture float %}
 <div class="clear bc-dark">
   <p class="f-left f-right-l px-medium bc-primary c-light">.f-left.f-right-l</p>

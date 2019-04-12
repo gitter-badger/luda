@@ -20,12 +20,10 @@ The container is just a simple `<div>`, it has surround paddings and a max width
 
 
 ## Sass Variables
-{: .mb-small}
 
 ``` sass
 $container-max-width-rem: 105.076923rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $container-padding-rem: $spacing-medium-rem $spacing-small-rem !default

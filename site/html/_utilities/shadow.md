@@ -10,6 +10,7 @@ There're three built-in shadow classes, `.sd-low`, `.sd-normal` and `.sd-high`. 
 
 If you want to remove the shadow effects of an element, add the `.sd-none` class to it.
 
+## Examples
 {% capture shadow %}
 <p class="sd-low px-medium mb-medium">.sd-low</p>
 <p class="sd-normal px-medium mb-medium">.sd-normal</p>
@@ -23,7 +24,6 @@ If you want to remove the shadow effects of an element, add the `.sd-none` class
 ``` html{{ shadow }}```
 
 
-
 ## Sass Variables
-{: .mb-small}
+
 {% include doc-sass-variable-shadow.md %}

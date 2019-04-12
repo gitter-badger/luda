@@ -7,12 +7,19 @@ description: Use size utilities to control an element's width and height respons
 {% include variables.html %}
 
 
-## Size
+## Responsive Sizes
 
-Size utility classes are extended with [the screen width breakpoint postfixes]({{ width_breakpoints }}), they can be used to control an element's size responsively. Width classes are named using the format: `.w-{value}-{breakpoint}`, and height classes are named using the format: `.h-{value}-{breakpoint}`. The value can be one of `25`, `33`, `50`, `66`, `75`, `100` and `auto`.
+Size utility classes are extended with
+[the screen width breakpoint postfixes]({{ width_breakpoints }}),
+they can be used to control an element's size responsively.
+Width classes are named using the format: `.w-{value}-{breakpoint}`,
+and height classes are named using the format: `.h-{value}-{breakpoint}`.
+The value can be one of `25`, `33`, `50`, `66`, `75`, `100` and `auto`.
 
 Let's see the below examples for detail.
 
+
+### Width
 {% capture width %}
 <div class="bc-dark">
   <p class="w-auto px-small d-inline-block va-top bc-primary c-light">.w-auto</p>
@@ -28,8 +35,8 @@ Let's see the below examples for detail.
   {{ width }}
 </div>
 ``` html{{ width }}```
-{: .mb-medium}
 
+### Height
 {% capture height %}
 <div class="d-flex bc-dark" style="height: 21rem">
   <p class="h-25 px-tiny bc-primary c-light">.h-25</p>
@@ -52,20 +59,12 @@ Let's see the below examples for detail.
 
 Size limitation utilities are not responsive, they're used to limit the size of an element.
 
+### Width Limitations
 The `.max-w-100` class limits the maximum width of an element to `100%`.
 
 The `.min-w-100` class limits the minimum width of an element to `100%`.
 
 The `.min-w-100vw` class limits the minimum width of an element to `100vw`.
-
-The `.max-h-100` class limits the maximum height of an element to `100%`.
-
-The `.min-h-100` class limits the minimum height of an element to `100%`.
-
-The `.min-h-100vh` class limits the minimum height of an element to `100vh`.
-
-
-
 
 {% capture max_w_100 %}
 <div class="bc-dark">
@@ -96,6 +95,14 @@ The `.min-h-100vh` class limits the minimum height of an element to `100vh`.
   {{ min_w_100vw }}
 </div>
 ``` html{{ min_w_100vw }}```
+
+
+### Height Limitations
+The `.max-h-100` class limits the maximum height of an element to `100%`.
+
+The `.min-h-100` class limits the minimum height of an element to `100%`.
+
+The `.min-h-100vh` class limits the minimum height of an element to `100vh`.
 
 
 {% capture max_h_100 %}

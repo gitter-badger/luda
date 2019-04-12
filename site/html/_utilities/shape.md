@@ -24,7 +24,7 @@ Shape utilities are classes for setting the value of the [`border-radius`](https
 ## Rounded
 Rounded shape utilities set a small `border-radius` value(2px by default) to an element. Let's see the effects in the below gallery.
 
-<div class="d-flex example">
+<div class="d-flex example mb-none">
   <div class="mr-small mb-small">
     <div class="p-medium rounded-t bc-primary"></div>
     <p class="p6 ta-center">.rounded-t</p>
@@ -60,7 +60,7 @@ Rounded shape utilities set a small `border-radius` value(2px by default) to an 
 ## Circle
 Circle utilities add a very large `border-radius` to an element to make it more rounded. Let's preview the effects in the below gallery.
 
-<div class="d-flex example">
+<div class="d-flex example mb-none">
   <div class="mr-small mb-small">
     <div class="p-medium circle-t bc-primary"></div>
     <p class="p6 ta-center">.circle-t</p>
@@ -96,7 +96,7 @@ Circle utilities add a very large `border-radius` to an element to make it more 
 ## Sharp
 Sharp utilities set the value of the `border-radius` property to `0`, so it's usally used to remove an element's border radius.
 
-<div class="d-flex example">
+<div class="d-flex example mb-none">
   <div class="mr-small mb-small">
     <div style="border-radius: 10px" class="p-medium sharp-t bc-primary"></div>
     <p class="p6 ta-center">.sharp-t</p>
@@ -130,6 +130,5 @@ Sharp utilities set the value of the `border-radius` property to `0`, so it's us
 
 
 ## Sass Variables
-{: .mb-small}
 
 {% include doc-sass-variable-shape.md %}

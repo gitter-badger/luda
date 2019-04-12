@@ -40,6 +40,5 @@ changed but the meanings keep the same.
 
 
 ## Sass Variables
-{: .mb-small}
 
 {% include doc-sass-variable-color.md %}

@@ -26,10 +26,8 @@ There are two types of theme variables, global variables and component variables
 ### Breakpoints
 
 {% include doc-sass-variable-breakpoints-width.md %}
-{: .mb-small}
 
 {% include doc-sass-variable-breakpoints-aspect-ratio.md %}
-{: .mb-small}
 
 {% include doc-sass-variable-breakpoints-resolution.md %}
 
@@ -39,7 +37,6 @@ There are two types of theme variables, global variables and component variables
 $spacing-base-rem: 1rem !default
 ```
 The base spacing size.
-{: .mb-small}
 
 {% include doc-sass-variable-spacing.md %}
 
@@ -72,62 +69,50 @@ $opacity-disabled: $opacity-muted !default
 ``` sass
 $line-width-main: 1px !default
 ```
-{: .mb-small}
 
 ``` sass
 $line-color-primary: $color-primary !default
 ```
-{: .mb-small}
 
 ``` sass
 $line-color-secondary: lighten($color-secondary, 30%) !default
 ```
-{: .mb-small}
 
 ``` sass
 $line-color-danger: $color-danger !default
 ```
-{: .mb-small}
 
 ``` sass
 $line-color-dark: $color-dark !default
 ```
-{: .mb-small}
 
 ``` sass
 $line-color-light: $color-light !default
 ```
-{: .mb-small}
 
 ``` sass
 $line-color-emphasis: $line-color-primary !default
 ```
-{: .mb-small}
 
 ``` sass
 $line-color-main: lighten($line-color-dark, 60%) !default
 ```
-{: .mb-small}
 
 ``` sass
 $line-color-muted: lighten($line-color-dark, 40%) !default
 ```
-{: .mb-small}
 
 ``` sass
 $line-color-inverse-emphasis: $line-color-primary !default
 ```
-{: .mb-small}
 
 ``` sass
 $line-color-inverse-main: rgba($line-color-light, $opacity-main) !default
 ```
-{: .mb-small}
 
 ``` sass
 $line-color-inverse-muted: rgba($line-color-light, $opacity-muted) !default
 ```
-{: .mb-small}
 
 {% include doc-sass-variable-shape.md %}
 
@@ -148,22 +133,18 @@ $box-shadow-inset-low: null !default
 ``` sass
 $box-shadow-inset-normal: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $box-shadow-inset-high: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $text-shadow-low: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $text-shadow-normal: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $text-shadow-high: null !default
@@ -173,17 +154,14 @@ $text-shadow-high: null !default
 ``` sass
 $transition-duration-short: 0.25s !default
 ```
-{: .mb-small}
 
 ``` sass
 $transition-duration-normal: 0.5s !default
 ```
-{: .mb-small}
 
 ``` sass
 $transition-duration-long: 1s !default
 ```
-{: .mb-small}
 
 ``` sass
 $transition-timing-function-main: ease !default
@@ -195,63 +173,51 @@ $transition-timing-function-main: ease !default
 $base-cursor: default !default
 ```
 The default cursor of html.
-{: .mb-small}
 
 ``` sass
 $base-word-break: break-word !default
 ```
 Set the word break rule of body texts.
-{: .mb-small}
 
 ``` sass
 $base-text-underline-position: under !default
 ```
-{: .mb-small}
 
 ``` sass
 $base-text-rendering: optimizeLegibility !default
 ```
-{: .mb-small}
 
 ``` sass
 $base-webkit-font-smoothing: antialiased !default
 ```
-{: .mb-small}
 
 ``` sass
 $base-moz-font-smoothing: grayscale !default
 ```
-{: .mb-small}
 
 ``` sass
 $base-tap-highlight-color: transparent !default
 ```
-{: .mb-small}
 
 ``` sass
 $base-webkit-touch-callout: none !default
 ```
-{: .mb-small}
 
 ``` sass
 $base-html-background: $background-color-inverse-muted !default
 ```
-{: .mb-small}
 
 ``` sass
 $base-body-min-height: 100vh !default
 ```
-{: .mb-small}
 
 ``` sass
 $base-body-background: $background-color-main !default
 ```
-{: .mb-small}
 
 ``` sass
 $base-selection-color: $color-inverse-main !default
 ```
-{: .mb-small}
 
 ``` sass
 $base-selection-background-color: $background-color-dark !default

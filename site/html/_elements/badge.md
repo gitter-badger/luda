@@ -46,17 +46,14 @@ We can change color and background of badges with color and background utilities
 ``` sass
 $badge-offset-top-em: -0.4em !default
 ```
-{: .mb-small}
 
 ``` sass
 $badge-offset-left-em: 0.4em !default
 ```
-{: .mb-small}
 
 ``` sass
 $badge-height-em: 1.2em !default
 ```
-{: .mb-small}
 
 ``` sass
 $badge-padding-em: 0.4em !default
@@ -66,7 +63,6 @@ $badge-padding-em: 0.4em !default
 ``` sass
 $badge-background: $background-color-primary !default
 ```
-{: .mb-small}
 
 ``` sass
 $badge-color: $color-inverse-emphasis !default

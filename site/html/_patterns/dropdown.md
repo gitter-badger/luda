@@ -107,7 +107,6 @@ Add the class `.dropdown-left` to an absolute dropdown to position its menu on t
   {{ left }}
 </div>
 ``` html{{ left }}```
-{: .mt-small}
 
 
 #### Align Right
@@ -275,37 +274,86 @@ The combination of these two classes means a fixed dropdown is prefered for smal
 
 ## HTML Attributes
 
-``` html
-data-dropdown-standalone
-```
-Description.
-{: .mb-small}
+### data-dropdown-standalone
 
 ``` html
-data-dropdown-toggle
+< div class="dropdown-absolute" data-dropdown-standalone>...</div>
 ```
-Description.
-{: .mb-small}
+Prevent the dropdown from being toggled
+unless the `click` event is triggered on itself or its descendant elements.
+
+### data-dropdown-toggle-disabled
 
 ``` html
-data-dropdown-toggle-disabled
+<div class="dropdown-items" data-dropdown-toggle-disabled>...</div>
 ```
-Description.
+Prevent the dropdown from being toggled
+when the `click` event is triggered on the specific element
+or the specific element's descendant elements.
 
+### data-dropdown-toggle
+
+``` html
+<div class="dropdown-items" data-dropdown-toggle-disabled>
+  <div class="btns-y">
+    <button data-dropdown-toggle class="btn btn-primary">Do something</button>
+    <button class="btn btn-primary">Close</button>
+  </div>
+</div>
+```
+Recover the ability of toggling the dropdown
+for the element and the element's descendant elements.
+
+
+## Javascript Methods
+
+### luda.dropdown.query(selector | element)
+``` javascript
+let myDropdown = luda.dropdown.query('#my-dropdown')
+```
+Query the Javascript instance of the dropdown through its CSS selector.
+
+``` javascript
+let $myDropdown = luda.$child('#my-dropdown')
+let myDropdown = luda.dropdown.query($myDropdown)
+```
+Query the Javascript instance of the dropdown through its element instance.
+
+### .activate()
+``` javascript
+myDropdown.activate()
+```
+Open the dropdown.
+
+### .deactivate()
+``` javascript
+myDropdown.deactivate()
+```
+Close the dropdown.
+
+### .toggle()
+``` javascript
+myDropdown.toggle()
+```
+Toggle the dropdown.
 
 ## DOM Events
 
+### luda:dropdown:activated
 ``` javascript
-luda:dropdown:activated
+luda.on('luda:dropdown:activated', '#my-dropdown', function(event){
+  let $myDropdown = this, $activatedDropdown = e.target
+})
 ```
-Description.
-{: .mb-small}
+Triggered after the `.dropdown-active` class added to the dropdown.
 
+### luda:dropdown:deactivated
 ``` javascript
-luda:dropdown:deactivated
+luda.on('luda:dropdown:deactivated', '#my-dropdown', function(event){
+  let $myDropdown = this, $deactivatedDropdown = e.target
+})
 ```
-Description.
-
+Triggered after the `.dropdown-active` class removed from the dropdown.
 
 
 ## Sass Variables
@@ -315,17 +363,14 @@ Description.
 $dropdown-width-breakpoint: m !default
 ```
 Specify a width breakpoint for dropdowns. The layout of dropdowns have the `.dropdown-absolute-{breakpoint}` class will be changed if the screen width is equal to or wider than the breakpoint width.
-{: .mb-small}
 
 ``` sass
 $dropdown-static-menu-margin-left-rem: $spacing-small-rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $dropdown-absolute-max-height-rem: 33rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $dropdown-absolute-activated-gap-rem: $spacing-tiny-rem !default
@@ -333,15 +378,14 @@ $dropdown-absolute-activated-gap-rem: $spacing-tiny-rem !default
 
 
 ### Others
+
 ``` sass
 $dropdown-absolute-border-radius: $border-radius-main !default
 ```
-{: .mb-small}
 
 ``` sass
 $dropdown-absolute-fixed-background: $background-color-main !default
 ```
-{: .mb-small}
 
 ``` sass
 $dropdown-absolute-box-shadow: $box-shadow-normal !default

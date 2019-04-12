@@ -351,19 +351,16 @@ If you want a button or a functional button ocuppy all the left space in horizon
 
 
 ## Sass Mixins
-{: .mb-small}
 
 ``` sass
 +button-solid($name: null, $color: null, $hover-color: null, $active-color: null, $background: null, $hover-background: null, $active-background: null, $border-color: null, $hover-border-color: null, $active-border-color: null, $box-shadow: null, $hover-box-shadow: null, $active-box-shadow: null)
 ```
 Use this mixin to create more solid buttons and functional solid buttons.
-{: .mb-small}
 
 ``` sass
 +button-hollow($name: null, $color: null, $hover-color: null, $active-color: null, $hover-background: null, $active-background: null, $border-color: null, $hover-border-color: null, $active-border-color: null, $box-shadow: null, $hover-box-shadow: null, $active-box-shadow: null)
 ```
 Use this mixin to create more hollow buttons and functional hollow buttons.
-{: .mb-small}
 
 ``` sass
 +button-text($name: null, $color: null, $hover-color: null, $active-color: null, $text-shadow: null, $hover-text-shadow: null, $active-text-shadow: null)
@@ -377,17 +374,14 @@ Use this mixin to create more text buttons and functional text buttons.
 ``` sass
 $button-height-rem: 3rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-small-height-rem: 2rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-large-height-rem: 4rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-helvertical-padding-em: strip-unit($spacing-small-rem) * 1em !default
@@ -398,12 +392,10 @@ $button-helvertical-padding-em: strip-unit($spacing-small-rem) * 1em !default
 ``` sass
 $button-typography-size-level: 5 !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-small-typography-size-level: 6 !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-large-typography-size-level: 4 !default
@@ -413,12 +405,10 @@ $button-large-typography-size-level: 4 !default
 ``` sass
 $button-border-width: $line-width-main !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-border-style: solid !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-border-radius: $border-radius-main !default
@@ -430,57 +420,46 @@ $button-border-radius: $border-radius-main !default
 ``` sass
 $button-primary-color: $color-inverse-main !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-primary-hover-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-primary-active-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-primary-background: $background-color-primary !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-primary-hover-background: darken($background-color-primary, 2%) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-primary-active-background: darken($background-color-primary, 4%) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-primary-border-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-primary-hover-border-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-primary-active-border-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-primary-box-shadow: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-primary-hover-box-shadow: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-primary-active-box-shadow: null !default
@@ -490,57 +469,46 @@ $button-primary-active-box-shadow: null !default
 ``` sass
 $button-secondary-color: $color-main !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-secondary-hover-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-secondary-active-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-secondary-background: $background-color-secondary !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-secondary-hover-background: darken($background-color-secondary, 2%) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-secondary-active-background: darken($background-color-secondary, 4%) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-secondary-border-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-secondary-hover-border-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-secondary-active-border-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-secondary-box-shadow: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-secondary-hover-box-shadow: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-secondary-active-box-shadow: null !default
@@ -550,57 +518,46 @@ $button-secondary-active-box-shadow: null !default
 ``` sass
 $button-danger-color: $color-inverse-main !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-danger-hover-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-danger-active-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-danger-background: $background-color-danger !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-danger-hover-background: darken($background-color-danger, 2%) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-danger-active-background: darken($background-color-danger, 4%) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-danger-border-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-danger-hover-border-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-danger-active-border-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-danger-box-shadow: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-danger-hover-box-shadow: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-danger-active-box-shadow: null !default
@@ -610,57 +567,46 @@ $button-danger-active-box-shadow: null !default
 ``` sass
 $button-dark-color: $color-inverse-main !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-dark-hover-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-dark-active-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-dark-background: $background-color-dark !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-dark-hover-background: darken($background-color-dark, 2%) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-dark-active-background: darken($background-color-dark, 4%) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-dark-border-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-dark-hover-border-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-dark-active-border-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-dark-box-shadow: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-dark-hover-box-shadow: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-dark-active-box-shadow: null !default
@@ -670,62 +616,50 @@ $button-dark-active-box-shadow: null !default
 ``` sass
 $button-light-color: $color-dark !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-light-hover-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-light-active-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-light-background: $background-color-light !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-light-hover-background: darken($background-color-light, 2%) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-light-active-background: darken($background-color-light, 4%) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-light-border-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-light-hover-border-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-light-active-border-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-light-box-shadow: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-light-hover-box-shadow: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-light-active-box-shadow: null !default
 ```
-{: .mb-small}
 
 
 
@@ -733,52 +667,42 @@ $button-light-active-box-shadow: null !default
 ``` sass
 $button-hollow-primary-color: $color-primary !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-primary-hover-color: existing($button-primary-hover-color, $button-primary-color) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-primary-active-color: existing($button-primary-active-color, $button-hollow-primary-hover-color) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-primary-hover-background: existing($button-primary-hover-background, $button-primary-background) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-primary-active-background: existing($button-primary-active-background, $button-hollow-primary-hover-background) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-primary-border-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-primary-hover-border-color: existing($button-primary-hover-border-color, $button-primary-border-color, transparent) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-primary-active-border-color: existing($button-primary-active-border-color, $button-hollow-primary-hover-border-color) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-primary-box-shadow: $button-primary-box-shadow !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-primary-hover-box-shadow: $button-primary-hover-box-shadow !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-primary-active-box-shadow: $button-primary-active-box-shadow !default
@@ -788,52 +712,42 @@ $button-hollow-primary-active-box-shadow: $button-primary-active-box-shadow !def
 ``` sass
 $button-hollow-secondary-color: $color-main !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-secondary-hover-color: existing($button-secondary-hover-color, $button-secondary-color) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-secondary-active-color: existing($button-secondary-active-color, $button-hollow-secondary-hover-color) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-secondary-hover-background: existing($button-secondary-hover-background, $button-secondary-background) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-secondary-active-background: existing($button-secondary-active-background, $button-hollow-secondary-hover-background) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-secondary-border-color: $line-color-secondary !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-secondary-hover-border-color: existing($button-secondary-hover-border-color, $button-secondary-border-color, transparent) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-secondary-active-border-color: existing($button-secondary-active-border-color, $button-hollow-secondary-hover-border-color) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-secondary-box-shadow: $button-secondary-box-shadow !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-secondary-hover-box-shadow: $button-secondary-hover-box-shadow !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-secondary-active-box-shadow: $button-secondary-active-box-shadow !default
@@ -843,52 +757,42 @@ $button-hollow-secondary-active-box-shadow: $button-secondary-active-box-shadow 
 ``` sass
 $button-hollow-danger-color: $color-danger !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-danger-hover-color: existing($button-danger-hover-color, $button-danger-color) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-danger-active-color: existing($button-danger-active-color, $button-hollow-danger-hover-color) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-danger-hover-background: existing($button-danger-hover-background, $button-danger-background) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-danger-active-background: existing($button-danger-active-background, $button-hollow-danger-hover-background) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-danger-border-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-danger-hover-border-color: existing($button-danger-hover-border-color, $button-danger-border-color, transparent) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-danger-active-border-color: existing($button-danger-active-border-color, $button-hollow-danger-hover-border-color) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-danger-box-shadow: $button-danger-box-shadow !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-danger-hover-box-shadow: $button-danger-hover-box-shadow !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-danger-active-box-shadow: $button-danger-active-box-shadow !default
@@ -898,52 +802,42 @@ $button-hollow-danger-active-box-shadow: $button-danger-active-box-shadow !defau
 ``` sass
 $button-hollow-dark-color: $color-dark !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-dark-hover-color: existing($button-dark-hover-color, $button-dark-color) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-dark-active-color: existing($button-dark-active-color, $button-hollow-dark-hover-color) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-dark-hover-background: existing($button-dark-hover-background, $button-dark-background) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-dark-active-background: existing($button-dark-active-background, $button-hollow-dark-hover-background) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-dark-border-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-dark-hover-border-color: existing($button-dark-hover-border-color, $button-dark-border-color, transparent) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-dark-active-border-color: existing($button-dark-active-border-color, $button-hollow-dark-hover-border-color) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-dark-box-shadow: $button-dark-box-shadow !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-dark-hover-box-shadow: $button-dark-hover-box-shadow !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-dark-active-box-shadow: $button-dark-active-box-shadow !default
@@ -953,52 +847,42 @@ $button-hollow-dark-active-box-shadow: $button-dark-active-box-shadow !default
 ``` sass
 $button-hollow-light-color: $color-light !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-light-hover-color: existing($button-light-hover-color, $button-light-color) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-light-active-color: existing($button-light-active-color, $button-hollow-light-hover-color) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-light-hover-background: existing($button-light-hover-background, $button-light-background) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-light-active-background: existing($button-light-active-background, $button-hollow-light-hover-background) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-light-border-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-light-hover-border-color: existing($button-light-hover-border-color, $button-light-border-color, transparent) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-light-active-border-color: existing($button-light-active-border-color, $button-hollow-light-hover-border-color) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-light-box-shadow: $button-light-box-shadow !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-light-hover-box-shadow: $button-light-hover-box-shadow !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-hollow-light-active-box-shadow: $button-light-active-box-shadow !default
@@ -1008,27 +892,22 @@ $button-hollow-light-active-box-shadow: $button-light-active-box-shadow !default
 ``` sass
 $button-text-primary-color: $color-primary !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-text-primary-hover-color: darken($color-primary, 10%) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-text-primary-active-color: $button-text-primary-hover-color !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-text-primary-text-shadow: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-text-primary-hover-text-shadow: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-text-primary-active-text-shadow: null !default
@@ -1038,27 +917,22 @@ $button-text-primary-active-text-shadow: null !default
 ``` sass
 $button-text-secondary-color: $color-secondary !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-text-secondary-hover-color: darken($color-secondary, 10%) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-text-secondary-active-color: $button-text-secondary-hover-color !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-text-secondary-text-shadow: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-text-secondary-hover-text-shadow: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-text-secondary-active-text-shadow: null !default
@@ -1068,27 +942,22 @@ $button-text-secondary-active-text-shadow: null !default
 ``` sass
 $button-text-danger-color: $color-danger !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-text-danger-hover-color: darken($color-danger, 5%) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-text-danger-active-color: $button-text-danger-hover-color !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-text-danger-text-shadow: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-text-danger-hover-text-shadow: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-text-danger-active-text-shadow: null !default
@@ -1098,27 +967,22 @@ $button-text-danger-active-text-shadow: null !default
 ``` sass
 $button-text-dark-color: lighten($color-dark, 10%) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-text-dark-hover-color: $color-dark !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-text-dark-active-color: $button-text-dark-hover-color !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-text-dark-text-shadow: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-text-dark-hover-text-shadow: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-text-dark-active-text-shadow: null !default
@@ -1128,27 +992,22 @@ $button-text-dark-active-text-shadow: null !default
 ``` sass
 $button-text-light-color: rgba($color-light, $opacity-muted) !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-text-light-hover-color: $color-light !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-text-light-active-color: $button-text-light-hover-color !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-text-light-text-shadow: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-text-light-hover-text-shadow: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-text-light-active-text-shadow: null !default

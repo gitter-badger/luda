@@ -64,7 +64,6 @@ just replace the `.fm-ico-left` class with `.fm-ico-right`.
 
 
 ## Sass Variables
-{: .mb-small}
 
 ``` sass
 $form-element-icon-size-em: 1.286em !default
@@ -74,13 +73,11 @@ $form-element-icon-size-em: 1.286em !default
 ``` sass
 $form-element-icon-color: $form-element-border-color !default
 ```
-{: .mb-small}
 
 ``` sass
-$form-element-error-icon-color: $form-element-error-border-color !default
+$form-element-icon-color-on-error: $form-element-border-color-on-error !default
 ```
-{: .mb-small}
 
 ``` sass
-$form-element-focus-icon-color: $form-element-focus-border-color !default
+$form-element-icon-color-on-focus: $form-element-border-color-on-focus !default
 ```

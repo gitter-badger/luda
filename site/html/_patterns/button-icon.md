@@ -96,43 +96,35 @@ If you just want an icon button, add the class `.btn-ico` to a button element, t
 
 
 ## Sass Variables
-{: .mb-small}
 
 ``` sass
 $button-icon-size-em: 1.286em !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-icon-top-size-em: 1.5em !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-icon-left-margin-em: 0 0.4em 0 0 !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-icon-right-margin-em: 0 0 0 0.4em !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-icon-top-margin-em: 0 0 0.15em 0 !default
 ```
-{: .mb-small}
 
 ``` sass
 $button-icon-top-height-rem: 4rem !default
 ```
-{: .mb-small}
 
 ``` sass
-$button-large-icon-top-height-rem: 5rem !default
+$button-icon-top-large-height-rem: 5rem !default
 ```
-{: .mb-small}
 
 ``` sass
-$button-small-icon-top-height-rem: 3rem !default
+$button-icon-top-small-height-rem: 3rem !default
 ```

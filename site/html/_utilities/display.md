@@ -16,6 +16,7 @@ They are named using the format: `.d-{value}-{breakpoint}`. The value can be one
 
 There is also a `.d-none-print` class for hidding elements when print.
 
+## Examples
 In the below example, we hide the `div` for small screens and large screens,
  and show it only for middle size screens.
 

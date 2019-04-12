@@ -187,42 +187,34 @@ like the below example.
 $navigation-width-breakpoint: m !default
 ```
 Specify a width breakpoint for header navigations and aside navigations. The layout of navigations will be changed if the screen width is equal to or wider than the breakpoint width.
-{: .mb-small}
 
 ``` sass
 $navigation-padding-rem: $spacing-tiny-rem $spacing-small-rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $navigation-logo-margin-rem: 0 $spacing-small-rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $navigation-logo-image-height-rem: 2rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $navigation-open-button-margin-rem: 0 0 0 auto !default
 ```
-{: .mb-small}
 
 ``` sass
 $navigation-close-button-margin-rem: $spacing-small-rem $spacing-small-rem 0 auto !default
 ```
-{: .mb-small}
 
 ``` sass
 $navigation-search-field-margin-rem: $spacing-medium-rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $navigation-items-margin-rem: $spacing-small-rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $navigation-sub-items-margin-rem: $navigation-items-margin-rem !default
@@ -230,20 +222,18 @@ $navigation-sub-items-margin-rem: $navigation-items-margin-rem !default
 
 
 #### Header Navigation Sizes
+
 ``` sass
 $navigation-header-breakpoint-search-field-margin-rem: 0 $spacing-small-rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $navigation-header-breakpoint-items-margin-rem: 0 auto 0 0 !default
 ```
-{: .mb-small}
 
 ``` sass
 $navigation-header-breakpoint-sub-items-margin-rem: 0 !default
 ```
-{: .mb-small}
 
 ``` sass
 $navigation-header-breakpoint-search-field-width-rem: 16rem !default
@@ -251,30 +241,26 @@ $navigation-header-breakpoint-search-field-width-rem: 16rem !default
 
 
 #### Aside Navigation Sizes
+
 ``` sass
 $navigation-aside-breakpoint-padding-rem: 0 !default
 ```
-{: .mb-small}
 
 ``` sass
 $navigation-aside-breakpoint-logo-margin-rem: 3 * $spacing-small-rem $spacing-medium-rem $spacing-small-rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $navigation-aside-breakpoint-logo-image-height-rem: 7rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $navigation-aside-breakpoint-logo-image-width-rem: 9rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $navigation-aside-breakpoint-min-width-rem: 18rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $navigation-aside-breakpoint-max-width-rem: 20rem !default
@@ -282,25 +268,22 @@ $navigation-aside-breakpoint-max-width-rem: 20rem !default
 
 
 ### Others
+
 ``` sass
 $navigation-background: $background-color-dark !default
 ```
-{: .mb-small}
 
 ``` sass
 $navigation-header-breakpoint-dropdown-background: $navigation-background !default
 ```
-{: .mb-small}
 
 ``` sass
 $navigation-header-box-shadow: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $navigation-aside-box-shadow: $navigation-header-box-shadow !default
 ```
-{: .mb-small}
 
 ``` sass
 $navigation-aside-breakpoint-box-shadow: none !default

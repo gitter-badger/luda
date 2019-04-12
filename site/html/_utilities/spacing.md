@@ -8,9 +8,15 @@ description: Use spacing utilities to control an elment's margin and padding res
 
 
 ## Introduction
-All space utilities are extend with [the screen width breakpoint postfixes]({{ width_breakpoints }}) for responsive control. Margin utility classes are named using the format `.m{direction}-{value}-{breakpoint}`, and padding utilities are named using the format `.p{direction}-{value}-{breakpoint}`. It means all directions if the `{direction}` part is not included.
+All space utilities are extend with
+[the screen width breakpoint postfixes]({{ width_breakpoints }})
+for responsive control. Margin utility classes are named using the format
+`.m{direction}-{value}-{breakpoint}`, and padding utilities are named using the format
+`.p{direction}-{value}-{breakpoint}`. It means all directions if
+the `{direction}` part is not included.
 
-We use shorthand class names and meaningful value words for these utilities, all abbreviations and value words are listed in the below tables.
+We use shorthand class names and meaningful value words for these utilities,
+all abbreviations and value words are listed in the below tables.
 
 ##### Direction Abbreviations
 <div class="table table-border mb-small">
@@ -47,7 +53,7 @@ We use shorthand class names and meaningful value words for these utilities, all
   </table>
 </div>
 
-## Example
+## Examples
 In the below example, we control elements' margins and paddings according to screen width easily and responsively.
 
 {% capture space %}
@@ -65,6 +71,5 @@ In the below example, we control elements' margins and paddings according to scr
 
 
 ## Sass Variables
-{: .mb-small}
 
 {% include doc-sass-variable-spacing.md %}

@@ -52,22 +52,18 @@ And if you want to enhance part of a breadcrumb, you can use color utility class
 
 
 ## Sass Variables
-{: .mb-small}
 
 ``` sass
 $breadcrumb-padding-rem: $spacing-small-rem 0 !default
 ```
-{: .mb-small}
 
 ``` sass
 $breadcrumb-color: $color-muted !default
 ```
-{: .mb-small}
 
 ``` sass
 $breadcrumb-spliter: "/" !default
 ```
-{: .mb-small}
 
 ``` sass
 $breadcrumb-spliter-padding-em: 0 strip-unit($spacing-tiny-rem) * 1em !default

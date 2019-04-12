@@ -59,4 +59,3 @@ search bar container like the below example.
   {{ options }}
 </div>
 ``` html{{ options }}```
-{: .mt-small}

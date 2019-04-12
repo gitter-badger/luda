@@ -269,6 +269,7 @@ html {
 
 #doc-container h2 + .highlighter-rouge,
 #doc-container h3 + .highlighter-rouge,
+#doc-container h4 + .highlighter-rouge,
 #doc-container .highlighter-rouge + .highlighter-rouge,
 #doc-container p + .highlighter-rouge {
   margin-top: 1rem;

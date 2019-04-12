@@ -32,11 +32,9 @@ Pick up a z-index class, and add it to an element as below.
 <div class="zi-much-higher"></div>
 <div class="zi-highest"></div>
 ```
-{: .mt-small}
 
 
 
 ## Sass Variables
-{: .mb-small}
 
 {% include doc-sass-variable-z-index.md %}

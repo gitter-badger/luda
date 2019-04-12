@@ -46,12 +46,10 @@ The breakpoints and postfixes are listed in the below table, please check it for
 </div>
 
 ### Configure Width Breakpoints in Sass
-{: .mb-small}
 {% include doc-sass-variable-breakpoints-width.md %}
 
 
 ### Detect Screen Width in Sass
-{: .mb-small}
 
 ``` sass
 +media-width($breakpoint-postfix, $less-than-next: false)
@@ -93,12 +91,10 @@ The breakpoints and their abbreviations are listed in the below table, please ch
 
 
 ### Configure Aspect Ratio Breakpoints in Sass
-{: .mb-small}
 {% include doc-sass-variable-breakpoints-aspect-ratio.md %}
 
 
 ### Detect Aspect Ratio in Sass
-{: .mb-small}
 
 ``` sass
 +media-aspect-ratio($breakpoint-abbreviation, $less-than-next: false)
@@ -146,11 +142,10 @@ The breakpoints and their abbreviations are listed in the below table, please ch
 
 
 ### Configure Resolution Breakpoints in Sass
-{: .mb-small}
+
 {% include doc-sass-variable-breakpoints-resolution.md %}
 
 ### Detect Resolution in Sass
-{: .mb-small}
 
 ``` sass
 +media-resolution($breakpoint-abbreviation, $less-than-next: false)

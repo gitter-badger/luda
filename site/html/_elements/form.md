@@ -64,25 +64,20 @@ Add the class `.fm-select` to the container to create a select field. A `<select
 </div>
 ``` html{{ select_field }}```
 
-#### Select Field Javascript Examples
-{: .mb-small}
+
+#### Select Options in Javascript
 
 ``` javascript
-let mySelect = luda.fmSelect.query('#my-fm-select')
+luda.fmSelect.query('#my-fm-select').select(0)
 ```
-Get the javascript instance of a select field.
-{: .mb-small}
+Query the Javascript instance of the form select field
+and select a specific option according to the passed index number.
 
 ``` javascript
-mySelect.select(0)
+luda.fmSelect.query('#my-multiple-fm-select').select([0, 1])
 ```
-Select the first option in a select field.
-{: .mb-small}
-
-``` javascript
-mySelect.select([0, 1])
-```
-Select the first option and the second option in an multiple select field.
+Query the Javascript instance of the multiple form select field
+and select specific options according to the passed index numbers array.
 
 ### File Picker
 Add the class `.fm-file` to the container to create a file picker. A `<input type="file">` element should be wrapped. You can set the value attribute of the `<input>` to show default filenames.
@@ -101,13 +96,13 @@ Add the class `.fm-file` to the container to create a file picker. A `<input typ
 </div>
 ``` html{{ file_picker }}```
 
-#### File Picker Javascript Examples
-{: .mb-small}
+#### Reset in Javascript
 
 ``` javascript
 luda.$child('#input-in-my-fm-file').setAttribute('value', '')
 ```
-Reset a file picker.
+Query the element instance of the `<input type="file"/>` in the file picker
+and reset it.
 
 ### Checkbox
 Add the class `.fm-check` to the container to create checkboxes. One or more `<input type="checkbox">` elements can be wrapped. 
@@ -273,7 +268,7 @@ The size of an input element can be larger by adding the `.fm-large` class.
 <div class="form-example">
   {{ large }}
 </div>
-``` html{{ large}}```
+``` html{{ large }}```
 
 
 
@@ -416,69 +411,56 @@ Add the `.fm-label-large` class to to make a form label larger.
 ``` sass
 $form-element-inline-width-rem: 18rem !default
 ```
-{: .mb-small}  
 
 ``` sass
 $form-element-small-inline-width-rem: 14rem !default
 ```
-{: .mb-small}  
 
 ``` sass
 $form-element-large-inline-width-rem: 22rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-horizontal-padding-em: strip-unit($spacing-small-rem) * 1em !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-height-rem: 3rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-small-height-rem: 2rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-large-height-rem: 4rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-multiple-rows-height-rem: 9rem !default
 ```
 Set the height of multiple select field and textarea.
-{: .mb-small}
 
 ``` sass
 $form-element-multiple-rows-small-height-rem: 6rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-multiple-rows-large-height-rem: 12rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-checkfield-size-em: 1.4em !default
 ```
 Set the width and the height of checkboxes and radios.
-{: .mb-small}
 
 ``` sass
 $form-element-track-height-em: 0.4em !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-thumb-height-em: 1.4em !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-thumb-width-em: 1.4em !default
@@ -490,12 +472,10 @@ $form-element-thumb-width-em: 1.4em !default
 ``` sass
 $form-element-typography-size-level: 5 !default
 ```
-{: .mb-small}  
 
 ``` sass
 $form-element-small-typography-size-level: 6 !default
 ```
-{: .mb-small}  
 
 ``` sass
 $form-element-large-typography-size-level: 4 !default
@@ -506,52 +486,42 @@ $form-element-large-typography-size-level: 4 !default
 ``` sass
 $form-element-border-width: $line-width-main !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-border-style: solid !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-border-radius: $border-radius-main !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-border-color: $line-color-main !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-border-color-on-error: $line-color-danger !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-border-color-on-focus: $line-color-primary !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-track-border-radius: $border-radius-main !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-thumb-border-radius: 100% !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-thumb-border-color: transparent !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-thumb-border-color-on-error: $form-element-border-color-on-error !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-thumb-border-color-on-focus: null !default
@@ -562,74 +532,60 @@ $form-element-thumb-border-color-on-focus: null !default
 ``` sass
 $form-element-color: $color-main !default
 ```
-{: .mb-small}  
 
 ``` sass
 $form-element-color-on-error: null !default
 ```
-{: .mb-small}  
 
 ``` sass
 $form-element-color-on-focus: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-placeholder-color: $color-muted !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-placeholder-color-on-error: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-placeholder-color-on-focus: null !default
 ```
-{: .mb-small}
 
 
 ### Backgrounds
 ``` sass
 $form-element-background: $background-color-main !default
 ```
-{: .mb-small}  
 
 ``` sass
 $form-element-background-on-focus: null !default
 ```
-{: .mb-small}  
 
 ``` sass
 $form-element-background-on-error: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-track-background: darken($background-color-muted, 4%) !default !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-track-background-on-focus: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-track-background-on-error: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-thumb-background: $form-element-track-background !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-thumb-background-on-error: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-thumb-background-on-focus: $background-color-primary !default
@@ -640,12 +596,10 @@ $form-element-thumb-background-on-focus: $background-color-primary !default
 ``` sass
 $form-element-box-shadow: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-box-shadow-on-focus: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-box-shadow-on-error: null !default
@@ -656,52 +610,42 @@ $form-element-box-shadow-on-error: null !default
 ``` sass
 $form-element-icon-size-em: 1.286em !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-icon-color: $form-element-border-color !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-icon-color-on-error: $form-element-border-color-on-error !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-icon-color-on-focus: $form-element-border-color-on-focus !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-search-icon: '<svg viewBox="..."><path fill="#fill"...</svg>' !default
 ```
-{: .mb-small}
 
 ``` sass    
 $form-element-select-icon: '<svg viewBox="..."><path fill="#fill"...</svg>' !default
 ```
-{: .mb-small}
 
 ``` sass    
 $form-element-add-icon: '<svg viewBox="..."><path fill="#fill"...</svg>' !default
 ```
-{: .mb-small}
 
 ``` sass    
 $form-element-checked-icon: '<svg viewBox="..."><path fill="#fill"...</svg>' !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-checked-icon-color: $form-element-color !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-checked-icon-color-on-error: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-element-checked-icon-color-on-focus: null !default
@@ -713,22 +657,18 @@ $form-element-checked-icon-color-on-focus: null !default
 ``` sass
 $form-helper-typography-size-level: 6 !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-helper-small-typography-size-level: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-helper-large-typography-size-level: 5 !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-hint-color: $color-muted !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-error-color: $color-danger !default
@@ -741,27 +681,22 @@ $form-error-color: $color-danger !default
 ``` sass
 $form-label-typography-size-level: 5 !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-label-small-typography-size-level: 6 !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-label-large-typography-size-level: 4 !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-label-color: $color-emphasis !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-label-required-content: " | Required" !default
 ```
-{: .mb-small}
 
 ``` sass
 $form-label-required-color: $color-danger !default

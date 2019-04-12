@@ -11,4 +11,3 @@ Visibility utilities are class for setting the value of the [`visiblity`](https:
 <div class="visible"></div>
 <div class="invisible"></div>
 ```
-{: .mt-small}

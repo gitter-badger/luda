@@ -19,7 +19,6 @@ Text alignment utilities are extended with [the screen width breakpoint postfixe
   {{ left }}
 </div>
 ``` html{{ left }}```
-{: .mb-medium}
 
 {% capture right %}
 <p class="ta-right">
@@ -30,7 +29,6 @@ Text alignment utilities are extended with [the screen width breakpoint postfixe
   {{ right }}
 </div>
 ``` html{{ right }}```
-{: .mb-medium}
 
 {% capture center %}
 <p class="ta-center">
@@ -41,7 +39,6 @@ Text alignment utilities are extended with [the screen width breakpoint postfixe
   {{ center }}
 </div>
 ``` html{{ center }}```
-{: .mb-medium}
 
 
 {% capture justify %}
@@ -91,7 +88,6 @@ Let's preview the effects in the below examples.
   {{ lightest }}
 </div>
 ``` html{{ lightest }}```
-{: .mb-medium}
 
 {% capture lighter %}
 <p class="fw-lighter">
@@ -102,7 +98,6 @@ Let's preview the effects in the below examples.
   {{ lighter }}
 </div>
 ``` html{{ lighter }}```
-{: .mb-medium}
 
 
 {% capture light %}
@@ -114,7 +109,6 @@ Let's preview the effects in the below examples.
   {{ light }}
 </div>
 ``` html{{ light }}```
-{: .mb-medium}
 
 
 {% capture regular %}
@@ -126,8 +120,6 @@ Let's preview the effects in the below examples.
   {{ regular }}
 </div>
 ``` html{{ regular }}```
-{: .mb-medium}
-
 
 
 {% capture medium %}
@@ -139,7 +131,6 @@ Let's preview the effects in the below examples.
   {{ medium }}
 </div>
 ``` html{{ medium }}```
-{: .mb-medium}
 
 
 {% capture semibold %}
@@ -151,7 +142,6 @@ Let's preview the effects in the below examples.
   {{ semibold }}
 </div>
 ``` html{{ semibold }}```
-{: .mb-medium}
 
 
 {% capture bold %}
@@ -163,8 +153,6 @@ Let's preview the effects in the below examples.
   {{ bold }}
 </div>
 ``` html{{ bold }}```
-{: .mb-medium}
-
 
 
 {% capture bolder %}
@@ -176,7 +164,6 @@ Let's preview the effects in the below examples.
   {{ bolder }}
 </div>
 ``` html{{ bolder }}```
-{: .mb-medium}
 
 
 {% capture boldest %}
@@ -202,7 +189,6 @@ Font style utility classes are named using the format `.fs-{value}`. The value c
   {{ italic }}
 </div>
 ``` html{{ italic }}```
-{: .mb-medium}
 
 {% capture normal %}
 <p class="fs-normal">
@@ -226,7 +212,6 @@ Text transform utility classes are named using the format `.tt-{value}`. The val
   {{ upper }}
 </div>
 ``` html{{ upper }}```
-{: .mb-medium}
 
 {% capture lower %}
 <p class="tt-lower">ONCE UPON TIME...</p>
@@ -235,7 +220,6 @@ Text transform utility classes are named using the format `.tt-{value}`. The val
   {{ lower }}
 </div>
 ``` html{{ lower }}```
-{: .mb-medium}
 
 {% capture cap %}
 <p class="tt-cap">once upon time...</p>
@@ -256,7 +240,6 @@ Text decoration utility classes are named using the format `.td-{value}`. The va
   {{ stroke }}
 </div>
 ``` html{{ stroke }}```
-{: .mb-medium}
 
 
 {% capture underline %}
@@ -266,7 +249,6 @@ Text decoration utility classes are named using the format `.td-{value}`. The va
   {{ underline }}
 </div>
 ``` html{{ underline }}```
-{: .mb-medium}
 
 
 {% capture none %}
@@ -289,7 +271,6 @@ There're two utility classes for breaking words. The `.wb-all` class breaks a lo
   {{ break_all }}
 </div>
 ``` html{{ break_all }}```
-{: .mb-medium}
 
 
 {% capture ellipsis %}

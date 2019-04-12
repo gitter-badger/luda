@@ -289,7 +289,6 @@ For other inline texts, you can below the appearances in the below example.
 +font-face($family: null, $style: normal, $weight: 400, $locals: null, $urls: null, $unicodes: null)
 ```
 This mixin is used to import web fonts. `$locals`, `$urls` and `$unicodes` should be lists.
-{: .mb-small}
 
 ``` sass
 +typo-link($class: null, $color: null, $hover-color: null, $active-color: null)
@@ -309,18 +308,15 @@ If you need more colored links, you can use this mixin.
 $typography-heading: null !default
 ```
 Set the font family of headings.
-{: .mb-small}
 
 ``` sass
 $typography-heading-baseline-offset-ratio: $typography-main-baseline-offset-ratio !default
 ```
 Set the baseline offset ratio of headings for better baseline alignment.
-{: .mb-small}
 
 ``` sass
 $typography-heading-color: $color-emphasis !default
 ```
-{: .mb-small}
 
 ``` sass
 $typography-heading-font-weight: 700 !default
@@ -331,40 +327,33 @@ $typography-heading-font-weight: 700 !default
 $typography-code: constant-get(typography-stacks, code) !default
 ```
 Set the font family of codes.
-{: .mb-small}
 
 ``` sass
 $typography-code-baseline-offset-ratio: constant-get(baseline-offset-ratios, "Courier New") !default
 ```
 Set the baseline offset ratio of codes for better baseline alignment.
-{: .mb-small}
 
 ``` sass
 $typography-block-code-size-level: 6 !default
 ```
 The value must be an integer between 1 and 6.
-{: .mb-small}
 
 ``` sass
 $typography-code-padding-em: 0.1em 0.3em !default
 ```
 Set the padding of inline codes.
-{: .mb-small}
 
 ``` sass
 $typography-code-background: $background-color-muted !default
 ```
-{: .mb-small}
 
 ``` sass
 $typography-code-color: $color-main !default
 ```
-{: .mb-small}
 
 ``` sass
 $typography-code-border-radius: $border-radius-main !default
 ```
-{: .mb-small}
 
 ``` sass
 $typography-code-block-padding-rem: 0 $spacing-medium-rem !default
@@ -375,34 +364,28 @@ $typography-code-block-padding-rem: 0 $spacing-medium-rem !default
 $typography-quote: null !default
 ```
 Set the font family of quotations.
-{: .mb-small}
 
 ``` sass
 $typography-quote-baseline-offset-ratio: $typography-main-baseline-offset-ratio !default
 ```
 Set the baseline offset ratio of quotations for better baseline alignment.
-{: .mb-small}
 
 ``` sass
 $typography-block-quote-size-level: 4 !default
 ```
 The value must be an integer between 1 and 6.
-{: .mb-small}
 
 ``` sass
 $typography-cite-color: $color-muted !default
 ```
-{: .mb-small}
 
 ``` sass
 $typography-quote-block-padding-rem: 3 * $spacing-small-rem $spacing-large-rem $spacing-medium-rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $typography-quote-block-p-margin-rem: 0 auto $spacing-small-rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $typography-quote-block-cite-line-height: $line-width-main !default
@@ -413,42 +396,34 @@ $typography-quote-block-cite-line-height: $line-width-main !default
 ``` sass
 $typography-link-text-decoration: underline !default
 ```
-{: .mb-small}
 
 ``` sass
 $typography-link-hover-text-decoration: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $typography-link-active-text-decoration: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $typography-link-color: $color-main !default
 ```
-{: .mb-small}
 
 ``` sass
 $typography-link-hover-color: $color-emphasis !default
 ```
-{: .mb-small}
 
 ``` sass
 $typography-link-active-color: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $typography-link-light-color: $color-inverse-main !default
 ```
-{: .mb-small}
 
 ``` sass
 $typography-link-light-hover-color: $color-inverse-emphasis !default
 ```
-{: .mb-small}
 
 ``` sass
 $typography-link-light-active-color: null !default
@@ -465,17 +440,14 @@ Set the padding of nested lists.
 ``` sass
 $typography-mark-padding-em: 0.1em 0.3em !default
 ```
-{: .mb-small}
 
 ``` sass
 $typography-mark-background: $background-color-emphasis !default
 ```
-{: .mb-small}
 
 ``` sass
 $typography-mark-color: $color-primary !default
 ```
-{: .mb-small}
 
 ``` sass
 $typography-mark-border-radius: $border-radius-main !default
@@ -485,12 +457,10 @@ $typography-mark-border-radius: $border-radius-main !default
 ``` sass
 $typography-sub-sup-size: 100% / $typography-size-scale-ratio !default
 ```
-{: .mb-small}
 
 ``` sass
 $typography-sub-bottom-offset-em: -0.25em !default
 ```
-{: .mb-small}
 
 ``` sass
 $typography-sup-top-offset-em: -0.5em !default

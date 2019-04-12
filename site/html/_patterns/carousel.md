@@ -125,7 +125,7 @@ Query the Javascript instance through a carousel's element instance.
 ``` javascript
 myCarousel.activate(1)
 ```
-Activate the second item in the carousel.
+Activate a specfic item in the carousel according to the index number passed in.
 
 ### .next()
 ``` javascript
@@ -158,7 +158,7 @@ Restart a paused carousel.
 
 ### luda:carousel:activate
 ``` javascript
-luda.on('luda:carousel:activate', '#myCarousel', function(event){
+luda.on('luda:carousel:activate', '#my-carousel', function(event){
   let $myCarousel = this, $item = event.tartet, index = event.detail
 })
 ```
@@ -166,7 +166,7 @@ Triggered before the `.carousel-item-active` class added to a carousel item.
 
 ### luda:carousel:activated
 ``` javascript
-luda.on('luda:carousel:activated', '#myCarousel', function(event){
+luda.on('luda:carousel:activated', '#my-carousel', function(event){
   let $myCarousel = this, $item = event.tartet, index = event.detail
 })
 ```
@@ -174,15 +174,15 @@ Triggered after the `.carousel-item-active` class added to a carousel item and t
 
 ### luda:carousel:deactivate
 ``` javascript
-luda.on('luda:carousel:deactive', '#myCarousel', function(event){
+luda.on('luda:carousel:deactivate', '#my-carousel', function(event){
   let $myCarousel = this, $item = event.tartet, index = event.detail
 })
 ```
 Triggered before the `.carousel-item-active` class removed from a carousel item.
 
-### luda:carousel:deactivate
+### luda:carousel:deactivated
 ``` javascript
-luda.on('luda:carousel:deactived', '#myCarousel', function(event){
+luda.on('luda:carousel:deactivated', '#my-carousel', function(event){
   let $myCarousel = this, $item = event.tartet, index = event.detail
 })
 ```
@@ -192,6 +192,7 @@ Triggered after the `.carousel-item-active` class removed from a carousel item a
 ## Sass Variables
 
 ### Sizes
+
 ``` sass
 $carousel-width-breakpoint: m !default
 ```

@@ -190,6 +190,5 @@ You can preview how they affect the position of an element's background images i
 
 
 ## Sass Variables
-{: .mb-small}
 
 {% include doc-sass-variable-background.md %}

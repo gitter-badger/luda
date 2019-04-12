@@ -81,7 +81,6 @@ Like responsive images, videos can also be wrapped in the `.media-content` conta
   {{ responsive_video }}
 </div>
 ``` html{{ responsive_video }}```
-{: .mt-small}
 
 
 ### Responsive Iframes
@@ -97,13 +96,13 @@ Videos in iframe can also be wrapped, see the below example.
   {{ responsive_iframe }}
 </div>
 ``` html{{ responsive_iframe }}```
-{: .mt-small}
 
 
 ### Aspect Radio 1by1
 The class `.media-content-1by1` is built-in. You can change a responsive media elements' aspect ratio to `1:1` by replace the `.media-content` class with it.
 
 Here is a responsive image with the aspect radio `1:1`.
+
 {% capture one_by_one_image %}
 <figure class="media w-100 w-66-m">
   <picture class="media-content-1by1">
@@ -119,6 +118,7 @@ Here is a responsive image with the aspect radio `1:1`.
 
 Here is a responsive video with the aspect ratio `1:1`.
 {: .mt-small}
+
 {% capture one_by_one_video %}
 <div class="media w-100 w-66-m">
   <div class="media-content-1by1">
@@ -132,7 +132,6 @@ Here is a responsive video with the aspect ratio `1:1`.
   {{ one_by_one_video }}
 </div>
 ``` html{{ one_by_one_video }}```
-{: .mt-small}
 
 
 
@@ -173,17 +172,14 @@ In the below example, we use the `.media-content-1by1` class to change the conta
 
 
 ## Sass Variables
-{: .mb-small}
 
 ``` sass
 $media-background-color: $background-color-muted !default
 ```
-{: .mb-small}
 
 ``` sass
 $media-border-radius: $border-radius-main !default
 ```
-{: .mb-small}
 
 ``` sass
 $media-content-aspect-ratio: 16 / 9 !default

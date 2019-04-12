@@ -308,33 +308,27 @@ The `.table-hover` class enhances hovered table row styles, a highlight backgrou
 ``` sass
 $table-head-background: $background-color-muted !default
 ```
-{: .mb-small}
 
 ``` sass
 $table-row-even-background: $background-color-muted !default
 ```
-{: .mb-small}
 
 ``` sass
 $table-row-odd-background: $background-color-main !default
 ```
-{: .mb-small}
 
 ### Borders
 ``` sass
 $table-border-style: solid !default
 ```
-{: .mb-small}
 
 ``` sass
 $table-border-width: $line-width-main !default
 ```
-{: .mb-small}
 
 ``` sass
 $table-border-color: $line-color-main !default
 ```
-{: .mb-small}
 
 ``` sass
 $table-border-radius: $border-radius-main !default
@@ -344,7 +338,6 @@ $table-border-radius: $border-radius-main !default
 ``` sass
 $table-row-hover-background: $background-color-emphasis !default
 ```
-{: .mb-small}
 
 ``` sass
 $table-row-hover-color: null !default
@@ -354,12 +347,10 @@ $table-row-hover-color: null !default
 ``` sass
 $table-cell-padding-rem: $spacing-small-rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $table-head-color: $color-emphasis !default
 ```
-{: .mb-small}
 
 ``` sass
 $table-body-color: $color-main !default

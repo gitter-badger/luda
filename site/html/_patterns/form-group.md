@@ -128,7 +128,6 @@ In the below example, we use a `.grid` container to wrap form groups add add the
   {{ form_group_in_grid }}
 </div>
 ``` html{{ form_group_in_grid }}```
-{: .mt-small}
 
 
 
@@ -207,7 +206,6 @@ In the below example, we wrap `.grid` containers in form groups to create anothe
 
 
 ## Sass Variables
-{: .mb-small}
 
 ``` sass
 $form-group-element-vertical-margin-rem: $spacing-small-rem !default

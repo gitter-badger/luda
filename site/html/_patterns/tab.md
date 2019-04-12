@@ -90,27 +90,50 @@ To create a horizontal navigation, we need wrap a `.grid` container inside like 
 ``` html{{ horizontal }}```
 
 
+## Javascript Methods
+
+### luda.tab.query(selector | element)
+``` javascript
+let myTab = luda.tab.query('#my-tab')
+```
+Query the Javascript instance of the tab through its CSS selector.
+
+``` javascript
+let $myTab = luda.$child('#my-tab')
+let myTab = luda.tab.query($myTab)
+```
+Query the Javascript instance of the tab through its element instance.
+
+### .activate(index)
+``` javascript
+mytab.activate(0)
+```
+Open a specific tab pane accoring to the passed in index number.
+
 
 
 ## DOM Events
 
+### luda:tab:activated
 ``` javascript
-luda:tab:activated
+luda.on('luda:tab:activated', '#my-tab', function(event){
+  let $myTab = this, $pane = event.tartet, index = event.detail
+})
 ```
-Description.
-{: .mb-small}
+Triggered after the `.tab-pane-active` class added to a tab pane.
 
+### luda:tab:deactivated
 ``` javascript
-luda:tab:deactivated
+luda.on('luda:tab:deactivated', '#my-tab', function(event){
+  let $myTab = this, $pane = event.tartet, index = event.detail
+})
 ```
-Description.
-
+Triggered after the `.tab-pane-active` class removed from a tab pane.
 
 
 
 
 ## Sass Variables
-{: .mb-small}
 
 ``` sass
 $tab-panes-padding-rem: null !default

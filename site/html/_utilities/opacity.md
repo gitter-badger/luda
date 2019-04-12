@@ -40,6 +40,5 @@ Let's see how they change an element's opacity in the below gellery.
 ```
 
 ## Sass Variables
-{: .mb-small}
 
 {% include doc-sass-variable-opacity.md %}

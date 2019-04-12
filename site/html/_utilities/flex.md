@@ -30,7 +30,6 @@ they are named using the format: `.fd-{value}-{breakpoint}`. The value can be on
   {{ direction_row }}
 </div>
 ``` html{{ direction_row }}```
-{: .mb-medium}
 
 {% capture direction_row_reverse %}
 <div class="d-flex fd-row-reverse bc-dark">
@@ -42,7 +41,6 @@ they are named using the format: `.fd-{value}-{breakpoint}`. The value can be on
   {{ direction_row_reverse }}
 </div>
 ``` html{{ direction_row_reverse }}```
-{: .mb-medium}
 
 {% capture direction_column %}
 <div class="d-flex fd-column">
@@ -54,7 +52,6 @@ they are named using the format: `.fd-{value}-{breakpoint}`. The value can be on
   {{ direction_column }}
 </div>
 ``` html{{ direction_column }}```
-{: .mb-medium}
 
 {% capture direction_column_reverse %}
 <div class="d-flex fd-column-reverse">
@@ -83,7 +80,6 @@ they are named using the format: `.fw-{value}-{breakpoint}`. The value can be on
   {{ nowrap }}
 </div>
 ``` html{{ nowrap }}```
-{: .mb-medium}
 
 {% capture wrap %}
 <div class="d-flex fw-wrap">
@@ -95,7 +91,6 @@ they are named using the format: `.fw-{value}-{breakpoint}`. The value can be on
   {{ wrap }}
 </div>
 ``` html{{ wrap }}```
-{: .mb-medium}
 
 {% capture wrap_reverse %}
 <div class="d-flex fw-wrap-reverse">
@@ -125,7 +120,6 @@ they are named using the format: `.jc-{value}-{breakpoint}`. The value can be on
   {{ jc_start }}
 </div>
 ``` html{{ jc_start }}```
-{: .mb-medium}
 
 {% capture jc_center %}
 <div class="d-flex jc-center bc-dark">
@@ -137,7 +131,6 @@ they are named using the format: `.jc-{value}-{breakpoint}`. The value can be on
   {{ jc_center }}
 </div>
 ``` html{{ jc_center }}```
-{: .mb-medium}
 
 {% capture jc_end %}
 <div class="d-flex jc-end bc-dark">
@@ -149,7 +142,6 @@ they are named using the format: `.jc-{value}-{breakpoint}`. The value can be on
   {{ jc_end }}
 </div>
 ``` html{{ jc_end }}```
-{: .mb-medium}
 
 {% capture jc_between %}
 <div class="d-flex jc-between bc-dark">
@@ -161,7 +153,6 @@ they are named using the format: `.jc-{value}-{breakpoint}`. The value can be on
   {{ jc_between }}
 </div>
 ``` html{{ jc_between }}```
-{: .mb-medium}
 
 {% capture jc_around %}
 <div class="d-flex jc-around bc-dark">
@@ -190,7 +181,6 @@ they are named using the format: `.ac-{value}-{breakpoint}`. The value can be on
   {{ ac_start }}
 </div>
 ``` html{{ ac_start }}```
-{: .mb-medium}
 
 {% capture ac_center %}
 <div class="d-flex fw-wrap ac-center bc-dark" style="height: 9rem">
@@ -202,7 +192,6 @@ they are named using the format: `.ac-{value}-{breakpoint}`. The value can be on
   {{ ac_center }}
 </div>
 ``` html{{ ac_center }}```
-{: .mb-medium}
 
 {% capture ac_end %}
 <div class="d-flex fw-wrap ac-end bc-dark" style="height: 9rem">
@@ -214,7 +203,6 @@ they are named using the format: `.ac-{value}-{breakpoint}`. The value can be on
   {{ ac_end }}
 </div>
 ``` html{{ ac_end }}```
-{: .mb-medium}
 
 {% capture ac_between %}
 <div class="d-flex fw-wrap ac-between bc-dark" style="height: 9rem">
@@ -226,7 +214,6 @@ they are named using the format: `.ac-{value}-{breakpoint}`. The value can be on
   {{ ac_between }}
 </div>
 ``` html{{ ac_between }}```
-{: .mb-medium}
 
 {% capture ac_around %}
 <div class="d-flex fw-wrap ac-around bc-dark" style="height: 9rem">
@@ -238,7 +225,6 @@ they are named using the format: `.ac-{value}-{breakpoint}`. The value can be on
   {{ ac_around }}
 </div>
 ``` html{{ ac_around }}```
-{: .mb-medium}
 
 {% capture ac_stretch %}
 <div class="d-flex fw-wrap ac-stretch bc-dark" style="height: 9rem">
@@ -250,7 +236,6 @@ they are named using the format: `.ac-{value}-{breakpoint}`. The value can be on
   {{ ac_stretch }}
 </div>
 ``` html{{ ac_stretch }}```
-{: .mb-medium}
 
 
 ## Align Items
@@ -268,7 +253,6 @@ they are named using the format `.ai-{value}-{breakpoint}`. The value can be one
   {{ ai_start }}
 </div>
 ``` html{{ ai_start }}```
-{: .mb-medium}
 
 {% capture ai_center %}
 <div class="d-flex ai-center bc-dark" style="height: 6rem">
@@ -280,7 +264,6 @@ they are named using the format `.ai-{value}-{breakpoint}`. The value can be one
   {{ ai_center }}
 </div>
 ``` html{{ ai_center }}```
-{: .mb-medium}
 
 {% capture ai_baseline %}
 <div class="d-flex ai-baseline bc-dark" style="height: 6rem">
@@ -292,7 +275,6 @@ they are named using the format `.ai-{value}-{breakpoint}`. The value can be one
   {{ ai_baseline }}
 </div>
 ``` html{{ ai_baseline }}```
-{: .mb-medium}
 
 {% capture ai_end %}
 <div class="d-flex ai-end bc-dark" style="height: 6rem">
@@ -304,7 +286,6 @@ they are named using the format `.ai-{value}-{breakpoint}`. The value can be one
   {{ ai_end }}
 </div>
 ``` html{{ ai_end }}```
-{: .mb-medium}
 
 {% capture ai_stretch %}
 <div class="d-flex ai-stretch bc-dark" style="height: 6rem">
@@ -336,7 +317,6 @@ alignment in the below examples.
   {{ as_start }}
 </div>
 ``` html{{ as_start }}```
-{: .mb-medium}
 
 {% capture as_center %}
 <div class="d-flex as-center bc-dark" style="height: 6rem">
@@ -348,7 +328,6 @@ alignment in the below examples.
   {{ as_center }}
 </div>
 ``` html{{ as_center }}```
-{: .mb-medium}
 
 {% capture as_baseline %}
 <div class="d-flex as-baseline bc-dark" style="height: 6rem">
@@ -360,7 +339,6 @@ alignment in the below examples.
   {{ as_baseline }}
 </div>
 ``` html{{ as_baseline }}```
-{: .mb-medium}
 
 {% capture as_end %}
 <div class="d-flex as-end bc-dark" style="height: 6rem">
@@ -372,7 +350,6 @@ alignment in the below examples.
   {{ as_end }}
 </div>
 ``` html{{ as_end }}```
-{: .mb-medium}
 
 {% capture as_stretch %}
 <div class="d-flex as-stretch bc-dark" style="height: 6rem">
@@ -440,7 +417,6 @@ Let's see the below examples for detail.
   {{ fg }}
 </div>
 ``` html{{ fg }}```
-{: .mb-medium}
 
 {% capture fs %}
 <div class="d-flex bc-dark">
@@ -452,7 +428,6 @@ Let's see the below examples for detail.
   {{ fs }}
 </div>
 ``` html{{ fs }}```
-{: .mb-medium}
 
 {% capture flex_auto %}
 <div class="d-flex bc-dark">

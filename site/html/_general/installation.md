@@ -7,8 +7,8 @@ order: 2
 ## Install Pre-built JavaScript and CSS
 
 ### Step 1: Download Pre-built JavasScript and CSS
+
 [Download v{{site.release_version}}](https://github.com/oatw/luda/raw/v{{site.release_version}}/release/dist/luda-{{site.release_version}}.zip){: .btn .btn-primary}
-{: .p-none}
 
 ### Step 2: Add Luda to Your Template
 
@@ -38,11 +38,14 @@ Yarn
 ``` bash
 $ yarn add luda@{{site.release_version}}
 ```
+{: .mt-none}
 
 Npm
+{: .mt-small}
 ``` bash
 $ npm install luda@{{site.release_version}} --save
 ```
+{: .mt-none}
 
 ### Step 2: Choose a Theme and Import It in Sass or Scss Entry File
 
@@ -65,18 +68,22 @@ import 'luda'
 ### Step 1: Download Through Bundler or Gem
 
 Bundler is the recommand way to install luda, add luda gem to your Gemfile:
-
 ``` ruby
 gem 'luda', '{{site.release_version}}'
 ```
+{: .mt-none}
 then run bundle in command line.
+{: .mt-small}
 ``` bash
 $ bundle
 ```
+{: .mt-none}
 You can also download luda through gem.
+{: .mt-small}
 ``` bash
 $ gem install luda -v {{site.release_version}}
 ```
+{: .mt-none}
 
 
 ### Step 2: Choose a Theme and Import it in application.sass or application.scss

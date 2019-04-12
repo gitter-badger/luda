@@ -14,7 +14,6 @@ Position utilities are classes for setting the [`position`](https://developer.mo
 <div class="sti"></div>
 <div class="sta"></div>
 ```
-{: .my-small}
 
 
 ## Align to Edges
@@ -36,6 +35,7 @@ There're some additonal classes for quickly position an element to the edges of 
 
 Let's see some examples.
 
+### Examples
 {% capture position %}
 <div class="rel bc-dark" style="height: 9rem">
   <p class="abs-t abs-l px-small bc-primary c-light">.abs-t.abs-l</p>

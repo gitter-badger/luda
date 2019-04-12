@@ -3,14 +3,15 @@ title: Baseline
 description: As a professional designer, you care about vertical rhythm much more than stupid coders. Baseline grid is your good friend, no doubt!
 ---
 
-## Usage
+## Introduction
 The height of baseline grid is set at `1rem` in Luda. The vertical sizes of most Luda components are setted to match the height of the baseline grid, except for elements without a certain height like images.
 
 If you need change elements height to match the baseline grid, you can add the `.baseline` class to elements' container to show the baseline grid. So the vertical rhythm of your layout can be checked easily.
 
-Let's see below example.
-{: .mb-small}
+Let's see below examples.
 
+## Examples
+{: .mb-small}
 {% capture baseline %}
 <div class="baseline">
   <!-- Set the height of this div at 3rem to match the baseline grid. -->

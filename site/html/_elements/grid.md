@@ -200,9 +200,9 @@ Add the class `.ai-center` to the grid to position columns in the vertical cente
 ``` html
 <div class="grid ai-center"></div>
 ```
-{: .mb-small}
 
 If you just want specfic columns to be aligned in the vertical center, you can add the class `.as-center` to these columns.
+{: .mt-small}
 
 <div class="grid grid-example" style="height: 8rem">
   <div class="col-auto">
@@ -230,9 +230,9 @@ Add the class `.ai-end` to the grid to position columns in the bottom of the gri
 ``` html
 <div class="grid ai-end"></div>
 ```
-{: .mb-small}
 
 If you want specfic columns to be aligned in the bottom, just add the class `.as-end` to these columns.
+{: .mt-small}
 
 <div class="grid grid-example" style="height: 8rem">
   <div class="col-auto">
@@ -504,13 +504,11 @@ Grid can be nested, nested grids should be wrapped in a parent grid's column. Se
 
 
 ## Sass Variables
-{: .mb-small}
 
 ``` sass
 $grid-columns: 12 !default
 ```
 Set how many columns in a grid.
-{: .mb-small}
 
 ``` sass
 $grid-gutter-width-rem: $spacing-medium-rem !default

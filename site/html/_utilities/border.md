@@ -10,6 +10,7 @@ Personally, I don't like to use lines to seperate elements, I think the better w
 
 Border utilities are named using the format `.bd-{direction}-none`. If the `{direction}` part is not included, it means all directions. Let's see how to use them in the below examples.
 
+## Examples
 {% capture border %}
 <div style="height: 3rem; border: solid 2px #000" class="bd-t-none mb-small bc-muted"></div>
 <div style="height: 3rem; border: solid 2px #000" class="bd-r-none mb-small bc-muted"></div>

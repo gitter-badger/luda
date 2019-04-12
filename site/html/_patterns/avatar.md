@@ -42,7 +42,6 @@ If a horizontal avatar is prefered, replace the class `.avatar-y` with the class
   {{ avatar_x }}
 </div>
 ``` html{{ avatar_x }}```
-{: .mt-small}
 
 
 
@@ -113,57 +112,46 @@ Oppsite, the class `.avatar-lager` makes avatars larger.
 ``` sass
   $avatar-image-size-rem: 3rem !default
 ```
-{: .mb-small}
 
 ``` sass
   $avatar-large-image-size-rem: 6rem !default
 ```
-{: .mb-small}
 
 ``` sass
   $avatar-small-image-size-rem: 2rem !default
 ```
-{: .mb-small}
 
 ``` sass
   $avatar-info-height-rem: 3rem !default
 ```
-{: .mb-small}
 
 ``` sass
   $avatar-info-padding-top-rem: 0.3rem !default
 ```
-{: .mb-small}
 
 ``` sass
   $avatar-info-padding-left-rem: 0.5rem !default
 ```
-{: .mb-small}
 
 ``` sass
   $avatar-large-info-height-rem: 4rem !default
 ```
-{: .mb-small}
 
 ``` sass
   $avatar-large-info-padding-top-rem: 0.6rem !default
 ```
-{: .mb-small}
 
 ``` sass
   $avatar-large-info-padding-left-rem: 1rem !default
 ```
-{: .mb-small}
 
 ``` sass
   $avatar-small-info-height-rem: null !default
 ```
-{: .mb-small}
 
 ``` sass
   $avatar-small-info-padding-top-rem: null !default
 ```
-{: .mb-small}
 
 ``` sass
   $avatar-small-info-padding-left-rem: null !default
@@ -175,31 +163,26 @@ Oppsite, the class `.avatar-lager` makes avatars larger.
   $avatar-name-typography-size-level: 5 !default
 ```
 The value must be an integer between 1 and 6.
-{: .mb-small}
 
 ``` sass
   $avatar-large-name-typography-size-level: 4 !default
 ```
 The value must be an integer between 1 and 6.
-{: .mb-small}
 
 ``` sass
   $avatar-small-name-typography-size-level: 6 !default
 ```
 The value must be an integer between 1 and 6.
-{: .mb-small}
 
 ``` sass
   $avatar-description-typography-size-level: 6 !default
 ```
 The value must be an integer between 1 and 6.
-{: .mb-small}
 
 ``` sass
   $avatar-large-description-typography-size-level: 5 !default
 ```
 The value must be an integer between 1 and 6.
-{: .mb-small}
 
 ``` sass
   $avatar-small-description-typography-size-level: null !default
@@ -212,27 +195,22 @@ The value must be an integer between 1 and 6.
 ``` sass
   $avatar-image-border-radius: 100% !default
 ```
-{: .mb-small}
 
 ``` sass
   $avatar-default-image-background-size: 50% auto !default
 ```
-{: .mb-small}
 
 ``` sass
   $avatar-default-image: svg-icon('<svg viewBox="..."><path fill="#fill" d="..."/></svg>', $line-color-muted) !default
 ```
-{: .mb-small}
 
 ``` sass
   $avatar-background-color: $background-color-muted !default
 ```
-{: .mb-small}
 
 ``` sass
   $avatar-name-color: $color-muted !default
 ```
-{: .mb-small}
 
 ``` sass
   $avatar-description-color: $avatar-name-color !default

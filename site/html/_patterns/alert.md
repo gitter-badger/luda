@@ -115,10 +115,10 @@ Finally, let's see a complex example.
 ## Sass Variables
 
 ### Sizes
+
 ``` sass
 $alert-padding-rem: $spacing-small-rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $alert-action-margin-left-rem: $spacing-small-rem !default
@@ -129,17 +129,14 @@ $alert-action-margin-left-rem: $spacing-small-rem !default
 ``` sass
 $alert-background: $background-color-dark !default
 ```
-{: .mb-small}
 
 ``` sass
 $alert-border-radius: $border-radius-main !default
 ```
-{: .mb-small}
 
 ``` sass
 $alert-box-shadow: null !default
 ```
-{: .mb-small}
 
 ``` sass
 $alert-content-color: $color-inverse-main !default
