@@ -11,7 +11,7 @@ luda class extends luda.Singleton
   @_TOGGLE_TARGET_ATTRIBUTE: 'data-toggle-target'
   @_TOGGLE_ATTRIBUTE: 'data-toggle'
   @_TOGGLE_FOR_ATTRIBUTE: 'data-toggle-for'
-  @_NONE_TOGGLE_ATTRIBUTE: 'data-toggle-disabled'
+  @_TOGGLE_DISABLED_ATTRIBUTE: 'data-toggle-disabled'
   @_ACTIVE_CSS_CLASS: 'toggle-active'
   @_SELECTORS: [
     "[#{@_TOGGLE_FOR_ATTRIBUTE}]"
@@ -63,5 +63,5 @@ luda class extends luda.Singleton
               if $toggle
                 self.toggle $toggle
                 toggleChecked = true
-          else if $path.hasAttribute self._NONE_TOGGLE_ATTRIBUTE
+          else if $path.hasAttribute self._TOGGLE_DISABLED_ATTRIBUTE
             toggleChecked = true

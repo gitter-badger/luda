@@ -15,10 +15,10 @@ luda class extends luda.Component
   @_ITEMS_SELECTOR: 'a[href]:not([disabled]),button:not([disabled]),
                      input:not([disabled]),[tabindex]:not([disabled])'
   @_TOGGLE_ATTRIBUTE: 'data-dropdown-toggle'
-  @_NONE_TOGGLE_ATTRIBUTE: 'data-dropdown-toggle-disabled'
+  @_TOGGLE_DISABLED_ATTRIBUTE: 'data-dropdown-toggle-disabled'
   @_STANDALONE_ATTRIBUTE: 'data-dropdown-standalone'
   @_SWITCHES_SELECTOR: "[#{@_TOGGLE_ATTRIBUTE}]"
-  @_NONE_SWITCHES_SELECTOR: "[#{@_NONE_TOGGLE_ATTRIBUTE}]"
+  @_NONE_SWITCHES_SELECTOR: "[#{@_TOGGLE_DISABLED_ATTRIBUTE}]"
   @_ACTIVE_CSS_CLASS: 'dropdown-active'
   @_ACTIVATED_EVENT_TYPE: "#{@_SCOPE}:activated"
   @_DEACTIVATED_EVENT_TYPE: "#{@_SCOPE}:deactivated"
@@ -29,7 +29,7 @@ luda class extends luda.Component
     subtree: true
     attributeFilter: [
       @_TOGGLE_ATTRIBUTE
-      @_NONE_TOGGLE_ATTRIBUTE
+      @_TOGGLE_DISABLED_ATTRIBUTE
       @_STANDALONE_ATTRIBUTE
     ]
 
