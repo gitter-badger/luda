@@ -929,7 +929,7 @@
                     return toggleChecked = true;
                   }
                 }
-              } else if ($path.hasAttribute(self._NONE_TOGGLE_ATTRIBUTE)) {
+              } else if ($path.hasAttribute(self._TOGGLE_DISABLED_ATTRIBUTE)) {
                 return toggleChecked = true;
               }
             }
@@ -947,7 +947,7 @@
 
     _Class._TOGGLE_FOR_ATTRIBUTE = 'data-toggle-for';
 
-    _Class._NONE_TOGGLE_ATTRIBUTE = 'data-toggle-disabled';
+    _Class._TOGGLE_DISABLED_ATTRIBUTE = 'data-toggle-disabled';
 
     _Class._ACTIVE_CSS_CLASS = 'toggle-active';
 
@@ -1788,13 +1788,13 @@
 
     _Class._TOGGLE_ATTRIBUTE = 'data-dropdown-toggle';
 
-    _Class._NONE_TOGGLE_ATTRIBUTE = 'data-dropdown-toggle-disabled';
+    _Class._TOGGLE_DISABLED_ATTRIBUTE = 'data-dropdown-toggle-disabled';
 
     _Class._STANDALONE_ATTRIBUTE = 'data-dropdown-standalone';
 
     _Class._SWITCHES_SELECTOR = `[${_Class._TOGGLE_ATTRIBUTE}]`;
 
-    _Class._NONE_SWITCHES_SELECTOR = `[${_Class._NONE_TOGGLE_ATTRIBUTE}]`;
+    _Class._NONE_SWITCHES_SELECTOR = `[${_Class._TOGGLE_DISABLED_ATTRIBUTE}]`;
 
     _Class._ACTIVE_CSS_CLASS = 'dropdown-active';
 
@@ -1806,7 +1806,7 @@
       childList: true,
       attributes: true,
       subtree: true,
-      attributeFilter: [_Class._TOGGLE_ATTRIBUTE, _Class._NONE_TOGGLE_ATTRIBUTE, _Class._STANDALONE_ATTRIBUTE]
+      attributeFilter: [_Class._TOGGLE_ATTRIBUTE, _Class._TOGGLE_DISABLED_ATTRIBUTE, _Class._STANDALONE_ATTRIBUTE]
     };
 
     _Class._$focused = [];

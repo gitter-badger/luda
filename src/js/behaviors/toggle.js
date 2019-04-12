@@ -65,7 +65,7 @@
                     return toggleChecked = true;
                   }
                 }
-              } else if ($path.hasAttribute(self._NONE_TOGGLE_ATTRIBUTE)) {
+              } else if ($path.hasAttribute(self._TOGGLE_DISABLED_ATTRIBUTE)) {
                 return toggleChecked = true;
               }
             }
@@ -83,7 +83,7 @@
 
     _Class._TOGGLE_FOR_ATTRIBUTE = 'data-toggle-for';
 
-    _Class._NONE_TOGGLE_ATTRIBUTE = 'data-toggle-disabled';
+    _Class._TOGGLE_DISABLED_ATTRIBUTE = 'data-toggle-disabled';
 
     _Class._ACTIVE_CSS_CLASS = 'toggle-active';
 
