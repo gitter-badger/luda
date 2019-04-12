@@ -1,6 +1,6 @@
-import './behaviors/enter-click.coffee'
+import './behaviors/enter.coffee'
 import './behaviors/focus.coffee'
-import './behaviors/radio-tab.coffee'
+import './behaviors/tabulate.coffee'
 import './behaviors/readonly.coffee'
 import './behaviors/toggle.coffee'
 import './elements/form-file.coffee'

@@ -23,11 +23,11 @@
 
     };
 
-    _Class._SCOPE = 'enterClick';
+    _Class._SCOPE = 'enter';
 
     _Class._SELECTORS = ['input[type=checkbox]', 'input[type=radio]', '[tabindex]'];
 
-    _Class._DISABLED_ATTRIBUTE = 'data-enter-click-disabled';
+    _Class._DISABLED_ATTRIBUTE = 'data-enter-disabled';
 
     return _Class;
 

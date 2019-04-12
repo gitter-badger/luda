@@ -7,14 +7,14 @@
   font-size: typo-size($type-level)
   line-height: typo-line-height($type-level)
 
-=typo-link($class: null, $color: null, $hover-color: null, $active-color: null)
-  a.link-#{$class}:not(.btn)
+=typo-link($name: null, $color: null, $hover-color: null, $active-color: null)
+  a.link-#{$name}:not(.btn)
     color: $color
 
-  a.link-#{$class}:not(.btn):hover
+  a.link-#{$name}:not(.btn):hover
     color: $hover-color
 
-  a.link-#{$class}:not(.btn):active
+  a.link-#{$name}:not(.btn):active
     color: $active-color
 
 =font-face($family: null, $style: normal, $weight: 400, $locals: null, $urls: null, $unicodes: null)

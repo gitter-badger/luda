@@ -3,7 +3,7 @@ import '../dom.coffee'
 import '../event.coffee'
 import '../component.coffee'
 import '../behaviors/focus.coffee'
-import '../behaviors/enter-click.coffee'
+import '../behaviors/enter.coffee'
 
 
 
@@ -19,7 +19,7 @@ luda class extends luda.Component
   @_DEFAULT_VALUE_SELECTOR: '.dropdown-items .btn-radio label,
                              .dropdown-items .btn-check label'
   @_VALUE_HOLDER_SELECTOR: '.fm input'
-  @_ENTER_CLICK_VALUE_HOLDER_SELECTOR: '.fm-dropdown .fm input'
+  @_ENTER_BEHAVIOR_SELECTOR: '.fm-dropdown .fm input'
 
   @_observerConfig:
     childList: true
@@ -67,13 +67,13 @@ luda class extends luda.Component
 
   @_init: ->
     self = this
-    luda.enterClick._add @_ENTER_CLICK_VALUE_HOLDER_SELECTOR
+    luda.enter._add @_ENTER_BEHAVIOR_SELECTOR
     luda.on 'change', "#{@_SELECTOR} #{@_VALUE_SELECTOR}", (e) ->
       self.query(luda.$parent self._SELECTOR, this)._setValueHolderValue()
     luda.on luda._FORM_RESET, @_SELECTOR, (e) ->
       setTimeout => self.query(this)._setValueHolderValue()
     # prevent ios device pop out wired navigation pannel
     if /iphone/i.test(navigator.userAgent) or /ipad/i.test(navigator.userAgent)
-      luda.on 'focusin', @_ENTER_CLICK_VALUE_HOLDER_SELECTOR, (e) ->
+      luda.on 'focusin', @_ENTER_BEHAVIOR_SELECTOR, (e) ->
         this.blur()
         this.classList.add luda.focus._CSS_CLASS

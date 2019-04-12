@@ -8,11 +8,11 @@ import '../singleton.coffee'
 
 luda class extends luda.Singleton
 
-  @_SCOPE: 'radioTab'
+  @_SCOPE: 'tabulate'
 
   @_SELECTORS: ['input[type=radio]:not([disabled])']
 
-  @_DISABLED_ATTRIBUTE: 'data-radio-tab-disabled'
+  @_DISABLED_ATTRIBUTE: 'data-tabulate-disabled'
 
   @_querySameName$radios: ($radio) ->
     if $radio.name

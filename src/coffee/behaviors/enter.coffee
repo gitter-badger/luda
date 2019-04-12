@@ -6,7 +6,7 @@ import '../singleton.coffee'
 
 luda class extends luda.Singleton
 
-  @_SCOPE: 'enterClick'
+  @_SCOPE: 'enter'
 
   @_SELECTORS: [
     'input[type=checkbox]'
@@ -14,7 +14,7 @@ luda class extends luda.Singleton
     '[tabindex]'
   ]
 
-  @_DISABLED_ATTRIBUTE: 'data-enter-click-disabled'
+  @_DISABLED_ATTRIBUTE: 'data-enter-disabled'
 
   @_init: ->
     self = this

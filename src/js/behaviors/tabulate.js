@@ -53,11 +53,11 @@
 
     };
 
-    _Class._SCOPE = 'radioTab';
+    _Class._SCOPE = 'tabulate';
 
     _Class._SELECTORS = ['input[type=radio]:not([disabled])'];
 
-    _Class._DISABLED_ATTRIBUTE = 'data-radio-tab-disabled';
+    _Class._DISABLED_ATTRIBUTE = 'data-tabulate-disabled';
 
     return _Class;
 

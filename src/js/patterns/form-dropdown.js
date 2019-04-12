@@ -1,6 +1,6 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('../install.js'), require('../dom.js'), require('../event.js'), require('../component.js'), require('../behaviors/focus.js'), require('../behaviors/enter-click.js')) :
-  typeof define === 'function' && define.amd ? define(['../install.js', '../dom.js', '../event.js', '../component.js', '../behaviors/focus.js', '../behaviors/enter-click.js'], factory) :
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('../install.js'), require('../dom.js'), require('../event.js'), require('../component.js'), require('../behaviors/focus.js'), require('../behaviors/enter.js')) :
+  typeof define === 'function' && define.amd ? define(['../install.js', '../dom.js', '../event.js', '../component.js', '../behaviors/focus.js', '../behaviors/enter.js'], factory) :
   (factory());
 }(this, (function () { 'use strict';
 
@@ -56,7 +56,7 @@
       static _init() {
         var self;
         self = this;
-        luda.enterClick._add(this._ENTER_CLICK_VALUE_HOLDER_SELECTOR);
+        luda.enter._add(this._ENTER_BEHAVIOR_SELECTOR);
         luda.on('change', `${this._SELECTOR} ${this._VALUE_SELECTOR}`, function(e) {
           return self.query(luda.$parent(self._SELECTOR, this))._setValueHolderValue();
         });
@@ -67,7 +67,7 @@
         });
         // prevent ios device pop out wired navigation pannel
         if (/iphone/i.test(navigator.userAgent) || /ipad/i.test(navigator.userAgent)) {
-          return luda.on('focusin', this._ENTER_CLICK_VALUE_HOLDER_SELECTOR, function(e) {
+          return luda.on('focusin', this._ENTER_BEHAVIOR_SELECTOR, function(e) {
             this.blur();
             return this.classList.add(luda.focus._CSS_CLASS);
           });
@@ -90,7 +90,7 @@
 
     _Class._VALUE_HOLDER_SELECTOR = '.fm input';
 
-    _Class._ENTER_CLICK_VALUE_HOLDER_SELECTOR = '.fm-dropdown .fm input';
+    _Class._ENTER_BEHAVIOR_SELECTOR = '.fm-dropdown .fm input';
 
     _Class._observerConfig = {
       childList: true,
