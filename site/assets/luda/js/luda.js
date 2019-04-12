@@ -1,5 +1,5 @@
 /*! 
-   * Luda 0.1.12 | https://luda.dev
+   * Luda 0.1.13 | https://luda.dev
    * Copyright 2018 oatw | https://oatw.blog
    * MIT license | http://opensource.org/licenses/MIT
    */
@@ -424,11 +424,11 @@
 
     };
 
-    _Class._SCOPE = 'enterClick';
+    _Class._SCOPE = 'enter';
 
     _Class._SELECTORS = ['input[type=checkbox]', 'input[type=radio]', '[tabindex]'];
 
-    _Class._DISABLED_ATTRIBUTE = 'data-enter-click-disabled';
+    _Class._DISABLED_ATTRIBUTE = 'data-enter-disabled';
 
     return _Class;
 
@@ -581,11 +581,11 @@
 
     };
 
-    _Class._SCOPE = 'radioTab';
+    _Class._SCOPE = 'tabulate';
 
     _Class._SELECTORS = ['input[type=radio]:not([disabled])'];
 
-    _Class._DISABLED_ATTRIBUTE = 'data-radio-tab-disabled';
+    _Class._DISABLED_ATTRIBUTE = 'data-tabulate-disabled';
 
     return _Class;
 
@@ -1867,7 +1867,7 @@
       static _init() {
         var self;
         self = this;
-        luda.enterClick._add(this._ENTER_CLICK_VALUE_HOLDER_SELECTOR);
+        luda.enter._add(this._ENTER_BEHAVIOR_SELECTOR);
         luda.on('change', `${this._SELECTOR} ${this._VALUE_SELECTOR}`, function(e) {
           return self.query(luda.$parent(self._SELECTOR, this))._setValueHolderValue();
         });
@@ -1878,7 +1878,7 @@
         });
         // prevent ios device pop out wired navigation pannel
         if (/iphone/i.test(navigator.userAgent) || /ipad/i.test(navigator.userAgent)) {
-          return luda.on('focusin', this._ENTER_CLICK_VALUE_HOLDER_SELECTOR, function(e) {
+          return luda.on('focusin', this._ENTER_BEHAVIOR_SELECTOR, function(e) {
             this.blur();
             return this.classList.add(luda.focus._CSS_CLASS);
           });
@@ -1901,7 +1901,7 @@
 
     _Class._VALUE_HOLDER_SELECTOR = '.fm input';
 
-    _Class._ENTER_CLICK_VALUE_HOLDER_SELECTOR = '.fm-dropdown .fm input';
+    _Class._ENTER_BEHAVIOR_SELECTOR = '.fm-dropdown .fm input';
 
     _Class._observerConfig = {
       childList: true,

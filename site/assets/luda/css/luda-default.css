@@ -1,5 +1,5 @@
 /*! 
-* * Luda 0.1.12 | Theme default | https://luda.dev
+* * Luda 0.1.13 | Theme default | https://luda.dev
 * * Copyright 2018 oatw | https://oatw.blog
 * * MIT license | http://opensource.org/licenses/MIT
 * */
@@ -1201,10 +1201,6 @@ html:not([data-focus-disabled]) .fm .focus {
 .grid .grid-edge > [class*=col-] > .grid {
   margin-right: 0;
   margin-left: 0;
-}
-
-.grid-edge.container {
-  padding: 0;
 }
 
 .col-1 {

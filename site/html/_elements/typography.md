@@ -283,11 +283,18 @@ For other inline texts, you can below the appearances in the below example.
 
 
 ## Sass Mixins
+{: .mb-small}
 
 ``` sass
 +font-face($family: null, $style: normal, $weight: 400, $locals: null, $urls: null, $unicodes: null)
 ```
-This mixin is used to import web fonts. `$locals`, `$urls` and `$unicodes` should be list.
+This mixin is used to import web fonts. `$locals`, `$urls` and `$unicodes` should be lists.
+{: .mb-small}
+
+``` sass
++typo-link($class: null, $color: null, $hover-color: null, $active-color: null)
+```
+If you need more colored links, you can use this mixin.
 
 
 

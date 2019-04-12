@@ -1,45 +1,41 @@
 ---
 title: Disabled
-description: Use disabled attribute to make buttons, forms and more not accessable. Values of disabled form fileds will not be submited, if you just want a not editable form element, you should use readonly instead.
+description: Prevent form elements from responding to user actions and being submitted.
 ---
 
 
+## Introduction
+The `disabled` attribute can be added to buttons or form elements for form control. A disabled element doesn't respond to user actions, it cannot be focused. If a form element is disabled, it will not be submitted.
 
-## Disable a Button
-Add `disabled` attribute to a button to disable it.
+In Luda, we add an opacity rule to disabled elements. Please see the examples below for clarification.
 
+## Examples
+
+### Button
 {% capture disabled_button %}
-<button class="btn btn-primary" disabled>Disabled luda button</button>
+<button class="btn btn-primary" disabled>A disabled button</button>
 {% endcapture %}
-
-{{ disabled_button }}{: .mb-small}
+<div class="example">
+  {{ disabled_button }}
+</div>
 ``` html{{ disabled_button }}```
+Use the `disabled` attribute to disable a button.
 
-
-## Disable a Form Element
-
-Add `disabled` attribute to a form element to disable it.
-
+### Form
 {% capture disabled_form %}
 <div class="fm fm-text" disabled>
-  <input disabled placeholder="Disabled luda form text">
+  <input disabled placeholder="A disabled input">
 </div>
 {% endcapture %}
-
-{{ disabled_form }}{: .mb-small}
+<div class="example">
+  {{ disabled_form }}  
+</div>
 ``` html{{disabled_form}}```
+Use the `disabled` attribute to disable a form element.
 
-
-## HTML Attributes
-
-``` html
-disabled
-```
-Disable a form element or a button.
 
 
 ## Sass Variables
-{: .mb-small}
 
 ``` sass
 $opacity-disabled: $opacity-muted !default

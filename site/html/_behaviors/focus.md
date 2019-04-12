@@ -1,44 +1,58 @@
 ---
 title: Focus
-description: Focus enhances html elements focus state by adding <code>.focus</code> class. Except form elements, <code>.focus</code> class will be added only when an element is focused through keyboard or manually called <code>focus()</code> in Javascript.
+description: Get a better focus effect in all browsers.
 ---
+
+
+## Introduction
+The native focus behavior of browsers are wired and different. For better focus effect control, we use the `.focus` class instead of the `:focus` selector in Luda.
+
+Except form elements, the `.focus` class will be added to a focusable element only when it's focused through keyboard. For a form element, the `.focus` class will be added no matter how it's focused.
 
 
 ## Examples
 
 
-<a href="#" data-turbolinks="false">This link will show focus state only when focused through keyboard.</a>
+### Link
+The outline of this link will show only when the link is focused through keyboard.
+<p class="example mt-none">
+  <a href="#" data-turbolinks="false">Press the tab key and focus me.</a>
+</p>
 ``` html
-<a href="#">This link will show focus state only when focused through keyboard.</a>
+<a href="#">Focus this link</a>
 ```
-{: .mb-small }
 
+
+### Button
+The outline of this button will show only when the button is focused through keyboard.
 {% capture button_focus %}
-<button class="btn btn-primary">Primary button</button>
+<button class="btn btn-primary">Focus me through keyboard</button>
 {% endcapture %}
-{{ button_focus }}
-This button will show focus state only when focused through keyboard.
+<div class="example">
+  {{ button_focus }}
+</div>
 ``` html{{ button_focus }}```
-{: .mb-medium }
 
+
+### Form
+The styles of this text field will be changed no matter how the text field is focused.
 {% capture form_focus %}
 <div class="fm fm-text">
   <input placeholder="A text filed">
 </div>
 {% endcapture %}
-
-{{ form_focus }}
-This text field will show focus state nomather how it's focused.
+<div class="example">
+  {{ form_focus }}
+</div>
 ``` html{{ form_focus }}```
 
-## JavaScript Methods
-``` javascript
-luda.focus.deactive()
-```
-Deactive focus globally.
-{: .mb-small}
 
-``` javascript
-luda.focus.active()
+
+## HTML Attributes
+
+### data-focus-disabled
+
+``` html
+<html data-focus-disabled>...</html>
 ```
-Active focus globally. Actived by default.
+Add this attribute to the `<html>` tag to disable the enhancement of browser's native focus behavior.

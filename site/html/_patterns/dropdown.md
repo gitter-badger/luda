@@ -293,7 +293,6 @@ data-dropdown-toggle-disabled
 Description.
 
 
-
 ## DOM Events
 
 ``` javascript

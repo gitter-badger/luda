@@ -350,6 +350,27 @@ If you want a button or a functional button ocuppy all the left space in horizon
 
 
 
+## Sass Mixins
+{: .mb-small}
+
+``` sass
++button-solid($name: null, $color: null, $hover-color: null, $active-color: null, $background: null, $hover-background: null, $active-background: null, $border-color: null, $hover-border-color: null, $active-border-color: null, $box-shadow: null, $hover-box-shadow: null, $active-box-shadow: null)
+```
+Use this mixin to create more solid buttons and functional solid buttons.
+{: .mb-small}
+
+``` sass
++button-hollow($name: null, $color: null, $hover-color: null, $active-color: null, $hover-background: null, $active-background: null, $border-color: null, $hover-border-color: null, $active-border-color: null, $box-shadow: null, $hover-box-shadow: null, $active-box-shadow: null)
+```
+Use this mixin to create more hollow buttons and functional hollow buttons.
+{: .mb-small}
+
+``` sass
++button-text($name: null, $color: null, $hover-color: null, $active-color: null, $text-shadow: null, $hover-text-shadow: null, $active-text-shadow: null)
+```
+Use this mixin to create more text buttons and functional text buttons.
+
+
 ## Sass Variables
 
 ### Sizes

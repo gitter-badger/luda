@@ -64,7 +64,25 @@ Add the class `.fm-select` to the container to create a select field. A `<select
 </div>
 ``` html{{ select_field }}```
 
+#### Select Field Javascript Examples
+{: .mb-small}
 
+``` javascript
+let mySelect = luda.fmSelect.query('#my-fm-select')
+```
+Get the javascript instance of a select field.
+{: .mb-small}
+
+``` javascript
+mySelect.select(0)
+```
+Select the first option in a select field.
+{: .mb-small}
+
+``` javascript
+mySelect.select([0, 1])
+```
+Select the first option and the second option in an multiple select field.
 
 ### File Picker
 Add the class `.fm-file` to the container to create a file picker. A `<input type="file">` element should be wrapped. You can set the value attribute of the `<input>` to show default filenames.
@@ -83,7 +101,13 @@ Add the class `.fm-file` to the container to create a file picker. A `<input typ
 </div>
 ``` html{{ file_picker }}```
 
+#### File Picker Javascript Examples
+{: .mb-small}
 
+``` javascript
+luda.$child('#input-in-my-fm-file').setAttribute('value', '')
+```
+Reset a file picker.
 
 ### Checkbox
 Add the class `.fm-check` to the container to create checkboxes. One or more `<input type="checkbox">` elements can be wrapped. 
@@ -381,6 +405,7 @@ Add the `.fm-label-large` class to to make a form label larger.
   {{ large_form_label }}
 </div>
 ``` html{{ large_form_label }}```
+
 
 
 

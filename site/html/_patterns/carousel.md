@@ -88,44 +88,105 @@ Your custom animation class should be defined like `.carousel-ani-*`. And the `.
 
 ## HTML Attributes
 
+### data-carousel-interval="milliseconds | false"
 ``` html
-data-carousel-interval="5000"
+<div class="carousel" data-carousel-interval="10000">...</div>
 ```
-Description. If setted to `false`, the carousel will not play automatically.
-{: .mb-small}
+Change the interval time space from the default 5000 to 10000 milliseconds.
 
 ``` html
-data-carousel-wrap="true"
+<div class="carousel" data-carousel-interval="false">...</div>
 ```
-Description.
+Disable auto playing, the carousel will slide to next or prev item only by clicking control buttons.
+
+### data-carousel-wrap="false"
+``` html
+<div class="carousel" data-carousel-wrap="false">...</div>
+```
+Disable auto looping, the carousel will be stopped when the last item showed.
+
+
+## Javascript Methods
+
+### luda.carousel.query(selector | element)
+``` javascript
+let myCarousel = luda.carousel.query('#my-carousel')
+```
+Query the Javascript instance through a carousel's CSS selector. 
+
+``` javascript
+let $myCarousel = luda.$child('#my-carousel')
+let myCarousel = luda.carousel.query($myCarousel)
+```
+Query the Javascript instance through a carousel's element instance.
+
+
+### .activate(index)
+``` javascript
+myCarousel.activate(1)
+```
+Activate the second item in the carousel.
+
+### .next()
+``` javascript
+myCarousel.next()
+```
+Activate the next item in the carousel.
+
+
+### .prev()
+``` javascript
+myCarousel.prev()
+```
+Activate the prev item in the carousel.
+
+### .pause()
+``` javascript
+myCarousel.pause()
+```
+Pause the auto playing carousel.
+
+### .play()
+``` javascript
+myCarousel.play()
+```
+Restart a paused carousel.
 
 
 
 ## DOM Events
 
+### luda:carousel:activate
 ``` javascript
-luda:carousel:activate
+luda.on('luda:carousel:activate', '#myCarousel', function(event){
+  let $myCarousel = this, $item = event.tartet, index = event.detail
+})
 ```
-Description.
-{: .mb-small}
+Triggered before the `.carousel-item-active` class added to a carousel item.
 
+### luda:carousel:activated
 ``` javascript
-luda:carousel:activated
+luda.on('luda:carousel:activated', '#myCarousel', function(event){
+  let $myCarousel = this, $item = event.tartet, index = event.detail
+})
 ```
-Description.
-{: .mb-small}
+Triggered after the `.carousel-item-active` class added to a carousel item and transition ended.
 
+### luda:carousel:deactivate
 ``` javascript
-luda:carousel:deactivate
+luda.on('luda:carousel:deactive', '#myCarousel', function(event){
+  let $myCarousel = this, $item = event.tartet, index = event.detail
+})
 ```
-Description.
-{: .mb-small}
+Triggered before the `.carousel-item-active` class removed from a carousel item.
 
+### luda:carousel:deactivate
 ``` javascript
-luda:carousel:deactivated
+luda.on('luda:carousel:deactived', '#myCarousel', function(event){
+  let $myCarousel = this, $item = event.tartet, index = event.detail
+})
 ```
-Description.
-
+Triggered after the `.carousel-item-active` class removed from a carousel item and transition ended.
 
 
 ## Sass Variables
@@ -135,58 +196,47 @@ Description.
 $carousel-width-breakpoint: m !default
 ```
 Specify a width breakpoint for carousels. The layout of carousels will be changed if the screen width is equal to or wider than the breakpoint width.
-{: .mb-small}
 
 ``` sass
 $carousel-aspect-ratio: 16 / 9 !default
 ```
 The aspect ratio of the `.carousel-box` container.
-{: .mb-small}
 
 ``` sass
 $carousel-indicators-top-spacing-rem: $spacing-small-rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $carousel-indicators-right-spacing-rem: $spacing-small-rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $carousel-indicator-height-rem: 0.2rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $carousel-indicator-outline-offset-px: 2px !default
 ```
-{: .mb-small}
 
 ``` sass
 $carousel-description-padding-rem: $spacing-small-rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $carousel-breakpoint-indicators-top-spacing-rem: $spacing-medium-rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $carousel-breakpoint-indicators-right-spacing-rem: $spacing-medium-rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $carousel-breakpoint-prev-button-left-spacing-rem: $spacing-small-rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $carousel-breakpoint-next-button-right-spacing-rem: $spacing-small-rem !default
 ```
-{: .mb-small}
 
 ``` sass
 $carousel-breakpoint-description-padding-rem: $spacing-medium-rem !default
@@ -197,17 +247,14 @@ $carousel-breakpoint-description-padding-rem: $spacing-medium-rem !default
 ``` sass
 $carousel-transition-duration: $transition-duration-long !default
 ```
-{: .mb-small}
 
 ``` sass
 $carousel-transition-timing-function: $transition-timing-function-main !default
 ```
-{: .mb-small}
 
 ``` sass
 $carousel-ani-opacity-transition-duration: $transition-duration-long !default
 ```
-{: .mb-small}
 
 ``` sass
 $carousel-ani-opacity-transition-timing-function: $transition-timing-function-main !default
@@ -219,33 +266,27 @@ $carousel-ani-opacity-transition-timing-function: $transition-timing-function-ma
 ``` sass
 $carousel-background: $background-color-muted !default
 ```
-{: .mb-small}
 
 ``` sass
 $carousel-description-background: linear-gradient(180deg, transparent 0, rgba($background-color-dark, $opacity-most-muted) 2rem) !default
 ```
-{: .mb-small}
 
 ``` sass
 $carousel-description-color: $color-inverse-main !default
 ```
-{: .mb-small}
 
 ``` sass
 $carousel-controls-opacity: $opacity-main !default
 ```
 The opacity of the prev button, the next button and the indicators in the carousel.
-{: .mb-small}
 
 ``` sass
 $carousel-controls-disabled-opacity: $opacity-more-muted !default
 ```
-{: .mb-small}
 
 ``` sass
 $carousel-controls-opacity-transition-duration: $transition-duration-normal !default
 ```
-{: .mb-small}
 
 ``` sass
 $carousel-controls-opacity-transition-timing-function: $transition-timing-function-main !default

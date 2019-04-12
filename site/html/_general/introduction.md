@@ -20,7 +20,7 @@ Luda provides modular support as deep as possible for Node.js based assets tools
 
 ### Designed for Lazy Developers
 
-Based on mutation observer, Luda component handles lifecycle automitaclly, no more manual Javascript control.Every component handles its document flow internally, you can position it in or out of the normal document flow without any worry.
+Based on mutation observer, Luda component handles lifecycle automitaclly. In most cases, you don't need manual Javascript control.Every component handles its document flow internally, you can position it in or out of the normal document flow without any worry.
 
 ### Designed for Creative Designers
 
