@@ -152,6 +152,42 @@
     },
     reflow: function($element) {
       return $element.offsetHeight;
+    },
+    _getTransitionDurations: function(style, propertyLength) {
+      var durationArray;
+      durationArray = style.split(',');
+      while (durationArray.length < propertyLength) {
+        durationArray = durationArray.concat(durationArray);
+      }
+      if (durationArray.length > propertyLength) {
+        durationArray = durationArray.slice(0, propertyLength);
+      }
+      return durationArray.map(function(durationStr) {
+        var duration;
+        duration = parseFloat(durationStr);
+        if (!duration) {
+          return 0;
+        }
+        if (durationStr.match('ms')) {
+          return duration;
+        } else {
+          return duration * 1000;
+        }
+      });
+    },
+    getTransitionDuration: function($element) {
+      var delays, durations, finalDurations, length, styles;
+      styles = window.getComputedStyle($element);
+      length = styles.transitionProperty.split(',').length;
+      if (!length) {
+        return 0;
+      }
+      delays = this._getTransitionDurations(styles.transitionDelay, length);
+      durations = this._getTransitionDurations(styles.transitionDuration, length);
+      finalDurations = durations.map(function(duration, index) {
+        return duration + delays[index];
+      });
+      return Math.max.apply(null, finalDurations);
     }
   });
 
@@ -210,7 +246,7 @@
         }
       });
     },
-    dispatch: function($target, type, detail, options = {}) {
+    dispatch: function($target, type, detail, delayMilliseconds, options = {}) {
       var evt;
       if (typeof options.bubbles !== 'boolean') {
         options.bubbles = true;
@@ -223,8 +259,14 @@
       }
       evt = new Event(`${this._EVENT_TYPE_PREFIX}:${type}`, options);
       evt.detail = detail;
-      $target.dispatchEvent(evt);
-      return evt;
+      if (typeof delayMilliseconds === 'number') {
+        return setTimeout(function() {
+          return $target.dispatchEvent(evt);
+        }, delayMilliseconds);
+      } else {
+        $target.dispatchEvent(evt);
+        return evt;
+      }
     },
     _onDocReady: function(handler) {
       if (document.readyState === 'loading') {
@@ -874,15 +916,35 @@
     _Class = class extends luda.Singleton {
       static activate(name$target) {
         return this._query$targets(name$target).forEach(($target) => {
+          var activateDuration;
+          if (this._transiting($target)) {
+            return;
+          }
+          if (luda.dispatch($target, this._ACTIVATE_EVENT_TYPE).defaultPrevented) {
+            return;
+          }
+          this._setTransitingAttribute($target);
           $target.classList.add(this._ACTIVE_CSS_CLASS);
-          return luda.dispatch($target, this._ACTIVATED_EVENT_TYPE);
+          activateDuration = luda.getTransitionDuration($target);
+          luda.dispatch($target, this._ACTIVATED_EVENT_TYPE, null, activateDuration);
+          return this._removeTransitingAttribute($target, activateDuration);
         });
       }
 
       static deactivate(name$target) {
         return this._query$targets(name$target).forEach(($target) => {
+          var deactivateDuration;
+          if (this._transiting($target)) {
+            return;
+          }
+          if (luda.dispatch($target, this._DEACTIVATE_EVENT_TYPE).defaultPrevented) {
+            return;
+          }
+          this._setTransitingAttribute($target);
           $target.classList.remove(this._ACTIVE_CSS_CLASS);
-          return luda.dispatch($target, this._DEACTIVATED_EVENT_TYPE);
+          deactivateDuration = luda.getTransitionDuration($target);
+          luda.dispatch($target, this._DEACTIVATED_EVENT_TYPE, null, deactivateDuration);
+          return this._removeTransitingAttribute($target, deactivateDuration);
         });
       }
 
@@ -902,6 +964,20 @@
         } else {
           return luda.$children(`[${this._TOGGLE_TARGET_ATTRIBUTE}=${name$target}]`);
         }
+      }
+
+      static _transiting($target) {
+        return $target.hasAttribute(this._TRANSITING_ATTRIBUTE);
+      }
+
+      static _setTransitingAttribute($target) {
+        return $target.setAttribute(this._TRANSITING_ATTRIBUTE, '');
+      }
+
+      static _removeTransitingAttribute($target, delayMilliseconds) {
+        return setTimeout(() => {
+          return $target.removeAttribute(this._TRANSITING_ATTRIBUTE);
+        }, delayMilliseconds);
       }
 
       static _init() {
@@ -929,7 +1005,7 @@
                     return toggleChecked = true;
                   }
                 }
-              } else if ($path.hasAttribute(self._NONE_TOGGLE_ATTRIBUTE)) {
+              } else if ($path.hasAttribute(self._TOGGLE_DISABLED_ATTRIBUTE)) {
                 return toggleChecked = true;
               }
             }
@@ -947,13 +1023,19 @@
 
     _Class._TOGGLE_FOR_ATTRIBUTE = 'data-toggle-for';
 
-    _Class._NONE_TOGGLE_ATTRIBUTE = 'data-toggle-disabled';
+    _Class._TOGGLE_DISABLED_ATTRIBUTE = 'data-toggle-disabled';
+
+    _Class._TRANSITING_ATTRIBUTE = 'data-toggle-transiting';
 
     _Class._ACTIVE_CSS_CLASS = 'toggle-active';
 
     _Class._SELECTORS = [`[${_Class._TOGGLE_FOR_ATTRIBUTE}]`, `[${_Class._TOGGLE_ATTRIBUTE}]`];
 
+    _Class._ACTIVATE_EVENT_TYPE = `${_Class._SCOPE}:activate`;
+
     _Class._ACTIVATED_EVENT_TYPE = `${_Class._SCOPE}:activated`;
+
+    _Class._DEACTIVATE_EVENT_TYPE = `${_Class._SCOPE}:deactivate`;
 
     _Class._DEACTIVATED_EVENT_TYPE = `${_Class._SCOPE}:deactivated`;
 
@@ -1265,11 +1347,11 @@
         var action, activatedIndex;
         if (this._$items.length && !this._transiting) {
           activatedIndex = this._activeIndex;
-          if ((index != null) && index !== this._activeIndex && (0 <= index && index <= this._$items.length - 1)) {
+          if ((index != null) && index !== this._activeIndex && (0 <= index && index <= this._$items.length - 1) && this._canActivate(index, activatedIndex)) {
             this._transiting = true;
             this._activeIndex = index;
             action = index < activatedIndex ? '_slidePrev' : '_slideNext';
-            return this[action](this._$items[activatedIndex], activatedIndex);
+            return this[action](activatedIndex);
           }
         }
       }
@@ -1285,9 +1367,12 @@
             }
             index = 0;
           }
+          if (!this._canActivate(index, activatedIndex)) {
+            return;
+          }
           this._transiting = true;
           this._activeIndex = index;
-          this._slideNext(this._$items[activatedIndex], activatedIndex);
+          this._slideNext(activatedIndex);
           this._playTimeStamp = Date.now();
           return this._pausedRemainTime = this._interval;
         }
@@ -1304,9 +1389,12 @@
             }
             index = this._$items.length - 1;
           }
+          if (!this._canActivate(index, activatedIndex)) {
+            return;
+          }
           this._transiting = true;
           this._activeIndex = index;
-          this._slidePrev(this._$items[activatedIndex], activatedIndex);
+          this._slidePrev(activatedIndex);
           this._playTimeStamp = Date.now();
           return this._pausedRemainTime = this._interval;
         }
@@ -1400,11 +1488,11 @@
         return this._setDirectionControlState();
       }
 
-      _slideNext($activatedItem, activatedIndex) {
-        var $item;
+      _slideNext(activatedIndex) {
+        var $activatedItem, $item;
         if (this._$items.length > 1) {
           $item = this._$items[this._activeIndex];
-          luda.dispatch($item, this.constructor._ACTIVATE_EVENT_TYPE, this._activeIndex);
+          $activatedItem = this._$items[activatedIndex];
           $item.style.transition = 'none';
           $item.classList.remove(this.constructor._ITEM_PREV_CSS_CLASS);
           $item.classList.add(this.constructor._ITEM_NEXT_CSS_CLASS);
@@ -1412,19 +1500,19 @@
           $item.style.transition = '';
           $item.classList.remove(this.constructor._ITEM_NEXT_CSS_CLASS);
           $item.classList.add(this.constructor._ITEM_ACTIVE_CSS_CLASS);
-          luda.dispatch($activatedItem, this.constructor._DEACTIVATE_EVENT_TYPE, activatedIndex);
           $activatedItem.classList.remove(this.constructor._ITEM_ACTIVE_CSS_CLASS);
           $activatedItem.classList.add(this.constructor._ITEM_PREV_CSS_CLASS);
+          this._handleTransitionEnd(this._activeIndex, activatedIndex);
           this._setIndicatorsState();
           return this._setDirectionControlState();
         }
       }
 
-      _slidePrev($activatedItem, activatedIndex) {
-        var $item;
+      _slidePrev(activatedIndex) {
+        var $activatedItem, $item;
         if (this._$items.length > 1) {
           $item = this._$items[this._activeIndex];
-          luda.dispatch($item, this.constructor._ACTIVATE_EVENT_TYPE, this._activeIndex);
+          $activatedItem = this._$items[activatedIndex];
           $item.style.transition = 'none';
           $item.classList.remove(this.constructor._ITEM_NEXT_CSS_CLASS);
           $item.classList.add(this.constructor._ITEM_PREV_CSS_CLASS);
@@ -1432,12 +1520,37 @@
           $item.style.transition = '';
           $item.classList.remove(this.constructor._ITEM_PREV_CSS_CLASS);
           $item.classList.add(this.constructor._ITEM_ACTIVE_CSS_CLASS);
-          luda.dispatch($activatedItem, this.constructor._DEACTIVATE_EVENT_TYPE, activatedIndex);
           $activatedItem.classList.remove(this.constructor._ITEM_ACTIVE_CSS_CLASS);
           $activatedItem.classList.add(this.constructor._ITEM_NEXT_CSS_CLASS);
+          this._handleTransitionEnd(this._activeIndex, activatedIndex);
           this._setIndicatorsState();
           return this._setDirectionControlState();
         }
+      }
+
+      _canActivate(activeIndex, activatedIndex) {
+        var $activatedItem, $item, activateEvent, deactivateEvent;
+        $item = this._$items[activeIndex];
+        $activatedItem = this._$items[activatedIndex];
+        activateEvent = luda.dispatch($item, this.constructor._ACTIVATE_EVENT_TYPE, activeIndex);
+        deactivateEvent = luda.dispatch($activatedItem, this.constructor._DEACTIVATE_EVENT_TYPE, activatedIndex);
+        if (activateEvent.defaultPrevented || deactivateEvent.defaultPrevented) {
+          return false;
+        }
+        return true;
+      }
+
+      _handleTransitionEnd(activeIndex, activatedIndex) {
+        var $activatedItem, $item, activateDuration, deactivateDuration;
+        $item = this._$items[activeIndex];
+        $activatedItem = this._$items[activatedIndex];
+        activateDuration = luda.getTransitionDuration($item);
+        deactivateDuration = luda.getTransitionDuration($activatedItem);
+        luda.dispatch($item, this.constructor._ACTIVATED_EVENT_TYPE, activeIndex, activateDuration);
+        luda.dispatch($activatedItem, this.constructor._DEACTIVATED_EVENT_TYPE, activatedIndex, deactivateDuration);
+        return setTimeout(() => {
+          return this._transiting = false;
+        }, Math.max(activateDuration, deactivateDuration));
       }
 
       _setIndicatorsState() {
@@ -1463,17 +1576,6 @@
       static _init() {
         var self;
         self = this;
-        luda.on('transitionend', this._ITEMS_SELECTOR, function(e) {
-          var index, instance;
-          instance = self.query(luda.$parent(self._SELECTOR, this));
-          instance._transiting = false;
-          index = instance._$items.indexOf(this);
-          if (this.classList.contains(self._ITEM_ACTIVE_CSS_CLASS)) {
-            return luda.dispatch(this, self._ACTIVATED_EVENT_TYPE, index);
-          } else {
-            return luda.dispatch(this, self._DEACTIVATED_EVENT_TYPE, index);
-          }
-        });
         luda.on('click', this._INDICATORS_SELECTOR, function(e) {
           var instance;
           instance = self.query(luda.$parent(self._SELECTOR, this));
@@ -1563,32 +1665,52 @@
 
     _Class = class extends luda.Component {
       activate() {
-        var ref;
-        if (!this._isActive()) {
-          this._$component.classList.add(this.constructor._ACTIVE_CSS_CLASS);
-          this.constructor._$focused.push(document.activeElement);
-          if ((ref = this._parent) != null) {
-            ref.activate();
-          }
-          return luda.dispatch(this._$component, this.constructor._ACTIVATED_EVENT_TYPE);
+        var activateDuration, activateEvent, ref;
+        if (this._isActive() || this._transiting) {
+          return;
         }
+        activateEvent = luda.dispatch(this._$component, this.constructor._ACTIVATE_EVENT_TYPE);
+        if (activateEvent.defaultPrevented) {
+          return;
+        }
+        this._transiting = true;
+        this._$component.classList.add(this.constructor._ACTIVE_CSS_CLASS);
+        this.constructor._$focused.push(document.activeElement);
+        if ((ref = this._parent) != null) {
+          ref.activate();
+        }
+        activateDuration = luda.getTransitionDuration(this._$component);
+        luda.dispatch(this._$component, this.constructor._ACTIVATED_EVENT_TYPE, null, activateDuration);
+        return setTimeout(() => {
+          return this._transiting = false;
+        }, activateDuration);
       }
 
       deactivate(focus) {
-        var ref;
-        if (this._isActive()) {
-          this._$component.classList.remove(this.constructor._ACTIVE_CSS_CLASS);
-          this._children.forEach(function(child) {
-            return child.deactivate();
-          });
-          if (focus) {
-            if ((ref = this.constructor._$focused[this.constructor._$focused.length - 1]) != null) {
-              ref.focus();
-            }
-          }
-          this.constructor._$focused.splice(this.constructor._$focused.length - 1, 1);
-          return luda.dispatch(this._$component, this.constructor._DEACTIVATED_EVENT_TYPE);
+        var deactivateDuration, deactivateEvent, ref;
+        if (!(this._isActive() && !this._transiting)) {
+          return;
         }
+        deactivateEvent = luda.dispatch(this._$component, this.constructor._DEACTIVATE_EVENT_TYPE);
+        if (deactivateEvent.defaultPrevented) {
+          return;
+        }
+        this._transiting = true;
+        this._$component.classList.remove(this.constructor._ACTIVE_CSS_CLASS);
+        this._children.forEach(function(child) {
+          return child.deactivate();
+        });
+        if (focus) {
+          if ((ref = this.constructor._$focused[this.constructor._$focused.length - 1]) != null) {
+            ref.focus();
+          }
+        }
+        this.constructor._$focused.splice(this.constructor._$focused.length - 1, 1);
+        deactivateDuration = luda.getTransitionDuration(this._$component);
+        luda.dispatch(this._$component, this.constructor._DEACTIVATED_EVENT_TYPE, null, deactivateDuration);
+        return setTimeout(() => {
+          return this._transiting = false;
+        }, deactivateDuration);
       }
 
       toggle(focus) {
@@ -1632,7 +1754,8 @@
       }
 
       _constructor() {
-        return ({_$items: this._$items, _$switches: this._$switches, _$noneSwitches: this._$noneSwitches, _isStandalone: this._isStandalone} = this._getConfig());
+        ({_$items: this._$items, _$switches: this._$switches, _$noneSwitches: this._$noneSwitches, _isStandalone: this._isStandalone} = this._getConfig());
+        return this._transiting = false;
       }
 
       _onMutations(mutations) {
@@ -1788,17 +1911,21 @@
 
     _Class._TOGGLE_ATTRIBUTE = 'data-dropdown-toggle';
 
-    _Class._NONE_TOGGLE_ATTRIBUTE = 'data-dropdown-toggle-disabled';
+    _Class._TOGGLE_DISABLED_ATTRIBUTE = 'data-dropdown-toggle-disabled';
 
     _Class._STANDALONE_ATTRIBUTE = 'data-dropdown-standalone';
 
     _Class._SWITCHES_SELECTOR = `[${_Class._TOGGLE_ATTRIBUTE}]`;
 
-    _Class._NONE_SWITCHES_SELECTOR = `[${_Class._NONE_TOGGLE_ATTRIBUTE}]`;
+    _Class._NONE_SWITCHES_SELECTOR = `[${_Class._TOGGLE_DISABLED_ATTRIBUTE}]`;
 
     _Class._ACTIVE_CSS_CLASS = 'dropdown-active';
 
+    _Class._ACTIVATE_EVENT_TYPE = `${_Class._SCOPE}:activate`;
+
     _Class._ACTIVATED_EVENT_TYPE = `${_Class._SCOPE}:activated`;
+
+    _Class._DEACTIVATE_EVENT_TYPE = `${_Class._SCOPE}:deactivate`;
 
     _Class._DEACTIVATED_EVENT_TYPE = `${_Class._SCOPE}:deactivated`;
 
@@ -1806,7 +1933,7 @@
       childList: true,
       attributes: true,
       subtree: true,
-      attributeFilter: [_Class._TOGGLE_ATTRIBUTE, _Class._NONE_TOGGLE_ATTRIBUTE, _Class._STANDALONE_ATTRIBUTE]
+      attributeFilter: [_Class._TOGGLE_ATTRIBUTE, _Class._TOGGLE_DISABLED_ATTRIBUTE, _Class._STANDALONE_ATTRIBUTE]
     };
 
     _Class._$focused = [];
@@ -1921,10 +2048,19 @@
       
       // public
       activate(index) {
-        var activatedIndex;
-        if (this._$panes.length) {
+        var activateEvent, activatedIndex, deactivateEvent;
+        if (this._$panes.length && !this._transiting) {
           activatedIndex = this._activeIndex;
           if ((index != null) && index !== this._activeIndex && (0 <= index && index <= this._$panes.length - 1)) {
+            activateEvent = luda.dispatch(this._$panes[index], this.constructor._ACTIVATE_EVENT_TYPE, index);
+            deactivateEvent = luda.dispatch(this._$panes[activatedIndex], this.constructor._DEACTIVATE_EVENT_TYPE, activatedIndex);
+            if (activateEvent.defaultPrevented) {
+              return this._setIndicatorsState();
+            }
+            if (deactivateEvent.defaultPrevented) {
+              return this._setIndicatorsState();
+            }
+            this._transiting = true;
             this._activeIndex = index;
             return this._activate(activatedIndex);
           }
@@ -1948,6 +2084,7 @@
 
       _constructor() {
         ({_$panes: this._$panes, _$indicators: this._$indicators, _activeIndex: this._activeIndex} = this._getConfig());
+        this._transiting = false;
         return this._activate();
       }
 
@@ -1956,26 +2093,37 @@
       }
 
       _activate(activatedIndex) {
-        this._$panes.forEach(($pane, index) => {
-          if (index === this._activeIndex) {
-            $pane.classList.add(this.constructor._PANE_ACTIVE_CSS_CLASS);
-            return luda.dispatch($pane, this.constructor._ACTIVATED_EVENT_TYPE, index);
-          } else {
-            $pane.classList.remove(this.constructor._PANE_ACTIVE_CSS_CLASS);
-            if (index === activatedIndex) {
-              return luda.dispatch($pane, this.constructor._DEACTIVATED_EVENT_TYPE, index);
-            }
-          }
-        });
+        var $activatedPane, $pane, activateDuration, deactivateDuration;
+        $pane = this._$panes[this._activeIndex];
+        $activatedPane = this._$panes[activatedIndex];
+        $pane.classList.add(this.constructor._PANE_ACTIVE_CSS_CLASS);
+        if ($activatedPane) {
+          $activatedPane.classList.remove(this.constructor._PANE_ACTIVE_CSS_CLASS);
+        }
+        activateDuration = luda.getTransitionDuration($pane);
+        luda.dispatch($pane, this.constructor._ACTIVATED_EVENT_TYPE, this._activeIndex, activateDuration);
+        if ($activatedPane) {
+          deactivateDuration = luda.getTransitionDuration($activatedPane);
+          luda.dispatch($activatedPane, this.constructor._DEACTIVATED_EVENT_TYPE, activatedIndex, deactivateDuration);
+          setTimeout(() => {
+            return this._transiting = false;
+          }, Math.max(activateDuration, deactivateDuration));
+        } else {
+          setTimeout(() => {
+            return this._transiting = false;
+          }, activateDuration);
+        }
         return this._setIndicatorsState();
       }
 
       _setIndicatorsState() {
         return this._$indicators.forEach(($indicator, index) => {
           if (index === this._activeIndex) {
-            return $indicator.setAttribute('checked', '');
+            $indicator.setAttribute('checked', '');
+            return $indicator.checked = true;
           } else {
-            return $indicator.removeAttribute('checked');
+            $indicator.removeAttribute('checked');
+            return $indicator.checked = false;
           }
         });
       }
@@ -2007,7 +2155,11 @@
 
     _Class._ACTIVE_INDEX = 0;
 
+    _Class._ACTIVATE_EVENT_TYPE = `${_Class._SCOPE}:activate`;
+
     _Class._ACTIVATED_EVENT_TYPE = `${_Class._SCOPE}:activated`;
+
+    _Class._DEACTIVATE_EVENT_TYPE = `${_Class._SCOPE}:deactivate`;
 
     _Class._DEACTIVATED_EVENT_TYPE = `${_Class._SCOPE}:deactivated`;
 
