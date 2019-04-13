@@ -40,11 +40,12 @@ luda class extends luda.Component
       activatedIndex = @_activeIndex
       if index? \
       and index isnt @_activeIndex \
-      and 0 <= index <= @_$items.length - 1
+      and 0 <= index <= @_$items.length - 1 \
+      and @_canActivate(index, activatedIndex)
         @_transiting = true
         @_activeIndex = index
         action = if index < activatedIndex then '_slidePrev' else '_slideNext'
-        @[action] @_$items[activatedIndex], activatedIndex
+        @[action] activatedIndex
 
   next: ->
     if @_$items.length and not @_transiting
@@ -53,9 +54,10 @@ luda class extends luda.Component
       if index > @_$items.length - 1
         return unless @_wrap
         index = 0
+      return unless @_canActivate(index, activatedIndex)
       @_transiting = true
       @_activeIndex = index
-      @_slideNext @_$items[activatedIndex], activatedIndex
+      @_slideNext activatedIndex
       @_playTimeStamp = Date.now()
       @_pausedRemainTime = @_interval
 
@@ -66,9 +68,10 @@ luda class extends luda.Component
       if index < 0
         return unless @_wrap
         index = @_$items.length - 1
+      return unless @_canActivate(index, activatedIndex)
       @_transiting = true
       @_activeIndex = index
-      @_slidePrev @_$items[activatedIndex], activatedIndex
+      @_slidePrev activatedIndex
       @_playTimeStamp = Date.now()
       @_pausedRemainTime = @_interval
 
@@ -168,16 +171,15 @@ luda class extends luda.Component
         $item.classList.add @constructor._ITEM_ACTIVE_CSS_CLASS
         $item.classList.remove @constructor._ITEM_NEXT_CSS_CLASS
         $item.classList.remove @constructor._ITEM_PREV_CSS_CLASS
-      luda.reflow($item)
+      luda.reflow $item
       $item.style.transition = ''
     @_setIndicatorsState()
     @_setDirectionControlState()
 
-  _slideNext: ($activatedItem, activatedIndex) ->
+  _slideNext: (activatedIndex) ->
     if @_$items.length > 1
       $item = @_$items[@_activeIndex]
-      luda.dispatch($item, \
-      @constructor._ACTIVATE_EVENT_TYPE, @_activeIndex)
+      $activatedItem = @_$items[activatedIndex]
       $item.style.transition = 'none'
       $item.classList.remove @constructor._ITEM_PREV_CSS_CLASS
       $item.classList.add @constructor._ITEM_NEXT_CSS_CLASS
@@ -185,18 +187,16 @@ luda class extends luda.Component
       $item.style.transition = ''
       $item.classList.remove @constructor._ITEM_NEXT_CSS_CLASS
       $item.classList.add @constructor._ITEM_ACTIVE_CSS_CLASS
-      luda.dispatch($activatedItem, \
-      @constructor._DEACTIVATE_EVENT_TYPE, activatedIndex)
       $activatedItem.classList.remove @constructor._ITEM_ACTIVE_CSS_CLASS
       $activatedItem.classList.add @constructor._ITEM_PREV_CSS_CLASS
+      @_handleTransitionEnd @_activeIndex, activatedIndex
       @_setIndicatorsState()
       @_setDirectionControlState()
 
-  _slidePrev: ($activatedItem, activatedIndex) ->
+  _slidePrev: (activatedIndex) ->
     if @_$items.length > 1
       $item = @_$items[@_activeIndex]
-      luda.dispatch($item, \
-      @constructor._ACTIVATE_EVENT_TYPE, @_activeIndex)
+      $activatedItem = @_$items[activatedIndex]
       $item.style.transition = 'none'
       $item.classList.remove @constructor._ITEM_NEXT_CSS_CLASS
       $item.classList.add @constructor._ITEM_PREV_CSS_CLASS
@@ -204,12 +204,46 @@ luda class extends luda.Component
       $item.style.transition = ''
       $item.classList.remove @constructor._ITEM_PREV_CSS_CLASS
       $item.classList.add @constructor._ITEM_ACTIVE_CSS_CLASS
-      luda.dispatch($activatedItem, \
-      @constructor._DEACTIVATE_EVENT_TYPE, activatedIndex)
       $activatedItem.classList.remove @constructor._ITEM_ACTIVE_CSS_CLASS
       $activatedItem.classList.add @constructor._ITEM_NEXT_CSS_CLASS
+      @_handleTransitionEnd @_activeIndex, activatedIndex
       @_setIndicatorsState()
       @_setDirectionControlState()
+
+
+  _canActivate: (activeIndex, activatedIndex) ->
+    $item = @_$items[activeIndex]
+    $activatedItem = @_$items[activatedIndex]
+
+    activateEvent = luda.dispatch($item, \
+    @constructor._ACTIVATE_EVENT_TYPE, activeIndex)
+
+    deactivateEvent = luda.dispatch($activatedItem, \
+    @constructor._DEACTIVATE_EVENT_TYPE, activatedIndex)
+
+    if activateEvent.defaultPrevented or deactivateEvent.defaultPrevented
+      return false
+    true
+
+
+  _handleTransitionEnd: (activeIndex, activatedIndex) ->
+    $item = @_$items[activeIndex]
+    $activatedItem = @_$items[activatedIndex]
+    activateDuration = luda.getTransitionDuration $item
+    deactivateDuration = luda.getTransitionDuration $activatedItem
+
+    luda.dispatch($item, \
+    @constructor._ACTIVATED_EVENT_TYPE, activeIndex, \
+    activateDuration)
+
+    luda.dispatch($activatedItem, \
+    @constructor._DEACTIVATED_EVENT_TYPE, activatedIndex, \
+    deactivateDuration)
+
+    setTimeout =>
+      @_transiting = false
+    , Math.max(activateDuration, deactivateDuration)
+
 
   _setIndicatorsState: ->
     @_$indicators.forEach ($indicator, index) =>
@@ -226,14 +260,6 @@ luda class extends luda.Component
   # static private
   @_init: ->
     self = this
-    luda.on 'transitionend', @_ITEMS_SELECTOR, (e) ->
-      instance = self.query(luda.$parent self._SELECTOR, this)
-      instance._transiting = false
-      index = instance._$items.indexOf this
-      if this.classList.contains self._ITEM_ACTIVE_CSS_CLASS
-        luda.dispatch(this, self._ACTIVATED_EVENT_TYPE, index)
-      else
-        luda.dispatch(this, self._DEACTIVATED_EVENT_TYPE, index)
     luda.on 'click', @_INDICATORS_SELECTOR, (e) ->
       instance = self.query luda.$parent self._SELECTOR, this
       instance.activate instance._$indicators.indexOf this

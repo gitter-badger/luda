@@ -16,28 +16,36 @@ title: Toggle
       opacity: 0;
       transition: opacity .5s ease;
     }
-    #toggle-event-preview.toggle-event-preview-active{
+    #toggle-event-preview.toggle-active{
       opacity: 1;
     }
   </style>
   <h4><a href="#toggle-event">#toggle event</a></h4>
   <button class="btn btn-primary" data-toggle-for="toggle_event_target">Toggle trigger</button>
-  <div id="toggle-event-preview" class="bc-dark p-large" data-toggle-target="toggle_event_target" data-toggle>
+  <h5 id="toggle-event-activate-note"></h5>
+  <h5 id="toggle-event-activated-note"></h5>
+  <h5 id="toggle-event-deactivate-note"></h5>
+  <h5 id="toggle-event-deactivated-note"></h5>
+  <div id="toggle-event-preview" class="d-block bc-dark p-large" data-toggle-target="toggle_event_target" data-toggle>
   </div>
   <script type="text/javascript">
     (function(){
-      $toggleEventPreview = luda.$child('#toggle-event-preview')
-      luda.on('luda:toggle:activated', '#toggle-event-preview', function(e){
-        setTimeout(function(){
-          $toggleEventPreview.classList.add('toggle-event-preview-active')
-        })
+      let activateStart = Date.now(), deactivateStart = Date.now()
+      luda.on('luda:toggle:activate', '#toggle-event-preview', function(e) {
+        activateStart = Date.now()
+        luda.$child('#toggle-event-activate-note').innerHTML = 'Activate at: ' + activateStart
       })
-      luda.on('luda:toggle:deactivated', '#toggle-event-preview', function(e){
-        $toggleEventPreview.classList.add('toggle-active')
-        $toggleEventPreview.classList.remove('toggle-event-preview-active')
-        setTimeout(function(){
-          $toggleEventPreview.classList.remove('toggle-active')
-        },500)
+      luda.on('luda:toggle:activated', '#toggle-event-preview', function(e) {
+        duration = Date.now() - activateStart
+        luda.$child('#toggle-event-activated-note').innerHTML = 'Activated in: ' + duration + 'ms'
+      })
+      luda.on('luda:toggle:deactivate', '#toggle-event-preview', function(e) {
+        deactivateStart = Date.now()
+        luda.$child('#toggle-event-deactivate-note').innerHTML = 'Deactivate at: ' + deactivateStart
+      })
+      luda.on('luda:toggle:deactivated', '#toggle-event-preview', function(e) {
+        duration = Date.now() - deactivateStart
+        luda.$child('#toggle-event-deactivated-note').innerHTML = 'Deactivated in: ' + duration + 'ms'
       })
     })()
   </script>

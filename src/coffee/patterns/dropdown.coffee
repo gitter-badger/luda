@@ -20,7 +20,9 @@ luda class extends luda.Component
   @_SWITCHES_SELECTOR: "[#{@_TOGGLE_ATTRIBUTE}]"
   @_NONE_SWITCHES_SELECTOR: "[#{@_TOGGLE_DISABLED_ATTRIBUTE}]"
   @_ACTIVE_CSS_CLASS: 'dropdown-active'
+  @_ACTIVATE_EVENT_TYPE: "#{@_SCOPE}:activate"
   @_ACTIVATED_EVENT_TYPE: "#{@_SCOPE}:activated"
+  @_DEACTIVATE_EVENT_TYPE: "#{@_SCOPE}:deactivate"
   @_DEACTIVATED_EVENT_TYPE: "#{@_SCOPE}:deactivated"
 
   @_observerConfig:
@@ -36,20 +38,48 @@ luda class extends luda.Component
   @_$focused: []
 
   activate: ->
-    unless @_isActive()
-      @_$component.classList.add @constructor._ACTIVE_CSS_CLASS
-      @constructor._$focused.push document.activeElement
-      @_parent?.activate()
-      luda.dispatch(@_$component, @constructor._ACTIVATED_EVENT_TYPE)
+    return if @_isActive() or @_transiting
+
+    activateEvent = luda.dispatch(@_$component, \
+    @constructor._ACTIVATE_EVENT_TYPE)
+
+    return if activateEvent.defaultPrevented
+    @_transiting = true
+    @_$component.classList.add @constructor._ACTIVE_CSS_CLASS
+    @constructor._$focused.push document.activeElement
+    @_parent?.activate()
+
+    activateDuration = luda.getTransitionDuration @_$component
+    luda.dispatch(@_$component, \
+    @constructor._ACTIVATED_EVENT_TYPE, null, activateDuration)
+
+    setTimeout =>
+      @_transiting = false
+    , activateDuration
+
 
   deactivate: (focus) ->
-    if @_isActive()
-      @_$component.classList.remove @constructor._ACTIVE_CSS_CLASS
-      @_children.forEach (child) -> child.deactivate()
-      if focus
-        @constructor._$focused[@constructor._$focused.length - 1]?.focus()
-      @constructor._$focused.splice @constructor._$focused.length - 1, 1
-      luda.dispatch(@_$component, @constructor._DEACTIVATED_EVENT_TYPE)
+    return unless @_isActive() and not @_transiting
+
+    deactivateEvent = luda.dispatch(@_$component, \
+    @constructor._DEACTIVATE_EVENT_TYPE)
+
+    return if deactivateEvent.defaultPrevented
+    @_transiting = true
+    @_$component.classList.remove @constructor._ACTIVE_CSS_CLASS
+    @_children.forEach (child) -> child.deactivate()
+    if focus
+      @constructor._$focused[@constructor._$focused.length - 1]?.focus()
+    @constructor._$focused.splice @constructor._$focused.length - 1, 1
+
+    deactivateDuration = luda.getTransitionDuration @_$component
+    luda.dispatch(@_$component, \
+    @constructor._DEACTIVATED_EVENT_TYPE, null, deactivateDuration)
+
+    setTimeout =>
+      @_transiting = false
+    , deactivateDuration
+
 
   toggle: (focus) ->
     if @_isActive() then @deactivate(focus) else @activate()
@@ -89,6 +119,7 @@ luda class extends luda.Component
       @_$noneSwitches,
       @_isStandalone
     } = @_getConfig()
+    @_transiting = false
 
   _onMutations: (mutations) ->
     @_constructor()

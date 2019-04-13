@@ -74,6 +74,42 @@
     },
     reflow: function($element) {
       return $element.offsetHeight;
+    },
+    _getTransitionDurations: function(style, propertyLength) {
+      var durationArray;
+      durationArray = style.split(',');
+      while (durationArray.length < propertyLength) {
+        durationArray = durationArray.concat(durationArray);
+      }
+      if (durationArray.length > propertyLength) {
+        durationArray = durationArray.slice(0, propertyLength);
+      }
+      return durationArray.map(function(durationStr) {
+        var duration;
+        duration = parseFloat(durationStr);
+        if (!duration) {
+          return 0;
+        }
+        if (durationStr.match('ms')) {
+          return duration;
+        } else {
+          return duration * 1000;
+        }
+      });
+    },
+    getTransitionDuration: function($element) {
+      var delays, durations, finalDurations, length, styles;
+      styles = window.getComputedStyle($element);
+      length = styles.transitionProperty.split(',').length;
+      if (!length) {
+        return 0;
+      }
+      delays = this._getTransitionDurations(styles.transitionDelay, length);
+      durations = this._getTransitionDurations(styles.transitionDuration, length);
+      finalDurations = durations.map(function(duration, index) {
+        return duration + delays[index];
+      });
+      return Math.max.apply(null, finalDurations);
     }
   });
 

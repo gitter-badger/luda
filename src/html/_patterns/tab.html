@@ -104,18 +104,29 @@ title: Tab
     </div>
   </div>
   <h5>
-    Activated: <span id="tab-event-preview-activate-note"></span>
-    Deactivated: <span id="tab-event-preview-deactivate-note"></span>
+    Leave: <span id="tab-event-preview-note-leave"></span>
+    Enter: <span id="tab-event-preview-note-enter"></span><br>
+    Left: <span id="tab-event-preview-note-left"></span>
+    Entered: <span id="tab-event-preview-note-entered"></span>
   </h5>
   <script type="text/javascript">
     (function(){
-      luda.on('luda:tab:activated', '#tab-event-preview', function(e){
-        // console.log(e)
-        luda.$child('#tab-event-preview-activate-note').innerHTML = e.detail
+      let activateStart = Date.now(), deactivateStart = Date.now()
+      luda.on('luda:tab:activate', '#tab-event', function(e){
+        activateStart = Date.now()
+        luda.$child('#tab-event-preview-note-enter').innerHTML = e.detail + ' at: ' + activateStart
       })
-      luda.on('luda:tab:deactivated', '#tab-event-preview', function(e){
-        // console.log(e)
-        luda.$child('#tab-event-preview-deactivate-note').innerHTML = e.detail
+      luda.on('luda:tab:activated', '#tab-event', function(e){
+        let duration = Date.now() - activateStart
+        luda.$child('#tab-event-preview-note-entered').innerHTML = e.detail + ' in: ' + duration + 'ms'
+      })
+      luda.on('luda:tab:deactivate', '#tab-event', function(e){
+        deactivateStart = Date.now()
+        luda.$child('#tab-event-preview-note-leave').innerHTML = e.detail + ' at: ' + deactivateStart
+      })
+      luda.on('luda:tab:deactivated', '#tab-event', function(e){
+        let duration = Date.now() - deactivateStart
+        luda.$child('#tab-event-preview-note-left').innerHTML = e.detail + ' in: ' + duration + 'ms'
       })
     })()
   </script>

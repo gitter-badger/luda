@@ -253,7 +253,12 @@ title: Dropdown
 
 
 <div id="dropdown-event" class="mb-large">
-  <h4><a href="#dropdown-event">#dropdown-event</a> <span id="dropdown-event-preview-note"></span></h4>
+  <h4><a href="#dropdown-event">#dropdown-event</a></h4>
+
+  <h5 id="dropdown-event-preview-activate"></h5>
+  <h5 id="dropdown-event-preview-activated"></h5>
+  <h5 id="dropdown-event-preview-deactivate"></h5>
+  <h5 id="dropdown-event-preview-deactivated"></h5>
 
   <div class="dropdown-absolute mb-small" id="dropdown-event-preview">
     <button class="btn btn-dark">What would you like to eat?</button>
@@ -270,11 +275,22 @@ title: Dropdown
 
   <script type="text/javascript">
     (function(){
+      let activateStart = Date.now(), deactiveStart = Date.now()
+      luda.on('luda:dropdown:activate', '#dropdown-event-preview', function(e){
+        activateStart = Date.now()
+        luda.$child('#dropdown-event-preview-activate').innerHTML = 'Activate at: ' + activateStart
+      })
       luda.on('luda:dropdown:activated', '#dropdown-event-preview', function(e){
-        luda.$child('#dropdown-event-preview-note').innerHTML = 'activated'
+        duration = Date.now() - activateStart
+        luda.$child('#dropdown-event-preview-activated').innerHTML = 'Activated in: ' + duration + 'ms'
+      })
+      luda.on('luda:dropdown:deactivate', '#dropdown-event-preview', function(e){
+        deactivateStart = Date.now()
+        luda.$child('#dropdown-event-preview-deactivate').innerHTML = 'Deactivate at: ' + deactivateStart
       })
       luda.on('luda:dropdown:deactivated', '#dropdown-event-preview', function(e){
-        luda.$child('#dropdown-event-preview-note').innerHTML = 'deactivated'
+        duration = Date.now() - deactivateStart
+        luda.$child('#dropdown-event-preview-deactivated').innerHTML = 'Deactivated in: ' + duration + 'ms'
       })
     })()
   </script>

@@ -11,10 +11,19 @@
       
       // public
       activate(index) {
-        var activatedIndex;
-        if (this._$panes.length) {
+        var activateEvent, activatedIndex, deactivateEvent;
+        if (this._$panes.length && !this._transiting) {
           activatedIndex = this._activeIndex;
           if ((index != null) && index !== this._activeIndex && (0 <= index && index <= this._$panes.length - 1)) {
+            activateEvent = luda.dispatch(this._$panes[index], this.constructor._ACTIVATE_EVENT_TYPE, index);
+            deactivateEvent = luda.dispatch(this._$panes[activatedIndex], this.constructor._DEACTIVATE_EVENT_TYPE, activatedIndex);
+            if (activateEvent.defaultPrevented) {
+              return this._setIndicatorsState();
+            }
+            if (deactivateEvent.defaultPrevented) {
+              return this._setIndicatorsState();
+            }
+            this._transiting = true;
             this._activeIndex = index;
             return this._activate(activatedIndex);
           }
@@ -38,6 +47,7 @@
 
       _constructor() {
         ({_$panes: this._$panes, _$indicators: this._$indicators, _activeIndex: this._activeIndex} = this._getConfig());
+        this._transiting = false;
         return this._activate();
       }
 
@@ -46,26 +56,37 @@
       }
 
       _activate(activatedIndex) {
-        this._$panes.forEach(($pane, index) => {
-          if (index === this._activeIndex) {
-            $pane.classList.add(this.constructor._PANE_ACTIVE_CSS_CLASS);
-            return luda.dispatch($pane, this.constructor._ACTIVATED_EVENT_TYPE, index);
-          } else {
-            $pane.classList.remove(this.constructor._PANE_ACTIVE_CSS_CLASS);
-            if (index === activatedIndex) {
-              return luda.dispatch($pane, this.constructor._DEACTIVATED_EVENT_TYPE, index);
-            }
-          }
-        });
+        var $activatedPane, $pane, activateDuration, deactivateDuration;
+        $pane = this._$panes[this._activeIndex];
+        $activatedPane = this._$panes[activatedIndex];
+        $pane.classList.add(this.constructor._PANE_ACTIVE_CSS_CLASS);
+        if ($activatedPane) {
+          $activatedPane.classList.remove(this.constructor._PANE_ACTIVE_CSS_CLASS);
+        }
+        activateDuration = luda.getTransitionDuration($pane);
+        luda.dispatch($pane, this.constructor._ACTIVATED_EVENT_TYPE, this._activeIndex, activateDuration);
+        if ($activatedPane) {
+          deactivateDuration = luda.getTransitionDuration($activatedPane);
+          luda.dispatch($activatedPane, this.constructor._DEACTIVATED_EVENT_TYPE, activatedIndex, deactivateDuration);
+          setTimeout(() => {
+            return this._transiting = false;
+          }, Math.max(activateDuration, deactivateDuration));
+        } else {
+          setTimeout(() => {
+            return this._transiting = false;
+          }, activateDuration);
+        }
         return this._setIndicatorsState();
       }
 
       _setIndicatorsState() {
         return this._$indicators.forEach(($indicator, index) => {
           if (index === this._activeIndex) {
-            return $indicator.setAttribute('checked', '');
+            $indicator.setAttribute('checked', '');
+            return $indicator.checked = true;
           } else {
-            return $indicator.removeAttribute('checked');
+            $indicator.removeAttribute('checked');
+            return $indicator.checked = false;
           }
         });
       }
@@ -97,7 +118,11 @@
 
     _Class._ACTIVE_INDEX = 0;
 
+    _Class._ACTIVATE_EVENT_TYPE = `${_Class._SCOPE}:activate`;
+
     _Class._ACTIVATED_EVENT_TYPE = `${_Class._SCOPE}:activated`;
+
+    _Class._DEACTIVATE_EVENT_TYPE = `${_Class._SCOPE}:deactivate`;
 
     _Class._DEACTIVATED_EVENT_TYPE = `${_Class._SCOPE}:deactivated`;
 

@@ -10,15 +10,35 @@
     _Class = class extends luda.Singleton {
       static activate(name$target) {
         return this._query$targets(name$target).forEach(($target) => {
+          var activateDuration;
+          if (this._transiting($target)) {
+            return;
+          }
+          if (luda.dispatch($target, this._ACTIVATE_EVENT_TYPE).defaultPrevented) {
+            return;
+          }
+          this._setTransitingAttribute($target);
           $target.classList.add(this._ACTIVE_CSS_CLASS);
-          return luda.dispatch($target, this._ACTIVATED_EVENT_TYPE);
+          activateDuration = luda.getTransitionDuration($target);
+          luda.dispatch($target, this._ACTIVATED_EVENT_TYPE, null, activateDuration);
+          return this._removeTransitingAttribute($target, activateDuration);
         });
       }
 
       static deactivate(name$target) {
         return this._query$targets(name$target).forEach(($target) => {
+          var deactivateDuration;
+          if (this._transiting($target)) {
+            return;
+          }
+          if (luda.dispatch($target, this._DEACTIVATE_EVENT_TYPE).defaultPrevented) {
+            return;
+          }
+          this._setTransitingAttribute($target);
           $target.classList.remove(this._ACTIVE_CSS_CLASS);
-          return luda.dispatch($target, this._DEACTIVATED_EVENT_TYPE);
+          deactivateDuration = luda.getTransitionDuration($target);
+          luda.dispatch($target, this._DEACTIVATED_EVENT_TYPE, null, deactivateDuration);
+          return this._removeTransitingAttribute($target, deactivateDuration);
         });
       }
 
@@ -38,6 +58,20 @@
         } else {
           return luda.$children(`[${this._TOGGLE_TARGET_ATTRIBUTE}=${name$target}]`);
         }
+      }
+
+      static _transiting($target) {
+        return $target.hasAttribute(this._TRANSITING_ATTRIBUTE);
+      }
+
+      static _setTransitingAttribute($target) {
+        return $target.setAttribute(this._TRANSITING_ATTRIBUTE, '');
+      }
+
+      static _removeTransitingAttribute($target, delayMilliseconds) {
+        return setTimeout(() => {
+          return $target.removeAttribute(this._TRANSITING_ATTRIBUTE);
+        }, delayMilliseconds);
       }
 
       static _init() {
@@ -85,11 +119,17 @@
 
     _Class._TOGGLE_DISABLED_ATTRIBUTE = 'data-toggle-disabled';
 
+    _Class._TRANSITING_ATTRIBUTE = 'data-toggle-transiting';
+
     _Class._ACTIVE_CSS_CLASS = 'toggle-active';
 
     _Class._SELECTORS = [`[${_Class._TOGGLE_FOR_ATTRIBUTE}]`, `[${_Class._TOGGLE_ATTRIBUTE}]`];
 
+    _Class._ACTIVATE_EVENT_TYPE = `${_Class._SCOPE}:activate`;
+
     _Class._ACTIVATED_EVENT_TYPE = `${_Class._SCOPE}:activated`;
+
+    _Class._DEACTIVATE_EVENT_TYPE = `${_Class._SCOPE}:deactivate`;
 
     _Class._DEACTIVATED_EVENT_TYPE = `${_Class._SCOPE}:deactivated`;
 

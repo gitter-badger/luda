@@ -44,14 +44,19 @@ luda
         not $element.matches or not $element.matches selector
       handler e if trigger
 
-  dispatch: ($target, type, detail, options = {}) ->
+  dispatch: ($target, type, detail, delayMilliseconds, options = {}) ->
     options.bubbles = true unless typeof options.bubbles is 'boolean'
     options.cancelable = true unless typeof options.cancelable is 'boolean'
     options.composed = true unless typeof options.composed is 'boolean'
     evt = new Event "#{@_EVENT_TYPE_PREFIX}:#{type}", options
     evt.detail = detail
-    $target.dispatchEvent evt
-    evt
+    if typeof delayMilliseconds is 'number'
+      setTimeout ->
+        $target.dispatchEvent evt if $target
+      , delayMilliseconds
+    else
+      $target.dispatchEvent evt
+      evt
   
   _onDocReady: (handler) ->
     if document.readyState is 'loading'

@@ -52,3 +52,23 @@ luda
       $target.appendChild $node
 
   reflow: ($element) -> $element.offsetHeight
+
+  _getTransitionDurations: (style, propertyLength) ->
+    durationArray = style.split ','
+    while durationArray.length < propertyLength
+      durationArray = durationArray.concat durationArray
+    if durationArray.length > propertyLength
+      durationArray = durationArray.slice 0, propertyLength
+    durationArray.map (durationStr) ->
+      duration = parseFloat durationStr
+      return 0 unless duration
+      if durationStr.match 'ms' then duration else duration * 1000
+
+  getTransitionDuration: ($element) ->
+    styles = window.getComputedStyle $element
+    length = styles.transitionProperty.split(',').length
+    return 0 unless length
+    delays = @_getTransitionDurations styles.transitionDelay, length
+    durations = @_getTransitionDurations styles.transitionDuration, length
+    finalDurations = durations.map (duration, index) -> duration + delays[index]
+    Math.max.apply null, finalDurations

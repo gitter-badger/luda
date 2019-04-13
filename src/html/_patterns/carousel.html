@@ -93,21 +93,22 @@ title: Carousel
   </h5>
   <script type="text/javascript">
     (function(){
+      let activateStart = Date.now(), deactivateStart = Date.now()
       luda.on('luda:carousel:activate', '#carousel-event', function(e){
-        // console.log(e)
-        luda.$child('#carousel-event-preview-note-enter').innerHTML = e.detail
+        activateStart = Date.now()
+        luda.$child('#carousel-event-preview-note-enter').innerHTML = e.detail + ' at: ' + activateStart
       })
       luda.on('luda:carousel:activated', '#carousel-event', function(e){
-        // console.log(e)
-        luda.$child('#carousel-event-preview-note-entered').innerHTML = e.detail
+        let duration = Date.now() - activateStart
+        luda.$child('#carousel-event-preview-note-entered').innerHTML = e.detail + ' in: ' + duration + 'ms'
       })
       luda.on('luda:carousel:deactivate', '#carousel-event', function(e){
-        // console.log(e)
-        luda.$child('#carousel-event-preview-note-leave').innerHTML = e.detail
+        deactivateStart = Date.now()
+        luda.$child('#carousel-event-preview-note-leave').innerHTML = e.detail + ' at: ' + deactivateStart
       })
       luda.on('luda:carousel:deactivated', '#carousel-event', function(e){
-        // console.log(e)
-        luda.$child('#carousel-event-preview-note-left').innerHTML = e.detail
+        let duration = Date.now() - deactivateStart
+        luda.$child('#carousel-event-preview-note-left').innerHTML = e.detail + ' in: ' + duration + 'ms'
       })
     })()
   </script>

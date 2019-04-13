@@ -59,7 +59,7 @@
         }
       });
     },
-    dispatch: function($target, type, detail, options = {}) {
+    dispatch: function($target, type, detail, delayMilliseconds, options = {}) {
       var evt;
       if (typeof options.bubbles !== 'boolean') {
         options.bubbles = true;
@@ -72,8 +72,14 @@
       }
       evt = new Event(`${this._EVENT_TYPE_PREFIX}:${type}`, options);
       evt.detail = detail;
-      $target.dispatchEvent(evt);
-      return evt;
+      if (typeof delayMilliseconds === 'number') {
+        return setTimeout(function() {
+          return $target.dispatchEvent(evt);
+        }, delayMilliseconds);
+      } else {
+        $target.dispatchEvent(evt);
+        return evt;
+      }
     },
     _onDocReady: function(handler) {
       if (document.readyState === 'loading') {

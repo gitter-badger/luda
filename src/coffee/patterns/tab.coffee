@@ -14,7 +14,9 @@ luda class extends luda.Component
   @_INDICATOR_SELECTOR: '.tab-indicators .btn-radio input[type=radio]'
   @_PANE_ACTIVE_CSS_CLASS: 'tab-pane-active'
   @_ACTIVE_INDEX: 0
+  @_ACTIVATE_EVENT_TYPE: "#{@_SCOPE}:activate"
   @_ACTIVATED_EVENT_TYPE: "#{@_SCOPE}:activated"
+  @_DEACTIVATE_EVENT_TYPE: "#{@_SCOPE}:deactivate"
   @_DEACTIVATED_EVENT_TYPE: "#{@_SCOPE}:deactivated"
 
   @_observerConfig:
@@ -23,13 +25,26 @@ luda class extends luda.Component
  
   # public
   activate: (index) ->
-    if @_$panes.length
+    if @_$panes.length and not @_transiting
       activatedIndex = @_activeIndex
+
       if index? \
       and index isnt @_activeIndex \
       and 0 <= index <= @_$panes.length - 1
+
+        activateEvent = luda.dispatch(@_$panes[index], \
+        @constructor._ACTIVATE_EVENT_TYPE, index)
+
+        deactivateEvent = luda.dispatch(@_$panes[activatedIndex], \
+        @constructor._DEACTIVATE_EVENT_TYPE, activatedIndex)
+
+        return @_setIndicatorsState() if activateEvent.defaultPrevented
+        return @_setIndicatorsState() if deactivateEvent.defaultPrevented
+
+        @_transiting = true
         @_activeIndex = index
         @_activate(activatedIndex)
+
 
   # private
   _getConfig: ->
@@ -50,28 +65,49 @@ luda class extends luda.Component
       @_$indicators,
       @_activeIndex
     } = @_getConfig()
+    @_transiting = false
     @_activate()
 
   _onMutations: (mutations) ->
     @_constructor()
 
   _activate: (activatedIndex) ->
-    @_$panes.forEach ($pane, index) =>
-      if index is @_activeIndex
-        $pane.classList.add @constructor._PANE_ACTIVE_CSS_CLASS
-        luda.dispatch($pane, @constructor._ACTIVATED_EVENT_TYPE, index)
-      else
-        $pane.classList.remove @constructor._PANE_ACTIVE_CSS_CLASS
-        if index is activatedIndex
-          luda.dispatch($pane, @constructor._DEACTIVATED_EVENT_TYPE, index)
+    $pane = @_$panes[@_activeIndex]
+    $activatedPane = @_$panes[activatedIndex]
+
+    $pane.classList.add @constructor._PANE_ACTIVE_CSS_CLASS
+    if $activatedPane
+      $activatedPane.classList.remove @constructor._PANE_ACTIVE_CSS_CLASS
+
+    activateDuration = luda.getTransitionDuration $pane
+    luda.dispatch($pane, \
+    @constructor._ACTIVATED_EVENT_TYPE, @_activeIndex, \
+    activateDuration)
+
+    if $activatedPane
+      deactivateDuration = luda.getTransitionDuration $activatedPane
+      luda.dispatch($activatedPane, \
+      @constructor._DEACTIVATED_EVENT_TYPE, activatedIndex, \
+      deactivateDuration)
+      setTimeout =>
+        @_transiting = false
+      , Math.max(activateDuration, deactivateDuration)
+    else
+      setTimeout =>
+        @_transiting = false
+      , activateDuration
+
     @_setIndicatorsState()
+
 
   _setIndicatorsState: ->
     @_$indicators.forEach ($indicator, index) =>
       if index is @_activeIndex
         $indicator.setAttribute 'checked', ''
+        $indicator.checked = true
       else
         $indicator.removeAttribute 'checked'
+        $indicator.checked = false
 
   # static private
   @_init: ->
