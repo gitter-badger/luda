@@ -2668,7 +2668,7 @@ body:has(.overlay.toggle-active) {
   margin-left: 1rem;
 }
 
-.dropdown-fixed.dropdown-active > .dropdown-menu {
+.dropdown-fixed > .dropdown-menu {
   display: flex;
   position: fixed;
   top: 0;
@@ -2679,6 +2679,11 @@ body:has(.overlay.toggle-active) {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   background: rgba(82, 82, 82, 0.9);
+  display: none;
+}
+
+.dropdown-fixed.dropdown-active > .dropdown-menu {
+  display: flex;
 }
 
 .dropdown-fixed > .dropdown-menu > .dropdown-items {
@@ -2688,12 +2693,15 @@ body:has(.overlay.toggle-active) {
   background: white;
 }
 
-.dropdown-absolute.dropdown-active > .dropdown-menu {
-  display: block;
+.dropdown-absolute > .dropdown-menu {
   position: relative;
   z-index: 3;
   margin: 0;
   overflow: visible;
+}
+
+.dropdown-absolute.dropdown-active > .dropdown-menu {
+  display: block;
 }
 
 .dropdown-absolute > .dropdown-menu > .dropdown-items {
@@ -2732,12 +2740,15 @@ body:has(.overlay.toggle-active) {
 }
 
 @media (min-width:768px) {
-  .dropdown-absolute-m.dropdown-active > .dropdown-menu {
-    display: block;
+  .dropdown-absolute-m > .dropdown-menu {
     position: relative;
     z-index: 3;
     margin: 0;
     overflow: visible;
+  }
+
+  .dropdown-absolute-m.dropdown-active > .dropdown-menu {
+    display: block;
   }
 
   .dropdown-absolute-m > .dropdown-menu > .dropdown-items {

@@ -74,7 +74,9 @@
       evt.detail = detail;
       if (typeof delayMilliseconds === 'number') {
         return setTimeout(function() {
-          return $target.dispatchEvent(evt);
+          if ($target) {
+            return $target.dispatchEvent(evt);
+          }
         }, delayMilliseconds);
       } else {
         $target.dispatchEvent(evt);

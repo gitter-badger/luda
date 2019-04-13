@@ -99,6 +99,7 @@ title: Carousel
         luda.$child('#carousel-event-preview-note-enter').innerHTML = e.detail + ' at: ' + activateStart
       })
       luda.on('luda:carousel:activated', '#carousel-event', function(e){
+        console.log('activated')
         let duration = Date.now() - activateStart
         luda.$child('#carousel-event-preview-note-entered').innerHTML = e.detail + ' in: ' + duration + 'ms'
       })
@@ -107,6 +108,7 @@ title: Carousel
         luda.$child('#carousel-event-preview-note-leave').innerHTML = e.detail + ' at: ' + deactivateStart
       })
       luda.on('luda:carousel:deactivated', '#carousel-event', function(e){
+        console.log('deactivated')
         let duration = Date.now() - deactivateStart
         luda.$child('#carousel-event-preview-note-left').innerHTML = e.detail + ' in: ' + duration + 'ms'
       })

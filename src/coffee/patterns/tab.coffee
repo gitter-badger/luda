@@ -14,10 +14,6 @@ luda class extends luda.Component
   @_INDICATOR_SELECTOR: '.tab-indicators .btn-radio input[type=radio]'
   @_PANE_ACTIVE_CSS_CLASS: 'tab-pane-active'
   @_ACTIVE_INDEX: 0
-  @_ACTIVATE_EVENT_TYPE: "#{@_SCOPE}:activate"
-  @_ACTIVATED_EVENT_TYPE: "#{@_SCOPE}:activated"
-  @_DEACTIVATE_EVENT_TYPE: "#{@_SCOPE}:deactivate"
-  @_DEACTIVATED_EVENT_TYPE: "#{@_SCOPE}:deactivated"
 
   @_observerConfig:
     childList: true
@@ -25,25 +21,14 @@ luda class extends luda.Component
  
   # public
   activate: (index) ->
-    if @_$panes.length and not @_transiting
+    if @_$panes.length and not @_isTransitioning()
       activatedIndex = @_activeIndex
-
       if index? \
       and index isnt @_activeIndex \
       and 0 <= index <= @_$panes.length - 1
-
-        activateEvent = luda.dispatch(@_$panes[index], \
-        @constructor._ACTIVATE_EVENT_TYPE, index)
-
-        deactivateEvent = luda.dispatch(@_$panes[activatedIndex], \
-        @constructor._DEACTIVATE_EVENT_TYPE, activatedIndex)
-
-        return @_setIndicatorsState() if activateEvent.defaultPrevented
-        return @_setIndicatorsState() if deactivateEvent.defaultPrevented
-
-        @_transiting = true
+        return unless @_canTransition index, activatedIndex
         @_activeIndex = index
-        @_activate(activatedIndex)
+        @_activate activatedIndex
 
 
   # private
@@ -65,40 +50,53 @@ luda class extends luda.Component
       @_$indicators,
       @_activeIndex
     } = @_getConfig()
-    @_transiting = false
-    @_activate()
+    @_layout()
+    @_handleTransitionCancel()
 
   _onMutations: (mutations) ->
-    @_constructor()
+    {
+      @_$panes,
+      @_$indicators,
+      @_activeIndex
+    } = @_getConfig()
+    @_setIndicatorsState()
+
+  _layout: ->
+    @_$panes.forEach ($pane, index) =>
+      $pane.style.transition = 'none'
+      if index is @_activeIndex
+        $pane.classList.add @constructor._PANE_ACTIVE_CSS_CLASS
+      else
+        $pane.classList.remove @constructor._PANE_ACTIVE_CSS_CLASS
+      luda.reflow $pane
+      $pane.style.transition = ''
+    @_setIndicatorsState()
 
   _activate: (activatedIndex) ->
     $pane = @_$panes[@_activeIndex]
     $activatedPane = @_$panes[activatedIndex]
-
     $pane.classList.add @constructor._PANE_ACTIVE_CSS_CLASS
-    if $activatedPane
-      $activatedPane.classList.remove @constructor._PANE_ACTIVE_CSS_CLASS
-
-    activateDuration = luda.getTransitionDuration $pane
-    luda.dispatch($pane, \
-    @constructor._ACTIVATED_EVENT_TYPE, @_activeIndex, \
-    activateDuration)
-
-    if $activatedPane
-      deactivateDuration = luda.getTransitionDuration $activatedPane
-      luda.dispatch($activatedPane, \
-      @constructor._DEACTIVATED_EVENT_TYPE, activatedIndex, \
-      deactivateDuration)
-      setTimeout =>
-        @_transiting = false
-      , Math.max(activateDuration, deactivateDuration)
-    else
-      setTimeout =>
-        @_transiting = false
-      , activateDuration
-
+    $activatedPane.classList.remove @constructor._PANE_ACTIVE_CSS_CLASS
+    @_handleTransitionEnd @_activeIndex, activatedIndex
     @_setIndicatorsState()
 
+  _canTransition: (activeIndex, activatedIndex) ->
+    not @_activatePrevented(@_$panes[activeIndex], activeIndex) \
+    and not @_deactivatePrevented(@_$panes[activatedIndex], activatedIndex)
+
+  _handleTransitionEnd: (activeIndex, activatedIndex) ->
+    activateDuration = \
+    @_handleActivateEnd @_$panes[activeIndex], activeIndex
+    deactivateDuration = \
+    @_handleDeactivateEnd @_$panes[activatedIndex], activatedIndex
+
+  _handleTransitionCancel: ->
+    if @_isActivating()
+      index = parseInt @_getActivatingMark(), 10
+      @_handleActivateCancel @_$panes[index], index
+    if @_isDeactivating()
+      activatedIndex = parseInt @_getDeactivatingMark(), 10
+      @_handleDeactivateCancel @_$panes[activatedIndex], activatedIndex
 
   _setIndicatorsState: ->
     @_$indicators.forEach ($indicator, index) =>
@@ -115,4 +113,5 @@ luda class extends luda.Component
     luda.on 'change', @_INDICATOR_SELECTOR, (e) ->
       if this.checked
         instance = self.query luda.$parent self._SELECTOR, this
+        instance._setIndicatorsState()
         instance.activate instance._$indicators.indexOf this

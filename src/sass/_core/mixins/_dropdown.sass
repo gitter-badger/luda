@@ -2,12 +2,14 @@
 
   $class-fix: if($breakpoint, "-#{$breakpoint}", null)
 
-  .dropdown-absolute#{$class-fix}.dropdown-active > .dropdown-menu
-    display: block
+  .dropdown-absolute#{$class-fix} > .dropdown-menu
     position: relative
     z-index: $z-index-much-higher
     margin: 0
     overflow: visible
+
+  .dropdown-absolute#{$class-fix}.dropdown-active > .dropdown-menu
+    display: block
 
   .dropdown-absolute#{$class-fix} > .dropdown-menu > .dropdown-items
     position: absolute

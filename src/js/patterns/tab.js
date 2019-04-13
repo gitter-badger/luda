@@ -11,19 +11,13 @@
       
       // public
       activate(index) {
-        var activateEvent, activatedIndex, deactivateEvent;
-        if (this._$panes.length && !this._transiting) {
+        var activatedIndex;
+        if (this._$panes.length && !this._isTransitioning()) {
           activatedIndex = this._activeIndex;
           if ((index != null) && index !== this._activeIndex && (0 <= index && index <= this._$panes.length - 1)) {
-            activateEvent = luda.dispatch(this._$panes[index], this.constructor._ACTIVATE_EVENT_TYPE, index);
-            deactivateEvent = luda.dispatch(this._$panes[activatedIndex], this.constructor._DEACTIVATE_EVENT_TYPE, activatedIndex);
-            if (activateEvent.defaultPrevented) {
-              return this._setIndicatorsState();
+            if (!this._canTransition(index, activatedIndex)) {
+              return;
             }
-            if (deactivateEvent.defaultPrevented) {
-              return this._setIndicatorsState();
-            }
-            this._transiting = true;
             this._activeIndex = index;
             return this._activate(activatedIndex);
           }
@@ -47,36 +41,59 @@
 
       _constructor() {
         ({_$panes: this._$panes, _$indicators: this._$indicators, _activeIndex: this._activeIndex} = this._getConfig());
-        this._transiting = false;
-        return this._activate();
+        this._layout();
+        return this._handleTransitionCancel();
       }
 
       _onMutations(mutations) {
-        return this._constructor();
+        ({_$panes: this._$panes, _$indicators: this._$indicators, _activeIndex: this._activeIndex} = this._getConfig());
+        return this._setIndicatorsState();
+      }
+
+      _layout() {
+        this._$panes.forEach(($pane, index) => {
+          $pane.style.transition = 'none';
+          if (index === this._activeIndex) {
+            $pane.classList.add(this.constructor._PANE_ACTIVE_CSS_CLASS);
+          } else {
+            $pane.classList.remove(this.constructor._PANE_ACTIVE_CSS_CLASS);
+          }
+          luda.reflow($pane);
+          return $pane.style.transition = '';
+        });
+        return this._setIndicatorsState();
       }
 
       _activate(activatedIndex) {
-        var $activatedPane, $pane, activateDuration, deactivateDuration;
+        var $activatedPane, $pane;
         $pane = this._$panes[this._activeIndex];
         $activatedPane = this._$panes[activatedIndex];
         $pane.classList.add(this.constructor._PANE_ACTIVE_CSS_CLASS);
-        if ($activatedPane) {
-          $activatedPane.classList.remove(this.constructor._PANE_ACTIVE_CSS_CLASS);
-        }
-        activateDuration = luda.getTransitionDuration($pane);
-        luda.dispatch($pane, this.constructor._ACTIVATED_EVENT_TYPE, this._activeIndex, activateDuration);
-        if ($activatedPane) {
-          deactivateDuration = luda.getTransitionDuration($activatedPane);
-          luda.dispatch($activatedPane, this.constructor._DEACTIVATED_EVENT_TYPE, activatedIndex, deactivateDuration);
-          setTimeout(() => {
-            return this._transiting = false;
-          }, Math.max(activateDuration, deactivateDuration));
-        } else {
-          setTimeout(() => {
-            return this._transiting = false;
-          }, activateDuration);
-        }
+        $activatedPane.classList.remove(this.constructor._PANE_ACTIVE_CSS_CLASS);
+        this._handleTransitionEnd(this._activeIndex, activatedIndex);
         return this._setIndicatorsState();
+      }
+
+      _canTransition(activeIndex, activatedIndex) {
+        return !this._activatePrevented(this._$panes[activeIndex], activeIndex) && !this._deactivatePrevented(this._$panes[activatedIndex], activatedIndex);
+      }
+
+      _handleTransitionEnd(activeIndex, activatedIndex) {
+        var activateDuration, deactivateDuration;
+        activateDuration = this._handleActivateEnd(this._$panes[activeIndex], activeIndex);
+        return deactivateDuration = this._handleDeactivateEnd(this._$panes[activatedIndex], activatedIndex);
+      }
+
+      _handleTransitionCancel() {
+        var activatedIndex, index;
+        if (this._isActivating()) {
+          index = parseInt(this._getActivatingMark(), 10);
+          this._handleActivateCancel(this._$panes[index], index);
+        }
+        if (this._isDeactivating()) {
+          activatedIndex = parseInt(this._getDeactivatingMark(), 10);
+          return this._handleDeactivateCancel(this._$panes[activatedIndex], activatedIndex);
+        }
       }
 
       _setIndicatorsState() {
@@ -99,6 +116,7 @@
           var instance;
           if (this.checked) {
             instance = self.query(luda.$parent(self._SELECTOR, this));
+            instance._setIndicatorsState();
             return instance.activate(instance._$indicators.indexOf(this));
           }
         });
@@ -117,14 +135,6 @@
     _Class._PANE_ACTIVE_CSS_CLASS = 'tab-pane-active';
 
     _Class._ACTIVE_INDEX = 0;
-
-    _Class._ACTIVATE_EVENT_TYPE = `${_Class._SCOPE}:activate`;
-
-    _Class._ACTIVATED_EVENT_TYPE = `${_Class._SCOPE}:activated`;
-
-    _Class._DEACTIVATE_EVENT_TYPE = `${_Class._SCOPE}:deactivate`;
-
-    _Class._DEACTIVATED_EVENT_TYPE = `${_Class._SCOPE}:deactivated`;
 
     _Class._observerConfig = {
       childList: true,

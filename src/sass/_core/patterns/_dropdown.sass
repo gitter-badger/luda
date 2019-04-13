@@ -47,8 +47,12 @@
 
 
 
-  .dropdown-fixed.dropdown-active > .dropdown-menu
+  .dropdown-fixed > .dropdown-menu
     +overlay
+    display: none
+
+  .dropdown-fixed.dropdown-active > .dropdown-menu
+    display: flex
 
   .dropdown-fixed > .dropdown-menu > .dropdown-items
     +overlay-body

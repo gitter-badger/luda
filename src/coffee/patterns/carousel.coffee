@@ -16,6 +16,7 @@ luda class extends luda.Component
   @_INDICATORS_SELECTOR: '.carousel-indicators .btn'
   @_INTERVAL_ATTRIBUTE: 'data-carousel-interval'
   @_WRAP_ATTRIBUTE: 'data-carousel-wrap'
+  @_ACTIVATED_INDEX_ATTRIBUTE: 'data-carousel-activated-index'
   @_ITEM_ACTIVE_CSS_CLASS: 'carousel-item-active'
   @_ITEM_NEXT_CSS_CLASS: 'carousel-item-next'
   @_ITEM_PREV_CSS_CLASS: 'carousel-item-prev'
@@ -23,10 +24,6 @@ luda class extends luda.Component
   @_INTERVAL: 5000
   @_WRAP: true
   @_FALSE: 'false'
-  @_ACTIVATE_EVENT_TYPE: "#{@_SCOPE}:activate"
-  @_ACTIVATED_EVENT_TYPE: "#{@_SCOPE}:activated"
-  @_DEACTIVATE_EVENT_TYPE: "#{@_SCOPE}:deactivate"
-  @_DEACTIVATED_EVENT_TYPE: "#{@_SCOPE}:deactivated"
 
   @_observerConfig:
     childList: true
@@ -36,40 +33,37 @@ luda class extends luda.Component
  
   # public
   activate: (index) ->
-    if @_$items.length and not @_transiting
+    if @_$items.length and not @_isTransitioning()
       activatedIndex = @_activeIndex
       if index? \
       and index isnt @_activeIndex \
       and 0 <= index <= @_$items.length - 1 \
-      and @_canActivate(index, activatedIndex)
-        @_transiting = true
+      and @_canTransition(index, activatedIndex)
         @_activeIndex = index
         action = if index < activatedIndex then '_slidePrev' else '_slideNext'
         @[action] activatedIndex
 
   next: ->
-    if @_$items.length and not @_transiting
+    if @_$items.length and not @_isTransitioning()
       activatedIndex = @_activeIndex
       index = activatedIndex + 1
       if index > @_$items.length - 1
         return unless @_wrap
         index = 0
-      return unless @_canActivate(index, activatedIndex)
-      @_transiting = true
+      return unless @_canTransition(index, activatedIndex)
       @_activeIndex = index
       @_slideNext activatedIndex
       @_playTimeStamp = Date.now()
       @_pausedRemainTime = @_interval
 
   prev: ->
-    if @_$items.length and not @_transiting
+    if @_$items.length and not @_isTransitioning()
       activatedIndex = @_activeIndex
       index = activatedIndex - 1
       if index < 0
         return unless @_wrap
         index = @_$items.length - 1
-      return unless @_canActivate(index, activatedIndex)
-      @_transiting = true
+      return unless @_canTransition(index, activatedIndex)
       @_activeIndex = index
       @_slidePrev activatedIndex
       @_playTimeStamp = Date.now()
@@ -131,11 +125,11 @@ luda class extends luda.Component
       @_interval,
       @_wrap
     } = @_getConfig()
-    @_transiting = false
     @_intervaling = null
     @_playTimeStamp = 0
     @_pausedRemainTime = @_interval
     @_layout()
+    @_handleTransitionCancel()
     @play()
 
   _onMutations: (mutations) ->
@@ -167,7 +161,6 @@ luda class extends luda.Component
         $item.classList.remove @constructor._ITEM_NEXT_CSS_CLASS
         $item.classList.remove @constructor._ITEM_ACTIVE_CSS_CLASS
       else
-        luda.dispatch($item, @constructor._ACTIVATED_EVENT_TYPE, index)
         $item.classList.add @constructor._ITEM_ACTIVE_CSS_CLASS
         $item.classList.remove @constructor._ITEM_NEXT_CSS_CLASS
         $item.classList.remove @constructor._ITEM_PREV_CSS_CLASS
@@ -210,40 +203,23 @@ luda class extends luda.Component
       @_setIndicatorsState()
       @_setDirectionControlState()
 
-
-  _canActivate: (activeIndex, activatedIndex) ->
-    $item = @_$items[activeIndex]
-    $activatedItem = @_$items[activatedIndex]
-
-    activateEvent = luda.dispatch($item, \
-    @constructor._ACTIVATE_EVENT_TYPE, activeIndex)
-
-    deactivateEvent = luda.dispatch($activatedItem, \
-    @constructor._DEACTIVATE_EVENT_TYPE, activatedIndex)
-
-    if activateEvent.defaultPrevented or deactivateEvent.defaultPrevented
-      return false
-    true
-
+  _canTransition: (activeIndex, activatedIndex) ->
+    not @_activatePrevented(@_$items[activeIndex], activeIndex) \
+    and not @_deactivatePrevented(@_$items[activatedIndex], activatedIndex)
 
   _handleTransitionEnd: (activeIndex, activatedIndex) ->
-    $item = @_$items[activeIndex]
-    $activatedItem = @_$items[activatedIndex]
-    activateDuration = luda.getTransitionDuration $item
-    deactivateDuration = luda.getTransitionDuration $activatedItem
+    activateDuration = \
+    @_handleActivateEnd @_$items[activeIndex], activeIndex
+    deactivateDuration = \
+    @_handleDeactivateEnd @_$items[activatedIndex], activatedIndex
 
-    luda.dispatch($item, \
-    @constructor._ACTIVATED_EVENT_TYPE, activeIndex, \
-    activateDuration)
-
-    luda.dispatch($activatedItem, \
-    @constructor._DEACTIVATED_EVENT_TYPE, activatedIndex, \
-    deactivateDuration)
-
-    setTimeout =>
-      @_transiting = false
-    , Math.max(activateDuration, deactivateDuration)
-
+  _handleTransitionCancel: ->
+    if @_isActivating()
+      index = parseInt @_getActivatingMark(), 10
+      @_handleActivateCancel @_$items[index], index
+    if @_isDeactivating()
+      activatedIndex = parseInt @_getDeactivatingMark(), 10
+      @_handleDeactivateCancel @_$items[activatedIndex], activatedIndex
 
   _setIndicatorsState: ->
     @_$indicators.forEach ($indicator, index) =>

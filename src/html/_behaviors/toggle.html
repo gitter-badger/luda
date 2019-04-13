@@ -14,7 +14,7 @@ title: Toggle
   <style type="text/css">
     #toggle-event-preview{
       opacity: 0;
-      transition: opacity .5s ease;
+      transition: opacity 1s ease;
     }
     #toggle-event-preview.toggle-active{
       opacity: 1;
@@ -36,6 +36,7 @@ title: Toggle
         luda.$child('#toggle-event-activate-note').innerHTML = 'Activate at: ' + activateStart
       })
       luda.on('luda:toggle:activated', '#toggle-event-preview', function(e) {
+        console.log('activated')
         duration = Date.now() - activateStart
         luda.$child('#toggle-event-activated-note').innerHTML = 'Activated in: ' + duration + 'ms'
       })
@@ -44,6 +45,7 @@ title: Toggle
         luda.$child('#toggle-event-deactivate-note').innerHTML = 'Deactivate at: ' + deactivateStart
       })
       luda.on('luda:toggle:deactivated', '#toggle-event-preview', function(e) {
+        console.log('deactivated')
         duration = Date.now() - deactivateStart
         luda.$child('#toggle-event-deactivated-note').innerHTML = 'Deactivated in: ' + duration + 'ms'
       })

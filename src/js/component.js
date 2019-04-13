@@ -31,6 +31,94 @@
         return this._observer = null;
       }
 
+      _activatePrevented($ele, detail) {
+        var activateEvent;
+        activateEvent = luda.dispatch($ele, this.constructor._ACTIVATE_EVENT_TYPE, detail);
+        return activateEvent.defaultPrevented;
+      }
+
+      _deactivatePrevented($ele, detail) {
+        var deactivateEvent;
+        deactivateEvent = luda.dispatch($ele, this.constructor._DEACTIVATE_EVENT_TYPE, detail);
+        return deactivateEvent.defaultPrevented;
+      }
+
+      _handleActivateEnd($ele, detail) {
+        var activateDuration;
+        this._setActivatingMark(detail);
+        activateDuration = luda.getTransitionDuration($ele);
+        luda.dispatch($ele, this.constructor._ACTIVATED_EVENT_TYPE, detail, activateDuration);
+        setTimeout(() => {
+          if (this._$component) {
+            return this._removeActivatingMark();
+          }
+        }, activateDuration);
+        return activateDuration;
+      }
+
+      _handleDeactivateEnd($ele, detail) {
+        var deactivateDuration;
+        this._setDeactivatingMark(detail);
+        deactivateDuration = luda.getTransitionDuration($ele);
+        luda.dispatch($ele, this.constructor._DEACTIVATED_EVENT_TYPE, detail, deactivateDuration);
+        setTimeout(() => {
+          if (this._$component) {
+            return this._removeDeactivatingMark();
+          }
+        }, deactivateDuration);
+        return deactivateDuration;
+      }
+
+      _handleActivateCancel($ele, detail) {
+        if (this._isActivating()) {
+          luda.dispatch($ele, this.constructor._ACTIVATED_EVENT_TYPE, detail);
+          return this._removeActivatingMark();
+        }
+      }
+
+      _handleDeactivateCancel($ele, detail) {
+        if (this._isDeactivating()) {
+          luda.dispatch($ele, this.constructor._DEACTIVATED_EVENT_TYPE, detail);
+          return this._removeDeactivatingMark();
+        }
+      }
+
+      _isActivating() {
+        return this._$component.hasAttribute(this.constructor._ACTIVATING_MARK_ATTRIBUTE);
+      }
+
+      _isDeactivating() {
+        return this._$component.hasAttribute(this.constructor._DEACTIVATING_MARK_ATTRIBUTE);
+      }
+
+      _isTransitioning() {
+        return this._isActivating() || this._isDeactivating();
+      }
+
+      _getActivatingMark() {
+        return this._$component.getAttribute(this.constructor._ACTIVATING_MARK_ATTRIBUTE);
+      }
+
+      _getDeactivatingMark() {
+        return this._$component.getAttribute(this.constructor._DEACTIVATING_MARK_ATTRIBUTE);
+      }
+
+      _removeActivatingMark() {
+        return this._$component.removeAttribute(this.constructor._ACTIVATING_MARK_ATTRIBUTE);
+      }
+
+      _removeDeactivatingMark() {
+        return this._$component.removeAttribute(this.constructor._DEACTIVATING_MARK_ATTRIBUTE);
+      }
+
+      _setActivatingMark(value) {
+        return this._$component.setAttribute(this.constructor._ACTIVATING_MARK_ATTRIBUTE, value);
+      }
+
+      _setDeactivatingMark(value) {
+        return this._$component.setAttribute(this.constructor._DEACTIVATING_MARK_ATTRIBUTE, value);
+      }
+
       static create($component) {
         var $family, componentIsElementInstance, instance, parent;
         componentIsElementInstance = $component instanceof Element;
@@ -106,6 +194,15 @@
           });
         }
         return instance;
+      }
+
+      static _addActivatingAndDeactivatingProperties() {
+        this._ACTIVATE_EVENT_TYPE = `${this._SCOPE}:activate`;
+        this._ACTIVATED_EVENT_TYPE = `${this._SCOPE}:activated`;
+        this._DEACTIVATE_EVENT_TYPE = `${this._SCOPE}:deactivate`;
+        this._DEACTIVATED_EVENT_TYPE = `${this._SCOPE}:deactivated`;
+        this._ACTIVATING_MARK_ATTRIBUTE = `data-${this._SCOPE}-activating`;
+        return this._DEACTIVATING_MARK_ATTRIBUTE = `data-${this._SCOPE}-deactivating`;
       }
 
       static _query$family($component) {
@@ -193,6 +290,7 @@
         if (!this.hasOwnProperty('_instances')) {
           this._instances = [];
         }
+        this._addActivatingAndDeactivatingProperties();
         if (typeof this._init === 'function') {
           exposed = this._init();
         }
@@ -217,6 +315,18 @@
     Component._$COMPONENT_INVALID_ERROR = '@param $component must be an instance of Element';
 
     Component._SELECTOR = '';
+
+    Component._ACTIVATE_EVENT_TYPE = `${Component._SCOPE}:activate`;
+
+    Component._ACTIVATED_EVENT_TYPE = `${Component._SCOPE}:activated`;
+
+    Component._DEACTIVATE_EVENT_TYPE = `${Component._SCOPE}:deactivate`;
+
+    Component._DEACTIVATED_EVENT_TYPE = `${Component._SCOPE}:deactivated`;
+
+    Component._ACTIVATING_MARK_ATTRIBUTE = `data-${Component._SCOPE}-activating`;
+
+    Component._DEACTIVATING_MARK_ATTRIBUTE = `data-${Component._SCOPE}-deactivating`;
 
     Component._instances = [];
 

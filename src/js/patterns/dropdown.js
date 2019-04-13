@@ -9,37 +9,29 @@
 
     _Class = class extends luda.Component {
       activate() {
-        var activateDuration, activateEvent, ref;
-        if (this._isActive() || this._transiting) {
+        var activateDuration, ref;
+        if (this._isActive() || this._isTransitioning()) {
           return;
         }
-        activateEvent = luda.dispatch(this._$component, this.constructor._ACTIVATE_EVENT_TYPE);
-        if (activateEvent.defaultPrevented) {
+        if (this._activatePrevented(this._$menu)) {
           return;
         }
-        this._transiting = true;
         this._$component.classList.add(this.constructor._ACTIVE_CSS_CLASS);
         this.constructor._$focused.push(document.activeElement);
         if ((ref = this._parent) != null) {
           ref.activate();
         }
-        activateDuration = luda.getTransitionDuration(this._$component);
-        luda.dispatch(this._$component, this.constructor._ACTIVATED_EVENT_TYPE, null, activateDuration);
-        return setTimeout(() => {
-          return this._transiting = false;
-        }, activateDuration);
+        return activateDuration = this._handleActivateEnd(this._$menu);
       }
 
       deactivate(focus) {
-        var deactivateDuration, deactivateEvent, ref;
-        if (!(this._isActive() && !this._transiting)) {
+        var deactivateDuration, ref;
+        if (!(this._isActive() && !this._isTransitioning())) {
           return;
         }
-        deactivateEvent = luda.dispatch(this._$component, this.constructor._DEACTIVATE_EVENT_TYPE);
-        if (deactivateEvent.defaultPrevented) {
+        if (this._deactivatePrevented(this._$menu)) {
           return;
         }
-        this._transiting = true;
         this._$component.classList.remove(this.constructor._ACTIVE_CSS_CLASS);
         this._children.forEach(function(child) {
           return child.deactivate();
@@ -50,11 +42,7 @@
           }
         }
         this.constructor._$focused.splice(this.constructor._$focused.length - 1, 1);
-        deactivateDuration = luda.getTransitionDuration(this._$component);
-        luda.dispatch(this._$component, this.constructor._DEACTIVATED_EVENT_TYPE, null, deactivateDuration);
-        return setTimeout(() => {
-          return this._transiting = false;
-        }, deactivateDuration);
+        return deactivateDuration = this._handleDeactivateEnd(this._$menu);
       }
 
       toggle(focus) {
@@ -94,16 +82,17 @@
         _$noneSwitches = luda.$unnested(this.constructor._NONE_SWITCHES_SELECTOR, this._$component, this.constructor._SELECTOR).concat(luda.$unnested(this.constructor._NONE_SWITCHES_SELECTOR, _$menu, this.constructor._MENU_SELECTOR));
         _$items = luda.$unnested(this.constructor._ITEMS_SELECTOR, _$menu, this.constructor._MENU_SELECTOR);
         _isStandalone = this._$component.hasAttribute(this.constructor._STANDALONE_ATTRIBUTE);
-        return {_$items, _$switches, _$noneSwitches, _isStandalone};
+        return {_$menu, _$items, _$switches, _$noneSwitches, _isStandalone};
       }
 
       _constructor() {
-        ({_$items: this._$items, _$switches: this._$switches, _$noneSwitches: this._$noneSwitches, _isStandalone: this._isStandalone} = this._getConfig());
-        return this._transiting = false;
+        this._onMutations();
+        this._handleActivateCancel(this._$menu);
+        return this._handleDeactivateCancel(this._$menu);
       }
 
       _onMutations(mutations) {
-        return this._constructor();
+        return ({_$menu: this._$menu, _$items: this._$items, _$switches: this._$switches, _$noneSwitches: this._$noneSwitches, _isStandalone: this._isStandalone} = this._getConfig());
       }
 
       _isActive() {
@@ -264,14 +253,6 @@
     _Class._NONE_SWITCHES_SELECTOR = `[${_Class._TOGGLE_DISABLED_ATTRIBUTE}]`;
 
     _Class._ACTIVE_CSS_CLASS = 'dropdown-active';
-
-    _Class._ACTIVATE_EVENT_TYPE = `${_Class._SCOPE}:activate`;
-
-    _Class._ACTIVATED_EVENT_TYPE = `${_Class._SCOPE}:activated`;
-
-    _Class._DEACTIVATE_EVENT_TYPE = `${_Class._SCOPE}:deactivate`;
-
-    _Class._DEACTIVATED_EVENT_TYPE = `${_Class._SCOPE}:deactivated`;
 
     _Class._observerConfig = {
       childList: true,

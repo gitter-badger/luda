@@ -250,7 +250,17 @@ title: Dropdown
   </div>
 </div>
 
-
+<style>
+  #dropdown-event-preview .dropdown-menu{
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: .5s;
+    transition-timing-function: ease;
+  }
+  #dropdown-event-preview.dropdown-active .dropdown-menu{
+    opacity: 1;
+  }
+</style>
 
 <div id="dropdown-event" class="mb-large">
   <h4><a href="#dropdown-event">#dropdown-event</a></h4>
@@ -262,7 +272,7 @@ title: Dropdown
 
   <div class="dropdown-absolute mb-small" id="dropdown-event-preview">
     <button class="btn btn-dark">What would you like to eat?</button>
-    <div class="dropdown-menu">
+    <div class="dropdown-menu d-block">
       <div class="dropdown-items">
         <div class="btns-y">
           <button class="btn btn-dark">Apple</button>
@@ -277,18 +287,22 @@ title: Dropdown
     (function(){
       let activateStart = Date.now(), deactiveStart = Date.now()
       luda.on('luda:dropdown:activate', '#dropdown-event-preview', function(e){
+        console.log(e.target)
         activateStart = Date.now()
         luda.$child('#dropdown-event-preview-activate').innerHTML = 'Activate at: ' + activateStart
       })
       luda.on('luda:dropdown:activated', '#dropdown-event-preview', function(e){
+        console.log(e.target)
         duration = Date.now() - activateStart
         luda.$child('#dropdown-event-preview-activated').innerHTML = 'Activated in: ' + duration + 'ms'
       })
       luda.on('luda:dropdown:deactivate', '#dropdown-event-preview', function(e){
+        console.log(e.target)
         deactivateStart = Date.now()
         luda.$child('#dropdown-event-preview-deactivate').innerHTML = 'Deactivate at: ' + deactivateStart
       })
       luda.on('luda:dropdown:deactivated', '#dropdown-event-preview', function(e){
+        console.log(e.target)
         duration = Date.now() - deactivateStart
         luda.$child('#dropdown-event-preview-deactivated').innerHTML = 'Deactivated in: ' + duration + 'ms'
       })

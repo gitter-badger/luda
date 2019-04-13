@@ -13,6 +13,14 @@ luda class Component
   @_COMPONENT_NO_SELECTOR_ERROR: 'Extended component must has a css selector'
   @_$COMPONENT_INVALID_ERROR: '@param $component must be an instance of Element'
   @_SELECTOR: ''
+
+  @_ACTIVATE_EVENT_TYPE: "#{@_SCOPE}:activate"
+  @_ACTIVATED_EVENT_TYPE: "#{@_SCOPE}:activated"
+  @_DEACTIVATE_EVENT_TYPE: "#{@_SCOPE}:deactivate"
+  @_DEACTIVATED_EVENT_TYPE: "#{@_SCOPE}:deactivated"
+  @_ACTIVATING_MARK_ATTRIBUTE: "data-#{@_SCOPE}-activating"
+  @_DEACTIVATING_MARK_ATTRIBUTE: "data-#{@_SCOPE}-deactivating"
+
   @_instances: []
 
   @_Observed: []
@@ -35,6 +43,77 @@ luda class Component
   _disconnect: ->
     @_observer.disconnect()
     @_observer = null
+
+  _activatePrevented: ($ele, detail) ->
+    activateEvent = luda.dispatch($ele, \
+    @constructor._ACTIVATE_EVENT_TYPE, detail)
+    activateEvent.defaultPrevented
+
+  _deactivatePrevented: ($ele, detail) ->
+    deactivateEvent = luda.dispatch($ele, \
+    @constructor._DEACTIVATE_EVENT_TYPE, detail)
+    deactivateEvent.defaultPrevented
+
+  _handleActivateEnd: ($ele, detail) ->
+    @_setActivatingMark detail
+    activateDuration = luda.getTransitionDuration $ele
+    luda.dispatch($ele, \
+    @constructor._ACTIVATED_EVENT_TYPE, detail, \
+    activateDuration)
+    setTimeout =>
+      @_removeActivatingMark() if @_$component
+    , activateDuration
+    activateDuration
+
+  _handleDeactivateEnd: ($ele, detail) ->
+    @_setDeactivatingMark detail
+    deactivateDuration = luda.getTransitionDuration $ele
+    luda.dispatch($ele, \
+    @constructor._DEACTIVATED_EVENT_TYPE, detail, \
+    deactivateDuration)
+    setTimeout =>
+      @_removeDeactivatingMark() if @_$component
+    , deactivateDuration
+    deactivateDuration
+
+  _handleActivateCancel: ($ele, detail) ->
+    if @_isActivating()
+      luda.dispatch($ele, \
+      @constructor._ACTIVATED_EVENT_TYPE, detail)
+      @_removeActivatingMark()
+
+  _handleDeactivateCancel: ($ele, detail) ->
+    if @_isDeactivating()
+      luda.dispatch($ele, \
+      @constructor._DEACTIVATED_EVENT_TYPE, detail)
+      @_removeDeactivatingMark()
+
+  _isActivating: ->
+    @_$component.hasAttribute @constructor._ACTIVATING_MARK_ATTRIBUTE
+
+  _isDeactivating: ->
+    @_$component.hasAttribute @constructor._DEACTIVATING_MARK_ATTRIBUTE
+
+  _isTransitioning: ->
+    @_isActivating() or @_isDeactivating()
+
+  _getActivatingMark: ->
+    @_$component.getAttribute @constructor._ACTIVATING_MARK_ATTRIBUTE
+
+  _getDeactivatingMark: ->
+    @_$component.getAttribute @constructor._DEACTIVATING_MARK_ATTRIBUTE
+
+  _removeActivatingMark: ->
+    @_$component.removeAttribute @constructor._ACTIVATING_MARK_ATTRIBUTE
+
+  _removeDeactivatingMark: ->
+    @_$component.removeAttribute @constructor._DEACTIVATING_MARK_ATTRIBUTE
+
+  _setActivatingMark: (value) ->
+    @_$component.setAttribute @constructor._ACTIVATING_MARK_ATTRIBUTE, value
+
+  _setDeactivatingMark: (value) ->
+    @_$component.setAttribute @constructor._DEACTIVATING_MARK_ATTRIBUTE, value
 
   @create: ($component) ->
     componentIsElementInstance = $component instanceof Element
@@ -79,6 +158,14 @@ luda class Component
           instance = inited
           return true
     return instance
+
+  @_addActivatingAndDeactivatingProperties: ->
+    @_ACTIVATE_EVENT_TYPE = "#{@_SCOPE}:activate"
+    @_ACTIVATED_EVENT_TYPE = "#{@_SCOPE}:activated"
+    @_DEACTIVATE_EVENT_TYPE = "#{@_SCOPE}:deactivate"
+    @_DEACTIVATED_EVENT_TYPE = "#{@_SCOPE}:deactivated"
+    @_ACTIVATING_MARK_ATTRIBUTE = "data-#{@_SCOPE}-activating"
+    @_DEACTIVATING_MARK_ATTRIBUTE = "data-#{@_SCOPE}-deactivating"
 
   @_query$family: ($component) ->
     _$parent = null
@@ -132,6 +219,7 @@ luda class Component
     unless @_SELECTOR or typeof @_SELECTOR isnt 'string'
       throw new Error @_COMPONENT_NO_SELECTOR_ERROR
     @_instances = [] unless @hasOwnProperty '_instances'
+    @_addActivatingAndDeactivatingProperties()
     exposed = @_init() if typeof @_init is 'function'
     luda.on luda._DOC_READY, ->
       luda.$children(self._SELECTOR).forEach ($component) ->

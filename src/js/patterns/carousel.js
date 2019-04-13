@@ -12,10 +12,9 @@
       // public
       activate(index) {
         var action, activatedIndex;
-        if (this._$items.length && !this._transiting) {
+        if (this._$items.length && !this._isTransitioning()) {
           activatedIndex = this._activeIndex;
-          if ((index != null) && index !== this._activeIndex && (0 <= index && index <= this._$items.length - 1) && this._canActivate(index, activatedIndex)) {
-            this._transiting = true;
+          if ((index != null) && index !== this._activeIndex && (0 <= index && index <= this._$items.length - 1) && this._canTransition(index, activatedIndex)) {
             this._activeIndex = index;
             action = index < activatedIndex ? '_slidePrev' : '_slideNext';
             return this[action](activatedIndex);
@@ -25,7 +24,7 @@
 
       next() {
         var activatedIndex, index;
-        if (this._$items.length && !this._transiting) {
+        if (this._$items.length && !this._isTransitioning()) {
           activatedIndex = this._activeIndex;
           index = activatedIndex + 1;
           if (index > this._$items.length - 1) {
@@ -34,10 +33,9 @@
             }
             index = 0;
           }
-          if (!this._canActivate(index, activatedIndex)) {
+          if (!this._canTransition(index, activatedIndex)) {
             return;
           }
-          this._transiting = true;
           this._activeIndex = index;
           this._slideNext(activatedIndex);
           this._playTimeStamp = Date.now();
@@ -47,7 +45,7 @@
 
       prev() {
         var activatedIndex, index;
-        if (this._$items.length && !this._transiting) {
+        if (this._$items.length && !this._isTransitioning()) {
           activatedIndex = this._activeIndex;
           index = activatedIndex - 1;
           if (index < 0) {
@@ -56,10 +54,9 @@
             }
             index = this._$items.length - 1;
           }
-          if (!this._canActivate(index, activatedIndex)) {
+          if (!this._canTransition(index, activatedIndex)) {
             return;
           }
-          this._transiting = true;
           this._activeIndex = index;
           this._slidePrev(activatedIndex);
           this._playTimeStamp = Date.now();
@@ -112,11 +109,11 @@
 
       _constructor() {
         ({_$items: this._$items, _$indicators: this._$indicators, _$prevControl: this._$prevControl, _$nextControl: this._$nextControl, _activeIndex: this._activeIndex, _interval: this._interval, _wrap: this._wrap} = this._getConfig());
-        this._transiting = false;
         this._intervaling = null;
         this._playTimeStamp = 0;
         this._pausedRemainTime = this._interval;
         this._layout();
+        this._handleTransitionCancel();
         return this.play();
       }
 
@@ -143,7 +140,6 @@
             $item.classList.remove(this.constructor._ITEM_NEXT_CSS_CLASS);
             $item.classList.remove(this.constructor._ITEM_ACTIVE_CSS_CLASS);
           } else {
-            luda.dispatch($item, this.constructor._ACTIVATED_EVENT_TYPE, index);
             $item.classList.add(this.constructor._ITEM_ACTIVE_CSS_CLASS);
             $item.classList.remove(this.constructor._ITEM_NEXT_CSS_CLASS);
             $item.classList.remove(this.constructor._ITEM_PREV_CSS_CLASS);
@@ -195,29 +191,26 @@
         }
       }
 
-      _canActivate(activeIndex, activatedIndex) {
-        var $activatedItem, $item, activateEvent, deactivateEvent;
-        $item = this._$items[activeIndex];
-        $activatedItem = this._$items[activatedIndex];
-        activateEvent = luda.dispatch($item, this.constructor._ACTIVATE_EVENT_TYPE, activeIndex);
-        deactivateEvent = luda.dispatch($activatedItem, this.constructor._DEACTIVATE_EVENT_TYPE, activatedIndex);
-        if (activateEvent.defaultPrevented || deactivateEvent.defaultPrevented) {
-          return false;
-        }
-        return true;
+      _canTransition(activeIndex, activatedIndex) {
+        return !this._activatePrevented(this._$items[activeIndex], activeIndex) && !this._deactivatePrevented(this._$items[activatedIndex], activatedIndex);
       }
 
       _handleTransitionEnd(activeIndex, activatedIndex) {
-        var $activatedItem, $item, activateDuration, deactivateDuration;
-        $item = this._$items[activeIndex];
-        $activatedItem = this._$items[activatedIndex];
-        activateDuration = luda.getTransitionDuration($item);
-        deactivateDuration = luda.getTransitionDuration($activatedItem);
-        luda.dispatch($item, this.constructor._ACTIVATED_EVENT_TYPE, activeIndex, activateDuration);
-        luda.dispatch($activatedItem, this.constructor._DEACTIVATED_EVENT_TYPE, activatedIndex, deactivateDuration);
-        return setTimeout(() => {
-          return this._transiting = false;
-        }, Math.max(activateDuration, deactivateDuration));
+        var activateDuration, deactivateDuration;
+        activateDuration = this._handleActivateEnd(this._$items[activeIndex], activeIndex);
+        return deactivateDuration = this._handleDeactivateEnd(this._$items[activatedIndex], activatedIndex);
+      }
+
+      _handleTransitionCancel() {
+        var activatedIndex, index;
+        if (this._isActivating()) {
+          index = parseInt(this._getActivatingMark(), 10);
+          this._handleActivateCancel(this._$items[index], index);
+        }
+        if (this._isDeactivating()) {
+          activatedIndex = parseInt(this._getDeactivatingMark(), 10);
+          return this._handleDeactivateCancel(this._$items[activatedIndex], activatedIndex);
+        }
       }
 
       _setIndicatorsState() {
@@ -294,6 +287,8 @@
 
     _Class._WRAP_ATTRIBUTE = 'data-carousel-wrap';
 
+    _Class._ACTIVATED_INDEX_ATTRIBUTE = 'data-carousel-activated-index';
+
     _Class._ITEM_ACTIVE_CSS_CLASS = 'carousel-item-active';
 
     _Class._ITEM_NEXT_CSS_CLASS = 'carousel-item-next';
@@ -307,14 +302,6 @@
     _Class._WRAP = true;
 
     _Class._FALSE = 'false';
-
-    _Class._ACTIVATE_EVENT_TYPE = `${_Class._SCOPE}:activate`;
-
-    _Class._ACTIVATED_EVENT_TYPE = `${_Class._SCOPE}:activated`;
-
-    _Class._DEACTIVATE_EVENT_TYPE = `${_Class._SCOPE}:deactivate`;
-
-    _Class._DEACTIVATED_EVENT_TYPE = `${_Class._SCOPE}:deactivated`;
 
     _Class._observerConfig = {
       childList: true,

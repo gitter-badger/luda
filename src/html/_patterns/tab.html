@@ -72,7 +72,22 @@ title: Tab
   </div>
 </div>
 
-
+<style>
+  #tab-event-preview .tab-panes{
+    height: 10rem;
+  }
+  #tab-event-preview .tab-pane{
+    opacity: 0;
+    transform: translate3d(0, 3rem, 0);
+    transition-property: opacity, transform;
+    transition-duration: .5s, 1000ms;
+    transition-timing-function: ease;
+  }
+  #tab-event-preview .tab-pane.tab-pane-active{
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+</style>
 
 <div id="tab-event" class="mt-large">
   <h4><a href="#tab-event">#tab event</a></h4>
@@ -91,14 +106,14 @@ title: Tab
         <label>Tab Three</label>
       </div>
     </nav>
-    <div class="tab-panes">
-      <div class="tab-pane">
+    <div class="tab-panes rel">
+      <div class="tab-pane d-block abs-l abs-t abs-r abs-b">
         <p>This is the content of tab pane one.</p>
       </div>
-      <div class="tab-pane">
+      <div class="tab-pane d-block abs-l abs-t abs-r abs-b">
         <p>This is the content of tab pane two.</p>
       </div>
-      <div class="tab-pane">
+      <div class="tab-pane d-block abs-l abs-t abs-r abs-b">
         <p>This is the content of tab pane three.</p>
       </div>
     </div>
