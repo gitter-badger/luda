@@ -1,11 +1,13 @@
 import './install.coffee'
 import './utilities.coffee'
+import './dom.coffee'
+import './event.coffee'
 
 
   
-luda class Singleton
+luda class Static
 
-  @_SCOPE: 'Singleton'
+  @_SCOPE: 'Static'
   
   @_SELECTOR_INVALID_ERROR: '@param selector must be a css selector string'
   @_SELECTORS: []
@@ -17,9 +19,6 @@ luda class Singleton
 
   @_Observed: []
   @_observer: null
-  @_observerConfig:
-    childList: true
-    subtree: true
 
   @_selector: ''
 
@@ -107,42 +106,34 @@ luda class Singleton
   @_setDeactivatingMark: ($ele, value) ->
     $ele.setAttribute @_DEACTIVATING_MARK_ATTRIBUTE, value
 
+  @_onEleAdded: ($ele) ->
+    Static._onEleAddedOrRemoved $ele, '_onElementAdded'
+
+  @_onEleRemoved: ($ele) ->
+    Static._onEleAddedOrRemoved $ele, '_onElementRemoved'
+
+  @_onEleAddedOrRemoved: ($ele, action) ->
+    Static._Observed.forEach (Observed) ->
+      return unless Observed[action]
+      $matched = luda.$children Observed._selector, $ele
+      $matched.unshift $ele if $ele.matches Observed._selector
+      $matched.forEach ($target) -> Observed[action] $target
+
   @_observe: (classObj) ->
-    unless Singleton._observer
-      Singleton._observer = new MutationObserver (mutations) ->
-        mutations.forEach (mutation) ->
-          $removedNodes = Array.from mutation.removedNodes
-          $addedNodes = Array.from mutation.addedNodes
-          $removedNodes.forEach ($node) ->
-            if $node instanceof Element
-              Singleton._Observed.forEach (Observed) ->
-                if $node.matches Observed._selector
-                  Observed._onNodeRemoved($node) if Observed._onNodeRemoved
-                else
-                  $destroies = luda.$children Observed._selector, $node
-                  $destroies.forEach ($destroy) ->
-                    Observed._onNodeRemoved($destroy) if Observed._onNodeRemoved
-          $addedNodes.forEach ($node) ->
-            if $node instanceof Element
-              Singleton._Observed.forEach (Observed) ->
-                if $node.matches Observed._selector
-                  Observed._onNodeAdded($node) if Observed._onNodeAdded
-                else
-                  $creates = luda.$children Observed._selector, $node
-                  $creates.forEach ($create) ->
-                    Observed._onNodeAdded($create) if Observed._onNodeAdded
-      Singleton._observer.observe document.documentElement, \
-      Singleton._observerConfig
-    if classObj._onNodeAdded or classObj._onNodeRemoved and classObj._selector
-      unless Singleton._Observed.includes classObj
-        Singleton._Observed.push classObj
+    unless Static._observer
+      Static._observer = \
+      luda._observeDom Static._onEleAdded, Static._onEleRemoved
+    if classObj._onElementAdded or classObj._onElementRemoved \
+    and classObj._selector
+      unless Static._Observed.includes classObj
+        Static._Observed.push classObj
 
   @_install: ->
     self = this
-    return this if this is Singleton
+    return this if this is Static
     @_SELECTORS = [] unless @hasOwnProperty '_SELECTORS'
     @_mergeSelectors()
     exposed = @_init() if typeof @_init is 'function'
     @_addActivatingAndDeactivatingProperties()
-    luda.on luda._DOC_READY, -> Singleton._observe(self)
+    luda.on luda._DOC_READY, -> Static._observe(self)
     if exposed then exposed else this

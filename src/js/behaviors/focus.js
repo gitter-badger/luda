@@ -1,13 +1,13 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('../install.js'), require('../dom.js'), require('../event.js'), require('../singleton.js')) :
-  typeof define === 'function' && define.amd ? define(['../install.js', '../dom.js', '../event.js', '../singleton.js'], factory) :
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('../install.js'), require('../dom.js'), require('../event.js'), require('../static.js')) :
+  typeof define === 'function' && define.amd ? define(['../install.js', '../dom.js', '../event.js', '../static.js'], factory) :
   (factory());
 }(this, (function () { 'use strict';
 
   luda((function() {
     var _Class;
 
-    _Class = class extends luda.Singleton {
+    _Class = class extends luda.Static {
       static _isActive() {
         return !document.documentElement.hasAttribute(this._DISABLED_ATTRIBUTE);
       }

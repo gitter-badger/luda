@@ -1,9 +1,9 @@
 import '../install.coffee'
-import '../component.coffee'
+import '../factory.coffee'
 
 
 
-luda class extends luda.Component
+luda class extends luda.Factory
 
   @_SCOPE: 'readonly'
   @_READONLY_ATTRIBUTE: 'data-readonly'

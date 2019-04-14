@@ -1,6 +1,6 @@
 /*! 
-   * Luda 0.1.13 | https://luda.dev
-   * Copyright 2018 oatw | https://oatw.blog
+   * Luda 0.1.12 | https://luda.dev
+   * Copyright 2019 oatw | https://oatw.blog
    * MIT license | http://opensource.org/licenses/MIT
    */
 (function (global, factory) {
@@ -188,6 +188,32 @@
         return duration + delays[index];
       });
       return Math.max.apply(null, finalDurations);
+    },
+    _observeDom: function(onNodeAdded, onNodeRemoved) {
+      var observer, observerConfig;
+      observerConfig = {
+        childList: true,
+        subtree: true
+      };
+      observer = new MutationObserver(function(mutations) {
+        return mutations.forEach(function(mutation) {
+          var $addedNodes, $removedNodes;
+          $removedNodes = Array.from(mutation.removedNodes);
+          $addedNodes = Array.from(mutation.addedNodes);
+          $removedNodes.forEach(function($node) {
+            if ($node instanceof Element && onNodeRemoved) {
+              return onNodeRemoved($node);
+            }
+          });
+          return $addedNodes.forEach(function($node) {
+            if ($node instanceof Element && onNodeAdded) {
+              return onNodeAdded($node);
+            }
+          });
+        });
+      });
+      observer.observe(document.documentElement, observerConfig);
+      return observer;
     }
   });
 
@@ -391,10 +417,10 @@
     }
   });
 
-  var Singleton;
+  var Static;
 
-  luda(Singleton = (function() {
-    class Singleton {
+  luda(Static = (function() {
+    class Static {
       static _addActivatingAndDeactivatingProperties() {
         this._ACTIVATE_EVENT_TYPE = `${this._SCOPE}:activate`;
         this._ACTIVATED_EVENT_TYPE = `${this._SCOPE}:activated`;
@@ -514,58 +540,37 @@
         return $ele.setAttribute(this._DEACTIVATING_MARK_ATTRIBUTE, value);
       }
 
-      static _observe(classObj) {
-        if (!Singleton._observer) {
-          Singleton._observer = new MutationObserver(function(mutations) {
-            return mutations.forEach(function(mutation) {
-              var $addedNodes, $removedNodes;
-              $removedNodes = Array.from(mutation.removedNodes);
-              $addedNodes = Array.from(mutation.addedNodes);
-              $removedNodes.forEach(function($node) {
-                if ($node instanceof Element) {
-                  return Singleton._Observed.forEach(function(Observed) {
-                    var $destroies;
-                    if ($node.matches(Observed._selector)) {
-                      if (Observed._onNodeRemoved) {
-                        return Observed._onNodeRemoved($node);
-                      }
-                    } else {
-                      $destroies = luda.$children(Observed._selector, $node);
-                      return $destroies.forEach(function($destroy) {
-                        if (Observed._onNodeRemoved) {
-                          return Observed._onNodeRemoved($destroy);
-                        }
-                      });
-                    }
-                  });
-                }
-              });
-              return $addedNodes.forEach(function($node) {
-                if ($node instanceof Element) {
-                  return Singleton._Observed.forEach(function(Observed) {
-                    var $creates;
-                    if ($node.matches(Observed._selector)) {
-                      if (Observed._onNodeAdded) {
-                        return Observed._onNodeAdded($node);
-                      }
-                    } else {
-                      $creates = luda.$children(Observed._selector, $node);
-                      return $creates.forEach(function($create) {
-                        if (Observed._onNodeAdded) {
-                          return Observed._onNodeAdded($create);
-                        }
-                      });
-                    }
-                  });
-                }
-              });
-            });
+      static _onEleAdded($ele) {
+        return Static._onEleAddedOrRemoved($ele, '_onElementAdded');
+      }
+
+      static _onEleRemoved($ele) {
+        return Static._onEleAddedOrRemoved($ele, '_onElementRemoved');
+      }
+
+      static _onEleAddedOrRemoved($ele, action) {
+        return Static._Observed.forEach(function(Observed) {
+          var $matched;
+          if (!Observed[action]) {
+            return;
+          }
+          $matched = luda.$children(Observed._selector, $ele);
+          if ($ele.matches(Observed._selector)) {
+            $matched.unshift($ele);
+          }
+          return $matched.forEach(function($target) {
+            return Observed[action]($target);
           });
-          Singleton._observer.observe(document.documentElement, Singleton._observerConfig);
+        });
+      }
+
+      static _observe(classObj) {
+        if (!Static._observer) {
+          Static._observer = luda._observeDom(Static._onEleAdded, Static._onEleRemoved);
         }
-        if (classObj._onNodeAdded || classObj._onNodeRemoved && classObj._selector) {
-          if (!Singleton._Observed.includes(classObj)) {
-            return Singleton._Observed.push(classObj);
+        if (classObj._onElementAdded || classObj._onElementRemoved && classObj._selector) {
+          if (!Static._Observed.includes(classObj)) {
+            return Static._Observed.push(classObj);
           }
         }
       }
@@ -573,7 +578,7 @@
       static _install() {
         var exposed, self;
         self = this;
-        if (this === Singleton) {
+        if (this === Static) {
           return this;
         }
         if (!this.hasOwnProperty('_SELECTORS')) {
@@ -585,7 +590,7 @@
         }
         this._addActivatingAndDeactivatingProperties();
         luda.on(luda._DOC_READY, function() {
-          return Singleton._observe(self);
+          return Static._observe(self);
         });
         if (exposed) {
           return exposed;
@@ -595,39 +600,34 @@
       }
 
     }
-    Singleton._SCOPE = 'Singleton';
+    Static._SCOPE = 'Static';
 
-    Singleton._SELECTOR_INVALID_ERROR = '@param selector must be a css selector string';
+    Static._SELECTOR_INVALID_ERROR = '@param selector must be a css selector string';
 
-    Singleton._SELECTORS = [];
+    Static._SELECTORS = [];
 
-    Singleton._ACTIVATE_EVENT_TYPE = `${Singleton._SCOPE}:activate`;
+    Static._ACTIVATE_EVENT_TYPE = `${Static._SCOPE}:activate`;
 
-    Singleton._ACTIVATED_EVENT_TYPE = `${Singleton._SCOPE}:activated`;
+    Static._ACTIVATED_EVENT_TYPE = `${Static._SCOPE}:activated`;
 
-    Singleton._DEACTIVATE_EVENT_TYPE = `${Singleton._SCOPE}:deactivate`;
+    Static._DEACTIVATE_EVENT_TYPE = `${Static._SCOPE}:deactivate`;
 
-    Singleton._DEACTIVATED_EVENT_TYPE = `${Singleton._SCOPE}:deactivated`;
+    Static._DEACTIVATED_EVENT_TYPE = `${Static._SCOPE}:deactivated`;
 
-    Singleton._Observed = [];
+    Static._Observed = [];
 
-    Singleton._observer = null;
+    Static._observer = null;
 
-    Singleton._observerConfig = {
-      childList: true,
-      subtree: true
-    };
+    Static._selector = '';
 
-    Singleton._selector = '';
-
-    return Singleton;
+    return Static;
 
   }).call(this));
 
   luda((function() {
     var _Class;
 
-    _Class = class extends luda.Singleton {
+    _Class = class extends luda.Static {
       static _init() {
         var self;
         self = this;
@@ -656,7 +656,7 @@
   luda((function() {
     var _Class;
 
-    _Class = class extends luda.Singleton {
+    _Class = class extends luda.Static {
       static _isActive() {
         return !document.documentElement.hasAttribute(this._DISABLED_ATTRIBUTE);
       }
@@ -754,7 +754,7 @@
   luda((function() {
     var _Class;
 
-    _Class = class extends luda.Singleton {
+    _Class = class extends luda.Static {
       static _querySameName$radios($radio) {
         var $inputs, selector;
         if ($radio.name) {
@@ -810,10 +810,10 @@
 
   }).call(this));
 
-  var Component;
+  var Factory;
 
-  luda(Component = (function() {
-    class Component {
+  luda(Factory = (function() {
+    class Factory {
       _hasDescendant(descendant) {
         if (this._children.length && descendant) {
           if (this._children.includes(descendant)) {
@@ -1038,56 +1038,38 @@
         return instance;
       }
 
-      static _observe(classObj) {
-        if (!Component._observer) {
-          Component._observer = new MutationObserver(function(mutations) {
-            return mutations.forEach(function(mutation) {
-              var $addedNodes, $removedNodes;
-              $removedNodes = Array.from(mutation.removedNodes);
-              $addedNodes = Array.from(mutation.addedNodes);
-              $removedNodes.forEach(function($node) {
-                if ($node instanceof Element) {
-                  return Component._Observed.forEach(function(Observed) {
-                    var $destroies;
-                    if ($node.matches(Observed._SELECTOR)) {
-                      return Observed.destroy($node);
-                    } else {
-                      $destroies = luda.$children(Observed._SELECTOR, $node);
-                      return $destroies.forEach(function($destroy) {
-                        return Observed.destroy($destroy);
-                      });
-                    }
-                  });
-                }
-              });
-              return $addedNodes.forEach(function($node) {
-                if ($node instanceof Element) {
-                  return Component._Observed.forEach(function(Observed) {
-                    var $creates;
-                    if ($node.matches(Observed._SELECTOR)) {
-                      return Observed.create($node);
-                    } else {
-                      $creates = luda.$children(Observed._SELECTOR, $node);
-                      return $creates.forEach(function($create) {
-                        return Observed.create($create);
-                      });
-                    }
-                  });
-                }
-              });
-            });
+      static _onEleAdded($ele) {
+        return Factory._onEleAddedOrRemoved($ele, 'create');
+      }
+
+      static _onEleRemoved($ele) {
+        return Factory._onEleAddedOrRemoved($ele, 'destroy');
+      }
+
+      static _onEleAddedOrRemoved($ele, action) {
+        return Factory._Observed.forEach(function(Observed) {
+          if ($ele.matches(Observed._SELECTOR)) {
+            return Observed[action]($ele);
+          }
+          return luda.$children(Observed._SELECTOR, $ele).forEach(function($child) {
+            return Observed[action]($child);
           });
-          Component._observer.observe(document.documentElement, Component._observerConfig);
+        });
+      }
+
+      static _observe(classObj) {
+        if (!Factory._observer) {
+          Factory._observer = luda._observeDom(Factory._onEleAdded, Factory._onEleRemoved);
         }
-        if (!Component._Observed.includes(classObj)) {
-          return Component._Observed.push(classObj);
+        if (!Factory._Observed.includes(classObj)) {
+          return Factory._Observed.push(classObj);
         }
       }
 
       static _install() {
         var exposed, self;
         self = this;
-        if (this === Component) {
+        if (this === Factory) {
           return this;
         }
         if (!(this._SELECTOR || typeof this._SELECTOR !== 'string')) {
@@ -1104,7 +1086,7 @@
           luda.$children(self._SELECTOR).forEach(function($component) {
             return self.create($component);
           });
-          return Component._observe(self);
+          return Factory._observe(self);
         });
         if (exposed) {
           return exposed;
@@ -1114,45 +1096,45 @@
       }
 
     }
-    Component._SCOPE = 'Component';
+    Factory._SCOPE = 'Factory';
 
-    Component._COMPONENT_NO_SELECTOR_ERROR = 'Extended component must has a css selector';
+    Factory._COMPONENT_NO_SELECTOR_ERROR = 'Extended component must has a css selector';
 
-    Component._$COMPONENT_INVALID_ERROR = '@param $component must be an instance of Element';
+    Factory._$COMPONENT_INVALID_ERROR = '@param $component must be an instance of Element';
 
-    Component._SELECTOR = '';
+    Factory._SELECTOR = '';
 
-    Component._ACTIVATE_EVENT_TYPE = `${Component._SCOPE}:activate`;
+    Factory._ACTIVATE_EVENT_TYPE = `${Factory._SCOPE}:activate`;
 
-    Component._ACTIVATED_EVENT_TYPE = `${Component._SCOPE}:activated`;
+    Factory._ACTIVATED_EVENT_TYPE = `${Factory._SCOPE}:activated`;
 
-    Component._DEACTIVATE_EVENT_TYPE = `${Component._SCOPE}:deactivate`;
+    Factory._DEACTIVATE_EVENT_TYPE = `${Factory._SCOPE}:deactivate`;
 
-    Component._DEACTIVATED_EVENT_TYPE = `${Component._SCOPE}:deactivated`;
+    Factory._DEACTIVATED_EVENT_TYPE = `${Factory._SCOPE}:deactivated`;
 
-    Component._ACTIVATING_MARK_ATTRIBUTE = `data-${Component._SCOPE}-activating`;
+    Factory._ACTIVATING_MARK_ATTRIBUTE = `data-${Factory._SCOPE}-activating`;
 
-    Component._DEACTIVATING_MARK_ATTRIBUTE = `data-${Component._SCOPE}-deactivating`;
+    Factory._DEACTIVATING_MARK_ATTRIBUTE = `data-${Factory._SCOPE}-deactivating`;
 
-    Component._instances = [];
+    Factory._instances = [];
 
-    Component._Observed = [];
+    Factory._Observed = [];
 
-    Component._observer = null;
+    Factory._observer = null;
 
-    Component._observerConfig = {
+    Factory._observerConfig = {
       childList: true,
       subtree: true
     };
 
-    return Component;
+    return Factory;
 
   }).call(this));
 
   luda((function() {
     var _Class;
 
-    _Class = class extends luda.Component {
+    _Class = class extends luda.Factory {
       _getConfig() {
         var _isReadonly, _originalTabIndex, readonly;
         readonly = this._$component.getAttribute(this.constructor._READONLY_ATTRIBUTE);
@@ -1200,9 +1182,12 @@
   luda((function() {
     var _Class;
 
-    _Class = class extends luda.Singleton {
+    _Class = class extends luda.Static {
       static activate(name$target) {
         return this._query$targets(name$target).forEach(($target) => {
+          if ($target.classList.contains(this._ACTIVE_CSS_CLASS)) {
+            return;
+          }
           if (this._isTransitioning($target)) {
             return;
           }
@@ -1210,12 +1195,18 @@
             return;
           }
           $target.classList.add(this._ACTIVE_CSS_CLASS);
-          return this._handleActivateEnd($target);
+          this._handleActivateEnd($target);
+          if (this._shouldAutoDeactivate($target)) {
+            return this._delayDeactivate($target);
+          }
         });
       }
 
       static deactivate(name$target) {
         return this._query$targets(name$target).forEach(($target) => {
+          if (!$target.classList.contains(this._ACTIVE_CSS_CLASS)) {
+            return;
+          }
           if (this._isTransitioning($target)) {
             return;
           }
@@ -1237,9 +1228,29 @@
         });
       }
 
-      static _onNodeAdded($node) {
-        this._handleActivateCancel($node);
-        return this._handleDeactivateCancel($node);
+      static _onElementAdded($ele) {
+        this._handleActivateCancel($ele);
+        this._handleDeactivateCancel($ele);
+        if (this._shouldAutoDeactivate($ele)) {
+          return this._delayDeactivate($ele);
+        }
+      }
+
+      static _shouldAutoDeactivate($target) {
+        return $target.hasAttribute(this._AUTO_DEACTIVATE_ATTRIBUTE);
+      }
+
+      static _delayDeactivate($target) {
+        var delay;
+        delay = parseInt($target.getAttribute(this._AUTO_DEACTIVATE_ATTRIBUTE), 10);
+        if (!delay) {
+          delay = this._AUTO_DEACTIVATE_DURATION;
+        }
+        return setTimeout(() => {
+          if ($target) {
+            return this.deactivate($target);
+          }
+        }, delay);
       }
 
       static _query$targets(name$target) {
@@ -1251,9 +1262,17 @@
       }
 
       static _init() {
-        var self;
+        var clickEventSelector, self;
         self = this;
-        return luda.on('click', this._selector, function(e) {
+        clickEventSelector = `[${this._TOGGLE_FOR_ATTRIBUTE}],[${this._TOGGLE_ATTRIBUTE}]`;
+        luda.on(luda._DOC_READY, function() {
+          return luda.$children(self._selector).forEach(function($target) {
+            if (self._shouldAutoDeactivate($target)) {
+              return self._delayDeactivate($target);
+            }
+          });
+        });
+        return luda.on('click', clickEventSelector, function(e) {
           var toggleChecked;
           toggleChecked = false;
           return luda.eventPath(e).some(function($path) {
@@ -1295,9 +1314,13 @@
 
     _Class._TOGGLE_DISABLED_ATTRIBUTE = 'data-toggle-disabled';
 
+    _Class._AUTO_DEACTIVATE_ATTRIBUTE = 'data-toggle-auto-deactivate';
+
+    _Class._AUTO_DEACTIVATE_DURATION = 3000;
+
     _Class._ACTIVE_CSS_CLASS = 'toggle-active';
 
-    _Class._SELECTORS = [`[${_Class._TOGGLE_FOR_ATTRIBUTE}]`, `[${_Class._TOGGLE_ATTRIBUTE}]`];
+    _Class._SELECTORS = [`[${_Class._TOGGLE_TARGET_ATTRIBUTE}]`];
 
     return _Class;
 
@@ -1306,7 +1329,7 @@
   luda((function() {
     var _Class;
 
-    _Class = class extends luda.Component {
+    _Class = class extends luda.Factory {
       _getConfig() {
         var _$file, _$simulator;
         _$file = luda.$child(this.constructor._FILE_SELECTOR, this._$component);
@@ -1399,7 +1422,7 @@
   luda((function() {
     var _Class;
 
-    _Class = class extends luda.Component {
+    _Class = class extends luda.Factory {
       select(indexOrIndexArray) {
         var selectedIndexes;
         if (this._$select.multiple) {
@@ -1600,7 +1623,7 @@
   luda((function() {
     var _Class;
 
-    _Class = class extends luda.Component {
+    _Class = class extends luda.Factory {
       
       // public
       activate(index) {
@@ -1910,7 +1933,7 @@
   luda((function() {
     var _Class;
 
-    _Class = class extends luda.Component {
+    _Class = class extends luda.Factory {
       activate() {
         var activateDuration, ref;
         if (this._isActive() || this._isTransitioning()) {
@@ -2173,7 +2196,7 @@
   luda((function() {
     var _Class;
 
-    _Class = class extends luda.Component {
+    _Class = class extends luda.Factory {
       _getConfig() {
         var _$defaultValues, _$valueHolder, _$values;
         _$values = luda.$children(this.constructor._VALUE_SELECTOR, this._$component);
@@ -2272,7 +2295,7 @@
   luda((function() {
     var _Class;
 
-    _Class = class extends luda.Component {
+    _Class = class extends luda.Factory {
       
       // public
       activate(index) {

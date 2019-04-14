@@ -72,3 +72,18 @@ luda
     durations = @_getTransitionDurations styles.transitionDuration, length
     finalDurations = durations.map (duration, index) -> duration + delays[index]
     Math.max.apply null, finalDurations
+
+  _observeDom: (onNodeAdded, onNodeRemoved) ->
+    observerConfig =
+      childList: true
+      subtree: true
+    observer = new MutationObserver (mutations) ->
+      mutations.forEach (mutation) ->
+        $removedNodes = Array.from mutation.removedNodes
+        $addedNodes = Array.from mutation.addedNodes
+        $removedNodes.forEach ($node) ->
+          onNodeRemoved $node if $node instanceof Element and onNodeRemoved
+        $addedNodes.forEach ($node) ->
+          onNodeAdded $node if $node instanceof Element and onNodeAdded
+    observer.observe document.documentElement, observerConfig
+    observer

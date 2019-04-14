@@ -1,15 +1,18 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('../install.js'), require('../dom.js'), require('../event.js'), require('../singleton.js')) :
-  typeof define === 'function' && define.amd ? define(['../install.js', '../dom.js', '../event.js', '../singleton.js'], factory) :
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('../install.js'), require('../dom.js'), require('../event.js'), require('../static.js')) :
+  typeof define === 'function' && define.amd ? define(['../install.js', '../dom.js', '../event.js', '../static.js'], factory) :
   (factory());
 }(this, (function () { 'use strict';
 
   luda((function() {
     var _Class;
 
-    _Class = class extends luda.Singleton {
+    _Class = class extends luda.Static {
       static activate(name$target) {
         return this._query$targets(name$target).forEach(($target) => {
+          if ($target.classList.contains(this._ACTIVE_CSS_CLASS)) {
+            return;
+          }
           if (this._isTransitioning($target)) {
             return;
           }
@@ -17,12 +20,18 @@
             return;
           }
           $target.classList.add(this._ACTIVE_CSS_CLASS);
-          return this._handleActivateEnd($target);
+          this._handleActivateEnd($target);
+          if (this._shouldAutoDeactivate($target)) {
+            return this._delayDeactivate($target);
+          }
         });
       }
 
       static deactivate(name$target) {
         return this._query$targets(name$target).forEach(($target) => {
+          if (!$target.classList.contains(this._ACTIVE_CSS_CLASS)) {
+            return;
+          }
           if (this._isTransitioning($target)) {
             return;
           }
@@ -44,9 +53,29 @@
         });
       }
 
-      static _onNodeAdded($node) {
-        this._handleActivateCancel($node);
-        return this._handleDeactivateCancel($node);
+      static _onElementAdded($ele) {
+        this._handleActivateCancel($ele);
+        this._handleDeactivateCancel($ele);
+        if (this._shouldAutoDeactivate($ele)) {
+          return this._delayDeactivate($ele);
+        }
+      }
+
+      static _shouldAutoDeactivate($target) {
+        return $target.hasAttribute(this._AUTO_DEACTIVATE_ATTRIBUTE);
+      }
+
+      static _delayDeactivate($target) {
+        var delay;
+        delay = parseInt($target.getAttribute(this._AUTO_DEACTIVATE_ATTRIBUTE), 10);
+        if (!delay) {
+          delay = this._AUTO_DEACTIVATE_DURATION;
+        }
+        return setTimeout(() => {
+          if ($target) {
+            return this.deactivate($target);
+          }
+        }, delay);
       }
 
       static _query$targets(name$target) {
@@ -58,9 +87,17 @@
       }
 
       static _init() {
-        var self;
+        var clickEventSelector, self;
         self = this;
-        return luda.on('click', this._selector, function(e) {
+        clickEventSelector = `[${this._TOGGLE_FOR_ATTRIBUTE}],[${this._TOGGLE_ATTRIBUTE}]`;
+        luda.on(luda._DOC_READY, function() {
+          return luda.$children(self._selector).forEach(function($target) {
+            if (self._shouldAutoDeactivate($target)) {
+              return self._delayDeactivate($target);
+            }
+          });
+        });
+        return luda.on('click', clickEventSelector, function(e) {
           var toggleChecked;
           toggleChecked = false;
           return luda.eventPath(e).some(function($path) {
@@ -102,9 +139,13 @@
 
     _Class._TOGGLE_DISABLED_ATTRIBUTE = 'data-toggle-disabled';
 
+    _Class._AUTO_DEACTIVATE_ATTRIBUTE = 'data-toggle-auto-deactivate';
+
+    _Class._AUTO_DEACTIVATE_DURATION = 3000;
+
     _Class._ACTIVE_CSS_CLASS = 'toggle-active';
 
-    _Class._SELECTORS = [`[${_Class._TOGGLE_FOR_ATTRIBUTE}]`, `[${_Class._TOGGLE_ATTRIBUTE}]`];
+    _Class._SELECTORS = [`[${_Class._TOGGLE_TARGET_ATTRIBUTE}]`];
 
     return _Class;
 

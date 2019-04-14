@@ -4,10 +4,10 @@
   (factory());
 }(this, (function () { 'use strict';
 
-  var Component;
+  var Factory;
 
-  luda(Component = (function() {
-    class Component {
+  luda(Factory = (function() {
+    class Factory {
       _hasDescendant(descendant) {
         if (this._children.length && descendant) {
           if (this._children.includes(descendant)) {
@@ -232,56 +232,38 @@
         return instance;
       }
 
-      static _observe(classObj) {
-        if (!Component._observer) {
-          Component._observer = new MutationObserver(function(mutations) {
-            return mutations.forEach(function(mutation) {
-              var $addedNodes, $removedNodes;
-              $removedNodes = Array.from(mutation.removedNodes);
-              $addedNodes = Array.from(mutation.addedNodes);
-              $removedNodes.forEach(function($node) {
-                if ($node instanceof Element) {
-                  return Component._Observed.forEach(function(Observed) {
-                    var $destroies;
-                    if ($node.matches(Observed._SELECTOR)) {
-                      return Observed.destroy($node);
-                    } else {
-                      $destroies = luda.$children(Observed._SELECTOR, $node);
-                      return $destroies.forEach(function($destroy) {
-                        return Observed.destroy($destroy);
-                      });
-                    }
-                  });
-                }
-              });
-              return $addedNodes.forEach(function($node) {
-                if ($node instanceof Element) {
-                  return Component._Observed.forEach(function(Observed) {
-                    var $creates;
-                    if ($node.matches(Observed._SELECTOR)) {
-                      return Observed.create($node);
-                    } else {
-                      $creates = luda.$children(Observed._SELECTOR, $node);
-                      return $creates.forEach(function($create) {
-                        return Observed.create($create);
-                      });
-                    }
-                  });
-                }
-              });
-            });
+      static _onEleAdded($ele) {
+        return Factory._onEleAddedOrRemoved($ele, 'create');
+      }
+
+      static _onEleRemoved($ele) {
+        return Factory._onEleAddedOrRemoved($ele, 'destroy');
+      }
+
+      static _onEleAddedOrRemoved($ele, action) {
+        return Factory._Observed.forEach(function(Observed) {
+          if ($ele.matches(Observed._SELECTOR)) {
+            return Observed[action]($ele);
+          }
+          return luda.$children(Observed._SELECTOR, $ele).forEach(function($child) {
+            return Observed[action]($child);
           });
-          Component._observer.observe(document.documentElement, Component._observerConfig);
+        });
+      }
+
+      static _observe(classObj) {
+        if (!Factory._observer) {
+          Factory._observer = luda._observeDom(Factory._onEleAdded, Factory._onEleRemoved);
         }
-        if (!Component._Observed.includes(classObj)) {
-          return Component._Observed.push(classObj);
+        if (!Factory._Observed.includes(classObj)) {
+          return Factory._Observed.push(classObj);
         }
       }
 
       static _install() {
         var exposed, self;
         self = this;
-        if (this === Component) {
+        if (this === Factory) {
           return this;
         }
         if (!(this._SELECTOR || typeof this._SELECTOR !== 'string')) {
@@ -298,7 +280,7 @@
           luda.$children(self._SELECTOR).forEach(function($component) {
             return self.create($component);
           });
-          return Component._observe(self);
+          return Factory._observe(self);
         });
         if (exposed) {
           return exposed;
@@ -308,38 +290,38 @@
       }
 
     }
-    Component._SCOPE = 'Component';
+    Factory._SCOPE = 'Factory';
 
-    Component._COMPONENT_NO_SELECTOR_ERROR = 'Extended component must has a css selector';
+    Factory._COMPONENT_NO_SELECTOR_ERROR = 'Extended component must has a css selector';
 
-    Component._$COMPONENT_INVALID_ERROR = '@param $component must be an instance of Element';
+    Factory._$COMPONENT_INVALID_ERROR = '@param $component must be an instance of Element';
 
-    Component._SELECTOR = '';
+    Factory._SELECTOR = '';
 
-    Component._ACTIVATE_EVENT_TYPE = `${Component._SCOPE}:activate`;
+    Factory._ACTIVATE_EVENT_TYPE = `${Factory._SCOPE}:activate`;
 
-    Component._ACTIVATED_EVENT_TYPE = `${Component._SCOPE}:activated`;
+    Factory._ACTIVATED_EVENT_TYPE = `${Factory._SCOPE}:activated`;
 
-    Component._DEACTIVATE_EVENT_TYPE = `${Component._SCOPE}:deactivate`;
+    Factory._DEACTIVATE_EVENT_TYPE = `${Factory._SCOPE}:deactivate`;
 
-    Component._DEACTIVATED_EVENT_TYPE = `${Component._SCOPE}:deactivated`;
+    Factory._DEACTIVATED_EVENT_TYPE = `${Factory._SCOPE}:deactivated`;
 
-    Component._ACTIVATING_MARK_ATTRIBUTE = `data-${Component._SCOPE}-activating`;
+    Factory._ACTIVATING_MARK_ATTRIBUTE = `data-${Factory._SCOPE}-activating`;
 
-    Component._DEACTIVATING_MARK_ATTRIBUTE = `data-${Component._SCOPE}-deactivating`;
+    Factory._DEACTIVATING_MARK_ATTRIBUTE = `data-${Factory._SCOPE}-deactivating`;
 
-    Component._instances = [];
+    Factory._instances = [];
 
-    Component._Observed = [];
+    Factory._Observed = [];
 
-    Component._observer = null;
+    Factory._observer = null;
 
-    Component._observerConfig = {
+    Factory._observerConfig = {
       childList: true,
       subtree: true
     };
 
-    return Component;
+    return Factory;
 
   }).call(this));
 

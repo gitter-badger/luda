@@ -1,13 +1,13 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('../install.js'), require('../constants.js'), require('../dom.js'), require('../event.js'), require('../singleton.js')) :
-  typeof define === 'function' && define.amd ? define(['../install.js', '../constants.js', '../dom.js', '../event.js', '../singleton.js'], factory) :
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('../install.js'), require('../constants.js'), require('../dom.js'), require('../event.js'), require('../static.js')) :
+  typeof define === 'function' && define.amd ? define(['../install.js', '../constants.js', '../dom.js', '../event.js', '../static.js'], factory) :
   (factory());
 }(this, (function () { 'use strict';
 
   luda((function() {
     var _Class;
 
-    _Class = class extends luda.Singleton {
+    _Class = class extends luda.Static {
       static _querySameName$radios($radio) {
         var $inputs, selector;
         if ($radio.name) {

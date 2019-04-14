@@ -1,13 +1,13 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('../install.js'), require('../component.js')) :
-  typeof define === 'function' && define.amd ? define(['../install.js', '../component.js'], factory) :
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('../install.js'), require('../factory.js')) :
+  typeof define === 'function' && define.amd ? define(['../install.js', '../factory.js'], factory) :
   (factory());
 }(this, (function () { 'use strict';
 
   luda((function() {
     var _Class;
 
-    _Class = class extends luda.Component {
+    _Class = class extends luda.Factory {
       _getConfig() {
         var _isReadonly, _originalTabIndex, readonly;
         readonly = this._$component.getAttribute(this.constructor._READONLY_ATTRIBUTE);

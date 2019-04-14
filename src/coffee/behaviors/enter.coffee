@@ -1,10 +1,10 @@
 import '../install.coffee'
 import '../constants.coffee'
 import '../event.coffee'
-import '../singleton.coffee'
+import '../static.coffee'
 
 
-luda class extends luda.Singleton
+luda class extends luda.Static
 
   @_SCOPE: 'enter'
 

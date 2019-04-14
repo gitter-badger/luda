@@ -1,13 +1,13 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('../install.js'), require('../dom.js'), require('../event.js'), require('../component.js')) :
-  typeof define === 'function' && define.amd ? define(['../install.js', '../dom.js', '../event.js', '../component.js'], factory) :
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('../install.js'), require('../dom.js'), require('../event.js'), require('../factory.js')) :
+  typeof define === 'function' && define.amd ? define(['../install.js', '../dom.js', '../event.js', '../factory.js'], factory) :
   (factory());
 }(this, (function () { 'use strict';
 
   luda((function() {
     var _Class;
 
-    _Class = class extends luda.Component {
+    _Class = class extends luda.Factory {
       select(indexOrIndexArray) {
         var selectedIndexes;
         if (this._$select.multiple) {

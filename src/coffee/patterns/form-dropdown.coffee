@@ -1,13 +1,13 @@
 import '../install.coffee'
 import '../dom.coffee'
 import '../event.coffee'
-import '../component.coffee'
+import '../factory.coffee'
 import '../behaviors/focus.coffee'
 import '../behaviors/enter.coffee'
 
 
 
-luda class extends luda.Component
+luda class extends luda.Factory
 
   @_SCOPE: 'fmDropdown'
 

@@ -1,13 +1,13 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('../install.js'), require('../dom.js'), require('../event.js'), require('../component.js'), require('../behaviors/focus.js'), require('../behaviors/enter.js')) :
-  typeof define === 'function' && define.amd ? define(['../install.js', '../dom.js', '../event.js', '../component.js', '../behaviors/focus.js', '../behaviors/enter.js'], factory) :
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('../install.js'), require('../dom.js'), require('../event.js'), require('../factory.js'), require('../behaviors/focus.js'), require('../behaviors/enter.js')) :
+  typeof define === 'function' && define.amd ? define(['../install.js', '../dom.js', '../event.js', '../factory.js', '../behaviors/focus.js', '../behaviors/enter.js'], factory) :
   (factory());
 }(this, (function () { 'use strict';
 
   luda((function() {
     var _Class;
 
-    _Class = class extends luda.Component {
+    _Class = class extends luda.Factory {
       _getConfig() {
         var _$defaultValues, _$valueHolder, _$values;
         _$values = luda.$children(this.constructor._VALUE_SELECTOR, this._$component);

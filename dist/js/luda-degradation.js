@@ -1,6 +1,6 @@
 /*! 
- * Luda degradation script 0.1.13 | https://luda.dev
- * Copyright 2018 oatw | https://oatw.blog
+ * Luda degradation script 0.1.12 | https://luda.dev
+ * Copyright 2019 oatw | https://oatw.blog
  * MIT license | http://opensource.org/licenses/MIT
  */
 (function (global, factory) {

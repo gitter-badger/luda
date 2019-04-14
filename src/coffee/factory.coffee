@@ -6,9 +6,9 @@ import './event.coffee'
 
 
 
-luda class Component
+luda class Factory
 
-  @_SCOPE: 'Component'
+  @_SCOPE: 'Factory'
   
   @_COMPONENT_NO_SELECTOR_ERROR: 'Extended component must has a css selector'
   @_$COMPONENT_INVALID_ERROR: '@param $component must be an instance of Element'
@@ -186,36 +186,28 @@ luda class Component
       instance._observe()
     instance
 
+  @_onEleAdded: ($ele) ->
+    Factory._onEleAddedOrRemoved($ele, 'create')
+
+  @_onEleRemoved: ($ele) ->
+    Factory._onEleAddedOrRemoved($ele, 'destroy')
+
+  @_onEleAddedOrRemoved: ($ele, action) ->
+    Factory._Observed.forEach (Observed) ->
+      return Observed[action] $ele if $ele.matches Observed._SELECTOR
+      luda.$children(Observed._SELECTOR, $ele).forEach ($child) ->
+        Observed[action] $child
+
   @_observe: (classObj) ->
-    unless Component._observer
-      Component._observer = new MutationObserver (mutations) ->
-        mutations.forEach (mutation) ->
-          $removedNodes = Array.from mutation.removedNodes
-          $addedNodes = Array.from mutation.addedNodes
-          $removedNodes.forEach ($node) ->
-            if $node instanceof Element
-              Component._Observed.forEach (Observed) ->
-                if $node.matches Observed._SELECTOR
-                  Observed.destroy $node
-                else
-                  $destroies = luda.$children Observed._SELECTOR, $node
-                  $destroies.forEach ($destroy) -> Observed.destroy $destroy
-          $addedNodes.forEach ($node) ->
-            if $node instanceof Element
-              Component._Observed.forEach (Observed) ->
-                if $node.matches Observed._SELECTOR
-                  Observed.create $node
-                else
-                  $creates = luda.$children Observed._SELECTOR, $node
-                  $creates.forEach ($create) -> Observed.create $create
-      Component._observer.observe document.documentElement, \
-      Component._observerConfig
-    unless Component._Observed.includes classObj
-      Component._Observed.push classObj
+    unless Factory._observer
+      Factory._observer = \
+      luda._observeDom Factory._onEleAdded, Factory._onEleRemoved
+    unless Factory._Observed.includes classObj
+      Factory._Observed.push classObj
 
   @_install: ->
     self = this
-    return this if this is Component
+    return this if this is Factory
     unless @_SELECTOR or typeof @_SELECTOR isnt 'string'
       throw new Error @_COMPONENT_NO_SELECTOR_ERROR
     @_instances = [] unless @hasOwnProperty '_instances'
@@ -224,5 +216,5 @@ luda class Component
     luda.on luda._DOC_READY, ->
       luda.$children(self._SELECTOR).forEach ($component) ->
         self.create $component
-      Component._observe(self)
+      Factory._observe(self)
     if exposed then exposed else this

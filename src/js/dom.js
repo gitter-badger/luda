@@ -110,6 +110,32 @@
         return duration + delays[index];
       });
       return Math.max.apply(null, finalDurations);
+    },
+    _observeDom: function(onNodeAdded, onNodeRemoved) {
+      var observer, observerConfig;
+      observerConfig = {
+        childList: true,
+        subtree: true
+      };
+      observer = new MutationObserver(function(mutations) {
+        return mutations.forEach(function(mutation) {
+          var $addedNodes, $removedNodes;
+          $removedNodes = Array.from(mutation.removedNodes);
+          $addedNodes = Array.from(mutation.addedNodes);
+          $removedNodes.forEach(function($node) {
+            if ($node instanceof Element && onNodeRemoved) {
+              return onNodeRemoved($node);
+            }
+          });
+          return $addedNodes.forEach(function($node) {
+            if ($node instanceof Element && onNodeAdded) {
+              return onNodeAdded($node);
+            }
+          });
+        });
+      });
+      observer.observe(document.documentElement, observerConfig);
+      return observer;
     }
   });
 

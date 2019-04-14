@@ -1,11 +1,11 @@
 import '../install.coffee'
 import '../dom.coffee'
 import '../event.coffee'
-import '../component.coffee'
+import '../factory.coffee'
 
 
 
-luda class extends luda.Component
+luda class extends luda.Factory
 
   @_SCOPE: 'fmSelect'
 

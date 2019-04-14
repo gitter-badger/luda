@@ -1,13 +1,13 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('./install.js'), require('./utilities.js')) :
-  typeof define === 'function' && define.amd ? define(['./install.js', './utilities.js'], factory) :
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('./install.js'), require('./utilities.js'), require('./dom.js'), require('./event.js')) :
+  typeof define === 'function' && define.amd ? define(['./install.js', './utilities.js', './dom.js', './event.js'], factory) :
   (factory());
 }(this, (function () { 'use strict';
 
-  var Singleton;
+  var Static;
 
-  luda(Singleton = (function() {
-    class Singleton {
+  luda(Static = (function() {
+    class Static {
       static _addActivatingAndDeactivatingProperties() {
         this._ACTIVATE_EVENT_TYPE = `${this._SCOPE}:activate`;
         this._ACTIVATED_EVENT_TYPE = `${this._SCOPE}:activated`;
@@ -127,58 +127,37 @@
         return $ele.setAttribute(this._DEACTIVATING_MARK_ATTRIBUTE, value);
       }
 
-      static _observe(classObj) {
-        if (!Singleton._observer) {
-          Singleton._observer = new MutationObserver(function(mutations) {
-            return mutations.forEach(function(mutation) {
-              var $addedNodes, $removedNodes;
-              $removedNodes = Array.from(mutation.removedNodes);
-              $addedNodes = Array.from(mutation.addedNodes);
-              $removedNodes.forEach(function($node) {
-                if ($node instanceof Element) {
-                  return Singleton._Observed.forEach(function(Observed) {
-                    var $destroies;
-                    if ($node.matches(Observed._selector)) {
-                      if (Observed._onNodeRemoved) {
-                        return Observed._onNodeRemoved($node);
-                      }
-                    } else {
-                      $destroies = luda.$children(Observed._selector, $node);
-                      return $destroies.forEach(function($destroy) {
-                        if (Observed._onNodeRemoved) {
-                          return Observed._onNodeRemoved($destroy);
-                        }
-                      });
-                    }
-                  });
-                }
-              });
-              return $addedNodes.forEach(function($node) {
-                if ($node instanceof Element) {
-                  return Singleton._Observed.forEach(function(Observed) {
-                    var $creates;
-                    if ($node.matches(Observed._selector)) {
-                      if (Observed._onNodeAdded) {
-                        return Observed._onNodeAdded($node);
-                      }
-                    } else {
-                      $creates = luda.$children(Observed._selector, $node);
-                      return $creates.forEach(function($create) {
-                        if (Observed._onNodeAdded) {
-                          return Observed._onNodeAdded($create);
-                        }
-                      });
-                    }
-                  });
-                }
-              });
-            });
+      static _onEleAdded($ele) {
+        return Static._onEleAddedOrRemoved($ele, '_onElementAdded');
+      }
+
+      static _onEleRemoved($ele) {
+        return Static._onEleAddedOrRemoved($ele, '_onElementRemoved');
+      }
+
+      static _onEleAddedOrRemoved($ele, action) {
+        return Static._Observed.forEach(function(Observed) {
+          var $matched;
+          if (!Observed[action]) {
+            return;
+          }
+          $matched = luda.$children(Observed._selector, $ele);
+          if ($ele.matches(Observed._selector)) {
+            $matched.unshift($ele);
+          }
+          return $matched.forEach(function($target) {
+            return Observed[action]($target);
           });
-          Singleton._observer.observe(document.documentElement, Singleton._observerConfig);
+        });
+      }
+
+      static _observe(classObj) {
+        if (!Static._observer) {
+          Static._observer = luda._observeDom(Static._onEleAdded, Static._onEleRemoved);
         }
-        if (classObj._onNodeAdded || classObj._onNodeRemoved && classObj._selector) {
-          if (!Singleton._Observed.includes(classObj)) {
-            return Singleton._Observed.push(classObj);
+        if (classObj._onElementAdded || classObj._onElementRemoved && classObj._selector) {
+          if (!Static._Observed.includes(classObj)) {
+            return Static._Observed.push(classObj);
           }
         }
       }
@@ -186,7 +165,7 @@
       static _install() {
         var exposed, self;
         self = this;
-        if (this === Singleton) {
+        if (this === Static) {
           return this;
         }
         if (!this.hasOwnProperty('_SELECTORS')) {
@@ -198,7 +177,7 @@
         }
         this._addActivatingAndDeactivatingProperties();
         luda.on(luda._DOC_READY, function() {
-          return Singleton._observe(self);
+          return Static._observe(self);
         });
         if (exposed) {
           return exposed;
@@ -208,32 +187,27 @@
       }
 
     }
-    Singleton._SCOPE = 'Singleton';
+    Static._SCOPE = 'Static';
 
-    Singleton._SELECTOR_INVALID_ERROR = '@param selector must be a css selector string';
+    Static._SELECTOR_INVALID_ERROR = '@param selector must be a css selector string';
 
-    Singleton._SELECTORS = [];
+    Static._SELECTORS = [];
 
-    Singleton._ACTIVATE_EVENT_TYPE = `${Singleton._SCOPE}:activate`;
+    Static._ACTIVATE_EVENT_TYPE = `${Static._SCOPE}:activate`;
 
-    Singleton._ACTIVATED_EVENT_TYPE = `${Singleton._SCOPE}:activated`;
+    Static._ACTIVATED_EVENT_TYPE = `${Static._SCOPE}:activated`;
 
-    Singleton._DEACTIVATE_EVENT_TYPE = `${Singleton._SCOPE}:deactivate`;
+    Static._DEACTIVATE_EVENT_TYPE = `${Static._SCOPE}:deactivate`;
 
-    Singleton._DEACTIVATED_EVENT_TYPE = `${Singleton._SCOPE}:deactivated`;
+    Static._DEACTIVATED_EVENT_TYPE = `${Static._SCOPE}:deactivated`;
 
-    Singleton._Observed = [];
+    Static._Observed = [];
 
-    Singleton._observer = null;
+    Static._observer = null;
 
-    Singleton._observerConfig = {
-      childList: true,
-      subtree: true
-    };
+    Static._selector = '';
 
-    Singleton._selector = '';
-
-    return Singleton;
+    return Static;
 
   }).call(this));
 
