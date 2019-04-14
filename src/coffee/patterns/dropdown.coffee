@@ -39,7 +39,7 @@ luda class extends luda.Factory
     @_$component.classList.add @constructor._ACTIVE_CSS_CLASS
     @constructor._$focused.push document.activeElement
     @_parent?.activate()
-    activateDuration = @_handleActivateEnd @_$menu
+    @_handleActivateEnd @_$menu
 
   deactivate: (focus) ->
     return unless @_isActive() and not @_isTransitioning()
@@ -49,7 +49,7 @@ luda class extends luda.Factory
     if focus
       @constructor._$focused[@constructor._$focused.length - 1]?.focus()
     @constructor._$focused.splice @constructor._$focused.length - 1, 1
-    deactivateDuration = @_handleDeactivateEnd @_$menu
+    @_handleDeactivateEnd @_$menu
 
   toggle: (focus) ->
     if @_isActive() then @deactivate(focus) else @activate()

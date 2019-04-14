@@ -9,7 +9,7 @@
 
     _Class = class extends luda.Factory {
       activate() {
-        var activateDuration, ref;
+        var ref;
         if (this._isActive() || this._isTransitioning()) {
           return;
         }
@@ -21,11 +21,11 @@
         if ((ref = this._parent) != null) {
           ref.activate();
         }
-        return activateDuration = this._handleActivateEnd(this._$menu);
+        return this._handleActivateEnd(this._$menu);
       }
 
       deactivate(focus) {
-        var deactivateDuration, ref;
+        var ref;
         if (!(this._isActive() && !this._isTransitioning())) {
           return;
         }
@@ -42,7 +42,7 @@
           }
         }
         this.constructor._$focused.splice(this.constructor._$focused.length - 1, 1);
-        return deactivateDuration = this._handleDeactivateEnd(this._$menu);
+        return this._handleDeactivateEnd(this._$menu);
       }
 
       toggle(focus) {

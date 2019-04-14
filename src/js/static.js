@@ -8,13 +8,28 @@
 
   luda(Static = (function() {
     class Static {
-      static _addActivatingAndDeactivatingProperties() {
-        this._ACTIVATE_EVENT_TYPE = `${this._SCOPE}:activate`;
-        this._ACTIVATED_EVENT_TYPE = `${this._SCOPE}:activated`;
-        this._DEACTIVATE_EVENT_TYPE = `${this._SCOPE}:deactivate`;
-        this._DEACTIVATED_EVENT_TYPE = `${this._SCOPE}:deactivated`;
-        this._ACTIVATING_MARK_ATTRIBUTE = `data-${this._SCOPE}-activating`;
-        return this._DEACTIVATING_MARK_ATTRIBUTE = `data-${this._SCOPE}-deactivating`;
+      static _ACTIVATE_EVENT_TYPE() {
+        return `${this._SCOPE}:activate`;
+      }
+
+      static _ACTIVATED_EVENT_TYPE() {
+        return `${this._SCOPE}:activated`;
+      }
+
+      static _DEACTIVATE_EVENT_TYPE() {
+        return `${this._SCOPE}:deactivate`;
+      }
+
+      static _DEACTIVATED_EVENT_TYPE() {
+        return `${this._SCOPE}:deactivated`;
+      }
+
+      static _ACTIVATING_MARK_ATTRIBUTE() {
+        return `data-${this._SCOPE}-activating`;
+      }
+
+      static _DEACTIVATING_MARK_ATTRIBUTE() {
+        return `data-${this._SCOPE}-deactivating`;
       }
 
       static _add(selector) {
@@ -41,13 +56,13 @@
 
       static _activatePrevented($ele, detail) {
         var activateEvent;
-        activateEvent = luda.dispatch($ele, this._ACTIVATE_EVENT_TYPE, detail);
+        activateEvent = luda.dispatch($ele, this._ACTIVATE_EVENT_TYPE(), detail);
         return activateEvent.defaultPrevented;
       }
 
       static _deactivatePrevented($ele, detail) {
         var deactivateEvent;
-        deactivateEvent = luda.dispatch($ele, this._DEACTIVATE_EVENT_TYPE, detail);
+        deactivateEvent = luda.dispatch($ele, this._DEACTIVATE_EVENT_TYPE(), detail);
         return deactivateEvent.defaultPrevented;
       }
 
@@ -55,7 +70,7 @@
         var activateDuration;
         this._setActivatingMark($ele, detail);
         activateDuration = luda.getTransitionDuration($ele);
-        luda.dispatch($ele, this._ACTIVATED_EVENT_TYPE, detail, activateDuration);
+        luda.dispatch($ele, this._ACTIVATED_EVENT_TYPE(), detail, activateDuration);
         setTimeout(() => {
           if ($ele) {
             return this._removeActivatingMark($ele);
@@ -68,7 +83,7 @@
         var deactivateDuration;
         this._setDeactivatingMark($ele, detail);
         deactivateDuration = luda.getTransitionDuration($ele);
-        luda.dispatch($ele, this._DEACTIVATED_EVENT_TYPE, detail, deactivateDuration);
+        luda.dispatch($ele, this._DEACTIVATED_EVENT_TYPE(), detail, deactivateDuration);
         setTimeout(() => {
           if ($ele) {
             return this._removeDeactivatingMark($ele);
@@ -79,24 +94,24 @@
 
       static _handleActivateCancel($ele, detail) {
         if (this._isActivating($ele)) {
-          luda.dispatch($ele, this._ACTIVATED_EVENT_TYPE, detail);
+          luda.dispatch($ele, this._ACTIVATED_EVENT_TYPE(), detail);
           return this._removeActivatingMark($ele);
         }
       }
 
       static _handleDeactivateCancel($ele, detail) {
         if (this._isDeactivating($ele)) {
-          luda.dispatch($ele, this._DEACTIVATED_EVENT_TYPE, detail);
+          luda.dispatch($ele, this._DEACTIVATED_EVENT_TYPE(), detail);
           return this._removeDeactivatingMark($ele);
         }
       }
 
       static _isActivating($ele) {
-        return $ele.hasAttribute(this._ACTIVATING_MARK_ATTRIBUTE);
+        return $ele.hasAttribute(this._ACTIVATING_MARK_ATTRIBUTE());
       }
 
       static _isDeactivating($ele) {
-        return $ele.hasAttribute(this._DEACTIVATING_MARK_ATTRIBUTE);
+        return $ele.hasAttribute(this._DEACTIVATING_MARK_ATTRIBUTE());
       }
 
       static _isTransitioning($ele) {
@@ -104,27 +119,27 @@
       }
 
       static _getActivatingMark($ele) {
-        return $ele.getAttribute(this._ACTIVATING_MARK_ATTRIBUTE);
+        return $ele.getAttribute(this._ACTIVATING_MARK_ATTRIBUTE());
       }
 
       static _getDeactivatingMark($ele) {
-        return $ele.getAttribute(this._DEACTIVATING_MARK_ATTRIBUTE);
+        return $ele.getAttribute(this._DEACTIVATING_MARK_ATTRIBUTE());
       }
 
       static _removeActivatingMark($ele) {
-        return $ele.removeAttribute(this._ACTIVATING_MARK_ATTRIBUTE);
+        return $ele.removeAttribute(this._ACTIVATING_MARK_ATTRIBUTE());
       }
 
       static _removeDeactivatingMark($ele) {
-        return $ele.removeAttribute(this._DEACTIVATING_MARK_ATTRIBUTE);
+        return $ele.removeAttribute(this._DEACTIVATING_MARK_ATTRIBUTE());
       }
 
       static _setActivatingMark($ele, value) {
-        return $ele.setAttribute(this._ACTIVATING_MARK_ATTRIBUTE, value);
+        return $ele.setAttribute(this._ACTIVATING_MARK_ATTRIBUTE(), value);
       }
 
       static _setDeactivatingMark($ele, value) {
-        return $ele.setAttribute(this._DEACTIVATING_MARK_ATTRIBUTE, value);
+        return $ele.setAttribute(this._DEACTIVATING_MARK_ATTRIBUTE(), value);
       }
 
       static _onEleAdded($ele) {
@@ -175,7 +190,6 @@
         if (typeof this._init === 'function') {
           exposed = this._init();
         }
-        this._addActivatingAndDeactivatingProperties();
         luda.on(luda._DOC_READY, function() {
           return Static._observe(self);
         });
@@ -192,14 +206,6 @@
     Static._SELECTOR_INVALID_ERROR = '@param selector must be a css selector string';
 
     Static._SELECTORS = [];
-
-    Static._ACTIVATE_EVENT_TYPE = `${Static._SCOPE}:activate`;
-
-    Static._ACTIVATED_EVENT_TYPE = `${Static._SCOPE}:activated`;
-
-    Static._DEACTIVATE_EVENT_TYPE = `${Static._SCOPE}:deactivate`;
-
-    Static._DEACTIVATED_EVENT_TYPE = `${Static._SCOPE}:deactivated`;
 
     Static._Observed = [];
 
