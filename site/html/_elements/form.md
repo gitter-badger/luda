@@ -68,16 +68,14 @@ Add the class `.fm-select` to the container to create a select field. A `<select
 #### Select Options in Javascript
 
 ``` javascript
-luda.fmSelect.query('#my-fm-select').select(0)
+luda.fmSelect.select(document.querySelector('#my-fm-select'), 0)
 ```
-Query the Javascript instance of the form select field
-and select a specific option according to the passed index number.
+Select a specific option of a single select field according to the passed index number.
 
 ``` javascript
-luda.fmSelect.query('#my-multiple-fm-select').select([0, 1])
+luda.fmSelect.select(document.querySelector('#my-multiple-fm-select'), [0, 1])
 ```
-Query the Javascript instance of the multiple form select field
-and select specific options according to the passed index numbers array.
+Select specific options of a multiple select according to the passed index numbers array.
 
 ### File Picker
 Add the class `.fm-file` to the container to create a file picker. A `<input type="file">` element should be wrapped. You can set the value attribute of the `<input>` to show default filenames.
@@ -99,10 +97,9 @@ Add the class `.fm-file` to the container to create a file picker. A `<input typ
 #### Reset in Javascript
 
 ``` javascript
-luda.$child('#input-in-my-fm-file').setAttribute('value', '')
+luda.fmFile.reset(document.querySelector('#my-fm-file'))
 ```
-Query the element instance of the `<input type="file"/>` in the file picker
-and reset it.
+Reset a file picker.
 
 ### Checkbox
 Add the class `.fm-check` to the container to create checkboxes. One or more `<input type="checkbox">` elements can be wrapped. 

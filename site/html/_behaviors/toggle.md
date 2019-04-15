@@ -65,6 +65,12 @@ Use this attribute to define an anonymous trigger wrapped in the target or make 
 ```
 Use this attribute to disable the behavior partially in an anonymous trigger.
 
+### data-toggle-auto-deactivate
+``` html
+<div data-toggle-target="demo" data-toggle-auto-deactivate="4000">...</div>
+```
+Use this attribute to make a target deactivated automatically after activated. The default value is `3000`, which means the target will be deactivated automatically after 3000 milliseconds.
+
 
 
 ## Javascript Methods
@@ -77,8 +83,7 @@ luda.toggle.activate('demo')
 Use this method to show a target through the value of its `data-toggle-target` attribute.
 
 ``` javascript
-let $myTarget = luda.$child('[data-toggle-target="demo"]')
-luda.toggle.activate($myTarget)
+luda.toggle.activate(document.querySelector('[data-toggle-target="demo"]'))
 ```
 A target can also be activated through its element instance.
 
@@ -89,8 +94,7 @@ luda.toggle.deactivate('demo')
 Use this method to hide a target through the value of its `data-toggle-target` attribute.
 
 ``` javascript
-let $myTarget = luda.$child('[data-toggle-target="demo"]')
-luda.toggle.deactivate($myTarget)
+luda.toggle.deactivate(document.querySelector('[data-toggle-target="demo"]'))
 ```
 A target can also be deactivated through its element instance.
 
@@ -101,8 +105,7 @@ luda.toggle.toggle('demo')
 Use this method to toggle a target through the value of its `data-toggle-target` attribute.
 
 ``` javascript
-let $myTarget = luda.$child('[data-toggle-target="demo"]')
-luda.toggle.toggle($myTarget)
+luda.toggle.toggle(document.querySelector('[data-toggle-target="demo"]'))
 ```
 A target can also be toggled through its element instance.
 
@@ -110,18 +113,36 @@ A target can also be toggled through its element instance.
 
 ## Dom Events
 
+### luda:toggle:activate
+``` javascript
+luda.on('luda:toggle:activate', '#myTarget', function(event){
+  let $myTarget = this
+  event.preventDefault() // Prevent the target from being activated if necessary.
+})
+```
+Triggered before the `.toggle-active` class added to the target.
+
 ### luda:toggle:activated
 ``` javascript
 luda.on('luda:toggle:activated', '#myTarget', function(event){
   let $myTarget = this
 })
 ```
-Triggered after the `.toggle-active` class added to the target.
+Triggered after the `.toggle-active` class added to the target and transition end.
+
+### luda:toggle:deactivate
+``` javascript
+luda.on('luda:toggle:deactivate', '#myTarget', function(event){
+  let $myTarget = this
+  event.preventDefault() // Prevent the target from being deactivated if necessary.
+})
+```
+Triggered before the `.toggle-active` class removed from the target.
 
 ### luda:toggle:deactivated
 ``` javascript
-luda.on('luda:toggle:activated', '#myTarget', function(event){
+luda.on('luda:toggle:deactivated', '#myTarget', function(event){
   let $myTarget = this
 })
 ```
-Triggered after the `.toggle-active` class removed from the target.
+Triggered after the `.toggle-active` class removed from the target and transition end.

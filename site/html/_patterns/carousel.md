@@ -108,47 +108,34 @@ Disable auto looping, the carousel will be stopped when the last item showed.
 
 ## Javascript Methods
 
-### luda.carousel.query(selector | element)
+### luda.carousel.activate(element, index)
 ``` javascript
-let myCarousel = luda.carousel.query('#my-carousel')
-```
-Query the Javascript instance through a carousel's CSS selector. 
-
-``` javascript
-let $myCarousel = luda.$child('#my-carousel')
-let myCarousel = luda.carousel.query($myCarousel)
-```
-Query the Javascript instance through a carousel's element instance.
-
-
-### .activate(index)
-``` javascript
-myCarousel.activate(1)
+luda.carousel.activate(document.querySelector('#my-carousel'), 1)
 ```
 Activate a specfic item in the carousel according to the index number passed in.
 
-### .next()
+### luda.carousel.next(element)
 ``` javascript
-myCarousel.next()
+luda.carousel.next(document.querySelector('#my-carousel'))
 ```
 Activate the next item in the carousel.
 
 
-### .prev()
+### luda.carousel.prev(element)
 ``` javascript
-myCarousel.prev()
+luda.carousel.prev(document.querySelector('#my-carousel'))
 ```
 Activate the prev item in the carousel.
 
-### .pause()
+### luda.carousel.pause(element)
 ``` javascript
-myCarousel.pause()
+luda.carousel.pause(document.querySelector('#my-carousel'))
 ```
 Pause the auto playing carousel.
 
-### .play()
+### luda.carousel.play(element)
 ``` javascript
-myCarousel.play()
+luda.carousel.play(document.querySelector('#my-carousel'))
 ```
 Restart a paused carousel.
 
@@ -160,6 +147,7 @@ Restart a paused carousel.
 ``` javascript
 luda.on('luda:carousel:activate', '#my-carousel', function(event){
   let $myCarousel = this, $item = event.tartet, index = event.detail
+  event.preventDefault() // Prevent the carousel item from being activated if necessary.
 })
 ```
 Triggered before the `.carousel-item-active` class added to a carousel item.
@@ -176,6 +164,7 @@ Triggered after the `.carousel-item-active` class added to a carousel item and t
 ``` javascript
 luda.on('luda:carousel:deactivate', '#my-carousel', function(event){
   let $myCarousel = this, $item = event.tartet, index = event.detail
+  event.preventDefault() // Prevent the carousel item from being deactivated if necessary.
 })
 ```
 Triggered before the `.carousel-item-active` class removed from a carousel item.

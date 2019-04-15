@@ -307,37 +307,34 @@ for the element and the element's descendant elements.
 
 ## Javascript Methods
 
-### luda.dropdown.query(selector | element)
+### luda.dropdown.activate(element)
 ``` javascript
-let myDropdown = luda.dropdown.query('#my-dropdown')
-```
-Query the Javascript instance of the dropdown through its CSS selector.
-
-``` javascript
-let $myDropdown = luda.$child('#my-dropdown')
-let myDropdown = luda.dropdown.query($myDropdown)
-```
-Query the Javascript instance of the dropdown through its element instance.
-
-### .activate()
-``` javascript
-myDropdown.activate()
+luda.dropdown.activate(document.querySelector('#my-dropdown'))
 ```
 Open the dropdown.
 
-### .deactivate()
+### luda.dropdown.deactivate(element)
 ``` javascript
-myDropdown.deactivate()
+luda.dropdown.deactivate(document.querySelector('#my-dropdown'))
 ```
 Close the dropdown.
 
-### .toggle()
+### luda.dropdown.toggle(element)
 ``` javascript
-myDropdown.toggle()
+luda.dropdown.toggle(document.querySelector('#my-dropdown'))
 ```
 Toggle the dropdown.
 
 ## DOM Events
+
+### luda:dropdown:activate
+``` javascript
+luda.on('luda:dropdown:activate', '#my-dropdown', function(event){
+  let $myDropdown = this, $activateDropdown = e.target
+  event.preventDefault() // Prevent the dropdown from being activated if necessary.
+})
+```
+Triggered before the `.dropdown-active` class added to the dropdown.
 
 ### luda:dropdown:activated
 ``` javascript
@@ -345,7 +342,16 @@ luda.on('luda:dropdown:activated', '#my-dropdown', function(event){
   let $myDropdown = this, $activatedDropdown = e.target
 })
 ```
-Triggered after the `.dropdown-active` class added to the dropdown.
+Triggered after the `.dropdown-active` class added to the dropdown and transition end.
+
+### luda:dropdown:deactivate
+``` javascript
+luda.on('luda:dropdown:deactivate', '#my-dropdown', function(event){
+  let $myDropdown = this, $deactivateDropdown = e.target
+  event.preventDefault() // Prevent the dropdown from being deactivated if necessary.
+})
+```
+Triggered before the `.dropdown-active` class removed from the dropdown.
 
 ### luda:dropdown:deactivated
 ``` javascript
@@ -353,7 +359,7 @@ luda.on('luda:dropdown:deactivated', '#my-dropdown', function(event){
   let $myDropdown = this, $deactivatedDropdown = e.target
 })
 ```
-Triggered after the `.dropdown-active` class removed from the dropdown.
+Triggered after the `.dropdown-active` class removed from the dropdown and transition end.
 
 
 ## Sass Variables

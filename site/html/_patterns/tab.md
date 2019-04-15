@@ -92,21 +92,9 @@ To create a horizontal navigation, we need wrap a `.grid` container inside like 
 
 ## Javascript Methods
 
-### luda.tab.query(selector | element)
+### luda.tab.activate(element, index)
 ``` javascript
-let myTab = luda.tab.query('#my-tab')
-```
-Query the Javascript instance of the tab through its CSS selector.
-
-``` javascript
-let $myTab = luda.$child('#my-tab')
-let myTab = luda.tab.query($myTab)
-```
-Query the Javascript instance of the tab through its element instance.
-
-### .activate(index)
-``` javascript
-mytab.activate(0)
+luda.tab.activate(document.querySelector('#my-tab'), 0)
 ```
 Open a specific tab pane accoring to the passed in index number.
 
@@ -114,13 +102,31 @@ Open a specific tab pane accoring to the passed in index number.
 
 ## DOM Events
 
+### luda:tab:activate
+``` javascript
+luda.on('luda:tab:activate', '#my-tab', function(event){
+  let $myTab = this, $pane = event.tartet, index = event.detail
+  event.preventDefault() // Prevent the pane from being activated if necessary.
+})
+```
+Triggered before the `.tab-pane-active` class added to a tab pane.
+
 ### luda:tab:activated
 ``` javascript
 luda.on('luda:tab:activated', '#my-tab', function(event){
   let $myTab = this, $pane = event.tartet, index = event.detail
 })
 ```
-Triggered after the `.tab-pane-active` class added to a tab pane.
+Triggered after the `.tab-pane-active` class added to a tab pane and transition end.
+
+### luda:tab:deactivate
+``` javascript
+luda.on('luda:tab:deactivate', '#my-tab', function(event){
+  let $myTab = this, $pane = event.tartet, index = event.detail
+  event.preventDefault() // Prevent the pane from being deactivated if necessary.
+})
+```
+Triggered before the `.tab-pane-active` class removed from a tab pane.
 
 ### luda:tab:deactivated
 ``` javascript
@@ -128,7 +134,7 @@ luda.on('luda:tab:deactivated', '#my-tab', function(event){
   let $myTab = this, $pane = event.tartet, index = event.detail
 })
 ```
-Triggered after the `.tab-pane-active` class removed from a tab pane.
+Triggered after the `.tab-pane-active` class removed from a tab pane and transition end.
 
 
 
