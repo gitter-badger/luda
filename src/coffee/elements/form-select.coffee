@@ -33,7 +33,7 @@ luda class extends luda.Factory
         $option.selected = selectedIndexes.includes index
       @_markSelectedOption()
     else
-      @_$select.selectedIndex = selectedIndex
+      @_$select.selectedIndex = indexOrIndexArray
       @_setSingleSelectSimulatorValue()
       @_markSelectedOption()
 
@@ -140,6 +140,9 @@ luda class extends luda.Factory
         $option.selected = @_$defaultSelectedOptions.includes $option
       @_setSingleSelectSimulatorValue() unless @_$select.multiple
       @_markSelectedOption()
+
+  @select: ($select, indexOrIndexArray) ->
+    @query($select).select indexOrIndexArray
 
   @_init: ->
     self = this

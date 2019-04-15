@@ -20,6 +20,10 @@ luda class extends luda.Factory
     childList: true
     subtree: true
 
+  reset: ->
+    @_$file.value = ''
+    @_$simulator.value = ''
+
   _getConfig: ->
     _$file = luda.$child @constructor._FILE_SELECTOR, @_$component
     _$simulator = luda.$child \
@@ -59,6 +63,8 @@ luda class extends luda.Factory
       if @_$file.hasAttribute @constructor._PLACEHOLDER_ATTRIBUTE
         @_setPlaceholderValue()
       @_setSimulatorValue()
+
+  @reset: ($file) -> @query($file).reset()
 
   @_init: ->
     self = this

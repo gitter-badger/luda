@@ -231,7 +231,26 @@
         }
       }
 
-      
+      static activate($carousel, index) {
+        return this.query($carousel).activate(index);
+      }
+
+      static next($carousel) {
+        return this.query($carousel).next();
+      }
+
+      static prev($carousel) {
+        return this.query($carousel).prev();
+      }
+
+      static pause($carousel) {
+        return this.query($carousel).pause();
+      }
+
+      static play($carousel) {
+        return this.query($carousel).play();
+      }
+
       // static private
       static _init() {
         var self;

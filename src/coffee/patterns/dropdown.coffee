@@ -54,13 +54,13 @@ luda class extends luda.Factory
   toggle: (focus) ->
     if @_isActive() then @deactivate(focus) else @activate()
 
-  prev: ->
+  _prev: ->
     if @_$items.length and @_isActive()
       focusIndex = @_$items.indexOf(document.activeElement) - 1
       focusIndex = 0 if focusIndex < 0
       @_$items[focusIndex].focus()
 
-  next: ->
+  _next: ->
     if @_$items.length and @_isActive()
       focusIndex = @_$items.indexOf(document.activeElement) + 1
       focusIndex = @_$items.length - 1 if focusIndex > @_$items.length - 1
@@ -109,6 +109,12 @@ luda class extends luda.Factory
     else
       @_children.forEach (child) ->
         child.deactivate() if child._isActive()
+
+  @activate: ($dropdown) -> @query($dropdown).activate()
+
+  @deactivate: ($dropdown, focus) -> @query($dropdown).deactivate(focus)
+
+  @toggle: ($dropdown, focus) -> @query($dropdown).toggle focus
 
   @deactivateExcept: (instances$dropdowns) ->
     exceptions = []
@@ -170,13 +176,13 @@ luda class extends luda.Factory
       and instance = self.query this
         e.preventDefault()
         if instance._isActive()
-          instance.prev()
+          instance._prev()
         else
-          instance._parent?.prev()
+          instance._parent?._prev()
       else if [luda.KEY_RIGHT, luda.KEY_DOWN].includes(e.keyCode) \
       and instance = self.query this
         e.preventDefault()
         if instance._isActive()
-          instance.next()
+          instance._next()
         else
-          instance._parent?.next()
+          instance._parent?._next()

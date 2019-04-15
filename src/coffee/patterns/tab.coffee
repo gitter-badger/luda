@@ -107,6 +107,8 @@ luda class extends luda.Factory
         $indicator.removeAttribute 'checked'
         $indicator.checked = false
 
+  @activate: ($tab, index) -> @query($tab).activate index
+
   # static private
   @_init: ->
     self = this

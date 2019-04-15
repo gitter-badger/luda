@@ -84,7 +84,6 @@ luda class extends luda.Factory
         @_intervaling = setInterval @next.bind(this), @_interval
       @_intervaling = setTimeout execute, @_pausedRemainTime
 
-
   # private
   _getConfig: ->
     _$items = luda.$unnested \
@@ -233,6 +232,16 @@ luda class extends luda.Factory
       @_$nextControl?.disabled = \
       @_activeIndex is @_$items.length - 1 and not @_wrap
   
+  @activate: ($carousel, index) -> @query($carousel).activate index
+
+  @next: ($carousel) -> @query($carousel).next()
+
+  @prev: ($carousel) -> @query($carousel).prev()
+
+  @pause: ($carousel) -> @query($carousel).pause()
+
+  @play: ($carousel) -> @query($carousel).play()
+
   # static private
   @_init: ->
     self = this

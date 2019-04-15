@@ -8,6 +8,11 @@
     var _Class;
 
     _Class = class extends luda.Factory {
+      reset() {
+        this._$file.value = '';
+        return this._$simulator.value = '';
+      }
+
       _getConfig() {
         var _$file, _$simulator;
         _$file = luda.$child(this.constructor._FILE_SELECTOR, this._$component);
@@ -57,6 +62,10 @@
           }
           return this._setSimulatorValue();
         }
+      }
+
+      static reset($file) {
+        return this.query($file).reset();
       }
 
       static _init() {

@@ -108,6 +108,10 @@
         });
       }
 
+      static activate($tab, index) {
+        return this.query($tab).activate(index);
+      }
+
       // static private
       static _init() {
         var self;

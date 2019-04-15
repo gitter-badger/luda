@@ -23,7 +23,7 @@
           });
           return this._markSelectedOption();
         } else {
-          this._$select.selectedIndex = selectedIndex;
+          this._$select.selectedIndex = indexOrIndexArray;
           this._setSingleSelectSimulatorValue();
           return this._markSelectedOption();
         }
@@ -156,6 +156,10 @@
           }
           return this._markSelectedOption();
         }
+      }
+
+      static select($select, indexOrIndexArray) {
+        return this.query($select).select(indexOrIndexArray);
       }
 
       static _init() {

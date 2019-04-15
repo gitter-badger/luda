@@ -53,7 +53,7 @@
         }
       }
 
-      prev() {
+      _prev() {
         var focusIndex;
         if (this._$items.length && this._isActive()) {
           focusIndex = this._$items.indexOf(document.activeElement) - 1;
@@ -64,7 +64,7 @@
         }
       }
 
-      next() {
+      _next() {
         var focusIndex;
         if (this._$items.length && this._isActive()) {
           focusIndex = this._$items.indexOf(document.activeElement) + 1;
@@ -116,6 +116,18 @@
             }
           });
         }
+      }
+
+      static activate($dropdown) {
+        return this.query($dropdown).activate();
+      }
+
+      static deactivate($dropdown, focus) {
+        return this.query($dropdown).deactivate(focus);
+      }
+
+      static toggle($dropdown, focus) {
+        return this.query($dropdown).toggle(focus);
       }
 
       static deactivateExcept(instances$dropdowns) {
@@ -217,16 +229,16 @@
           if ([luda.KEY_LEFT, luda.KEY_UP].includes(e.keyCode) && (instance = self.query(this))) {
             e.preventDefault();
             if (instance._isActive()) {
-              return instance.prev();
+              return instance._prev();
             } else {
-              return (ref = instance._parent) != null ? ref.prev() : void 0;
+              return (ref = instance._parent) != null ? ref._prev() : void 0;
             }
           } else if ([luda.KEY_RIGHT, luda.KEY_DOWN].includes(e.keyCode) && (instance = self.query(this))) {
             e.preventDefault();
             if (instance._isActive()) {
-              return instance.next();
+              return instance._next();
             } else {
-              return (ref1 = instance._parent) != null ? ref1.next() : void 0;
+              return (ref1 = instance._parent) != null ? ref1._next() : void 0;
             }
           }
         });
